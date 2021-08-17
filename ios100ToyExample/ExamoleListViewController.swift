@@ -6,6 +6,7 @@
 //
 //앱의 크기를 신경써서 만들어지지 않았습니다. 시뮬레이터를 아이폰 11로 변경해주세요.버튼이 아닌 단일 뷰로 보고싶으시다면 Main 스토리보드의 class를 변경하여 주세요.
 
+
 import UIKit
 import RAMAnimatedTabBarController
 
@@ -15,6 +16,7 @@ class ExamoleListViewController: UIViewController {
         super.viewDidLoad()
         AnimatedTabBar()
         GradientView()
+        DateFormatterView()
     }
 
 
@@ -35,6 +37,14 @@ class ExamoleListViewController: UIViewController {
         button.setTitle("그라데이션", for: .normal)
         button.addTarget(self, action: #selector(didTabGradientButton), for: .touchUpInside)
     }
+    func DateFormatterView() {
+        let button = UIButton(frame: CGRect(x: 230, y: 35
+                                             ,width: 80, height: 50))
+        view.addSubview(button)
+        button.backgroundColor = .systemRed
+        button.setTitle("날짜 생성", for: .normal)
+        button.addTarget(self, action: #selector(didTabDateFormatterButton), for: .touchUpInside)
+    }
     
     
     //action에 들어갈 기능구현 / 우리가 만들었던 CustomTabBarController를 불러올것 입니다!
@@ -43,8 +53,12 @@ class ExamoleListViewController: UIViewController {
         present(tabBarVC, animated: true, completion: nil)
     }
     @objc func didTabGradientButton() {
-        let GradientVC = GradientViewController()
-        present(GradientVC, animated: true, completion: nil)
+        let gradientVC = GradientViewController()
+        present(gradientVC, animated: true, completion: nil)
+    }
+    @objc func didTabDateFormatterButton() {
+        let dateFormatterVC = DateFormatterViewController()
+        present(dateFormatterVC, animated: true, completion: nil)
     }
 }
 
