@@ -15,12 +15,13 @@ class ExampleListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        AnimatedTabBar()
-        GradientView()
-        DateFormatterView()
-        AlarmView()
+        animatedTabBar()
+        gradientView()
+        dateFormatterView()
+        alarmView()
         floatingButton()
-        CheckView()
+        checkView()
+        colorWellView()
     }
 //플로팅 버튼 구현
     func floatingButton() {
@@ -33,7 +34,7 @@ class ExampleListViewController: UIViewController {
     }
 
     //버튼 추가 / 속성 추가
-    func AnimatedTabBar() {   
+    func animatedTabBar() {
         let button = UIButton(frame: CGRect(x: 0, y: 35
                                              ,width: 130, height: 50))
         view.addSubview(button)
@@ -41,7 +42,7 @@ class ExampleListViewController: UIViewController {
         button.setTitle("애니메이션 탭바", for: .normal)
         button.addTarget(self, action: #selector(didTabAnimatedButton), for: .touchUpInside)
     }
-    func GradientView() {
+    func gradientView() {
         let button = UIButton(frame: CGRect(x: 130, y: 35,
                                             width: 100, height: 50))
         view.addSubview(button)
@@ -49,7 +50,7 @@ class ExampleListViewController: UIViewController {
         button.setTitle("그라데이션", for: .normal)
         button.addTarget(self, action: #selector(didTabGradientButton), for: .touchUpInside)
     }
-    func DateFormatterView() {
+    func dateFormatterView() {
         let button = UIButton(frame: CGRect(x: 230, y: 35
                                              ,width: 80, height: 50))
         view.addSubview(button)
@@ -57,7 +58,7 @@ class ExampleListViewController: UIViewController {
         button.setTitle("날짜 생성", for: .normal)
         button.addTarget(self, action: #selector(didTabDateFormatterButton), for: .touchUpInside)
     }
-    func CheckView() {
+    func checkView() {
         let button = UIButton(frame: CGRect(x: 310, y: 35
                                              ,width: 50, height: 50))
         view.addSubview(button)
@@ -65,7 +66,7 @@ class ExampleListViewController: UIViewController {
         button.setTitle("체크", for: .normal)
         button.addTarget(self, action: #selector(didTabCheckButton), for: .touchUpInside)
     }
-    func AlarmView() {
+    func alarmView() {
         let button = UIButton(frame: CGRect(x: 360, y: 35
                                              ,width: 55, height: 50))
         view.addSubview(button)
@@ -73,7 +74,14 @@ class ExampleListViewController: UIViewController {
         button.setTitle("알람", for: .normal)
         button.addTarget(self, action: #selector(didTabAlarmButton), for: .touchUpInside)
     }
-    
+    func colorWellView() {
+        let button = UIButton(frame: CGRect(x: 0, y: 85
+                                             ,width: 100, height: 50))
+        view.addSubview(button)
+        button.backgroundColor = .systemGray
+        button.setTitle("색상 선택기", for: .normal)
+        button.addTarget(self, action: #selector(didTabColorWellButton), for: .touchUpInside)
+    }
     
     
     
@@ -103,6 +111,10 @@ class ExampleListViewController: UIViewController {
             AlarmVc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
             self.present(AlarmVc, animated: true)
         }
+    }
+    @objc func didTabColorWellButton() {
+        let ColorWellVC = ColorWellViewController()
+        present(ColorWellVC, animated: true, completion: nil)
     }
    
 }
