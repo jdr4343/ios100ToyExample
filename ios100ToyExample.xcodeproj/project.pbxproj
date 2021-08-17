@@ -19,6 +19,8 @@
 		403502C226CB847F004BD348 /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502C126CB847F004BD348 /* AlarmModel.swift */; };
 		403502C426CB84F0004BD348 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502C326CB84F0004BD348 /* AlarmViewController.swift */; };
 		403502C826CB88EA004BD348 /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502C726CB88EA004BD348 /* AddAlarmViewController.swift */; };
+		403502CE26CBBD6B004BD348 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502CD26CBBD6B004BD348 /* CheckViewController.swift */; };
+		403502D026CBBD9D004BD348 /* CheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502CF26CBBD9D004BD348 /* CheckModel.swift */; };
 		E9A3D8F98CDB652CA81284FC /* Pods_ios100ToyExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AF8711D20BB765BDA94AB6 /* Pods_ios100ToyExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		403502C126CB847F004BD348 /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModel.swift; sourceTree = "<group>"; };
 		403502C326CB84F0004BD348 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		403502C726CB88EA004BD348 /* AddAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewController.swift; sourceTree = "<group>"; };
+		403502CD26CBBD6B004BD348 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
+		403502CF26CBBD9D004BD348 /* CheckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckModel.swift; sourceTree = "<group>"; };
 		719BFC8F81408045F597C854 /* Pods-ios100ToyExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios100ToyExample.debug.xcconfig"; path = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8F57BC7F205787BA7AF735B3 /* Pods-ios100ToyExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios100ToyExample.release.xcconfig"; path = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +84,7 @@
 				403502B326CB4D0C004BD348 /* AnimatedTabBar */,
 				403502B626CB5E7A004BD348 /* Gradients */,
 				403502BB26CB61BA004BD348 /* DateFormmater */,
+				403502CC26CBBD12004BD348 /* CheakList */,
 				403502C026CB8444004BD348 /* Alarm */,
 				4035029F26CB4B4B004BD348 /* AppDelegate.swift */,
 				403502A126CB4B4B004BD348 /* SceneDelegate.swift */,
@@ -122,6 +127,15 @@
 				403502C326CB84F0004BD348 /* AlarmViewController.swift */,
 			);
 			path = Alarm;
+			sourceTree = "<group>";
+		};
+		403502CC26CBBD12004BD348 /* CheakList */ = {
+			isa = PBXGroup;
+			children = (
+				403502CD26CBBD6B004BD348 /* CheckViewController.swift */,
+				403502CF26CBBD9D004BD348 /* CheckModel.swift */,
+			);
+			path = CheakList;
 			sourceTree = "<group>";
 		};
 		51517D4ABB6E83B5401D9EDD /* Pods */ = {
@@ -262,6 +276,8 @@
 				403502C226CB847F004BD348 /* AlarmModel.swift in Sources */,
 				403502BA26CB5EF3004BD348 /* GradientViewController.swift in Sources */,
 				403502BD26CB61F2004BD348 /* DateFormatterViewController.swift in Sources */,
+				403502CE26CBBD6B004BD348 /* CheckViewController.swift in Sources */,
+				403502D026CBBD9D004BD348 /* CheckModel.swift in Sources */,
 				403502B526CB4FB0004BD348 /* AnimatedCustomTabBarController.swift in Sources */,
 				403502A226CB4B4B004BD348 /* SceneDelegate.swift in Sources */,
 			);

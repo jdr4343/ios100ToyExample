@@ -9,6 +9,7 @@
 
 import UIKit
 import RAMAnimatedTabBarController
+import Floaty
 
 class ExampleListViewController: UIViewController {
 
@@ -18,11 +19,21 @@ class ExampleListViewController: UIViewController {
         GradientView()
         DateFormatterView()
         AlarmView()
+        floatingButton()
+        CheckView()
+    }
+//플로팅 버튼 구현
+    func floatingButton() {
+        let floating = Floaty()
+        floating.addItem("플로팅 리스트", icon: UIImage(systemName: "plus")!, handler: { item in
+            //핸들러를 열고 기능 구현을 하면 됩니다.
+            
+        })
+        self.view.addSubview(floating)
     }
 
-
-    func AnimatedTabBar() {
-        //버튼 추가 / 속성 추가
+    //버튼 추가 / 속성 추가
+    func AnimatedTabBar() {   
         let button = UIButton(frame: CGRect(x: 0, y: 35
                                              ,width: 130, height: 50))
         view.addSubview(button)
@@ -46,9 +57,17 @@ class ExampleListViewController: UIViewController {
         button.setTitle("날짜 생성", for: .normal)
         button.addTarget(self, action: #selector(didTabDateFormatterButton), for: .touchUpInside)
     }
-    func AlarmView() {
+    func CheckView() {
         let button = UIButton(frame: CGRect(x: 310, y: 35
                                              ,width: 50, height: 50))
+        view.addSubview(button)
+        button.backgroundColor = .systemTeal
+        button.setTitle("체크", for: .normal)
+        button.addTarget(self, action: #selector(didTabCheckButton), for: .touchUpInside)
+    }
+    func AlarmView() {
+        let button = UIButton(frame: CGRect(x: 360, y: 35
+                                             ,width: 55, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemBlue
         button.setTitle("알람", for: .normal)
@@ -74,6 +93,10 @@ class ExampleListViewController: UIViewController {
         let dateFormatterVC = DateFormatterViewController()
         present(dateFormatterVC, animated: true, completion: nil)
     }
+    @objc func didTabCheckButton() {
+        let CheckVC = CheckViewController()
+        present(CheckVC, animated: true, completion: nil)
+    }
     //스토리 보드를 통해서 뷰전환
     @objc func didTabAlarmButton() {
         if let AlarmVc = self.storyboard?.instantiateViewController(withIdentifier: "AlarmVC") {
@@ -81,5 +104,6 @@ class ExampleListViewController: UIViewController {
             self.present(AlarmVc, animated: true)
         }
     }
+   
 }
 

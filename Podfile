@@ -8,6 +8,6 @@ target 'ios100ToyExample' do
   # Pods for ios100ToyExample
 
 pod 'RAMAnimatedTabBarController'
-
+pod 'Floaty'
 
 end

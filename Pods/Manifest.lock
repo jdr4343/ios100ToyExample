@@ -1,16 +1,20 @@
 PODS:
+  - Floaty (4.2.0)
   - RAMAnimatedTabBarController (5.2.0)
 
 DEPENDENCIES:
+  - Floaty
   - RAMAnimatedTabBarController
 
 SPEC REPOS:
   trunk:
+    - Floaty
     - RAMAnimatedTabBarController
 
 SPEC CHECKSUMS:
+  Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
 
-PODFILE CHECKSUM: df4c0ddc80acb48ec281a622b35ff7e16da6fd1a
+PODFILE CHECKSUM: 5ba3c394ac9bae62f3beb3efce2fd6ba1a28c9e1
 
 COCOAPODS: 1.10.1
