@@ -14,6 +14,7 @@
 		403502A926CB4B4D004BD348 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 403502A826CB4B4D004BD348 /* Assets.xcassets */; };
 		403502AC26CB4B4D004BD348 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403502AA26CB4B4D004BD348 /* LaunchScreen.storyboard */; };
 		403502B526CB4FB0004BD348 /* AnimatedCustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502B426CB4FB0004BD348 /* AnimatedCustomTabBarController.swift */; };
+		403502BA26CB5EF3004BD348 /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502B926CB5EF3004BD348 /* GradientViewController.swift */; };
 		E9A3D8F98CDB652CA81284FC /* Pods_ios100ToyExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AF8711D20BB765BDA94AB6 /* Pods_ios100ToyExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		403502AB26CB4B4D004BD348 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		403502AD26CB4B4D004BD348 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		403502B426CB4FB0004BD348 /* AnimatedCustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCustomTabBarController.swift; sourceTree = "<group>"; };
+		403502B926CB5EF3004BD348 /* GradientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
 		719BFC8F81408045F597C854 /* Pods-ios100ToyExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios100ToyExample.debug.xcconfig"; path = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8F57BC7F205787BA7AF735B3 /* Pods-ios100ToyExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios100ToyExample.release.xcconfig"; path = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +70,7 @@
 				403502A326CB4B4B004BD348 /* ExamoleListViewController.swift */,
 				403502A526CB4B4B004BD348 /* Main.storyboard */,
 				403502B326CB4D0C004BD348 /* AnimatedTabBar */,
+				403502B626CB5E7A004BD348 /* Gradients */,
 				4035029F26CB4B4B004BD348 /* AppDelegate.swift */,
 				403502A126CB4B4B004BD348 /* SceneDelegate.swift */,
 				403502A826CB4B4D004BD348 /* Assets.xcassets */,
@@ -83,6 +86,14 @@
 				403502B426CB4FB0004BD348 /* AnimatedCustomTabBarController.swift */,
 			);
 			path = AnimatedTabBar;
+			sourceTree = "<group>";
+		};
+		403502B626CB5E7A004BD348 /* Gradients */ = {
+			isa = PBXGroup;
+			children = (
+				403502B926CB5EF3004BD348 /* GradientViewController.swift */,
+			);
+			path = Gradients;
 			sourceTree = "<group>";
 		};
 		51517D4ABB6E83B5401D9EDD /* Pods */ = {
@@ -218,6 +229,7 @@
 			files = (
 				403502A426CB4B4B004BD348 /* ExamoleListViewController.swift in Sources */,
 				403502A026CB4B4B004BD348 /* AppDelegate.swift in Sources */,
+				403502BA26CB5EF3004BD348 /* GradientViewController.swift in Sources */,
 				403502B526CB4FB0004BD348 /* AnimatedCustomTabBarController.swift in Sources */,
 				403502A226CB4B4B004BD348 /* SceneDelegate.swift in Sources */,
 			);
