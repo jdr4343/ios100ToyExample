@@ -10,13 +10,14 @@
 import UIKit
 import RAMAnimatedTabBarController
 
-class ExamoleListViewController: UIViewController {
+class ExampleListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         AnimatedTabBar()
         GradientView()
         DateFormatterView()
+        AlarmView()
     }
 
 
@@ -45,9 +46,22 @@ class ExamoleListViewController: UIViewController {
         button.setTitle("날짜 생성", for: .normal)
         button.addTarget(self, action: #selector(didTabDateFormatterButton), for: .touchUpInside)
     }
+    func AlarmView() {
+        let button = UIButton(frame: CGRect(x: 310, y: 35
+                                             ,width: 50, height: 50))
+        view.addSubview(button)
+        button.backgroundColor = .systemBlue
+        button.setTitle("알람", for: .normal)
+        button.addTarget(self, action: #selector(didTabAlarmButton), for: .touchUpInside)
+    }
     
     
-    //action에 들어갈 기능구현 / 우리가 만들었던 CustomTabBarController를 불러올것 입니다!
+    
+    
+    
+    
+    
+    //action에 들어갈 기능구현 / 우리가 만들었던 CustomTabBarController를 불러올것 입니다! / 뷰전환
     @objc func didTabAnimatedButton() {
         let tabBarVC = AnimatedCustomTabBarController()
         present(tabBarVC, animated: true, completion: nil)
@@ -60,5 +74,10 @@ class ExamoleListViewController: UIViewController {
         let dateFormatterVC = DateFormatterViewController()
         present(dateFormatterVC, animated: true, completion: nil)
     }
+    @objc func didTabAlarmButton() {
+        let AlarmVC = AlarmViewController()
+        present(AlarmVC, animated: true, completion: nil)
+    }
+    
 }
 
