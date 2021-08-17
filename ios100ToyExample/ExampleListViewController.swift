@@ -74,10 +74,12 @@ class ExampleListViewController: UIViewController {
         let dateFormatterVC = DateFormatterViewController()
         present(dateFormatterVC, animated: true, completion: nil)
     }
+    //스토리 보드를 통해서 뷰전환
     @objc func didTabAlarmButton() {
-        let AlarmVC = AlarmViewController()
-        present(AlarmVC, animated: true, completion: nil)
+        if let AlarmVc = self.storyboard?.instantiateViewController(withIdentifier: "AlarmVC") {
+            AlarmVc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+            self.present(AlarmVc, animated: true)
+        }
     }
-    
 }
 

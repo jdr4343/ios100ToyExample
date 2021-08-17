@@ -4,6 +4,8 @@
 //
 //  Created by 신지훈 on 2021/08/17.
 //
+//StoryBoard ID 를 통해 뷰전환을 했습니다. identifier를 한번씩 확인해 주시고 제대로 연결되었는지 확인 해주셔야 에러를 피할수 있습니다.
+//알람 기능을 테스트 할경우 앱을 계속 보고 있을경우 진행 되지 않습니다. 앱을 잠깐 대기 상태로 만들어주시면 잘울립니다.
 
 import UIKit
 import UserNotifications
@@ -67,6 +69,7 @@ class AlarmViewController: UIViewController {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: { succes, error in
             if succes {
                 print("Test Start")
+                self.AlarmTest()
             } else if error != nil {
                 print("Test error")
             }
@@ -117,7 +120,7 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource {
         //테이블 뷰의 예약된 알람의 날짜 설정
         let date = models[indexPath.row].date
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy at HH:mm a"
+        formatter.dateFormat = "MMM, dd, YYYY at hh:mm a"
         cell.detailTextLabel?.text = formatter.string(from: date)
         return cell
     }
