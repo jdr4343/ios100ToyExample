@@ -5,6 +5,7 @@
 //  Created by 신지훈 on 2021/08/17.
 //
 //앱의 크기를 신경써서 만들어지지 않았습니다. 시뮬레이터를 아이폰 11로 변경해주세요.버튼이 아닌 단일 뷰로 보고싶으시다면 Main 스토리보드의 class를 변경하여 주세요.
+//가르치고자 함이 아닌 같이 배우자는 취지로 만들었습니다. 참고로 저는 배운지 2개월 됬습니다.틀린 부분이 있을수 있으며 있을경우 댓글을 남겨주시면 다시 배우겠습니다!
 
 
 import UIKit
@@ -23,6 +24,7 @@ class ExampleListViewController: UIViewController {
         checkView()
         colorWellView()
         FontPickerView()
+        CustomTabBarView()
     }
 //플로팅 버튼 구현
     func floatingButton() {
@@ -91,7 +93,14 @@ class ExampleListViewController: UIViewController {
         button.setTitle("폰트 선택기", for: .normal)
         button.addTarget(self, action: #selector(didTabFontPickerButton), for: .touchUpInside)
     }
-    
+    func CustomTabBarView() {
+        let button = UIButton(frame: CGRect(x: 200, y: 85
+                                             ,width: 100, height: 50))
+        view.addSubview(button)
+        button.backgroundColor = .systemGreen
+        button.setTitle("커스텀 탭바", for: .normal)
+        button.addTarget(self, action: #selector(didTabCustomTabBarButton), for: .touchUpInside)
+    }
     
     
     
@@ -130,6 +139,11 @@ class ExampleListViewController: UIViewController {
         let FontPickerVC = FontPickerViewController()
         FontPickerVC.modalTransitionStyle = UIModalTransitionStyle.coverVertical
         present(FontPickerVC, animated: true, completion: nil)
+    }
+    @objc func didTabCustomTabBarButton() {
+        if let CustomTabBarVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") {
+            self.present(CustomTabBarVc, animated: true)
+        }
     }
    
 }

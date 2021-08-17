@@ -23,6 +23,8 @@
 		403502D026CBBD9D004BD348 /* CheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502CF26CBBD9D004BD348 /* CheckModel.swift */; };
 		403502D326CBCDC0004BD348 /* ColorWellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502D226CBCDC0004BD348 /* ColorWellViewController.swift */; };
 		403502D626CBE46C004BD348 /* FontPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502D526CBE46C004BD348 /* FontPickerViewController.swift */; };
+		403502D926CBF490004BD348 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502D826CBF490004BD348 /* CustomTabBarController.swift */; };
+		403502DB26CBF546004BD348 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502DA26CBF546004BD348 /* CustomTabBar.swift */; };
 		E9A3D8F98CDB652CA81284FC /* Pods_ios100ToyExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AF8711D20BB765BDA94AB6 /* Pods_ios100ToyExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		403502CF26CBBD9D004BD348 /* CheckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckModel.swift; sourceTree = "<group>"; };
 		403502D226CBCDC0004BD348 /* ColorWellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorWellViewController.swift; sourceTree = "<group>"; };
 		403502D526CBE46C004BD348 /* FontPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
+		403502D826CBF490004BD348 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		403502DA26CBF546004BD348 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		719BFC8F81408045F597C854 /* Pods-ios100ToyExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios100ToyExample.debug.xcconfig"; path = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8F57BC7F205787BA7AF735B3 /* Pods-ios100ToyExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios100ToyExample.release.xcconfig"; path = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +96,7 @@
 				403502C026CB8444004BD348 /* Alarm */,
 				403502D126CBCD75004BD348 /* ColorWell */,
 				403502D426CBE3EE004BD348 /* FontPicker */,
+				403502D726CBF447004BD348 /* CustomTabBar */,
 				4035029F26CB4B4B004BD348 /* AppDelegate.swift */,
 				403502A126CB4B4B004BD348 /* SceneDelegate.swift */,
 				403502A826CB4B4D004BD348 /* Assets.xcassets */,
@@ -158,6 +163,15 @@
 				403502D526CBE46C004BD348 /* FontPickerViewController.swift */,
 			);
 			path = FontPicker;
+			sourceTree = "<group>";
+		};
+		403502D726CBF447004BD348 /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				403502D826CBF490004BD348 /* CustomTabBarController.swift */,
+				403502DA26CBF546004BD348 /* CustomTabBar.swift */,
+			);
+			path = CustomTabBar;
 			sourceTree = "<group>";
 		};
 		51517D4ABB6E83B5401D9EDD /* Pods */ = {
@@ -292,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				403502C426CB84F0004BD348 /* AlarmViewController.swift in Sources */,
+				403502DB26CBF546004BD348 /* CustomTabBar.swift in Sources */,
 				403502A426CB4B4B004BD348 /* ExampleListViewController.swift in Sources */,
 				403502A026CB4B4B004BD348 /* AppDelegate.swift in Sources */,
 				403502C826CB88EA004BD348 /* AddAlarmViewController.swift in Sources */,
@@ -299,6 +314,7 @@
 				403502BA26CB5EF3004BD348 /* GradientViewController.swift in Sources */,
 				403502D326CBCDC0004BD348 /* ColorWellViewController.swift in Sources */,
 				403502BD26CB61F2004BD348 /* DateFormatterViewController.swift in Sources */,
+				403502D926CBF490004BD348 /* CustomTabBarController.swift in Sources */,
 				403502CE26CBBD6B004BD348 /* CheckViewController.swift in Sources */,
 				403502D026CBBD9D004BD348 /* CheckModel.swift in Sources */,
 				403502D626CBE46C004BD348 /* FontPickerViewController.swift in Sources */,
