@@ -22,6 +22,7 @@ class ExampleListViewController: UIViewController {
         floatingButton()
         checkView()
         colorWellView()
+        FontPickerView()
     }
 //플로팅 버튼 구현
     func floatingButton() {
@@ -82,13 +83,21 @@ class ExampleListViewController: UIViewController {
         button.setTitle("색상 선택기", for: .normal)
         button.addTarget(self, action: #selector(didTabColorWellButton), for: .touchUpInside)
     }
+    func FontPickerView() {
+        let button = UIButton(frame: CGRect(x: 100, y: 85
+                                             ,width: 100, height: 50))
+        view.addSubview(button)
+        button.backgroundColor = .systemFill
+        button.setTitle("폰트 선택기", for: .normal)
+        button.addTarget(self, action: #selector(didTabFontPickerButton), for: .touchUpInside)
+    }
     
     
     
     
     
     
-    //action에 들어갈 기능구현 / 우리가 만들었던 CustomTabBarController를 불러올것 입니다! / 뷰전환
+    //action에 들어갈 기능구현 /  뷰전환은 여기에서 배우시면 될거 같습니다. 
     @objc func didTabAnimatedButton() {
         let tabBarVC = AnimatedCustomTabBarController()
         present(tabBarVC, animated: true, completion: nil)
@@ -105,7 +114,7 @@ class ExampleListViewController: UIViewController {
         let CheckVC = CheckViewController()
         present(CheckVC, animated: true, completion: nil)
     }
-    //스토리 보드를 통해서 뷰전환
+    //스토리 보드를 통해서 뷰전환 / 각각의 스타일 들을 만들어 놓았으니 시뮬레이터를 플레이 해보시면서 어떤 차이점이 있는지 찾아보시면 도움이 될거 같습니다.
     @objc func didTabAlarmButton() {
         if let AlarmVc = self.storyboard?.instantiateViewController(withIdentifier: "AlarmVC") {
             AlarmVc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
@@ -114,7 +123,13 @@ class ExampleListViewController: UIViewController {
     }
     @objc func didTabColorWellButton() {
         let ColorWellVC = ColorWellViewController()
+        ColorWellVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         present(ColorWellVC, animated: true, completion: nil)
+    }
+    @objc func didTabFontPickerButton() {
+        let FontPickerVC = FontPickerViewController()
+        FontPickerVC.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        present(FontPickerVC, animated: true, completion: nil)
     }
    
 }

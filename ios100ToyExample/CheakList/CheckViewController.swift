@@ -68,7 +68,7 @@ extension CheckViewController: UITableViewDelegate, UITableViewDataSource {
         let item = items[indexPath.row]
         //특정 셀을 선택하면 체크마크가 보이도록 모델에서 설정한 ischecked를 true값을 반환 해주겠습니다.그냥 true를 리턴한다면 체크를 풀수 없으므로 값을 반전 합니다.그러면 이제 디폴트값이 false였던 isChecked는 탭할경우 값이 true로 바뀌게 됩니다.그리고 체크 될때마다 뷰에 데이터를 reload 함으로써 체크마크가 표시되게 됩니다.
         item.isChecked = !item.isChecked
-        tableView.reloadData()
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
 }
