@@ -27,6 +27,8 @@ class ExampleListViewController: UIViewController {
         CustomTabBarView()
         pdfKitView()
         spinnerView()
+        webView()
+        carouselView()
     }
 //플로팅 버튼 구현
     func floatingButton() {
@@ -112,14 +114,30 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabPDFButton), for: .touchUpInside)
     }
     func spinnerView() {
+        let button = UIButton(frame: CGRect(x: 0, y: 135
+                                             ,width: 90, height: 50))
+        view.addSubview(button)
+        button.backgroundColor = .systemPurple
+        button.setTitle("스피너 버튼", for: .normal)
+        button.addTarget(self, action: #selector(didTabSpinnerButton), for: .touchUpInside)
+    }
+    func webView() {
         let button = UIButton(frame: CGRect(x: 360, y: 85
                                              ,width: 55, height: 50))
         view.addSubview(button)
-        button.backgroundColor = .systemPurple
-        button.setTitle("스피너", for: .normal)
-        button.addTarget(self, action: #selector(didTabSpinnerButton), for: .touchUpInside)
+        button.backgroundColor = .systemOrange
+        button.setTitle("웹뷰", for: .normal)
+        button.addTarget(self, action: #selector(didTabWebButton), for: .touchUpInside)
     }
-    
+    func carouselView() {
+        let button = UIButton(frame: CGRect(x: 90, y: 135
+                                             ,width: 90, height: 50))
+        view.addSubview(button)
+        button.backgroundColor = .blue
+        button.setTitle("회전 컬렉션", for: .normal)
+        button.addTarget(self, action: #selector(didTabCarouselButton), for: .touchUpInside)
+    }
+
     
     
     //action에 들어갈 기능구현 /  뷰전환은 여기에서 배우시면 될거 같습니다. 
@@ -169,6 +187,14 @@ class ExampleListViewController: UIViewController {
     @objc func didTabSpinnerButton() {
         let SpinnerVC = SpinnerViewController()
         present(SpinnerVC, animated: true, completion: nil)
+    }
+    @objc func didTabWebButton() {
+        let WebVC = WebViewController()
+        present(WebVC, animated: true, completion: nil)
+    }
+    @objc func didTabCarouselButton() {
+        let CarouselVC = CarouselViewController()
+        present(CarouselVC, animated: true, completion: nil)
     }
    
 }

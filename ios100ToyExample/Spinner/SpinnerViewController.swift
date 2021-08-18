@@ -33,12 +33,12 @@ class SpinnerViewController: UIViewController {
     
     @objc func didTapButton() {
         button.startAnimation()
-        //4초간 레이턴시를 주는 상황을 만들겠습니다. /그후 스톱애니메이션을 추가하고 / gradientVC를 API로 받아온다 생각하고 호출 하겠습니다. / animationStyle은 다양하게 준비되있으니 .을 찍어보시고 모두 호출 해보세요!
+        //4초간 레이턴시를 주는 상황을 만들겠습니다. /그후 스톱애니메이션을 추가하고 / WebVC를 API로 받아온다 생각하고 호출 하겠습니다. / animationStyle은 다양하게 준비되있으니 .을 찍어보시고 모두 호출 해보세요!
         DispatchQueue.main.asyncAfter(deadline: .now()+4) {
             self.button.stopAnimation(animationStyle: .expand, revertAfterDelay: 1) {
                 print("뷰가 로딩됩니다....")
-                let gradientVC = GradientViewController()
-                self.present(gradientVC, animated: true, completion: nil)
+                let WebVC = WebViewController()
+                self.present(WebVC, animated: true, completion: nil)
                 
             }
         

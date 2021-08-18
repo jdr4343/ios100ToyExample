@@ -28,6 +28,9 @@
 		403502E026CC8638004BD348 /* Intro to Swift.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 403502DF26CC8637004BD348 /* Intro to Swift.pdf */; };
 		403502E226CC869A004BD348 /* PDFkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502E126CC8699004BD348 /* PDFkitViewController.swift */; };
 		403502E526CCA016004BD348 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502E426CCA016004BD348 /* SpinnerViewController.swift */; };
+		403502E826CCAC76004BD348 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502E726CCAC76004BD348 /* WebViewController.swift */; };
+		403502EB26CCD098004BD348 /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EA26CCD098004BD348 /* CarouselViewController.swift */; };
+		403502ED26CCD39A004BD348 /* CarouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EC26CCD39A004BD348 /* CarouselTableViewCell.swift */; };
 		E9A3D8F98CDB652CA81284FC /* Pods_ios100ToyExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AF8711D20BB765BDA94AB6 /* Pods_ios100ToyExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,9 @@
 		403502DF26CC8637004BD348 /* Intro to Swift.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Intro to Swift.pdf"; sourceTree = "<group>"; };
 		403502E126CC8699004BD348 /* PDFkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFkitViewController.swift; sourceTree = "<group>"; };
 		403502E426CCA016004BD348 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		403502E726CCAC76004BD348 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		403502EA26CCD098004BD348 /* CarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewController.swift; sourceTree = "<group>"; };
+		403502EC26CCD39A004BD348 /* CarouselTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTableViewCell.swift; sourceTree = "<group>"; };
 		719BFC8F81408045F597C854 /* Pods-ios100ToyExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios100ToyExample.debug.xcconfig"; path = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8F57BC7F205787BA7AF735B3 /* Pods-ios100ToyExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios100ToyExample.release.xcconfig"; path = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,7 +110,9 @@
 				403502D426CBE3EE004BD348 /* FontPicker */,
 				403502D726CBF447004BD348 /* CustomTabBar */,
 				403502DE26CC8554004BD348 /* PDFkit */,
+				403502E626CCAC59004BD348 /* WebView */,
 				403502E326CC9EDC004BD348 /* Spinner */,
+				403502E926CCCFD6004BD348 /* Carousel */,
 				4035029F26CB4B4B004BD348 /* AppDelegate.swift */,
 				403502A126CB4B4B004BD348 /* SceneDelegate.swift */,
 				403502A826CB4B4D004BD348 /* Assets.xcassets */,
@@ -197,6 +205,23 @@
 				403502E426CCA016004BD348 /* SpinnerViewController.swift */,
 			);
 			path = Spinner;
+			sourceTree = "<group>";
+		};
+		403502E626CCAC59004BD348 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				403502E726CCAC76004BD348 /* WebViewController.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		403502E926CCCFD6004BD348 /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				403502EA26CCD098004BD348 /* CarouselViewController.swift */,
+				403502EC26CCD39A004BD348 /* CarouselTableViewCell.swift */,
+			);
+			path = Carousel;
 			sourceTree = "<group>";
 		};
 		51517D4ABB6E83B5401D9EDD /* Pods */ = {
@@ -332,7 +357,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				403502C426CB84F0004BD348 /* AlarmViewController.swift in Sources */,
+				403502E826CCAC76004BD348 /* WebViewController.swift in Sources */,
 				403502DB26CBF546004BD348 /* CustomTabBar.swift in Sources */,
+				403502ED26CCD39A004BD348 /* CarouselTableViewCell.swift in Sources */,
 				403502A426CB4B4B004BD348 /* ExampleListViewController.swift in Sources */,
 				403502A026CB4B4B004BD348 /* AppDelegate.swift in Sources */,
 				403502C826CB88EA004BD348 /* AddAlarmViewController.swift in Sources */,
@@ -340,6 +367,7 @@
 				403502E526CCA016004BD348 /* SpinnerViewController.swift in Sources */,
 				403502E226CC869A004BD348 /* PDFkitViewController.swift in Sources */,
 				403502BA26CB5EF3004BD348 /* GradientViewController.swift in Sources */,
+				403502EB26CCD098004BD348 /* CarouselViewController.swift in Sources */,
 				403502D326CBCDC0004BD348 /* ColorWellViewController.swift in Sources */,
 				403502BD26CB61F2004BD348 /* DateFormatterViewController.swift in Sources */,
 				403502D926CBF490004BD348 /* CustomTabBarController.swift in Sources */,
