@@ -7,117 +7,146 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00B8024BA3497BB50E9DB3499D0DBBA0 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3AE7FDD7FA234824BDC14D4F36FE5 /* Collection+Extensions.swift */; };
+		00B8024BA3497BB50E9DB3499D0DBBA0 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7B1483AF9838A4CEF2FE4CFB242B15 /* Collection+Extensions.swift */; };
+		027C7FA71AAA3C7BD9D865F65E91778B /* TransitionButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EA117A451A4EFD660DC40CBC2C5784C7 /* TransitionButton-dummy.m */; };
 		0F3819F36BD692BFECE933C8F34A5B55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		1FE2D19EF790109C3C32CEBBD18D4984 /* UIView+Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6873A80266CBD2FA27745161B1F8D7 /* UIView+Draggable.swift */; };
-		26188D2EEE660311667A0F7A20794FD4 /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1AE9AB4F0FD4EE550B87D26FFC750A /* RAMItemAnimationProtocol.swift */; };
-		39CC38779B3593A7C5A067041E789B5D /* Floaty-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A019F26EDC644528C92D9748EEE934D2 /* Floaty-dummy.m */; };
-		5C849FBED09095F3172F21102B529FE2 /* RAMAnimatedTabBarController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D1BF4C56659BDB72E26BE8150CDA39 /* RAMAnimatedTabBarController-dummy.m */; };
-		5DBDF38890137B49DC6EE62AF0DE44C5 /* RAMAnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DCCFE20DFA590B3FCB84A8688FF48 /* RAMAnimatedTabBarController.swift */; };
-		63627F5031F565E57FFD004382135EF0 /* RAMAnimatedTabBarController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C72CB1E30F89404A0F9D5E89C48A21E6 /* RAMAnimatedTabBarController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6A2F136CC06B047188F944FE881C48CE /* FloatyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163935310E47ABEF5E70F8513BFDA35A /* FloatyViewController.swift */; };
-		6DF0B4E59B3896D5CE6061AAF88DA4B7 /* RAMRotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39F314B229B012A3C5910D7FA99B2F /* RAMRotationAnimation.swift */; };
-		8C40574E60CBD4DD5A0DE79C5D3F39D3 /* FloatyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C85E5BC1E1DF9EC1627AA77238E05A /* FloatyWindow.swift */; };
-		8E81DCC864B08EADB6405EE39DD225A8 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDECD56CBC8668CE21E11C8D16D66E1D /* Floaty.swift */; };
-		9083623D9FE447DDAC23F3D9CEE8BC10 /* RAMAnimatedTabBarController+BottomLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB964772A5EF5C0763CE05ED8CA4CE30 /* RAMAnimatedTabBarController+BottomLine.swift */; };
-		9112D18D2B86C4746FB32FC4396137AA /* Pods-ios100ToyExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D7C7EAE6BA6C1E487576B02DE1474AE /* Pods-ios100ToyExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9BCB95F63265B3B85F41FBA1629C754A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		9C40F9A782F15BACA7B8B55E7E0885C6 /* RAMBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2816FEE1253E8C7203B0B7DB837E5FB5 /* RAMBadge.swift */; };
-		AF49D749CAE965784D16E579C94EACB1 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A52CA7EC4056B586237A916F0CC8C6 /* FloatyDelegate.swift */; };
-		AFD985A8844D6713B3287F52AB39042C /* RAMFrameItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E8EEE1C908994B695316996A94AA78 /* RAMFrameItemAnimation.swift */; };
-		C404585543BB15A332A69776F7F5B71C /* FloatyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32051F6B0137E1FBA5DFD92DA8A6162C /* FloatyItem.swift */; };
-		CCF844187199745A1DECB644BD844941 /* Floaty-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 65105A7DA5FB8768FF53DFABE64B5E40 /* Floaty-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FE2D19EF790109C3C32CEBBD18D4984 /* UIView+Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F4CDBBBC21A5109D9FD0AF278CFE6E /* UIView+Draggable.swift */; };
+		26188D2EEE660311667A0F7A20794FD4 /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBBAD6B088A1D569C2E74F435C0CA7 /* RAMItemAnimationProtocol.swift */; };
+		39CC38779B3593A7C5A067041E789B5D /* Floaty-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A39C59BC92568743DA1FFCE43401DBF0 /* Floaty-dummy.m */; };
+		5C849FBED09095F3172F21102B529FE2 /* RAMAnimatedTabBarController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CC08C182D8854E71243135B8ED649 /* RAMAnimatedTabBarController-dummy.m */; };
+		5DBDF38890137B49DC6EE62AF0DE44C5 /* RAMAnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EB5D7FADD2C1B40324DF08F2ED4321 /* RAMAnimatedTabBarController.swift */; };
+		5F4B18C14A0E355E6495D36CA31B07E2 /* TransitionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04B4B940BE75A62315709018F4516C /* TransitionButton.swift */; };
+		5F83DEF0A06BA6E25F409B568AD296C6 /* TransitionButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5202567C7893FCB335A94E724FF7DC /* TransitionButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63627F5031F565E57FFD004382135EF0 /* RAMAnimatedTabBarController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E95EE5EEAD974BAF9940984A511707C /* RAMAnimatedTabBarController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A2F136CC06B047188F944FE881C48CE /* FloatyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD2FDC8318F2313AEA4822FEFDB5795 /* FloatyViewController.swift */; };
+		6CD744CE23989E0EDCA90B4D68A69B11 /* SpinerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E431B7913BCF1C232E4618F85ECAA8E2 /* SpinerLayer.swift */; };
+		6DF0B4E59B3896D5CE6061AAF88DA4B7 /* RAMRotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F125FA448B4547B6766A4E941C3E9A /* RAMRotationAnimation.swift */; };
+		6E86157A5F6DCBB1E3BFBD11E9ECB5F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		8493869A7A6C202D77C239D038D12C8B /* CGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C852B30930640871EFB34549AE271A62 /* CGRectExtension.swift */; };
+		8C40574E60CBD4DD5A0DE79C5D3F39D3 /* FloatyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80C904613470A12C36BCC33183073F1 /* FloatyWindow.swift */; };
+		8E81DCC864B08EADB6405EE39DD225A8 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1693261E885EB639FB1C3C6790AD13A /* Floaty.swift */; };
+		9083623D9FE447DDAC23F3D9CEE8BC10 /* RAMAnimatedTabBarController+BottomLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8763ADABE354562DBFDBEA3CA12906AA /* RAMAnimatedTabBarController+BottomLine.swift */; };
+		9C40F9A782F15BACA7B8B55E7E0885C6 /* RAMBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5CC03A5F490E3ED82EBAF321A1E410 /* RAMBadge.swift */; };
+		A60A9880BB6096D9A055318A3AF127DD /* Pods-ios100ToyExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D7C7EAE6BA6C1E487576B02DE1474AE /* Pods-ios100ToyExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC9A14805175C5BD7C93CDAED29B45BE /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3562371D41366D17933612EB0A899E3 /* FadeTransition.swift */; };
+		AF49D749CAE965784D16E579C94EACB1 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9B7FD6E3CA1977E2F1108BD4DD49B9 /* FloatyDelegate.swift */; };
+		AFD985A8844D6713B3287F52AB39042C /* RAMFrameItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BC3342FAA1F93B09D08FF67DF7C894 /* RAMFrameItemAnimation.swift */; };
+		C2F6E646900EED6A1D186A193E4E3C25 /* CustomTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFB3BCBA555E9A0FC6676672E0932B /* CustomTransitionViewController.swift */; };
+		C404585543BB15A332A69776F7F5B71C /* FloatyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF696F0B33F816CC2FADEE6394C6D23A /* FloatyItem.swift */; };
+		CCF844187199745A1DECB644BD844941 /* Floaty-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7205103AF947E8F943CCD3D31CA5B7F7 /* Floaty-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D032EBC14F7C7AA19AE66CFD3EB76347 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
-		D1626F6B3818A61F4684DC04B9C20C74 /* RAMTransitionItemAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA710B4889F2A5AF14B77BCEB365AA7 /* RAMTransitionItemAnimations.swift */; };
-		D240991D247747660708779B18C1330D /* RAMAnimatedTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C0D608B0F707B1269847089000EDDB /* RAMAnimatedTabBarItem.swift */; };
-		DA28252D976B465BE2CDB71A2A46339F /* RAMFumeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED60C8291A4A7E8FD06E470B26F08BBC /* RAMFumeAnimation.swift */; };
-		E75347671C472ACF05F183240701C919 /* Pods-ios100ToyExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F44D3AD150B1C24087AEE639C568D3F /* Pods-ios100ToyExample-dummy.m */; };
+		D1626F6B3818A61F4684DC04B9C20C74 /* RAMTransitionItemAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04481C52946718A260FD80EC736AF1A3 /* RAMTransitionItemAnimations.swift */; };
+		D240991D247747660708779B18C1330D /* RAMAnimatedTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D2C8C14E2E880ABF0F170C1DE0DD5C /* RAMAnimatedTabBarItem.swift */; };
+		DA28252D976B465BE2CDB71A2A46339F /* RAMFumeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A4833342EBAE9FD48EE9AE3A5E82CC /* RAMFumeAnimation.swift */; };
 		EBCACFA549545A344688C3E088DC8BD6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		EDCBFA9B5A1C278B4C0EDBB3FF5B24B4 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201725780D590F750E8950F21DFBA956 /* RAMBounceAnimation.swift */; };
-		F23A86404C2D998825C8A071885323B7 /* FloatyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB38535252C7D23D39BE77D13523D5F8 /* FloatyManager.swift */; };
+		EDCBFA9B5A1C278B4C0EDBB3FF5B24B4 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606EECFE88664C564726D46CDF904C8 /* RAMBounceAnimation.swift */; };
+		F23A86404C2D998825C8A071885323B7 /* FloatyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133E46A153078BD33F6C02B3CF114F99 /* FloatyManager.swift */; };
+		F916854632BBB1257A7A0BF8D8158EEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		FBD521F3CA1C8DF00659D51EF9B05CC1 /* Pods-ios100ToyExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F44D3AD150B1C24087AEE639C568D3F /* Pods-ios100ToyExample-dummy.m */; };
+		FF6942EE1D6F3A3AE57012DED7B68AD4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2BD477211526EEB1A448FEFC5EDE4D9C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D2A775A88EA787684F2905BCB73F96D1;
-			remoteInfo = Floaty;
-		};
-		8773098215E7EDAF3BA9EE35D1079F5B /* PBXContainerItemProxy */ = {
+		3585288B58BFB71C00B5B9CF8EE69F46 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DED4DEF356A163E50925101C3C7C0FB9;
 			remoteInfo = RAMAnimatedTabBarController;
 		};
+		C08419C291FE9561D52582DCCFE9AC54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E30FF5B0268E3027AF18D788DB9BB7E7;
+			remoteInfo = TransitionButton;
+		};
+		F542D507754E0CEE0F0D0EF85096D165 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2A775A88EA787684F2905BCB73F96D1;
+			remoteInfo = Floaty;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		15A52CA7EC4056B586237A916F0CC8C6 /* FloatyDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatyDelegate.swift; path = Sources/FloatyDelegate.swift; sourceTree = "<group>"; };
-		163935310E47ABEF5E70F8513BFDA35A /* FloatyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatyViewController.swift; path = Sources/FloatyViewController.swift; sourceTree = "<group>"; };
-		1B39F314B229B012A3C5910D7FA99B2F /* RAMRotationAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMRotationAnimation.swift; path = RAMAnimatedTabBarController/Animations/RotationAnimation/RAMRotationAnimation.swift; sourceTree = "<group>"; };
+		04481C52946718A260FD80EC736AF1A3 /* RAMTransitionItemAnimations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMTransitionItemAnimations.swift; path = RAMAnimatedTabBarController/Animations/TransitionAniamtions/RAMTransitionItemAnimations.swift; sourceTree = "<group>"; };
+		13219902045C0D8A7C130AAB0D961A48 /* Floaty-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Floaty-Info.plist"; sourceTree = "<group>"; };
+		133E46A153078BD33F6C02B3CF114F99 /* FloatyManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatyManager.swift; path = Sources/FloatyManager.swift; sourceTree = "<group>"; };
 		1E8AB4172667D3050ADEA8F178BAF62D /* Pods-ios100ToyExample-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ios100ToyExample-Info.plist"; sourceTree = "<group>"; };
-		201725780D590F750E8950F21DFBA956 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMBounceAnimation.swift; path = RAMAnimatedTabBarController/Animations/BounceAnimation/RAMBounceAnimation.swift; sourceTree = "<group>"; };
-		2816FEE1253E8C7203B0B7DB837E5FB5 /* RAMBadge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMBadge.swift; path = RAMAnimatedTabBarController/RAMBadge/RAMBadge.swift; sourceTree = "<group>"; };
 		2915C263A5C5C8012A8C1E97512DC6A8 /* Floaty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Floaty.framework; path = Floaty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		32051F6B0137E1FBA5DFD92DA8A6162C /* FloatyItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatyItem.swift; path = Sources/FloatyItem.swift; sourceTree = "<group>"; };
+		2A06E46A32C77D99CB66E8598F164892 /* Floaty-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Floaty-prefix.pch"; sourceTree = "<group>"; };
+		2E2CC08C182D8854E71243135B8ED649 /* RAMAnimatedTabBarController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RAMAnimatedTabBarController-dummy.m"; sourceTree = "<group>"; };
+		2E95EE5EEAD974BAF9940984A511707C /* RAMAnimatedTabBarController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RAMAnimatedTabBarController-umbrella.h"; sourceTree = "<group>"; };
+		3606EECFE88664C564726D46CDF904C8 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMBounceAnimation.swift; path = RAMAnimatedTabBarController/Animations/BounceAnimation/RAMBounceAnimation.swift; sourceTree = "<group>"; };
 		3BDD35982BC3C380D79A23A025F1CFC3 /* Pods-ios100ToyExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ios100ToyExample.debug.xcconfig"; sourceTree = "<group>"; };
-		3C19E892674409E06CDAED4E50907A03 /* RAMAnimatedTabBarController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RAMAnimatedTabBarController.debug.xcconfig; sourceTree = "<group>"; };
 		3F44D3AD150B1C24087AEE639C568D3F /* Pods-ios100ToyExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ios100ToyExample-dummy.m"; sourceTree = "<group>"; };
-		4099C670B3BF885DCCF5CBE2EA3BC1AD /* RAMAnimatedTabBarController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RAMAnimatedTabBarController-Info.plist"; sourceTree = "<group>"; };
-		44C0D608B0F707B1269847089000EDDB /* RAMAnimatedTabBarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMAnimatedTabBarItem.swift; path = RAMAnimatedTabBarController/RAMAnimatedTabBarItem.swift; sourceTree = "<group>"; };
-		482161121DFB8842819FD87216863139 /* RAMAnimatedTabBarController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RAMAnimatedTabBarController.release.xcconfig; sourceTree = "<group>"; };
-		59B0E5E187D039A8F405E2722CA4FF1B /* Floaty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Floaty.release.xcconfig; sourceTree = "<group>"; };
-		5AE63BF494BF45359D92BEC65D6C20BE /* Floaty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Floaty.debug.xcconfig; sourceTree = "<group>"; };
-		62C85E5BC1E1DF9EC1627AA77238E05A /* FloatyWindow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatyWindow.swift; path = Sources/FloatyWindow.swift; sourceTree = "<group>"; };
-		65105A7DA5FB8768FF53DFABE64B5E40 /* Floaty-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Floaty-umbrella.h"; sourceTree = "<group>"; };
+		44F125FA448B4547B6766A4E941C3E9A /* RAMRotationAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMRotationAnimation.swift; path = RAMAnimatedTabBarController/Animations/RotationAnimation/RAMRotationAnimation.swift; sourceTree = "<group>"; };
+		4A04B4B940BE75A62315709018F4516C /* TransitionButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionButton.swift; path = Source/TransitionButton.swift; sourceTree = "<group>"; };
+		56F4CDBBBC21A5109D9FD0AF278CFE6E /* UIView+Draggable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Draggable.swift"; path = "Sources/UIView+Draggable.swift"; sourceTree = "<group>"; };
+		598EC244348A55BFFFD0FE2170A841B5 /* Floaty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Floaty.release.xcconfig; sourceTree = "<group>"; };
+		5F6BA03A0925860EA21A0CB5F550E9CB /* TransitionButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TransitionButton.framework; path = TransitionButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FFBBAD6B088A1D569C2E74F435C0CA7 /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMItemAnimationProtocol.swift; path = RAMAnimatedTabBarController/RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
+		62485B23431D223F01593EDBF6F6CB95 /* TransitionButton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TransitionButton.release.xcconfig; sourceTree = "<group>"; };
 		6803A26D713572B4FCF211333F946956 /* RAMAnimatedTabBarController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RAMAnimatedTabBarController.framework; path = RAMAnimatedTabBarController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BD2FDC8318F2313AEA4822FEFDB5795 /* FloatyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatyViewController.swift; path = Sources/FloatyViewController.swift; sourceTree = "<group>"; };
+		6C5202567C7893FCB335A94E724FF7DC /* TransitionButton-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TransitionButton-umbrella.h"; sourceTree = "<group>"; };
+		6CB7B1FC6F5ACBEAFFB4338AAA6F5BFC /* TransitionButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TransitionButton-prefix.pch"; sourceTree = "<group>"; };
 		6D354D8F7F0A4E5AF00FA175D3105CC3 /* Pods-ios100ToyExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ios100ToyExample-frameworks.sh"; sourceTree = "<group>"; };
-		6E1AE9AB4F0FD4EE550B87D26FFC750A /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMItemAnimationProtocol.swift; path = RAMAnimatedTabBarController/RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
-		78E8EEE1C908994B695316996A94AA78 /* RAMFrameItemAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMFrameItemAnimation.swift; path = RAMAnimatedTabBarController/Animations/FrameAnimation/RAMFrameItemAnimation.swift; sourceTree = "<group>"; };
-		832D7444B11C148F86B82713C86C67B0 /* Floaty-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Floaty-prefix.pch"; sourceTree = "<group>"; };
-		9B6DCCFE20DFA590B3FCB84A8688FF48 /* RAMAnimatedTabBarController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMAnimatedTabBarController.swift; path = RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift; sourceTree = "<group>"; };
+		7205103AF947E8F943CCD3D31CA5B7F7 /* Floaty-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Floaty-umbrella.h"; sourceTree = "<group>"; };
+		8763ADABE354562DBFDBEA3CA12906AA /* RAMAnimatedTabBarController+BottomLine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "RAMAnimatedTabBarController+BottomLine.swift"; path = "RAMAnimatedTabBarController/BottomLine/RAMAnimatedTabBarController+BottomLine.swift"; sourceTree = "<group>"; };
+		9ABEF60E36ACE18B5C200534A782EA2E /* TransitionButton.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TransitionButton.modulemap; sourceTree = "<group>"; };
+		9D7B1483AF9838A4CEF2FE4CFB242B15 /* Collection+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Collection+Extensions.swift"; path = "RAMAnimatedTabBarController/Utilities/Collection+Extensions.swift"; sourceTree = "<group>"; };
 		9D7C7EAE6BA6C1E487576B02DE1474AE /* Pods-ios100ToyExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ios100ToyExample-umbrella.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9EA710B4889F2A5AF14B77BCEB365AA7 /* RAMTransitionItemAnimations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMTransitionItemAnimations.swift; path = RAMAnimatedTabBarController/Animations/TransitionAniamtions/RAMTransitionItemAnimations.swift; sourceTree = "<group>"; };
-		A019F26EDC644528C92D9748EEE934D2 /* Floaty-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Floaty-dummy.m"; sourceTree = "<group>"; };
-		AD6873A80266CBD2FA27745161B1F8D7 /* UIView+Draggable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Draggable.swift"; path = "Sources/UIView+Draggable.swift"; sourceTree = "<group>"; };
+		9E75BDE613416DAA97B7EF0919C88C8D /* Floaty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Floaty.debug.xcconfig; sourceTree = "<group>"; };
+		9FBB760484AA14E8C15442A7152D1AB7 /* RAMAnimatedTabBarController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RAMAnimatedTabBarController.release.xcconfig; sourceTree = "<group>"; };
+		A1D2C8C14E2E880ABF0F170C1DE0DD5C /* RAMAnimatedTabBarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMAnimatedTabBarItem.swift; path = RAMAnimatedTabBarController/RAMAnimatedTabBarItem.swift; sourceTree = "<group>"; };
+		A39C59BC92568743DA1FFCE43401DBF0 /* Floaty-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Floaty-dummy.m"; sourceTree = "<group>"; };
+		AD9B7FD6E3CA1977E2F1108BD4DD49B9 /* FloatyDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatyDelegate.swift; path = Sources/FloatyDelegate.swift; sourceTree = "<group>"; };
 		B1D33924FFFB6C60E7203F8AAFA23D24 /* Pods-ios100ToyExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ios100ToyExample.release.xcconfig"; sourceTree = "<group>"; };
-		B2B1C200139D69957C49E4E781F9E743 /* Floaty.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Floaty.modulemap; sourceTree = "<group>"; };
-		BB964772A5EF5C0763CE05ED8CA4CE30 /* RAMAnimatedTabBarController+BottomLine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "RAMAnimatedTabBarController+BottomLine.swift"; path = "RAMAnimatedTabBarController/BottomLine/RAMAnimatedTabBarController+BottomLine.swift"; sourceTree = "<group>"; };
+		B301C4AED0E81079D88EC1551F0CFA49 /* Floaty.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Floaty.modulemap; sourceTree = "<group>"; };
+		B3BC3342FAA1F93B09D08FF67DF7C894 /* RAMFrameItemAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMFrameItemAnimation.swift; path = RAMAnimatedTabBarController/Animations/FrameAnimation/RAMFrameItemAnimation.swift; sourceTree = "<group>"; };
+		B7A4833342EBAE9FD48EE9AE3A5E82CC /* RAMFumeAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMFumeAnimation.swift; path = RAMAnimatedTabBarController/Animations/FumeAnimation/RAMFumeAnimation.swift; sourceTree = "<group>"; };
+		BF696F0B33F816CC2FADEE6394C6D23A /* FloatyItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatyItem.swift; path = Sources/FloatyItem.swift; sourceTree = "<group>"; };
 		C074252BED3DAE53F92B08B794754DBB /* Pods-ios100ToyExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ios100ToyExample-acknowledgements.markdown"; sourceTree = "<group>"; };
-		C101DACB8CD627965105F35E830965FB /* RAMAnimatedTabBarController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RAMAnimatedTabBarController.modulemap; sourceTree = "<group>"; };
+		C279BD781B7921606DCB6D358C056908 /* RAMAnimatedTabBarController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RAMAnimatedTabBarController-prefix.pch"; sourceTree = "<group>"; };
 		C40129A486FCE9E569F44001FB5BDA0C /* Pods-ios100ToyExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ios100ToyExample.modulemap"; sourceTree = "<group>"; };
-		C72CB1E30F89404A0F9D5E89C48A21E6 /* RAMAnimatedTabBarController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RAMAnimatedTabBarController-umbrella.h"; sourceTree = "<group>"; };
+		C7B55A97087EBA06550AAAEBC302775C /* RAMAnimatedTabBarController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RAMAnimatedTabBarController.debug.xcconfig; sourceTree = "<group>"; };
+		C80C904613470A12C36BCC33183073F1 /* FloatyWindow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatyWindow.swift; path = Sources/FloatyWindow.swift; sourceTree = "<group>"; };
+		C852B30930640871EFB34549AE271A62 /* CGRectExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CGRectExtension.swift; path = Source/CGRectExtension.swift; sourceTree = "<group>"; };
+		C87B75C32566DDA99B0A319C31372250 /* TransitionButton-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TransitionButton-Info.plist"; sourceTree = "<group>"; };
+		D19E8658C2CDB0C12A4D3B774EC52461 /* RAMAnimatedTabBarController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RAMAnimatedTabBarController.modulemap; sourceTree = "<group>"; };
 		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D6F7326BE98F3454E6E33080684F631D /* Pods-ios100ToyExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ios100ToyExample-acknowledgements.plist"; sourceTree = "<group>"; };
-		DD0819EFD6DA336139F635A55A0C090E /* Floaty-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Floaty-Info.plist"; sourceTree = "<group>"; };
-		E0D1BF4C56659BDB72E26BE8150CDA39 /* RAMAnimatedTabBarController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RAMAnimatedTabBarController-dummy.m"; sourceTree = "<group>"; };
+		DDCFB3BCBA555E9A0FC6676672E0932B /* CustomTransitionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomTransitionViewController.swift; path = Source/CustomTransitionViewController.swift; sourceTree = "<group>"; };
+		E3562371D41366D17933612EB0A899E3 /* FadeTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FadeTransition.swift; path = Source/FadeTransition.swift; sourceTree = "<group>"; };
+		E431B7913BCF1C232E4618F85ECAA8E2 /* SpinerLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpinerLayer.swift; path = Source/SpinerLayer.swift; sourceTree = "<group>"; };
+		EA117A451A4EFD660DC40CBC2C5784C7 /* TransitionButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TransitionButton-dummy.m"; sourceTree = "<group>"; };
 		EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		ED60C8291A4A7E8FD06E470B26F08BBC /* RAMFumeAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMFumeAnimation.swift; path = RAMAnimatedTabBarController/Animations/FumeAnimation/RAMFumeAnimation.swift; sourceTree = "<group>"; };
-		EDECD56CBC8668CE21E11C8D16D66E1D /* Floaty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Floaty.swift; path = Sources/Floaty.swift; sourceTree = "<group>"; };
-		F86D75490AD3368EDB6B0245734DBF01 /* RAMAnimatedTabBarController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RAMAnimatedTabBarController-prefix.pch"; sourceTree = "<group>"; };
-		FB38535252C7D23D39BE77D13523D5F8 /* FloatyManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatyManager.swift; path = Sources/FloatyManager.swift; sourceTree = "<group>"; };
-		FFA3AE7FDD7FA234824BDC14D4F36FE5 /* Collection+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Collection+Extensions.swift"; path = "RAMAnimatedTabBarController/Utilities/Collection+Extensions.swift"; sourceTree = "<group>"; };
+		F00FE382B2344945B53D9E43BC1BAB1F /* RAMAnimatedTabBarController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RAMAnimatedTabBarController-Info.plist"; sourceTree = "<group>"; };
+		F1693261E885EB639FB1C3C6790AD13A /* Floaty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Floaty.swift; path = Sources/Floaty.swift; sourceTree = "<group>"; };
+		F56CF25C01EF63FA025F60BC05943A03 /* TransitionButton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TransitionButton.debug.xcconfig; sourceTree = "<group>"; };
+		F5EB5D7FADD2C1B40324DF08F2ED4321 /* RAMAnimatedTabBarController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMAnimatedTabBarController.swift; path = RAMAnimatedTabBarController/RAMAnimatedTabBarController.swift; sourceTree = "<group>"; };
+		FE5CC03A5F490E3ED82EBAF321A1E410 /* RAMBadge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAMBadge.swift; path = RAMAnimatedTabBarController/RAMBadge/RAMBadge.swift; sourceTree = "<group>"; };
 		FFA501250940D99AA240012D630443A4 /* Pods_ios100ToyExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ios100ToyExample.framework; path = "Pods-ios100ToyExample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		09CC397F0A5A74BEA0D891D6FD598874 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F916854632BBB1257A7A0BF8D8158EEF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14D33FC5AC2BFA2B0AD543EC397C51AA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0F3819F36BD692BFECE933C8F34A5B55 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2B78E79850ECC8666E2D5C928B7EFB92 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9BCB95F63265B3B85F41FBA1629C754A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,39 +159,84 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E6254D7F09D1D67099DBD37D879DE85B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E86157A5F6DCBB1E3BFBD11E9ECB5F9 /* Foundation.framework in Frameworks */,
+				FF6942EE1D6F3A3AE57012DED7B68AD4 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09904FD7885A1FAFC3EE7C47EF26BB7D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A22DCCDADFBD61606BBFFEB4CF7E8036 /* Floaty */,
-				E22D9CDD03A02F502FA4261A84E33423 /* RAMAnimatedTabBarController */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		10DB694ABFC8253D44DCBAB69EDDB18A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C101DACB8CD627965105F35E830965FB /* RAMAnimatedTabBarController.modulemap */,
-				E0D1BF4C56659BDB72E26BE8150CDA39 /* RAMAnimatedTabBarController-dummy.m */,
-				4099C670B3BF885DCCF5CBE2EA3BC1AD /* RAMAnimatedTabBarController-Info.plist */,
-				F86D75490AD3368EDB6B0245734DBF01 /* RAMAnimatedTabBarController-prefix.pch */,
-				C72CB1E30F89404A0F9D5E89C48A21E6 /* RAMAnimatedTabBarController-umbrella.h */,
-				3C19E892674409E06CDAED4E50907A03 /* RAMAnimatedTabBarController.debug.xcconfig */,
-				482161121DFB8842819FD87216863139 /* RAMAnimatedTabBarController.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/RAMAnimatedTabBarController";
-			sourceTree = "<group>";
-		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1D0AF49A690D98610DCB766B879BD24D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64C753755AE5F73F7C851774579C6470 /* Floaty */,
+				1F00058210AB57E604A49E747B868639 /* RAMAnimatedTabBarController */,
+				7717F6411737DF65423D90DB974CA394 /* TransitionButton */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1F00058210AB57E604A49E747B868639 /* RAMAnimatedTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				9D7B1483AF9838A4CEF2FE4CFB242B15 /* Collection+Extensions.swift */,
+				F5EB5D7FADD2C1B40324DF08F2ED4321 /* RAMAnimatedTabBarController.swift */,
+				8763ADABE354562DBFDBEA3CA12906AA /* RAMAnimatedTabBarController+BottomLine.swift */,
+				A1D2C8C14E2E880ABF0F170C1DE0DD5C /* RAMAnimatedTabBarItem.swift */,
+				FE5CC03A5F490E3ED82EBAF321A1E410 /* RAMBadge.swift */,
+				3606EECFE88664C564726D46CDF904C8 /* RAMBounceAnimation.swift */,
+				B3BC3342FAA1F93B09D08FF67DF7C894 /* RAMFrameItemAnimation.swift */,
+				B7A4833342EBAE9FD48EE9AE3A5E82CC /* RAMFumeAnimation.swift */,
+				5FFBBAD6B088A1D569C2E74F435C0CA7 /* RAMItemAnimationProtocol.swift */,
+				44F125FA448B4547B6766A4E941C3E9A /* RAMRotationAnimation.swift */,
+				04481C52946718A260FD80EC736AF1A3 /* RAMTransitionItemAnimations.swift */,
+				202060BF834309D9B63F8E9380825902 /* Support Files */,
+			);
+			name = RAMAnimatedTabBarController;
+			path = RAMAnimatedTabBarController;
+			sourceTree = "<group>";
+		};
+		202060BF834309D9B63F8E9380825902 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D19E8658C2CDB0C12A4D3B774EC52461 /* RAMAnimatedTabBarController.modulemap */,
+				2E2CC08C182D8854E71243135B8ED649 /* RAMAnimatedTabBarController-dummy.m */,
+				F00FE382B2344945B53D9E43BC1BAB1F /* RAMAnimatedTabBarController-Info.plist */,
+				C279BD781B7921606DCB6D358C056908 /* RAMAnimatedTabBarController-prefix.pch */,
+				2E95EE5EEAD974BAF9940984A511707C /* RAMAnimatedTabBarController-umbrella.h */,
+				C7B55A97087EBA06550AAAEBC302775C /* RAMAnimatedTabBarController.debug.xcconfig */,
+				9FBB760484AA14E8C15442A7152D1AB7 /* RAMAnimatedTabBarController.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/RAMAnimatedTabBarController";
+			sourceTree = "<group>";
+		};
+		3482A0E32849855C595631DAE2DFDDBD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B301C4AED0E81079D88EC1551F0CFA49 /* Floaty.modulemap */,
+				A39C59BC92568743DA1FFCE43401DBF0 /* Floaty-dummy.m */,
+				13219902045C0D8A7C130AAB0D961A48 /* Floaty-Info.plist */,
+				2A06E46A32C77D99CB66E8598F164892 /* Floaty-prefix.pch */,
+				7205103AF947E8F943CCD3D31CA5B7F7 /* Floaty-umbrella.h */,
+				9E75BDE613416DAA97B7EF0919C88C8D /* Floaty.debug.xcconfig */,
+				598EC244348A55BFFFD0FE2170A841B5 /* Floaty.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Floaty";
 			sourceTree = "<group>";
 		};
 		59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */ = {
@@ -174,19 +248,34 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		5E22B2032F9C95F08BA99779BD449D43 /* Support Files */ = {
+		64C753755AE5F73F7C851774579C6470 /* Floaty */ = {
 			isa = PBXGroup;
 			children = (
-				B2B1C200139D69957C49E4E781F9E743 /* Floaty.modulemap */,
-				A019F26EDC644528C92D9748EEE934D2 /* Floaty-dummy.m */,
-				DD0819EFD6DA336139F635A55A0C090E /* Floaty-Info.plist */,
-				832D7444B11C148F86B82713C86C67B0 /* Floaty-prefix.pch */,
-				65105A7DA5FB8768FF53DFABE64B5E40 /* Floaty-umbrella.h */,
-				5AE63BF494BF45359D92BEC65D6C20BE /* Floaty.debug.xcconfig */,
-				59B0E5E187D039A8F405E2722CA4FF1B /* Floaty.release.xcconfig */,
+				F1693261E885EB639FB1C3C6790AD13A /* Floaty.swift */,
+				AD9B7FD6E3CA1977E2F1108BD4DD49B9 /* FloatyDelegate.swift */,
+				BF696F0B33F816CC2FADEE6394C6D23A /* FloatyItem.swift */,
+				133E46A153078BD33F6C02B3CF114F99 /* FloatyManager.swift */,
+				6BD2FDC8318F2313AEA4822FEFDB5795 /* FloatyViewController.swift */,
+				C80C904613470A12C36BCC33183073F1 /* FloatyWindow.swift */,
+				56F4CDBBBC21A5109D9FD0AF278CFE6E /* UIView+Draggable.swift */,
+				3482A0E32849855C595631DAE2DFDDBD /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Floaty";
+			name = Floaty;
+			path = Floaty;
+			sourceTree = "<group>";
+		};
+		7717F6411737DF65423D90DB974CA394 /* TransitionButton */ = {
+			isa = PBXGroup;
+			children = (
+				C852B30930640871EFB34549AE271A62 /* CGRectExtension.swift */,
+				DDCFB3BCBA555E9A0FC6676672E0932B /* CustomTransitionViewController.swift */,
+				E3562371D41366D17933612EB0A899E3 /* FadeTransition.swift */,
+				E431B7913BCF1C232E4618F85ECAA8E2 /* SpinerLayer.swift */,
+				4A04B4B940BE75A62315709018F4516C /* TransitionButton.swift */,
+				F8D17547A91D875D8A5F85FBFC1C7875 /* Support Files */,
+			);
+			name = TransitionButton;
+			path = TransitionButton;
 			sourceTree = "<group>";
 		};
 		7A9CDA8DB11D194016E422C77C7BFEBB /* Targets Support Files */ = {
@@ -197,39 +286,13 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		A22DCCDADFBD61606BBFFEB4CF7E8036 /* Floaty */ = {
-			isa = PBXGroup;
-			children = (
-				EDECD56CBC8668CE21E11C8D16D66E1D /* Floaty.swift */,
-				15A52CA7EC4056B586237A916F0CC8C6 /* FloatyDelegate.swift */,
-				32051F6B0137E1FBA5DFD92DA8A6162C /* FloatyItem.swift */,
-				FB38535252C7D23D39BE77D13523D5F8 /* FloatyManager.swift */,
-				163935310E47ABEF5E70F8513BFDA35A /* FloatyViewController.swift */,
-				62C85E5BC1E1DF9EC1627AA77238E05A /* FloatyWindow.swift */,
-				AD6873A80266CBD2FA27745161B1F8D7 /* UIView+Draggable.swift */,
-				5E22B2032F9C95F08BA99779BD449D43 /* Support Files */,
-			);
-			name = Floaty;
-			path = Floaty;
-			sourceTree = "<group>";
-		};
-		ACA5FAFABD20875360DA03329E0A48C1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2915C263A5C5C8012A8C1E97512DC6A8 /* Floaty.framework */,
-				FFA501250940D99AA240012D630443A4 /* Pods_ios100ToyExample.framework */,
-				6803A26D713572B4FCF211333F946956 /* RAMAnimatedTabBarController.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				09904FD7885A1FAFC3EE7C47EF26BB7D /* Pods */,
-				ACA5FAFABD20875360DA03329E0A48C1 /* Products */,
+				1D0AF49A690D98610DCB766B879BD24D /* Pods */,
+				EB61AFB7EA18E15CC04B122467EB806C /* Products */,
 				7A9CDA8DB11D194016E422C77C7BFEBB /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -251,24 +314,30 @@
 			path = "Target Support Files/Pods-ios100ToyExample";
 			sourceTree = "<group>";
 		};
-		E22D9CDD03A02F502FA4261A84E33423 /* RAMAnimatedTabBarController */ = {
+		EB61AFB7EA18E15CC04B122467EB806C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FFA3AE7FDD7FA234824BDC14D4F36FE5 /* Collection+Extensions.swift */,
-				9B6DCCFE20DFA590B3FCB84A8688FF48 /* RAMAnimatedTabBarController.swift */,
-				BB964772A5EF5C0763CE05ED8CA4CE30 /* RAMAnimatedTabBarController+BottomLine.swift */,
-				44C0D608B0F707B1269847089000EDDB /* RAMAnimatedTabBarItem.swift */,
-				2816FEE1253E8C7203B0B7DB837E5FB5 /* RAMBadge.swift */,
-				201725780D590F750E8950F21DFBA956 /* RAMBounceAnimation.swift */,
-				78E8EEE1C908994B695316996A94AA78 /* RAMFrameItemAnimation.swift */,
-				ED60C8291A4A7E8FD06E470B26F08BBC /* RAMFumeAnimation.swift */,
-				6E1AE9AB4F0FD4EE550B87D26FFC750A /* RAMItemAnimationProtocol.swift */,
-				1B39F314B229B012A3C5910D7FA99B2F /* RAMRotationAnimation.swift */,
-				9EA710B4889F2A5AF14B77BCEB365AA7 /* RAMTransitionItemAnimations.swift */,
-				10DB694ABFC8253D44DCBAB69EDDB18A /* Support Files */,
+				2915C263A5C5C8012A8C1E97512DC6A8 /* Floaty.framework */,
+				FFA501250940D99AA240012D630443A4 /* Pods_ios100ToyExample.framework */,
+				6803A26D713572B4FCF211333F946956 /* RAMAnimatedTabBarController.framework */,
+				5F6BA03A0925860EA21A0CB5F550E9CB /* TransitionButton.framework */,
 			);
-			name = RAMAnimatedTabBarController;
-			path = RAMAnimatedTabBarController;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8D17547A91D875D8A5F85FBFC1C7875 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9ABEF60E36ACE18B5C200534A782EA2E /* TransitionButton.modulemap */,
+				EA117A451A4EFD660DC40CBC2C5784C7 /* TransitionButton-dummy.m */,
+				C87B75C32566DDA99B0A319C31372250 /* TransitionButton-Info.plist */,
+				6CB7B1FC6F5ACBEAFFB4338AAA6F5BFC /* TransitionButton-prefix.pch */,
+				6C5202567C7893FCB335A94E724FF7DC /* TransitionButton-umbrella.h */,
+				F56CF25C01EF63FA025F60BC05943A03 /* TransitionButton.debug.xcconfig */,
+				62485B23431D223F01593EDBF6F6CB95 /* TransitionButton.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/TransitionButton";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,11 +359,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C377D70E6264A4D8BE8C977AA3102A95 /* Headers */ = {
+		CF57552F513EDC420C262A6583752923 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9112D18D2B86C4746FB32FC4396137AA /* Pods-ios100ToyExample-umbrella.h in Headers */,
+				A60A9880BB6096D9A055318A3AF127DD /* Pods-ios100ToyExample-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D52242B9CAC06555B10502FE7A9A3D12 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F83DEF0A06BA6E25F409B568AD296C6 /* TransitionButton-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,18 +380,19 @@
 /* Begin PBXNativeTarget section */
 		160E91CBE84DB81F0BB0DFCAC9E1A330 /* Pods-ios100ToyExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4ED1FDCE4772EDE5F989787FCE2EC4B6 /* Build configuration list for PBXNativeTarget "Pods-ios100ToyExample" */;
+			buildConfigurationList = 5551125D9B7AC1F6063BA295B30F29E4 /* Build configuration list for PBXNativeTarget "Pods-ios100ToyExample" */;
 			buildPhases = (
-				C377D70E6264A4D8BE8C977AA3102A95 /* Headers */,
-				03F2DD6D7BB6587B33383DE01B8966E6 /* Sources */,
-				2B78E79850ECC8666E2D5C928B7EFB92 /* Frameworks */,
-				39CE7AE2683CE3FD483BB365C0D440E6 /* Resources */,
+				CF57552F513EDC420C262A6583752923 /* Headers */,
+				C40E270CFD8A4847D90647E102167F54 /* Sources */,
+				09CC397F0A5A74BEA0D891D6FD598874 /* Frameworks */,
+				BE57D9EE642F99F4DB42B94DB13A8DEE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				295C1DC6E10DA75B26FFB05B053C1375 /* PBXTargetDependency */,
-				4C87FB864368607EDFF47745F8B879A3 /* PBXTargetDependency */,
+				6BD98F1B4AEDE839E776A398293AF28C /* PBXTargetDependency */,
+				00B6BA54FF2493216C5F5AD7DCDF8818 /* PBXTargetDependency */,
+				5D6E9C18189F219E1F271469D899BBA7 /* PBXTargetDependency */,
 			);
 			name = "Pods-ios100ToyExample";
 			productName = "Pods-ios100ToyExample";
@@ -357,6 +435,24 @@
 			productReference = 6803A26D713572B4FCF211333F946956 /* RAMAnimatedTabBarController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		E30FF5B0268E3027AF18D788DB9BB7E7 /* TransitionButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C6C59D404DDBAFD4B5120141C22D8FA /* Build configuration list for PBXNativeTarget "TransitionButton" */;
+			buildPhases = (
+				D52242B9CAC06555B10502FE7A9A3D12 /* Headers */,
+				4BD1290F068C338E45EB4F11D675ADA8 /* Sources */,
+				E6254D7F09D1D67099DBD37D879DE85B /* Frameworks */,
+				ED4D7D85230DDC7DC0C05FCB1F90AA77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TransitionButton;
+			productName = TransitionButton;
+			productReference = 5F6BA03A0925860EA21A0CB5F550E9CB /* TransitionButton.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -375,25 +471,19 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = ACA5FAFABD20875360DA03329E0A48C1 /* Products */;
+			productRefGroup = EB61AFB7EA18E15CC04B122467EB806C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				D2A775A88EA787684F2905BCB73F96D1 /* Floaty */,
 				160E91CBE84DB81F0BB0DFCAC9E1A330 /* Pods-ios100ToyExample */,
 				DED4DEF356A163E50925101C3C7C0FB9 /* RAMAnimatedTabBarController */,
+				E30FF5B0268E3027AF18D788DB9BB7E7 /* TransitionButton */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		39CE7AE2683CE3FD483BB365C0D440E6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		739EB65B4AF74F32ADA65195630639CD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -408,14 +498,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE57D9EE642F99F4DB42B94DB13A8DEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED4D7D85230DDC7DC0C05FCB1F90AA77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		03F2DD6D7BB6587B33383DE01B8966E6 /* Sources */ = {
+		4BD1290F068C338E45EB4F11D675ADA8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E75347671C472ACF05F183240701C919 /* Pods-ios100ToyExample-dummy.m in Sources */,
+				8493869A7A6C202D77C239D038D12C8B /* CGRectExtension.swift in Sources */,
+				C2F6E646900EED6A1D186A193E4E3C25 /* CustomTransitionViewController.swift in Sources */,
+				AC9A14805175C5BD7C93CDAED29B45BE /* FadeTransition.swift in Sources */,
+				6CD744CE23989E0EDCA90B4D68A69B11 /* SpinerLayer.swift in Sources */,
+				027C7FA71AAA3C7BD9D865F65E91778B /* TransitionButton-dummy.m in Sources */,
+				5F4B18C14A0E355E6495D36CA31B07E2 /* TransitionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +540,14 @@
 				6A2F136CC06B047188F944FE881C48CE /* FloatyViewController.swift in Sources */,
 				8C40574E60CBD4DD5A0DE79C5D3F39D3 /* FloatyWindow.swift in Sources */,
 				1FE2D19EF790109C3C32CEBBD18D4984 /* UIView+Draggable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C40E270CFD8A4847D90647E102167F54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBD521F3CA1C8DF00659D51EF9B05CC1 /* Pods-ios100ToyExample-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,60 +573,28 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		295C1DC6E10DA75B26FFB05B053C1375 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Floaty;
-			target = D2A775A88EA787684F2905BCB73F96D1 /* Floaty */;
-			targetProxy = 2BD477211526EEB1A448FEFC5EDE4D9C /* PBXContainerItemProxy */;
-		};
-		4C87FB864368607EDFF47745F8B879A3 /* PBXTargetDependency */ = {
+		00B6BA54FF2493216C5F5AD7DCDF8818 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RAMAnimatedTabBarController;
 			target = DED4DEF356A163E50925101C3C7C0FB9 /* RAMAnimatedTabBarController */;
-			targetProxy = 8773098215E7EDAF3BA9EE35D1079F5B /* PBXContainerItemProxy */;
+			targetProxy = 3585288B58BFB71C00B5B9CF8EE69F46 /* PBXContainerItemProxy */;
+		};
+		5D6E9C18189F219E1F271469D899BBA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TransitionButton;
+			target = E30FF5B0268E3027AF18D788DB9BB7E7 /* TransitionButton */;
+			targetProxy = C08419C291FE9561D52582DCCFE9AC54 /* PBXContainerItemProxy */;
+		};
+		6BD98F1B4AEDE839E776A398293AF28C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Floaty;
+			target = D2A775A88EA787684F2905BCB73F96D1 /* Floaty */;
+			targetProxy = F542D507754E0CEE0F0D0EF85096D165 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		01613C107D9D91673E66F3B33D4234F0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1D33924FFFB6C60E7203F8AAFA23D24 /* Pods-ios100ToyExample.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		035923C3EB8BF97F197F5840E234BB6F /* Debug */ = {
+		0C3C5CC9C5E2415CAA3D7552D937A2AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3BDD35982BC3C380D79A23A025F1CFC3 /* Pods-ios100ToyExample.debug.xcconfig */;
 			buildSettings = {
@@ -546,9 +631,43 @@
 			};
 			name = Debug;
 		};
+		3BC5D6932213FCCA3D7A9114FB8FB841 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F56CF25C01EF63FA025F60BC05943A03 /* TransitionButton.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/TransitionButton/TransitionButton-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TransitionButton/TransitionButton-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/TransitionButton/TransitionButton.modulemap";
+				PRODUCT_MODULE_NAME = TransitionButton;
+				PRODUCT_NAME = TransitionButton;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		4ECD84E4343996CEA37D4225FEB43F20 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 482161121DFB8842819FD87216863139 /* RAMAnimatedTabBarController.release.xcconfig */;
+			baseConfigurationReference = 9FBB760484AA14E8C15442A7152D1AB7 /* RAMAnimatedTabBarController.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -583,7 +702,7 @@
 		};
 		572AECB8B86A9F7E93009217C2C8D38F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AE63BF494BF45359D92BEC65D6C20BE /* Floaty.debug.xcconfig */;
+			baseConfigurationReference = 9E75BDE613416DAA97B7EF0919C88C8D /* Floaty.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -616,9 +735,44 @@
 			};
 			name = Debug;
 		};
+		7BC54CB8B39B534F5D274AECCBA4BDB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62485B23431D223F01593EDBF6F6CB95 /* TransitionButton.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/TransitionButton/TransitionButton-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TransitionButton/TransitionButton-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/TransitionButton/TransitionButton.modulemap";
+				PRODUCT_MODULE_NAME = TransitionButton;
+				PRODUCT_NAME = TransitionButton;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		BBE3CF84084BF10D6F3DDE42AC012962 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59B0E5E187D039A8F405E2722CA4FF1B /* Floaty.release.xcconfig */;
+			baseConfigurationReference = 598EC244348A55BFFFD0FE2170A841B5 /* Floaty.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -780,9 +934,47 @@
 			};
 			name = Release;
 		};
+		E0AAF50D64BFBCC282D612E283E9163B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1D33924FFFB6C60E7203F8AAFA23D24 /* Pods-ios100ToyExample.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		F8FBDED939582B11D7394D26E8DECBA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C19E892674409E06CDAED4E50907A03 /* RAMAnimatedTabBarController.debug.xcconfig */;
+			baseConfigurationReference = C7B55A97087EBA06550AAAEBC302775C /* RAMAnimatedTabBarController.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -817,6 +1009,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0C6C59D404DDBAFD4B5120141C22D8FA /* Build configuration list for PBXNativeTarget "TransitionButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BC5D6932213FCCA3D7A9114FB8FB841 /* Debug */,
+				7BC54CB8B39B534F5D274AECCBA4BDB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		10A45C30C323AD5804A5AD2B8C0CA54B /* Build configuration list for PBXNativeTarget "RAMAnimatedTabBarController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -835,11 +1036,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4ED1FDCE4772EDE5F989787FCE2EC4B6 /* Build configuration list for PBXNativeTarget "Pods-ios100ToyExample" */ = {
+		5551125D9B7AC1F6063BA295B30F29E4 /* Build configuration list for PBXNativeTarget "Pods-ios100ToyExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				035923C3EB8BF97F197F5840E234BB6F /* Debug */,
-				01613C107D9D91673E66F3B33D4234F0 /* Release */,
+				0C3C5CC9C5E2415CAA3D7552D937A2AF /* Debug */,
+				E0AAF50D64BFBCC282D612E283E9163B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

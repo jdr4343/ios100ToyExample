@@ -1,20 +1,24 @@
 PODS:
   - Floaty (4.2.0)
   - RAMAnimatedTabBarController (5.2.0)
+  - TransitionButton (0.5.3)
 
 DEPENDENCIES:
   - Floaty
   - RAMAnimatedTabBarController
+  - TransitionButton
 
 SPEC REPOS:
   trunk:
     - Floaty
     - RAMAnimatedTabBarController
+    - TransitionButton
 
 SPEC CHECKSUMS:
   Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
+  TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
 
-PODFILE CHECKSUM: 5ba3c394ac9bae62f3beb3efce2fd6ba1a28c9e1
+PODFILE CHECKSUM: cd51f0ce57937bb25a5ed795353f392c1ccfa352
 
 COCOAPODS: 1.10.1

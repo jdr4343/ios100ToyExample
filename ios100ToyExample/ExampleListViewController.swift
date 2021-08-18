@@ -26,6 +26,7 @@ class ExampleListViewController: UIViewController {
         FontPickerView()
         CustomTabBarView()
         pdfKitView()
+        spinnerView()
     }
 //플로팅 버튼 구현
     func floatingButton() {
@@ -110,7 +111,14 @@ class ExampleListViewController: UIViewController {
         button.setTitle("PDF 삽입", for: .normal)
         button.addTarget(self, action: #selector(didTabPDFButton), for: .touchUpInside)
     }
-    
+    func spinnerView() {
+        let button = UIButton(frame: CGRect(x: 360, y: 85
+                                             ,width: 55, height: 50))
+        view.addSubview(button)
+        button.backgroundColor = .systemPurple
+        button.setTitle("스피너", for: .normal)
+        button.addTarget(self, action: #selector(didTabSpinnerButton), for: .touchUpInside)
+    }
     
     
     
@@ -157,6 +165,10 @@ class ExampleListViewController: UIViewController {
         if let pdfkitVC = self.storyboard?.instantiateViewController(withIdentifier: "PDFkitVC") {
         self.present(pdfkitVC, animated: true, completion: nil)
         }
+    }
+    @objc func didTabSpinnerButton() {
+        let SpinnerVC = SpinnerViewController()
+        present(SpinnerVC, animated: true, completion: nil)
     }
    
 }
