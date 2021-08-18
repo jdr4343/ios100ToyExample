@@ -25,6 +25,7 @@ class ExampleListViewController: UIViewController {
         colorWellView()
         FontPickerView()
         CustomTabBarView()
+        pdfKitView()
     }
 //플로팅 버튼 구현
     func floatingButton() {
@@ -79,29 +80,36 @@ class ExampleListViewController: UIViewController {
     }
     func colorWellView() {
         let button = UIButton(frame: CGRect(x: 0, y: 85
-                                             ,width: 100, height: 50))
+                                             ,width: 90, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemGray
         button.setTitle("색상 선택기", for: .normal)
         button.addTarget(self, action: #selector(didTabColorWellButton), for: .touchUpInside)
     }
     func FontPickerView() {
-        let button = UIButton(frame: CGRect(x: 100, y: 85
-                                             ,width: 100, height: 50))
+        let button = UIButton(frame: CGRect(x: 90, y: 85
+                                             ,width: 90, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemFill
         button.setTitle("폰트 선택기", for: .normal)
         button.addTarget(self, action: #selector(didTabFontPickerButton), for: .touchUpInside)
     }
     func CustomTabBarView() {
-        let button = UIButton(frame: CGRect(x: 200, y: 85
-                                             ,width: 100, height: 50))
+        let button = UIButton(frame: CGRect(x: 180, y: 85
+                                             ,width: 90, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemGreen
         button.setTitle("커스텀 탭바", for: .normal)
         button.addTarget(self, action: #selector(didTabCustomTabBarButton), for: .touchUpInside)
     }
-    
+    func pdfKitView() {
+        let button = UIButton(frame: CGRect(x: 270, y: 85
+                                             ,width: 90, height: 50))
+        view.addSubview(button)
+        button.backgroundColor = .systemYellow
+        button.setTitle("PDF 삽입", for: .normal)
+        button.addTarget(self, action: #selector(didTabPDFButton), for: .touchUpInside)
+    }
     
     
     
@@ -143,6 +151,11 @@ class ExampleListViewController: UIViewController {
     @objc func didTabCustomTabBarButton() {
         if let CustomTabBarVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") {
             self.present(CustomTabBarVc, animated: true)
+        }
+    }
+    @objc func didTabPDFButton() {
+        if let pdfkitVC = self.storyboard?.instantiateViewController(withIdentifier: "PDFkitVC") {
+        self.present(pdfkitVC, animated: true, completion: nil)
         }
     }
    

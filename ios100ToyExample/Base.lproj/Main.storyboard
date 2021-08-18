@@ -16,21 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gj-4z-dXq">
-                                <rect key="frame" x="88" y="815" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="난이도가 따로 정해져 있지 않습니다.스토리보드로 지정된 뷰에는 버튼의 색깔과 일치시켜 시안성을 확보 했습니다" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gj-4z-dXq">
+                                <rect key="frame" x="125" y="398" width="164" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="HXt-3a-pag"/>
+                                    <constraint firstAttribute="width" constant="164" id="xao-L4-XiA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1gj-4z-dXq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="W9v-Dj-FN4"/>
+                            <constraint firstItem="1gj-4z-dXq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ekH-Y7-cRU"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="55" y="138"/>
+            <point key="canvasLocation" x="53.623188405797109" y="137.94642857142856"/>
         </scene>
         <!--Add Alarm View Controller-->
         <scene sceneID="QAV-lO-6J8">
@@ -71,10 +79,18 @@
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="r3n-AB-eQY">
                                 <rect key="frame" x="47" y="536" width="320" height="216"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="알람" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAC-hK-txa">
+                                <rect key="frame" x="164" y="44" width="87" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KMo-4J-yMY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
                             <constraint firstItem="nGG-qX-6Uu" firstAttribute="centerX" secondItem="Wsk-Vi-JCF" secondAttribute="centerX" id="Dn5-Kg-Qqc"/>
                             <constraint firstItem="8nI-vh-oH3" firstAttribute="centerX" secondItem="Wsk-Vi-JCF" secondAttribute="centerX" id="Epm-1Z-Slu"/>
@@ -183,17 +199,26 @@
             </objects>
             <point key="canvasLocation" x="915.94202898550736" y="-559.15178571428567"/>
         </scene>
-        <!--Item 2-->
+        <!--View Controller-->
         <scene sceneID="7RA-cj-lRh">
             <objects>
                 <viewController id="rxN-VS-agh" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xwE-07-MCl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="커스텀 탭바" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T24-zg-IMc">
+                                <rect key="frame" x="94" y="418" width="227" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Hd0-X7-Wy6"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="135-me-eV9"/>
+                    <tabBarItem key="tabBarItem" title="" id="135-me-eV9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qM5-z1-Hoz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -214,6 +239,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0V7-CJ-MUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="943" y="299"/>
+        </scene>
+        <!--Fkit View Controller-->
+        <scene sceneID="i6e-rG-Z5h">
+            <objects>
+                <viewController storyboardIdentifier="PDFkitVC" id="47X-UD-Lfl" customClass="PDFkitViewController" customModule="ios100ToyExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tci-YN-bPr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fs5-kg-c68">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="PDF" id="jv0-Ht-hCV"/>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5CO-GK-5bu">
+                                <rect key="frame" x="0.0" y="40" width="414" height="822"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PDF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRo-YR-wRs">
+                                        <rect key="frame" x="158" y="381" width="99" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CqN-xt-4go"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5CO-GK-5bu" firstAttribute="centerX" secondItem="tci-YN-bPr" secondAttribute="centerX" id="1pC-TB-RKr"/>
+                            <constraint firstItem="Fs5-kg-c68" firstAttribute="top" secondItem="tci-YN-bPr" secondAttribute="top" id="5JZ-rb-mJL"/>
+                            <constraint firstItem="CqN-xt-4go" firstAttribute="trailing" secondItem="5CO-GK-5bu" secondAttribute="trailing" id="6sT-Vl-scE"/>
+                            <constraint firstItem="5CO-GK-5bu" firstAttribute="top" secondItem="tci-YN-bPr" secondAttribute="top" constant="40" id="KKQ-p4-sjr"/>
+                            <constraint firstItem="Fs5-kg-c68" firstAttribute="centerX" secondItem="tci-YN-bPr" secondAttribute="centerX" id="RWi-vi-W37"/>
+                            <constraint firstItem="5CO-GK-5bu" firstAttribute="leading" secondItem="CqN-xt-4go" secondAttribute="leading" id="Y6z-cg-d0k"/>
+                            <constraint firstItem="CqN-xt-4go" firstAttribute="bottom" secondItem="5CO-GK-5bu" secondAttribute="bottom" id="dsb-9P-FOF"/>
+                            <constraint firstItem="Fs5-kg-c68" firstAttribute="leading" secondItem="tci-YN-bPr" secondAttribute="leading" id="mFI-9R-uxJ"/>
+                            <constraint firstItem="Fs5-kg-c68" firstAttribute="top" secondItem="tci-YN-bPr" secondAttribute="top" id="qug-uC-hvu"/>
+                            <constraint firstAttribute="trailing" secondItem="Fs5-kg-c68" secondAttribute="trailing" id="sUB-bw-yXf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pdfViewView" destination="5CO-GK-5bu" id="54X-Ve-tmr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mwx-Ce-uyt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2024.6376811594205" y="287.94642857142856"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="RT9-ho-zld">
@@ -254,6 +330,15 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
