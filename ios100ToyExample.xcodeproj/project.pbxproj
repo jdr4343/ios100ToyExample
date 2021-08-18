@@ -32,7 +32,13 @@
 		403502EB26CCD098004BD348 /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EA26CCD098004BD348 /* CarouselViewController.swift */; };
 		403502ED26CCD39A004BD348 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EC26CCD39A004BD348 /* CollectionTableViewCell.swift */; };
 		403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */; };
-		403502F126CCE22B004BD348 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502F026CCE22B004BD348 /* Model.swift */; };
+		403502F126CCE22B004BD348 /* CarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502F026CCE22B004BD348 /* CarouselModel.swift */; };
+		40DF551126CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */; };
+		40DF551326CD12C300FD9FB8 /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */; };
+		40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */; };
+		40DF551726CD130600FD9FB8 /* AdvancedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551626CD130600FD9FB8 /* AdvancedViewController.swift */; };
+		40DF551A26CD13A200FD9FB8 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 40DF551926CD13A200FD9FB8 /* video.mp4 */; };
+		40DF551E26CD2FB400FD9FB8 /* BarButtonItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551D26CD2FB400FD9FB8 /* BarButtonItemViewController.swift */; };
 		E9A3D8F98CDB652CA81284FC /* Pods_ios100ToyExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AF8711D20BB765BDA94AB6 /* Pods_ios100ToyExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +71,13 @@
 		403502EA26CCD098004BD348 /* CarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewController.swift; sourceTree = "<group>"; };
 		403502EC26CCD39A004BD348 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
-		403502F026CCE22B004BD348 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		403502F026CCE22B004BD348 /* CarouselModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselModel.swift; sourceTree = "<group>"; };
+		40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
+		40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvencedModel.swift; sourceTree = "<group>"; };
+		40DF551626CD130600FD9FB8 /* AdvancedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedViewController.swift; sourceTree = "<group>"; };
+		40DF551926CD13A200FD9FB8 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		40DF551D26CD2FB400FD9FB8 /* BarButtonItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItemViewController.swift; sourceTree = "<group>"; };
 		719BFC8F81408045F597C854 /* Pods-ios100ToyExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios100ToyExample.debug.xcconfig"; path = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8F57BC7F205787BA7AF735B3 /* Pods-ios100ToyExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios100ToyExample.release.xcconfig"; path = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,7 +128,9 @@
 				403502DE26CC8554004BD348 /* PDFkit */,
 				403502E626CCAC59004BD348 /* WebView */,
 				403502E326CC9EDC004BD348 /* Spinner */,
+				40DF551B26CD2F7200FD9FB8 /* BarButtonItem */,
 				403502E926CCCFD6004BD348 /* Carousel */,
+				40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */,
 				4035029F26CB4B4B004BD348 /* AppDelegate.swift */,
 				403502A126CB4B4B004BD348 /* SceneDelegate.swift */,
 				403502A826CB4B4D004BD348 /* Assets.xcassets */,
@@ -223,11 +237,31 @@
 			isa = PBXGroup;
 			children = (
 				403502EA26CCD098004BD348 /* CarouselViewController.swift */,
-				403502F026CCE22B004BD348 /* Model.swift */,
+				403502F026CCE22B004BD348 /* CarouselModel.swift */,
 				403502EC26CCD39A004BD348 /* CollectionTableViewCell.swift */,
 				403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */,
 			);
 			path = Carousel;
+			sourceTree = "<group>";
+		};
+		40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */ = {
+			isa = PBXGroup;
+			children = (
+				40DF551926CD13A200FD9FB8 /* video.mp4 */,
+				40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */,
+				40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */,
+				40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */,
+				40DF551626CD130600FD9FB8 /* AdvancedViewController.swift */,
+			);
+			path = AdvancedTableView;
+			sourceTree = "<group>";
+		};
+		40DF551B26CD2F7200FD9FB8 /* BarButtonItem */ = {
+			isa = PBXGroup;
+			children = (
+				40DF551D26CD2FB400FD9FB8 /* BarButtonItemViewController.swift */,
+			);
+			path = BarButtonItem;
 			sourceTree = "<group>";
 		};
 		51517D4ABB6E83B5401D9EDD /* Pods */ = {
@@ -307,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				403502AC26CB4B4D004BD348 /* LaunchScreen.storyboard in Resources */,
+				40DF551A26CD13A200FD9FB8 /* video.mp4 in Resources */,
 				403502A926CB4B4D004BD348 /* Assets.xcassets in Resources */,
 				403502A726CB4B4B004BD348 /* Main.storyboard in Resources */,
 				403502E026CC8638004BD348 /* Intro to Swift.pdf in Resources */,
@@ -370,20 +405,25 @@
 				403502A026CB4B4B004BD348 /* AppDelegate.swift in Sources */,
 				403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */,
 				403502C826CB88EA004BD348 /* AddAlarmViewController.swift in Sources */,
+				40DF551726CD130600FD9FB8 /* AdvancedViewController.swift in Sources */,
 				403502C226CB847F004BD348 /* AlarmModel.swift in Sources */,
 				403502E526CCA016004BD348 /* SpinnerViewController.swift in Sources */,
 				403502E226CC869A004BD348 /* PDFkitViewController.swift in Sources */,
 				403502BA26CB5EF3004BD348 /* GradientViewController.swift in Sources */,
+				40DF551126CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift in Sources */,
 				403502EB26CCD098004BD348 /* CarouselViewController.swift in Sources */,
 				403502D326CBCDC0004BD348 /* ColorWellViewController.swift in Sources */,
 				403502BD26CB61F2004BD348 /* DateFormatterViewController.swift in Sources */,
 				403502D926CBF490004BD348 /* CustomTabBarController.swift in Sources */,
+				40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */,
 				403502CE26CBBD6B004BD348 /* CheckViewController.swift in Sources */,
+				40DF551E26CD2FB400FD9FB8 /* BarButtonItemViewController.swift in Sources */,
 				403502D026CBBD9D004BD348 /* CheckModel.swift in Sources */,
 				403502D626CBE46C004BD348 /* FontPickerViewController.swift in Sources */,
-				403502F126CCE22B004BD348 /* Model.swift in Sources */,
+				403502F126CCE22B004BD348 /* CarouselModel.swift in Sources */,
 				403502B526CB4FB0004BD348 /* AnimatedCustomTabBarController.swift in Sources */,
 				403502A226CB4B4B004BD348 /* SceneDelegate.swift in Sources */,
+				40DF551326CD12C300FD9FB8 /* TableCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

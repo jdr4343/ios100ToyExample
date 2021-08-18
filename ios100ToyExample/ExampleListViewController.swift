@@ -16,6 +16,7 @@ class ExampleListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "100가지 예제"
         animatedTabBar()
         gradientView()
         dateFormatterView()
@@ -28,22 +29,26 @@ class ExampleListViewController: UIViewController {
         pdfKitView()
         spinnerView()
         webView()
-       // carouselView()
+        barButtonItemView()
     }
-//플로팅 버튼 구현
+    //플로팅 버튼 구현
     func floatingButton() {
         let floating = Floaty()
-        floating.addItem("회전 컬렉션", icon: UIImage(systemName: "slider.horizontal.3")!, handler: { item in
+        floating.addItem("수평 슬라이드 컬렉션 테이블뷰", icon: UIImage(systemName: "slider.horizontal.below.square.fill.and.square")!, handler: { item in
             //핸들러를 열고 기능 구현을 하면 됩니다.
             let CarouselVC = CarouselViewController()
             self.present(CarouselVC, animated: true, completion: nil)
+        })
+        floating.addItem("동영상,수평,수직 컬렉션 테이블뷰", icon: UIImage(systemName: "square.grid.3x1.fill.below.line.grid.1x2")!, handler: { item in
+            let AdvancedVC = AdvancedViewController()
+            self.present(AdvancedVC, animated: true, completion: nil)
         })
         self.view.addSubview(floating)
     }
 
     //버튼 추가 / 속성 추가
     func animatedTabBar() {
-        let button = UIButton(frame: CGRect(x: 0, y: 35
+        let button = UIButton(frame: CGRect(x: 0, y: 90
                                              ,width: 130, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemPink
@@ -51,7 +56,7 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabAnimatedButton), for: .touchUpInside)
     }
     func gradientView() {
-        let button = UIButton(frame: CGRect(x: 130, y: 35,
+        let button = UIButton(frame: CGRect(x: 130, y: 90,
                                             width: 100, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemIndigo
@@ -59,7 +64,7 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabGradientButton), for: .touchUpInside)
     }
     func dateFormatterView() {
-        let button = UIButton(frame: CGRect(x: 230, y: 35
+        let button = UIButton(frame: CGRect(x: 230, y: 90
                                              ,width: 80, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemRed
@@ -67,7 +72,7 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabDateFormatterButton), for: .touchUpInside)
     }
     func checkView() {
-        let button = UIButton(frame: CGRect(x: 310, y: 35
+        let button = UIButton(frame: CGRect(x: 310, y: 90
                                              ,width: 50, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemTeal
@@ -75,7 +80,7 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabCheckButton), for: .touchUpInside)
     }
     func alarmView() {
-        let button = UIButton(frame: CGRect(x: 360, y: 35
+        let button = UIButton(frame: CGRect(x: 360, y: 90
                                              ,width: 55, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemBlue
@@ -83,7 +88,7 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabAlarmButton), for: .touchUpInside)
     }
     func colorWellView() {
-        let button = UIButton(frame: CGRect(x: 0, y: 85
+        let button = UIButton(frame: CGRect(x: 0, y: 140
                                              ,width: 90, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemGray
@@ -91,7 +96,7 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabColorWellButton), for: .touchUpInside)
     }
     func FontPickerView() {
-        let button = UIButton(frame: CGRect(x: 90, y: 85
+        let button = UIButton(frame: CGRect(x: 90, y: 140
                                              ,width: 90, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemFill
@@ -99,7 +104,7 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabFontPickerButton), for: .touchUpInside)
     }
     func CustomTabBarView() {
-        let button = UIButton(frame: CGRect(x: 180, y: 85
+        let button = UIButton(frame: CGRect(x: 180, y: 140
                                              ,width: 90, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemGreen
@@ -107,7 +112,7 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabCustomTabBarButton), for: .touchUpInside)
     }
     func pdfKitView() {
-        let button = UIButton(frame: CGRect(x: 270, y: 85
+        let button = UIButton(frame: CGRect(x: 270, y: 140
                                              ,width: 90, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemYellow
@@ -115,7 +120,7 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabPDFButton), for: .touchUpInside)
     }
     func spinnerView() {
-        let button = UIButton(frame: CGRect(x: 0, y: 135
+        let button = UIButton(frame: CGRect(x: 0, y: 190
                                              ,width: 90, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemPurple
@@ -123,21 +128,21 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabSpinnerButton), for: .touchUpInside)
     }
     func webView() {
-        let button = UIButton(frame: CGRect(x: 360, y: 85
+        let button = UIButton(frame: CGRect(x: 360, y: 140
                                              ,width: 55, height: 50))
         view.addSubview(button)
         button.backgroundColor = .systemOrange
         button.setTitle("웹뷰", for: .normal)
         button.addTarget(self, action: #selector(didTabWebButton), for: .touchUpInside)
     }
-//    func carouselView() {
-//        let button = UIButton(frame: CGRect(x: 90, y: 135
-//                                             ,width: 90, height: 50))
-//        view.addSubview(button)
-//        button.backgroundColor = .blue
-//        button.setTitle("회전 컬렉션", for: .normal)
-//        button.addTarget(self, action: #selector(didTabCarouselButton), for: .touchUpInside)
-//    }
+    func barButtonItemView() {
+        let button = UIButton(frame: CGRect(x: 90, y: 190
+                                             ,width: 60, height: 50))
+        view.addSubview(button)
+        button.backgroundColor = .brown
+        button.setTitle("바 버튼", for: .normal)
+        button.addTarget(self, action: #selector(didTabBarButtonItem), for: .touchUpInside)
+    }
 
     
     
@@ -155,29 +160,29 @@ class ExampleListViewController: UIViewController {
         present(dateFormatterVC, animated: true, completion: nil)
     }
     @objc func didTabCheckButton() {
-        let CheckVC = CheckViewController()
-        present(CheckVC, animated: true, completion: nil)
+        let checkVC = CheckViewController()
+        present(checkVC, animated: true, completion: nil)
     }
     //스토리 보드를 통해서 뷰전환 / 각각의 스타일 들을 만들어 놓았으니 시뮬레이터를 플레이 해보시면서 어떤 차이점이 있는지 찾아보시면 도움이 될거 같습니다.
     @objc func didTabAlarmButton() {
-        if let AlarmVc = self.storyboard?.instantiateViewController(withIdentifier: "AlarmVC") {
-            AlarmVc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
-            self.present(AlarmVc, animated: true)
+        if let alarmVc = self.storyboard?.instantiateViewController(withIdentifier: "AlarmVC") {
+            alarmVc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+            self.present(alarmVc, animated: true)
         }
     }
     @objc func didTabColorWellButton() {
-        let ColorWellVC = ColorWellViewController()
-        ColorWellVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        present(ColorWellVC, animated: true, completion: nil)
+        let colorWellVC = ColorWellViewController()
+        colorWellVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        present(colorWellVC, animated: true, completion: nil)
     }
     @objc func didTabFontPickerButton() {
-        let FontPickerVC = FontPickerViewController()
-        FontPickerVC.modalTransitionStyle = UIModalTransitionStyle.coverVertical
-        present(FontPickerVC, animated: true, completion: nil)
+        let fontPickerVC = FontPickerViewController()
+        fontPickerVC.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        present(fontPickerVC, animated: true, completion: nil)
     }
     @objc func didTabCustomTabBarButton() {
-        if let CustomTabBarVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") {
-            self.present(CustomTabBarVc, animated: true)
+        if let customTabBarVc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") {
+            self.present(customTabBarVc, animated: true)
         }
     }
     @objc func didTabPDFButton() {
@@ -186,17 +191,18 @@ class ExampleListViewController: UIViewController {
         }
     }
     @objc func didTabSpinnerButton() {
-        let SpinnerVC = SpinnerViewController()
-        present(SpinnerVC, animated: true, completion: nil)
+        let spinnerVC = SpinnerViewController()
+        present(spinnerVC, animated: true, completion: nil)
     }
     @objc func didTabWebButton() {
-        let WebVC = WebViewController()
-        present(WebVC, animated: true, completion: nil)
+        let webVC = WebViewController()
+        present(webVC, animated: true, completion: nil)
     }
-//    @objc func didTabCarouselButton() {
-//        let CarouselVC = CarouselViewController()
-//        present(CarouselVC, animated: true, completion: nil)
-//    }
+    //네비게이션을 통한 뷰 전환
+    @objc func didTabBarButtonItem() {
+        let barButtonItemlVC = BarButtonItemViewController()
+        self.navigationController?.pushViewController(barButtonItemlVC, animated: true)
+    }
    
 }
 
