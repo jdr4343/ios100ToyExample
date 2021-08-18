@@ -6,3 +6,17 @@
 //
 
 import Foundation
+import UIKit
+
+struct CollectionTableViewCellViewModel {
+    let viewModels: [TileCollectionViewCellViewModel]
+}
+
+struct TileCollectionViewCellViewModel {
+    let name: String
+    let backgroundColor: UIColor
+}
+
+protocol CollectionTableViewCellDelegate: AnyObject {
+    func collectionTableViewCellDidTabItem(with viewModel: TileCollectionViewCellViewModel)
+}

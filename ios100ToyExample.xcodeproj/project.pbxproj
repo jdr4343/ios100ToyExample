@@ -30,7 +30,7 @@
 		403502E526CCA016004BD348 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502E426CCA016004BD348 /* SpinnerViewController.swift */; };
 		403502E826CCAC76004BD348 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502E726CCAC76004BD348 /* WebViewController.swift */; };
 		403502EB26CCD098004BD348 /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EA26CCD098004BD348 /* CarouselViewController.swift */; };
-		403502ED26CCD39A004BD348 /* CarouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EC26CCD39A004BD348 /* CarouselTableViewCell.swift */; };
+		403502ED26CCD39A004BD348 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EC26CCD39A004BD348 /* CollectionTableViewCell.swift */; };
 		403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */; };
 		403502F126CCE22B004BD348 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502F026CCE22B004BD348 /* Model.swift */; };
 		E9A3D8F98CDB652CA81284FC /* Pods_ios100ToyExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AF8711D20BB765BDA94AB6 /* Pods_ios100ToyExample.framework */; };
@@ -63,7 +63,7 @@
 		403502E426CCA016004BD348 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		403502E726CCAC76004BD348 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		403502EA26CCD098004BD348 /* CarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewController.swift; sourceTree = "<group>"; };
-		403502EC26CCD39A004BD348 /* CarouselTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTableViewCell.swift; sourceTree = "<group>"; };
+		403502EC26CCD39A004BD348 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
 		403502F026CCE22B004BD348 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		719BFC8F81408045F597C854 /* Pods-ios100ToyExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios100ToyExample.debug.xcconfig"; path = "Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -222,10 +222,10 @@
 		403502E926CCCFD6004BD348 /* Carousel */ = {
 			isa = PBXGroup;
 			children = (
-				403502EC26CCD39A004BD348 /* CarouselTableViewCell.swift */,
 				403502EA26CCD098004BD348 /* CarouselViewController.swift */,
-				403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */,
 				403502F026CCE22B004BD348 /* Model.swift */,
+				403502EC26CCD39A004BD348 /* CollectionTableViewCell.swift */,
+				403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */,
 			);
 			path = Carousel;
 			sourceTree = "<group>";
@@ -365,7 +365,7 @@
 				403502C426CB84F0004BD348 /* AlarmViewController.swift in Sources */,
 				403502E826CCAC76004BD348 /* WebViewController.swift in Sources */,
 				403502DB26CBF546004BD348 /* CustomTabBar.swift in Sources */,
-				403502ED26CCD39A004BD348 /* CarouselTableViewCell.swift in Sources */,
+				403502ED26CCD39A004BD348 /* CollectionTableViewCell.swift in Sources */,
 				403502A426CB4B4B004BD348 /* ExampleListViewController.swift in Sources */,
 				403502A026CB4B4B004BD348 /* AppDelegate.swift in Sources */,
 				403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */,
