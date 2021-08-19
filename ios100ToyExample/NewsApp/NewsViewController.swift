@@ -13,10 +13,11 @@ class NewsViewController: UIViewController {
     
     private let tableView: UITableView = {
        let table = UITableView()
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
         return table
     }()
     
+    private var viewModel = [NewsTableViewCellViewModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +27,20 @@ class NewsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         //APi호출이 작동되는지 확인
-        APICaller.shared.getTopStories(complation: { result in
+        APICaller.shared.getTopStories(complation: { [weak self] result in
             switch result {
-            case .success(let response):
-                break
+            case .success(let articles):
+                self?.viewModel = articles.compactMap({
+                    //compactMap은 1차원 배열에서 nil을 제거하고 옵셔널 바인딩 합니다.
+                    NewsTableViewCellViewModel(
+                        title: $0.title,
+                        subtitle: $0.description ?? "부제목이 없습니다",
+                        imageURL: URL(string: $0.urlToImage ?? ""))
+                })
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+                
             case . failure(let error):
                 print(error)
                 
@@ -50,8 +61,10 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "fasf"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.identifier, for: indexPath) as? NewsTableViewCell else {
+            fatalError()
+        }
+        cell.configure(with: viewModel[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
