@@ -35,6 +35,12 @@
 		403502F126CCE22B004BD348 /* CarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502F026CCE22B004BD348 /* CarouselModel.swift */; };
 		4078640526CE02A900C864FD /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078640426CE02A900C864FD /* NewsViewController.swift */; };
 		4078640726CE06A200C864FD /* FrameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078640626CE06A200C864FD /* FrameExtensions.swift */; };
+		4078640A26CE122100C864FD /* MemoListTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078640926CE122100C864FD /* MemoListTableTableViewController.swift */; };
+		4078640C26CE125100C864FD /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078640B26CE125100C864FD /* ComposeViewController.swift */; };
+		4078640E26CE127D00C864FD /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078640D26CE127D00C864FD /* UIViewController+Alert.swift */; };
+		4078641026CE129D00C864FD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078640F26CE129D00C864FD /* DetailViewController.swift */; };
+		4078641226CE12D200C864FD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078641126CE12D200C864FD /* DataManager.swift */; };
+		407A1F3A26CE195A0058F84D /* ios100ToyExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F3826CE195A0058F84D /* ios100ToyExample.xcdatamodeld */; };
 		40DF551126CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */; };
 		40DF551326CD12C300FD9FB8 /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */; };
 		40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */; };
@@ -76,6 +82,12 @@
 		403502F026CCE22B004BD348 /* CarouselModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselModel.swift; sourceTree = "<group>"; };
 		4078640426CE02A900C864FD /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		4078640626CE06A200C864FD /* FrameExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameExtensions.swift; sourceTree = "<group>"; };
+		4078640926CE122100C864FD /* MemoListTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableTableViewController.swift; sourceTree = "<group>"; };
+		4078640B26CE125100C864FD /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		4078640D26CE127D00C864FD /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		4078640F26CE129D00C864FD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4078641126CE12D200C864FD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		407A1F3926CE195A0058F84D /* ios100ToyExample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ios100ToyExample.xcdatamodel; sourceTree = "<group>"; };
 		40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
 		40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvencedModel.swift; sourceTree = "<group>"; };
@@ -102,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				4035029E26CB4B4B004BD348 /* ios100ToyExample */,
+				403502AA26CB4B4D004BD348 /* LaunchScreen.storyboard */,
 				4035029D26CB4B4B004BD348 /* Products */,
 				51517D4ABB6E83B5401D9EDD /* Pods */,
 				E39F52899B6D08D6F488726E /* Frameworks */,
@@ -121,7 +134,6 @@
 			children = (
 				403502A126CB4B4B004BD348 /* SceneDelegate.swift */,
 				4035029F26CB4B4B004BD348 /* AppDelegate.swift */,
-				403502AA26CB4B4D004BD348 /* LaunchScreen.storyboard */,
 				403502AD26CB4B4D004BD348 /* Info.plist */,
 				403502A826CB4B4D004BD348 /* Assets.xcassets */,
 				403502A326CB4B4B004BD348 /* ExampleListViewController.swift */,
@@ -140,6 +152,7 @@
 				403502E326CC9EDC004BD348 /* Spinner */,
 				40DF551B26CD2F7200FD9FB8 /* BarButtonItem */,
 				403502E926CCCFD6004BD348 /* Carousel */,
+				4078640826CE11E000C864FD /* Memo */,
 				40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */,
 				4078640326CE027E00C864FD /* NewsApp */,
 			);
@@ -256,6 +269,19 @@
 				4078640426CE02A900C864FD /* NewsViewController.swift */,
 			);
 			path = NewsApp;
+			sourceTree = "<group>";
+		};
+		4078640826CE11E000C864FD /* Memo */ = {
+			isa = PBXGroup;
+			children = (
+				4078641126CE12D200C864FD /* DataManager.swift */,
+				4078640926CE122100C864FD /* MemoListTableTableViewController.swift */,
+				4078640B26CE125100C864FD /* ComposeViewController.swift */,
+				4078640D26CE127D00C864FD /* UIViewController+Alert.swift */,
+				4078640F26CE129D00C864FD /* DetailViewController.swift */,
+				407A1F3826CE195A0058F84D /* ios100ToyExample.xcdatamodeld */,
+			);
+			path = Memo;
 			sourceTree = "<group>";
 		};
 		40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */ = {
@@ -411,13 +437,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4078641026CE129D00C864FD /* DetailViewController.swift in Sources */,
 				403502C426CB84F0004BD348 /* AlarmViewController.swift in Sources */,
 				403502E826CCAC76004BD348 /* WebViewController.swift in Sources */,
 				403502DB26CBF546004BD348 /* CustomTabBar.swift in Sources */,
 				403502ED26CCD39A004BD348 /* CollectionTableViewCell.swift in Sources */,
+				4078640C26CE125100C864FD /* ComposeViewController.swift in Sources */,
 				403502A426CB4B4B004BD348 /* ExampleListViewController.swift in Sources */,
 				403502A026CB4B4B004BD348 /* AppDelegate.swift in Sources */,
 				403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */,
+				4078641226CE12D200C864FD /* DataManager.swift in Sources */,
 				403502C826CB88EA004BD348 /* AddAlarmViewController.swift in Sources */,
 				40DF551726CD130600FD9FB8 /* AdvancedViewController.swift in Sources */,
 				403502C226CB847F004BD348 /* AlarmModel.swift in Sources */,
@@ -425,6 +454,8 @@
 				4078640526CE02A900C864FD /* NewsViewController.swift in Sources */,
 				403502E226CC869A004BD348 /* PDFkitViewController.swift in Sources */,
 				4078640726CE06A200C864FD /* FrameExtensions.swift in Sources */,
+				407A1F3A26CE195A0058F84D /* ios100ToyExample.xcdatamodeld in Sources */,
+				4078640A26CE122100C864FD /* MemoListTableTableViewController.swift in Sources */,
 				403502BA26CB5EF3004BD348 /* GradientViewController.swift in Sources */,
 				40DF551126CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift in Sources */,
 				403502EB26CCD098004BD348 /* CarouselViewController.swift in Sources */,
@@ -432,6 +463,7 @@
 				403502BD26CB61F2004BD348 /* DateFormatterViewController.swift in Sources */,
 				403502D926CBF490004BD348 /* CustomTabBarController.swift in Sources */,
 				40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */,
+				4078640E26CE127D00C864FD /* UIViewController+Alert.swift in Sources */,
 				403502CE26CBBD6B004BD348 /* CheckViewController.swift in Sources */,
 				40DF551E26CD2FB400FD9FB8 /* BarButtonItemViewController.swift in Sources */,
 				403502D026CBBD9D004BD348 /* CheckModel.swift in Sources */,
@@ -643,6 +675,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		407A1F3826CE195A0058F84D /* ios100ToyExample.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				407A1F3926CE195A0058F84D /* ios100ToyExample.xcdatamodel */,
+			);
+			currentVersion = 407A1F3926CE195A0058F84D /* ios100ToyExample.xcdatamodel */;
+			path = ios100ToyExample.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4035029426CB4B4B004BD348 /* Project object */;
 }
