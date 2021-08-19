@@ -14,23 +14,149 @@ import Floaty
 
 class ExampleListViewController: UIViewController {
 
+    //버튼 추가 / 속성 추가 / 반복적인 사이즈 조절과 해상도 대응을 위해 FrameExtensions파일에 구현해놓았습니다! 사이즈 구현에서 원한대로 구현이 안된다면 아래의 파일의 코드가 없는 것이니 복사해 가시길 바랍니다
+    private let animatedTabBar: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemPink
+        button.setTitle("애니메이션 탭바", for: .normal)
+        button.addTarget(self, action: #selector(didTabAnimatedButton), for: .touchUpInside)
+        return button
+    }()
+    private let gradientView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemIndigo
+        button.setTitle("그라데이션", for: .normal)
+        button.addTarget(self, action: #selector(didTabGradientButton), for: .touchUpInside)
+        return button
+    }()
+    private let dateFormatterView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemRed
+        button.setTitle("날짜 생성", for: .normal)
+        button.addTarget(self, action: #selector(didTabDateFormatterButton), for: .touchUpInside)
+        return button
+    }()
+    private let checkView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemTeal
+        button.setTitle("체크", for: .normal)
+        button.addTarget(self, action: #selector(didTabCheckButton), for: .touchUpInside)
+        return button
+    }()
+    private let alarmView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemBlue
+        button.setTitle("알람", for: .normal)
+        button.addTarget(self, action: #selector(didTabAlarmButton), for: .touchUpInside)
+        return button
+    }()
+    private let colorWellView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemGray
+        button.setTitle("색상 선택기", for: .normal)
+        button.addTarget(self, action: #selector(didTabColorWellButton), for: .touchUpInside)
+        return button
+    }()
+    private let FontPickerView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemFill
+        button.setTitle("폰트 선택기", for: .normal)
+        button.addTarget(self, action: #selector(didTabFontPickerButton), for: .touchUpInside)
+        return button
+    }()
+    private let CustomTabBarView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemGreen
+        button.setTitle("커스텀 탭바", for: .normal)
+        button.addTarget(self, action: #selector(didTabCustomTabBarButton), for: .touchUpInside)
+        return button
+    }()
+    private let pdfKitView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemYellow
+        button.setTitle("PDF 삽입", for: .normal)
+        button.addTarget(self, action: #selector(didTabPDFButton), for: .touchUpInside)
+        return button
+    }()
+    private let spinnerView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemPurple
+        button.setTitle("스피너 버튼", for: .normal)
+        button.addTarget(self, action: #selector(didTabSpinnerButton), for: .touchUpInside)
+        return button
+    }()
+    private let webView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemOrange
+        button.setTitle("웹뷰", for: .normal)
+        button.addTarget(self, action: #selector(didTabWebButton), for: .touchUpInside)
+        return button
+    }()
+    private let barButtonItemView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .brown
+        button.setTitle("바 버튼", for: .normal)
+        button.addTarget(self, action: #selector(didTabBarButtonItem), for: .touchUpInside)
+        return button
+    }()
+
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "100가지 예제"
-        animatedTabBar()
-        gradientView()
-        dateFormatterView()
-        alarmView()
+        view.addSubview(animatedTabBar)
+        view.addSubview(gradientView)
+        view.addSubview(dateFormatterView)
+        view.addSubview(alarmView)
         floatingButton()
-        checkView()
-        colorWellView()
-        FontPickerView()
-        CustomTabBarView()
-        pdfKitView()
-        spinnerView()
-        webView()
-        barButtonItemView()
+        view.addSubview(checkView)
+        view.addSubview(colorWellView)
+        view.addSubview(FontPickerView)
+        view.addSubview(CustomTabBarView)
+        view.addSubview(pdfKitView)
+        view.addSubview(spinnerView)
+        view.addSubview(webView)
+        view.addSubview(barButtonItemView)
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let size = view.width/3
+        animatedTabBar.frame = CGRect(x: 0, y: 90,
+                                      width: 130, height: 50)
+        gradientView.frame = CGRect(x: 130, y: 90,
+                                    width: 100, height: 50)
+        dateFormatterView.frame = CGRect(x: 230, y: 90
+                                         ,width: 80, height: 50)
+        alarmView.frame = CGRect(x: 360, y: 90
+                                 ,width: 55, height: 50)
+        checkView.frame = CGRect(x: 310, y: 90
+                                 ,width: 50, height: 50)
+        colorWellView.frame = CGRect(x: 0, y: 140
+                                     ,width: 90, height: 50)
+        FontPickerView.frame = CGRect(x: 90, y: 140
+                                      ,width: 90, height: 50)
+        CustomTabBarView.frame = CGRect(x: 180, y: 140
+                                        ,width: 90, height: 50)
+        pdfKitView.frame = CGRect(x: 270, y: 140
+                                  ,width: 90, height: 50)
+        spinnerView.frame = CGRect(x: 0, y: 190
+                                   ,width: 90, height: 50)
+        webView.frame = CGRect(x: 360, y: 140
+                               ,width: 55, height: 50)
+        barButtonItemView.frame = CGRect(x: 90, y: 190
+                                         ,width: 60, height: 50)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     //플로팅 버튼 구현
     func floatingButton() {
         let floating = Floaty()
@@ -46,104 +172,7 @@ class ExampleListViewController: UIViewController {
         self.view.addSubview(floating)
     }
 
-    //버튼 추가 / 속성 추가
-    func animatedTabBar() {
-        let button = UIButton(frame: CGRect(x: 0, y: 90
-                                             ,width: 130, height: 50))
-        view.addSubview(button)
-        button.backgroundColor = .systemPink
-        button.setTitle("애니메이션 탭바", for: .normal)
-        button.addTarget(self, action: #selector(didTabAnimatedButton), for: .touchUpInside)
-    }
-    func gradientView() {
-        let button = UIButton(frame: CGRect(x: 130, y: 90,
-                                            width: 100, height: 50))
-        view.addSubview(button)
-        button.backgroundColor = .systemIndigo
-        button.setTitle("그라데이션", for: .normal)
-        button.addTarget(self, action: #selector(didTabGradientButton), for: .touchUpInside)
-    }
-    func dateFormatterView() {
-        let button = UIButton(frame: CGRect(x: 230, y: 90
-                                             ,width: 80, height: 50))
-        view.addSubview(button)
-        button.backgroundColor = .systemRed
-        button.setTitle("날짜 생성", for: .normal)
-        button.addTarget(self, action: #selector(didTabDateFormatterButton), for: .touchUpInside)
-    }
-    func checkView() {
-        let button = UIButton(frame: CGRect(x: 310, y: 90
-                                             ,width: 50, height: 50))
-        view.addSubview(button)
-        button.backgroundColor = .systemTeal
-        button.setTitle("체크", for: .normal)
-        button.addTarget(self, action: #selector(didTabCheckButton), for: .touchUpInside)
-    }
-    func alarmView() {
-        let button = UIButton(frame: CGRect(x: 360, y: 90
-                                             ,width: 55, height: 50))
-        view.addSubview(button)
-        button.backgroundColor = .systemBlue
-        button.setTitle("알람", for: .normal)
-        button.addTarget(self, action: #selector(didTabAlarmButton), for: .touchUpInside)
-    }
-    func colorWellView() {
-        let button = UIButton(frame: CGRect(x: 0, y: 140
-                                             ,width: 90, height: 50))
-        view.addSubview(button)
-        button.backgroundColor = .systemGray
-        button.setTitle("색상 선택기", for: .normal)
-        button.addTarget(self, action: #selector(didTabColorWellButton), for: .touchUpInside)
-    }
-    func FontPickerView() {
-        let button = UIButton(frame: CGRect(x: 90, y: 140
-                                             ,width: 90, height: 50))
-        view.addSubview(button)
-        button.backgroundColor = .systemFill
-        button.setTitle("폰트 선택기", for: .normal)
-        button.addTarget(self, action: #selector(didTabFontPickerButton), for: .touchUpInside)
-    }
-    func CustomTabBarView() {
-        let button = UIButton(frame: CGRect(x: 180, y: 140
-                                             ,width: 90, height: 50))
-        view.addSubview(button)
-        button.backgroundColor = .systemGreen
-        button.setTitle("커스텀 탭바", for: .normal)
-        button.addTarget(self, action: #selector(didTabCustomTabBarButton), for: .touchUpInside)
-    }
-    func pdfKitView() {
-        let button = UIButton(frame: CGRect(x: 270, y: 140
-                                             ,width: 90, height: 50))
-        view.addSubview(button)
-        button.backgroundColor = .systemYellow
-        button.setTitle("PDF 삽입", for: .normal)
-        button.addTarget(self, action: #selector(didTabPDFButton), for: .touchUpInside)
-    }
-    func spinnerView() {
-        let button = UIButton(frame: CGRect(x: 0, y: 190
-                                             ,width: 90, height: 50))
-        view.addSubview(button)
-        button.backgroundColor = .systemPurple
-        button.setTitle("스피너 버튼", for: .normal)
-        button.addTarget(self, action: #selector(didTabSpinnerButton), for: .touchUpInside)
-    }
-    func webView() {
-        let button = UIButton(frame: CGRect(x: 360, y: 140
-                                             ,width: 55, height: 50))
-        view.addSubview(button)
-        button.backgroundColor = .systemOrange
-        button.setTitle("웹뷰", for: .normal)
-        button.addTarget(self, action: #selector(didTabWebButton), for: .touchUpInside)
-    }
-    func barButtonItemView() {
-        let button = UIButton(frame: CGRect(x: 90, y: 190
-                                             ,width: 60, height: 50))
-        view.addSubview(button)
-        button.backgroundColor = .brown
-        button.setTitle("바 버튼", for: .normal)
-        button.addTarget(self, action: #selector(didTabBarButtonItem), for: .touchUpInside)
-    }
-
+    
     
     
     //action에 들어갈 기능구현 /  뷰전환은 여기에서 배우시면 될거 같습니다. 

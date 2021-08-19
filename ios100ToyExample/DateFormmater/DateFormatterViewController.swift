@@ -49,10 +49,5 @@ class DateFormatterViewController: UIViewController {
 
 
 }
-//위치 조정을 위해 추가했습니다. 다른뷰에서 작성해도 되지만 헷갈리실것 같아 여기에 추가합니다!
-extension UIView {
-    public var bottom: CGFloat {
-        return self.frame.size.height + self.frame.origin.y
-     }
-}
+
     
