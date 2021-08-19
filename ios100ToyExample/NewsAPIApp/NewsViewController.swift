@@ -17,6 +17,9 @@ class NewsViewController: UIViewController {
         table.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifier)
         return table
     }()
+    
+    private let searchVC = UISearchController(searchResultsController: nil)
+    
     private var articles = [Article]()
     private var viewModel = [NewsTableViewCellViewModel]()
 
@@ -28,6 +31,7 @@ class NewsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         fetchTopStories()
+        createSerchBar()
     }
     
     override func viewDidLayoutSubviews() {
@@ -59,9 +63,15 @@ class NewsViewController: UIViewController {
         })
 
     }
+    private func createSerchBar() {
+        navigationItem.searchController = searchVC
+        searchVC.searchBar.delegate = self
+         
+    }
+    
     
 }
-extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
+extension NewsViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.count
     }
@@ -86,5 +96,34 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
+    }
+    
+    //MARK: - Search
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, !text.isEmpty else {
+            return
+        }
+        APICaller.shared.search(with: text, complation: { [weak self] result in
+            switch result {
+            case .success(let articles):
+                self?.articles = articles
+                self?.viewModel = articles.compactMap({
+                    //compactMap은 1차원 배열 에서 nil을 제거하고 옵셔널 바인딩 합니다.
+                    NewsTableViewCellViewModel(
+                        title: $0.title,
+                        subtitle: $0.description ,
+                        imageURL: URL(string: $0.urlToImage ))
+                })
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                    self?.searchVC.dismiss(animated: true, completion: nil)
+                }
+                
+            case . failure(let error):
+                print(error)
+                
+            }
+        })
     }
 }

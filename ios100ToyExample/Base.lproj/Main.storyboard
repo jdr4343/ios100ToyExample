@@ -410,17 +410,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="메모" id="7Lo-x6-dmC">
-                        <rightBarButtonItems>
-                            <barButtonItem style="plain" systemItem="add" id="09X-Qc-5kk">
-                                <color key="tintColor" red="0.19112412500000001" green="0.25125721239999999" blue="0.27792746439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <connections>
-                                    <segue destination="Sju-Dl-NpP" kind="presentation" id="WKM-DT-hM5"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem style="plain" systemItem="search" id="2eJ-B3-WEm">
-                                <color key="tintColor" red="0.19112412500000001" green="0.25125721239999999" blue="0.27792746439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="09X-Qc-5kk">
+                            <color key="tintColor" red="0.19112412500000001" green="0.25125721239999999" blue="0.27792746439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="Sju-Dl-NpP" kind="presentation" id="WKM-DT-hM5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZZf-dU-fng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

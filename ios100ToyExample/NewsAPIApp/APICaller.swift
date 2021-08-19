@@ -14,8 +14,10 @@ import Foundation
 final class APICaller {
     static let shared = APICaller()
 
-    struct Constents {
+    struct Constants {
         static let WallStreetURL = URL(string: "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=d60933c3b09140c890209cff548884d6")
+        static let searchURlString =
+            "https://newsapi.org/v2/everything?sortedBy=popularity&apiKey=d60933c3b09140c890209cff548884d6&q="
     }
 
     
@@ -25,7 +27,7 @@ final class APICaller {
     //함수는 연산을 시작시키고 반환 하지만 escaping Closer는 연산이 완료 될떄까지 호출되지 않습니다. 나중에 호출하기 위해선 클로저를 벗어나야합니다!
     public func getTopStories(complation: @escaping(Result<[Article], Error>) -> Void) {
         //url은 옵셔널 값이기 때문에 바인딩 해주어야 합니다.
-        guard let url = Constents.WallStreetURL else {
+        guard let url = Constants.WallStreetURL else {
             print("url faield..🙉")
             return
         }
@@ -46,6 +48,33 @@ final class APICaller {
             }
         }
         task.resume() //머부분의 에러중에 한부분인 resume입니다.. 잊지말고 사용해주세요! 🔥
+    }
+    
+    public func search(with query: String, complation: @escaping(Result<[Article], Error>) -> Void) {
+        guard !query.trimmingCharacters(in: .whitespaces).isEmpty else {
+            return
+        }
+        let urlString = Constants.searchURlString + query
+        guard let url = URL(string: urlString) else {
+            print("url faield..🙉")
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                complation(.failure(error))
+            } else if let data = data {
+                do {
+                    let result = try JSONDecoder().decode(APIResponse.self, from: data)
+                    
+                    print("Articles: \(result.articles.count)")
+                    complation(.success(result.articles))
+                }
+                catch {
+                    complation(.failure(error))
+                }
+            }
+        }
+        task.resume()
     }
     
 }
