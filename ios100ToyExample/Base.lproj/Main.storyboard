@@ -105,9 +105,12 @@
                                 <rect key="frame" x="47" y="536" width="320" height="216"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="알람" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAC-hK-txa">
-                                <rect key="frame" x="164" y="44" width="87" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알람" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAC-hK-txa">
+                                <rect key="frame" x="163.5" y="44" width="87" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="cDD-nJ-9iU"/>
+                                    <constraint firstAttribute="width" constant="87" id="pJw-n9-n9J"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -119,6 +122,8 @@
                             <constraint firstItem="nGG-qX-6Uu" firstAttribute="centerX" secondItem="Wsk-Vi-JCF" secondAttribute="centerX" id="Dn5-Kg-Qqc"/>
                             <constraint firstItem="8nI-vh-oH3" firstAttribute="centerX" secondItem="Wsk-Vi-JCF" secondAttribute="centerX" id="Epm-1Z-Slu"/>
                             <constraint firstItem="r3n-AB-eQY" firstAttribute="top" secondItem="8nI-vh-oH3" secondAttribute="bottom" constant="130" id="IFH-U8-hnl"/>
+                            <constraint firstItem="FAC-hK-txa" firstAttribute="centerX" secondItem="Wsk-Vi-JCF" secondAttribute="centerX" id="UjR-HJ-A4s"/>
+                            <constraint firstItem="FAC-hK-txa" firstAttribute="top" secondItem="KMo-4J-yMY" secondAttribute="top" id="aiS-aA-A8N"/>
                             <constraint firstItem="ezc-aV-VCI" firstAttribute="top" secondItem="nGG-qX-6Uu" secondAttribute="bottom" constant="90" id="eQP-Yx-FEM"/>
                             <constraint firstItem="nGG-qX-6Uu" firstAttribute="top" secondItem="wS8-rK-EII" secondAttribute="bottom" constant="30" id="eZz-KL-XdM"/>
                             <constraint firstItem="r3n-AB-eQY" firstAttribute="centerX" secondItem="Wsk-Vi-JCF" secondAttribute="centerX" id="iAo-bF-Edk"/>
@@ -231,9 +236,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="커스텀 탭바" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T24-zg-IMc">
-                                <rect key="frame" x="94" y="418" width="227" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="커스텀 탭바" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T24-zg-IMc">
+                                <rect key="frame" x="93.5" y="418" width="227" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -241,6 +245,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hd0-X7-Wy6"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="T24-zg-IMc" firstAttribute="centerY" secondItem="xwE-07-MCl" secondAttribute="centerY" id="TdW-bV-Ngx"/>
+                            <constraint firstItem="T24-zg-IMc" firstAttribute="centerX" secondItem="xwE-07-MCl" secondAttribute="centerX" id="sn8-rI-g2B"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="135-me-eV9"/>
                 </viewController>
@@ -281,15 +289,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5CO-GK-5bu">
                                 <rect key="frame" x="0.0" y="40" width="414" height="822"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PDF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRo-YR-wRs">
-                                        <rect key="frame" x="158" y="381" width="99" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PDF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRo-YR-wRs">
+                                        <rect key="frame" x="157.5" y="381" width="99" height="60"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstItem="kRo-YR-wRs" firstAttribute="centerX" secondItem="5CO-GK-5bu" secondAttribute="centerX" id="EcE-Kp-o6U"/>
+                                    <constraint firstItem="kRo-YR-wRs" firstAttribute="centerY" secondItem="5CO-GK-5bu" secondAttribute="centerY" id="GV4-M9-5j5"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CqN-xt-4go"/>

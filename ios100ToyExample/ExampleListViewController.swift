@@ -99,6 +99,13 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabBarButtonItem), for: .touchUpInside)
         return button
     }()
+    private let textFieldAlertView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .darkGray
+        button.setTitle("텍스트 경고창", for: .normal)
+        button.addTarget(self, action: #selector(didTabTextFieldAlertButton), for: .touchUpInside)
+        return button
+    }()
 
     
     
@@ -120,6 +127,7 @@ class ExampleListViewController: UIViewController {
         view.addSubview(spinnerView)
         view.addSubview(webView)
         view.addSubview(barButtonItemView)
+        view.addSubview(textFieldAlertView)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -148,6 +156,8 @@ class ExampleListViewController: UIViewController {
                                ,width: 55, height: 50)
         barButtonItemView.frame = CGRect(x: 90, y: 190
                                          ,width: 60, height: 50)
+        textFieldAlertView.frame = CGRect(x: 150, y: 190,
+                                          width: 110, height: 50)
     }
     
     
@@ -160,6 +170,11 @@ class ExampleListViewController: UIViewController {
     //플로팅 버튼 구현
     func floatingButton() {
         let floating = Floaty()
+        floating.addItem("뉴스 앱을 만들어보자!", icon: UIImage(systemName:
+            "newspaper.fill")!, handler: { item in
+            let  NewsVC = NewsViewController()
+                self.navigationController?.pushViewController(NewsVC, animated: true)
+        })
         floating.addItem("수평 슬라이드 컬렉션 테이블뷰", icon: UIImage(systemName: "slider.horizontal.below.square.fill.and.square")!, handler: { item in
             //핸들러를 열고 기능 구현을 하면 됩니다.
             let CarouselVC = CarouselViewController()
@@ -232,6 +247,8 @@ class ExampleListViewController: UIViewController {
         let barButtonItemlVC = BarButtonItemViewController()
         self.navigationController?.pushViewController(barButtonItemlVC, animated: true)
     }
-   
+    @objc func didTabTextFieldAlertButton() {
+        let TextFieldAlertVC = TextFieldAlertViewController()
+        present(TextFieldAlertVC, animated: true, completion: nil)
+    }
 }
-

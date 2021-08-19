@@ -41,8 +41,8 @@ class FontPickerViewController: UIViewController, UIFontPickerViewControllerDele
         label.frame = CGRect(
             x: 10,
             y: view.safeAreaInsets.top,
-            width: view.frame.size.width-20,
-            height: view.frame.size.height - view.safeAreaInsets.top - view.safeAreaInsets.bottom-100)
+            width: view.frame.size.width-10,
+            height: view.frame.size.height - view.safeAreaInsets.top - view.safeAreaInsets.bottom-200)
         button.frame = CGRect(
             x: 20,
             y: view.frame.size.height-100,
