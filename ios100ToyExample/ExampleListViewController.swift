@@ -120,14 +120,20 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabKeyboardBarButton), for: .touchUpInside)
         return button
     }()
-    private let CollectionView: UIButton = {
+    private let collectionView: UIButton = {
         let button = UIButton()
         button.backgroundColor = .magenta
         button.setTitle("컬렉션 뷰", for: .normal)
         button.addTarget(self, action: #selector(didTabCollectionViewButton), for: .touchUpInside)
         return button
     }()
-    
+    private let chartsView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .yellow
+        button.setTitle("차트/그래프", for: .normal)
+        button.addTarget(self, action: #selector(didTabChartsButton), for: .touchUpInside)
+        return button
+    }()
     
     
     
@@ -150,7 +156,8 @@ class ExampleListViewController: UIViewController {
         view.addSubview(textFieldAlertView)
         view.addSubview(tableView)
         view.addSubview(keyboardBar)
-        view.addSubview(CollectionView)
+        view.addSubview(collectionView)
+        view.addSubview(chartsView)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -183,10 +190,12 @@ class ExampleListViewController: UIViewController {
                                           width: 110, height: 50)
         tableView.frame = CGRect(x: 260, y: 190,
                                  width: 77, height: 50)
-        CollectionView.frame = CGRect(x: 335, y: 190,
+        collectionView.frame = CGRect(x: 335, y: 190,
                                       width: 80, height: 50)
         keyboardBar.frame = CGRect(x: 0, y: 240,
                                    width: 90, height: 50)
+        chartsView.frame = CGRect(x: 90, y: 240,
+                                  width: 100, height: 50)
         
     }
     
@@ -297,5 +306,9 @@ class ExampleListViewController: UIViewController {
     @objc func didTabCollectionViewButton() {
         let CollectionVC = CollectionViewController()
         present(CollectionVC, animated: true, completion: nil)
+    }
+    @objc func didTabChartsButton() {
+        let ChartsVC = BarViewController()
+        self.navigationController?.pushViewController(ChartsVC, animated: true)
     }
 }

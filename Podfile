@@ -10,5 +10,6 @@ target 'ios100ToyExample' do
 pod 'RAMAnimatedTabBarController'
 pod 'Floaty'
 pod 'TransitionButton'
+pod 'Charts'
 
 end
