@@ -11,5 +11,8 @@ pod 'RAMAnimatedTabBarController'
 pod 'Floaty'
 pod 'TransitionButton'
 pod 'Charts'
+pod 'TheAnimation'
+
+
 
 end
