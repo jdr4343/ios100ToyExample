@@ -141,6 +141,13 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabCoreAnimationButton), for: .touchUpInside)
         return button
     }()
+    private let AudioPlayView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemBlue
+        button.setTitle("오디오 재생", for: .normal)
+        button.addTarget(self, action: #selector(didTabAudioButton), for: .touchUpInside)
+        return button
+    }()
     
     
     
@@ -166,6 +173,7 @@ class ExampleListViewController: UIViewController {
         view.addSubview(collectionView)
         view.addSubview(chartsView)
         view.addSubview(CoreAnimationView)
+        view.addSubview(AudioPlayView)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -204,7 +212,10 @@ class ExampleListViewController: UIViewController {
                                    width: 90, height: 50)
         chartsView.frame = CGRect(x: 90, y: 240,
                                   width: 100, height: 50)
-        CoreAnimationView.frame = CGRect(x: 190, y: 240, width: 120, height: 50)
+        CoreAnimationView.frame = CGRect(x: 190, y: 240,
+                                         width: 120, height: 50)
+        AudioPlayView.frame = CGRect(x: 310, y: 240, width: 110, height: 50)
+        
         
     }
     
@@ -323,5 +334,9 @@ class ExampleListViewController: UIViewController {
     @objc func didTabCoreAnimationButton() {
         let CoreVC = CoreAnimationViewController()
         present(CoreVC, animated: true)
+    }
+    @objc func didTabAudioButton() {
+        let AudioVC = AudioViewController()
+        present(AudioVC, animated: true)
     }
 }
