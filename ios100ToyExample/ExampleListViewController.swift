@@ -131,7 +131,7 @@ class ExampleListViewController: UIViewController {
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let size = view.width/3
+        
         animatedTabBar.frame = CGRect(x: 0, y: 90,
                                       width: 130, height: 50)
         gradientView.frame = CGRect(x: 130, y: 90,
@@ -170,6 +170,11 @@ class ExampleListViewController: UIViewController {
     //플로팅 버튼 구현
     func floatingButton() {
         let floating = Floaty()
+        floating.addItem("테이블뷰 헤더와 푸터!", icon: UIImage(systemName:
+            "lineweight")!, handler: { item in
+            let  SectionVC = SectionViewController()
+                self.present(SectionVC, animated: true)
+        })
         floating.addItem("뉴스 앱을 만들어보자!", icon: UIImage(systemName:
             "newspaper.fill")!, handler: { item in
             let  NewsVC = NewsViewController()
