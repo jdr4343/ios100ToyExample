@@ -54,6 +54,7 @@
 		407A1F5A26CF9D280058F84D /* BarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F5926CF9D280058F84D /* BarViewController.swift */; };
 		407A1F5C26CF9D6C0058F84D /* LineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F5B26CF9D6C0058F84D /* LineViewController.swift */; };
 		407A1F5E26CF9D880058F84D /* PieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F5D26CF9D880058F84D /* PieViewController.swift */; };
+		407A1F6126CFB36B0058F84D /* CoreAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F6026CFB36B0058F84D /* CoreAnimationViewController.swift */; };
 		40DF551126CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */; };
 		40DF551326CD12C300FD9FB8 /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */; };
 		40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */; };
@@ -114,6 +115,7 @@
 		407A1F5926CF9D280058F84D /* BarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarViewController.swift; sourceTree = "<group>"; };
 		407A1F5B26CF9D6C0058F84D /* LineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineViewController.swift; sourceTree = "<group>"; };
 		407A1F5D26CF9D880058F84D /* PieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieViewController.swift; sourceTree = "<group>"; };
+		407A1F6026CFB36B0058F84D /* CoreAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAnimationViewController.swift; sourceTree = "<group>"; };
 		40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
 		40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvencedModel.swift; sourceTree = "<group>"; };
@@ -158,7 +160,7 @@
 		4035029E26CB4B4B004BD348 /* ios100ToyExample */ = {
 			isa = PBXGroup;
 			children = (
-				407A1F5826CF9C5B0058F84D /* Chart,Graph */,
+				407A1F5F26CFB3270058F84D /* CoreAnimation */,
 				403502A126CB4B4B004BD348 /* SceneDelegate.swift */,
 				4035029F26CB4B4B004BD348 /* AppDelegate.swift */,
 				403502AD26CB4B4D004BD348 /* Info.plist */,
@@ -169,6 +171,7 @@
 				407A1F4D26CF6A9D0058F84D /* TableView */,
 				403502B326CB4D0C004BD348 /* AnimatedTabBar */,
 				403502B626CB5E7A004BD348 /* Gradients */,
+				407A1F5826CF9C5B0058F84D /* Chart,Graph */,
 				403502BB26CB61BA004BD348 /* DateFormmater */,
 				403502CC26CBBD12004BD348 /* CheakList */,
 				403502C026CB8444004BD348 /* Alarm */,
@@ -371,6 +374,14 @@
 			path = "Chart,Graph";
 			sourceTree = "<group>";
 		};
+		407A1F5F26CFB3270058F84D /* CoreAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				407A1F6026CFB36B0058F84D /* CoreAnimationViewController.swift */,
+			);
+			path = CoreAnimation;
+			sourceTree = "<group>";
+		};
 		40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,6 +558,7 @@
 				403502E226CC869A004BD348 /* PDFkitViewController.swift in Sources */,
 				407A1F5726CF8C640058F84D /* PhotoCollectionViewCell.swift in Sources */,
 				407A1F5226CF729C0058F84D /* KeyboardToolBarViewController.swift in Sources */,
+				407A1F6126CFB36B0058F84D /* CoreAnimationViewController.swift in Sources */,
 				4078640726CE06A200C864FD /* FrameExtensions.swift in Sources */,
 				407A1F4526CE6D170058F84D /* NewsTableViewCell.swift in Sources */,
 				407A1F3A26CE195A0058F84D /* ios100ToyExample.xcdatamodeld in Sources */,
