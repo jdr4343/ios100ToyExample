@@ -14,7 +14,7 @@ import Floaty
 
 class ExampleListViewController: UIViewController {
 
-    //버튼 추가 / 속성 추가 / 반복적인 사이즈 조절과 해상도 대응을 위해 FrameExtensions파일에 구현해놓았습니다! 사이즈 구현에서 원한대로 구현이 안된다면 아래의 파일의 코드가 없는 것이니 복사해 가시길 바랍니다
+    //버튼 추가 / 속성 추가 / 반복적인 사이즈 조절과 해상도 대응을 위해 FrameExtensions파일에 구현해놓았습니다! 사이즈 구현에서 원한대로 구현이 안된다면 FrameExtensions의 파일의 코드가 없는 것이니 복사해 가시길 바랍니다
     private let animatedTabBar: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemPink
@@ -108,9 +108,23 @@ class ExampleListViewController: UIViewController {
     }()
     private let tableView: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .cyan
+        button.backgroundColor = .systemGray4
         button.setTitle("테이블 뷰", for: .normal)
         button.addTarget(self, action: #selector(didTabTableViewButton), for: .touchUpInside)
+        return button
+    }()
+    private let keyboardBar: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .green
+        button.setTitle("키보드 툴바", for: .normal)
+        button.addTarget(self, action: #selector(didTabKeyboardBarButton), for: .touchUpInside)
+        return button
+    }()
+    private let CollectionView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .magenta
+        button.setTitle("컬렉션 뷰", for: .normal)
+        button.addTarget(self, action: #selector(didTabCollectionViewButton), for: .touchUpInside)
         return button
     }()
     
@@ -135,6 +149,8 @@ class ExampleListViewController: UIViewController {
         view.addSubview(barButtonItemView)
         view.addSubview(textFieldAlertView)
         view.addSubview(tableView)
+        view.addSubview(keyboardBar)
+        view.addSubview(CollectionView)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -165,7 +181,13 @@ class ExampleListViewController: UIViewController {
                                          ,width: 60, height: 50)
         textFieldAlertView.frame = CGRect(x: 150, y: 190,
                                           width: 110, height: 50)
-        tableView.frame = CGRect(x: 260, y: 190, width: 80, height: 50)
+        tableView.frame = CGRect(x: 260, y: 190,
+                                 width: 77, height: 50)
+        CollectionView.frame = CGRect(x: 335, y: 190,
+                                      width: 80, height: 50)
+        keyboardBar.frame = CGRect(x: 0, y: 240,
+                                   width: 90, height: 50)
+        
     }
     
     
@@ -267,5 +289,13 @@ class ExampleListViewController: UIViewController {
     @objc func didTabTableViewButton() {
         let tableVC = TableViewController()
         present(tableVC, animated: true, completion: nil)
+    }
+    @objc func didTabKeyboardBarButton() {
+        let keyboradlVC = KeyboardToolBarViewController()
+        self.navigationController?.pushViewController(keyboradlVC, animated: true)
+    }
+    @objc func didTabCollectionViewButton() {
+        let CollectionVC = CollectionViewController()
+        present(CollectionVC, animated: true, completion: nil)
     }
 }

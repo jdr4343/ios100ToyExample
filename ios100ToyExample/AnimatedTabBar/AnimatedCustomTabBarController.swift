@@ -6,7 +6,10 @@
 //
 import RAMAnimatedTabBarController
 import UIKit
-
+//먼저 코코아팟으로 import 되어 있는 RAMAnimatedTabBarController을 인스톨 해야합니다.현재 파일의 팟 파일에는 다 적혀 있기 때문에  그냥 이 파일을 다운 받은 후 코코아팟을 다운 받은후 터미널을 키고
+//cd 현재폴더 드래그
+//pod install
+//을 해주시면 됩니다.
 class AnimatedCustomTabBarController: RAMAnimatedTabBarController {
 
     override func viewDidLoad() {

@@ -48,6 +48,8 @@
 		407A1F4A26CF38F10058F84D /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F4926CF38F10058F84D /* SectionViewController.swift */; };
 		407A1F4C26CF411F0058F84D /* SectionITableViewHeader&FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F4B26CF411F0058F84D /* SectionITableViewHeader&FooterView.swift */; };
 		407A1F4F26CF6AE60058F84D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F4E26CF6AE60058F84D /* TableViewController.swift */; };
+		407A1F5226CF729C0058F84D /* KeyboardToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F5126CF729C0058F84D /* KeyboardToolBarViewController.swift */; };
+		407A1F5526CF7D440058F84D /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F5426CF7D440058F84D /* CollectionViewController.swift */; };
 		40DF551126CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */; };
 		40DF551326CD12C300FD9FB8 /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */; };
 		40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */; };
@@ -102,6 +104,8 @@
 		407A1F4926CF38F10058F84D /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
 		407A1F4B26CF411F0058F84D /* SectionITableViewHeader&FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionITableViewHeader&FooterView.swift"; sourceTree = "<group>"; };
 		407A1F4E26CF6AE60058F84D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		407A1F5126CF729C0058F84D /* KeyboardToolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolBarViewController.swift; sourceTree = "<group>"; };
+		407A1F5426CF7D440058F84D /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
 		40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvencedModel.swift; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 				40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */,
 				4078640326CE027E00C864FD /* NewsAPIApp */,
 				407A1F4826CF37FB0058F84D /* TableViewSection&Headers,footers */,
+				407A1F5026CF72500058F84D /* KeyboardToolbar */,
+				407A1F5326CF7D130058F84D /* CollectionView */,
 				407A1F3F26CE33F90058F84D /* TextFieldAlert */,
 			);
 			path = ios100ToyExample;
@@ -327,6 +333,22 @@
 				407A1F4E26CF6AE60058F84D /* TableViewController.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		407A1F5026CF72500058F84D /* KeyboardToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				407A1F5126CF729C0058F84D /* KeyboardToolBarViewController.swift */,
+			);
+			path = KeyboardToolbar;
+			sourceTree = "<group>";
+		};
+		407A1F5326CF7D130058F84D /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				407A1F5426CF7D440058F84D /* CollectionViewController.swift */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */ = {
@@ -502,6 +524,7 @@
 				403502E526CCA016004BD348 /* SpinnerViewController.swift in Sources */,
 				4078640526CE02A900C864FD /* NewsViewController.swift in Sources */,
 				403502E226CC869A004BD348 /* PDFkitViewController.swift in Sources */,
+				407A1F5226CF729C0058F84D /* KeyboardToolBarViewController.swift in Sources */,
 				4078640726CE06A200C864FD /* FrameExtensions.swift in Sources */,
 				407A1F4526CE6D170058F84D /* NewsTableViewCell.swift in Sources */,
 				407A1F3A26CE195A0058F84D /* ios100ToyExample.xcdatamodeld in Sources */,
@@ -513,6 +536,7 @@
 				407A1F4A26CF38F10058F84D /* SectionViewController.swift in Sources */,
 				403502BD26CB61F2004BD348 /* DateFormatterViewController.swift in Sources */,
 				403502D926CBF490004BD348 /* CustomTabBarController.swift in Sources */,
+				407A1F5526CF7D440058F84D /* CollectionViewController.swift in Sources */,
 				40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */,
 				4078640E26CE127D00C864FD /* UIViewController+Alert.swift in Sources */,
 				403502CE26CBBD6B004BD348 /* CheckViewController.swift in Sources */,
