@@ -106,7 +106,13 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabTextFieldAlertButton), for: .touchUpInside)
         return button
     }()
-
+    private let tableView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .cyan
+        button.setTitle("테이블 뷰", for: .normal)
+        button.addTarget(self, action: #selector(didTabTableViewButton), for: .touchUpInside)
+        return button
+    }()
     
     
     
@@ -128,6 +134,7 @@ class ExampleListViewController: UIViewController {
         view.addSubview(webView)
         view.addSubview(barButtonItemView)
         view.addSubview(textFieldAlertView)
+        view.addSubview(tableView)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -158,6 +165,7 @@ class ExampleListViewController: UIViewController {
                                          ,width: 60, height: 50)
         textFieldAlertView.frame = CGRect(x: 150, y: 190,
                                           width: 110, height: 50)
+        tableView.frame = CGRect(x: 260, y: 190, width: 80, height: 50)
     }
     
     
@@ -255,5 +263,9 @@ class ExampleListViewController: UIViewController {
     @objc func didTabTextFieldAlertButton() {
         let TextFieldAlertVC = TextFieldAlertViewController()
         present(TextFieldAlertVC, animated: true, completion: nil)
+    }
+    @objc func didTabTableViewButton() {
+        let tableVC = TableViewController()
+        present(tableVC, animated: true, completion: nil)
     }
 }
