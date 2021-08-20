@@ -256,6 +256,70 @@
             </objects>
             <point key="canvasLocation" x="943" y="905"/>
         </scene>
+        <!--Timer View Controller-->
+        <scene sceneID="1We-WV-eaR">
+            <objects>
+                <viewController storyboardIdentifier="TimerVC" id="8bh-cs-ket" customClass="TimerViewController" customModule="ios100ToyExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kbz-X3-nIn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOk-FN-dS9">
+                                <rect key="frame" x="98" y="418" width="218" height="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4e-ee-vOh">
+                                <rect key="frame" x="184" y="488" width="46" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTabStartButton:" destination="8bh-cs-ket" eventType="touchUpInside" id="2Dz-9O-YJd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mev-Xn-33i">
+                                <rect key="frame" x="184" y="534" width="46" height="35"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <state key="normal" title="reset">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTabResetButton:" destination="8bh-cs-ket" eventType="touchUpInside" id="zUK-B6-fSR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="타이머" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZq-ng-PWP">
+                                <rect key="frame" x="142" y="244" width="130" height="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1j6-8a-RQr"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="bOk-FN-dS9" firstAttribute="centerY" secondItem="kbz-X3-nIn" secondAttribute="centerY" id="6wy-Uh-dzy"/>
+                            <constraint firstItem="NZq-ng-PWP" firstAttribute="top" secondItem="1j6-8a-RQr" secondAttribute="top" constant="200" id="AWj-d4-4qV"/>
+                            <constraint firstItem="o4e-ee-vOh" firstAttribute="top" secondItem="bOk-FN-dS9" secondAttribute="bottom" constant="10" id="Fos-0Q-BR8"/>
+                            <constraint firstItem="Mev-Xn-33i" firstAttribute="centerX" secondItem="kbz-X3-nIn" secondAttribute="centerX" id="JeN-2R-U7j"/>
+                            <constraint firstItem="NZq-ng-PWP" firstAttribute="centerX" secondItem="kbz-X3-nIn" secondAttribute="centerX" id="MF4-VM-UxE"/>
+                            <constraint firstItem="Mev-Xn-33i" firstAttribute="top" secondItem="o4e-ee-vOh" secondAttribute="bottom" constant="10" id="Mnr-Ux-XBG"/>
+                            <constraint firstItem="bOk-FN-dS9" firstAttribute="centerX" secondItem="kbz-X3-nIn" secondAttribute="centerX" id="UW1-rd-aAH"/>
+                            <constraint firstItem="o4e-ee-vOh" firstAttribute="centerX" secondItem="kbz-X3-nIn" secondAttribute="centerX" id="hgW-vw-Ef3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resetButton" destination="Mev-Xn-33i" id="qOw-fn-q7f"/>
+                        <outlet property="startButton" destination="o4e-ee-vOh" id="rTb-vx-knm"/>
+                        <outlet property="timeLabel" destination="bOk-FN-dS9" id="Uf8-bh-ab8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c0R-z3-DWQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1606" y="1057"/>
+        </scene>
         <!--Item 1-->
         <scene sceneID="SSf-Ml-PZ7">
             <objects>
@@ -636,6 +700,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

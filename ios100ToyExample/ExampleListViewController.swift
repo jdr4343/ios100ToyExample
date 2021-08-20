@@ -141,11 +141,18 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabCoreAnimationButton), for: .touchUpInside)
         return button
     }()
-    private let AudioPlayView: UIButton = {
+    private let audioPlayView: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemBlue
         button.setTitle("오디오 재생", for: .normal)
         button.addTarget(self, action: #selector(didTabAudioButton), for: .touchUpInside)
+        return button
+    }()
+    private let timerView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .orange
+        button.setTitle("타이머", for: .normal)
+        button.addTarget(self, action: #selector(didTabTimerButton), for: .touchUpInside)
         return button
     }()
     
@@ -173,7 +180,8 @@ class ExampleListViewController: UIViewController {
         view.addSubview(collectionView)
         view.addSubview(chartsView)
         view.addSubview(CoreAnimationView)
-        view.addSubview(AudioPlayView)
+        view.addSubview(audioPlayView)
+        view.addSubview(timerView)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -214,7 +222,9 @@ class ExampleListViewController: UIViewController {
                                   width: 100, height: 50)
         CoreAnimationView.frame = CGRect(x: 190, y: 240,
                                          width: 120, height: 50)
-        AudioPlayView.frame = CGRect(x: 310, y: 240, width: 110, height: 50)
+        audioPlayView.frame = CGRect(x: 310, y: 240,
+                                     width: 110, height: 50)
+        timerView.frame = CGRect(x: 0, y: 290, width: 60, height: 50)
         
         
     }
@@ -338,5 +348,10 @@ class ExampleListViewController: UIViewController {
     @objc func didTabAudioButton() {
         let AudioVC = AudioViewController()
         present(AudioVC, animated: true)
+    }
+    @objc func didTabTimerButton() {
+        if let TimerVC = self.storyboard?.instantiateViewController(withIdentifier: "TimerVC") {
+        self.present(TimerVC, animated: true, completion: nil)
+        }
     }
 }
