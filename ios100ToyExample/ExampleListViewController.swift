@@ -4,7 +4,7 @@
 //
 //  Created by 신지훈 on 2021/08/17.
 //
-//앱의 크기를 신경써서 만들어지지 않았습니다. 시뮬레이터를 아이폰 11로 변경해주세요.버튼이 아닌 단일 뷰로 보고싶으시다면 Main 스토리보드의 class를 변경하여 주세요.
+//앱의 해상도 대응을 신경써서 만들어지지 않았습니다. 시뮬레이터를 아이폰 11로 변경해주세요.버튼이 아닌 단일 뷰로 보고싶으시다면 Main 스토리보드의 class를 변경하여 주세요.
 //가르치고자 함이 아닌 같이 배우자는 취지로 만들었습니다. 참고로 저는 배운지 2개월 됬습니다.틀린 부분이 있을수 있으며 있을경우 댓글을 남겨주시면 다시 배우겠습니다!
 
 
@@ -155,6 +155,13 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabTimerButton), for: .touchUpInside)
         return button
     }()
+    private let CamerarView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemIndigo
+        button.setTitle("사진", for: .normal)
+        button.addTarget(self, action: #selector(didTabCameraButton), for: .touchUpInside)
+        return button
+    }()
     
     
     
@@ -182,6 +189,7 @@ class ExampleListViewController: UIViewController {
         view.addSubview(CoreAnimationView)
         view.addSubview(audioPlayView)
         view.addSubview(timerView)
+        view.addSubview(CamerarView)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -224,7 +232,10 @@ class ExampleListViewController: UIViewController {
                                          width: 120, height: 50)
         audioPlayView.frame = CGRect(x: 310, y: 240,
                                      width: 110, height: 50)
-        timerView.frame = CGRect(x: 0, y: 290, width: 60, height: 50)
+        timerView.frame = CGRect(x: 0, y: 290,
+                                 width: 60, height: 50)
+        CamerarView.frame = CGRect(x: 60, y: 290,
+                                   width: 50, height: 50)
         
         
     }
@@ -352,6 +363,11 @@ class ExampleListViewController: UIViewController {
     @objc func didTabTimerButton() {
         if let TimerVC = self.storyboard?.instantiateViewController(withIdentifier: "TimerVC") {
         self.present(TimerVC, animated: true, completion: nil)
+        }
+    }
+    @objc func didTabCameraButton() {
+        if let CameraVC = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") {
+            self.navigationController?.pushViewController(CameraVC, animated: true)
         }
     }
 }

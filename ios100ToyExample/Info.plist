@@ -62,5 +62,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera 챕터를 만드시고 계시다면! 이권한을 추가하셔야됩니다. 여기에 적은 글은 Alert형식으로 사용자에게 알려지게 됩니다.</string>
 </dict>
 </plist>
