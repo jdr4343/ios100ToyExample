@@ -15,7 +15,7 @@ class FontPickerViewController: UIViewController, UIFontPickerViewControllerDele
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = .boldSystemFont(ofSize: 20)
-        label.text = "안녕하세요 저는 100가지 예제파일을 만들고 있습니다. 저도 공부하는 입장인데 아무래도 ios의 예제파일이 좀 부족한거 같기도 하고 공부하기도 힘들더라고요.. 그래서 이왕 제가 공부하는 김에 예제파일을 만들자 싶어서 만들게 되었습니다. 예제파일의 출저는 어떤 부분은 제가 직접 찾아가며 만들기도 했고 유튜브를 보며 따라치기도 했습니다. 저도 배우는 입장이다 보니 제 코멘트를 너무 믿지 마시고 보이는 족족 검색해서 자신만의 지식으로 만드시길 바랍니다.우리 모두 ..화이팅 ㅜㅜ"
+        label.text = "안녕하세요 저는 100가지 예제파일을 만들고 있습니다. 저도 공부하는 입장인데 아무래도 ios의 예제파일이 좀 부족한거 같기도 하고 공부하기도 힘들더라고요.. 그래서 이왕 제가 공부하는 김에 예제파일을 만들자 싶어서 만들게 되었습니다. 제 코멘트를 너무 믿지 마시고 보이는 족족 검색해서 자신만의 지식으로 만드시길 바랍니다.우리 모두 ..화이팅 ㅜㅜ"
         return label
     }()
     //가끔 코드가 난잡해 보일때는 드래그 한후 ctrl + I를 해주시면 정갈하게 정리됩니다! cmd + shift + O를 하시면 파일을 검색을 할수 있죠!

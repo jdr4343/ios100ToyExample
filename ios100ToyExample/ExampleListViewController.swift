@@ -134,7 +134,7 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabChartsButton), for: .touchUpInside)
         return button
     }()
-    private let CoreAnimationView: UIButton = {
+    private let coreAnimationView: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemRed
         button.setTitle("코어 애니메이션", for: .normal)
@@ -155,18 +155,25 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabTimerButton), for: .touchUpInside)
         return button
     }()
-    private let CamerarView: UIButton = {
+    private let camerarView: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemIndigo
         button.setTitle("사진", for: .normal)
         button.addTarget(self, action: #selector(didTabCameraButton), for: .touchUpInside)
         return button
     }()
-    private let Camerar2View: UIButton = {
+    private let camerar2View: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemPurple
         button.setTitle("프로필 바꾸기", for: .normal)
         button.addTarget(self, action: #selector(didTabCamera2Button), for: .touchUpInside)
+        return button
+    }()
+    private let autoLayoutView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemTeal
+        button.setTitle("오토레이아웃", for: .normal)
+        button.addTarget(self, action: #selector(didTabAutoButton), for: .touchUpInside)
         return button
     }()
     
@@ -193,11 +200,12 @@ class ExampleListViewController: UIViewController {
         view.addSubview(keyboardBar)
         view.addSubview(collectionView)
         view.addSubview(chartsView)
-        view.addSubview(CoreAnimationView)
+        view.addSubview(coreAnimationView)
         view.addSubview(audioPlayView)
         view.addSubview(timerView)
-        view.addSubview(CamerarView)
-        view.addSubview(Camerar2View)
+        view.addSubview(camerarView)
+        view.addSubview(camerar2View)
+        view.addSubview(autoLayoutView)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -236,17 +244,18 @@ class ExampleListViewController: UIViewController {
                                    width: 90, height: 50)
         chartsView.frame = CGRect(x: 90, y: 240,
                                   width: 100, height: 50)
-        CoreAnimationView.frame = CGRect(x: 190, y: 240,
+        coreAnimationView.frame = CGRect(x: 190, y: 240,
                                          width: 120, height: 50)
         audioPlayView.frame = CGRect(x: 310, y: 240,
                                      width: 110, height: 50)
         timerView.frame = CGRect(x: 0, y: 290,
                                  width: 60, height: 50)
-        CamerarView.frame = CGRect(x: 60, y: 290,
+        camerarView.frame = CGRect(x: 60, y: 290,
                                    width: 50, height: 50)
-        Camerar2View.frame = CGRect(x: 110, y: 290,
+        camerar2View.frame = CGRect(x: 110, y: 290,
                                    width: 110, height: 50)
-        
+        autoLayoutView.frame = CGRect(x: 220, y: 290,
+                                      width: 110, height: 50)
         
     }
     
@@ -384,5 +393,9 @@ class ExampleListViewController: UIViewController {
         if let CameraVC = self.storyboard?.instantiateViewController(withIdentifier: "Camera2VC") {
             self.navigationController?.pushViewController(CameraVC, animated: true)
         }
+    }
+    @objc func didTabAutoButton() {
+        let AutoVC = AutoLayoutViewController()
+        self.navigationController?.pushViewController(AutoVC, animated: true)
     }
 }

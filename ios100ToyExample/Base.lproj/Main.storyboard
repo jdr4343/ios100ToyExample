@@ -338,9 +338,8 @@
                                     <action selector="didTanButton" destination="htC-9p-Iv7" eventType="touchUpInside" id="b8g-oj-wGm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="사진" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fef-jZ-141">
-                                <rect key="frame" x="164" y="770" width="87" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fef-jZ-141">
+                                <rect key="frame" x="163.5" y="770" width="87" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -352,7 +351,9 @@
                             <constraint firstItem="YbE-G1-EXI" firstAttribute="trailing" secondItem="FHg-hN-LF2" secondAttribute="trailing" constant="20" id="BQG-xE-MMm"/>
                             <constraint firstItem="HOS-ls-XZy" firstAttribute="top" secondItem="FHg-hN-LF2" secondAttribute="bottom" constant="20" id="CBs-sk-k29"/>
                             <constraint firstItem="YbE-G1-EXI" firstAttribute="trailing" secondItem="HOS-ls-XZy" secondAttribute="trailing" constant="30" id="XyG-2Y-Hzw"/>
+                            <constraint firstItem="fef-jZ-141" firstAttribute="centerX" secondItem="adq-FG-u7S" secondAttribute="centerX" id="Zg4-Zx-uq2"/>
                             <constraint firstItem="FHg-hN-LF2" firstAttribute="leading" secondItem="YbE-G1-EXI" secondAttribute="leading" constant="20" id="aeE-CU-9g3"/>
+                            <constraint firstItem="fef-jZ-141" firstAttribute="top" secondItem="HOS-ls-XZy" secondAttribute="bottom" constant="8" symbolic="YES" id="cgJ-Xq-ipg"/>
                             <constraint firstItem="YbE-G1-EXI" firstAttribute="bottom" secondItem="HOS-ls-XZy" secondAttribute="bottom" constant="100" id="hNq-du-FkZ"/>
                             <constraint firstItem="FHg-hN-LF2" firstAttribute="top" secondItem="YbE-G1-EXI" secondAttribute="top" constant="20" id="ioe-da-de2"/>
                             <constraint firstItem="HOS-ls-XZy" firstAttribute="leading" secondItem="YbE-G1-EXI" secondAttribute="leading" constant="30" id="xUq-eu-SaJ"/>
@@ -375,6 +376,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iMt-pK-T05">
+                                <rect key="frame" x="107" y="244.5" width="200" height="199"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="MFM-RS-MtM"/>
+                                    <constraint firstAttribute="height" constant="200" id="y5Q-qX-Rt1"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeL-Gt-M94">
                                 <rect key="frame" x="60" y="509" width="294" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
@@ -386,20 +396,19 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iMt-pK-T05">
-                                <rect key="frame" x="107" y="244.5" width="200" height="199"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="MFM-RS-MtM"/>
-                                    <constraint firstAttribute="height" constant="200" id="y5Q-qX-Rt1"/>
-                                </constraints>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Vk-Or-uKM">
+                                <rect key="frame" x="163.5" y="770" width="87" height="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7qP-mR-6pL"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
                         <constraints>
                             <constraint firstItem="JeL-Gt-M94" firstAttribute="leading" secondItem="7qP-mR-6pL" secondAttribute="leading" constant="60" id="654-VE-FDd"/>
+                            <constraint firstItem="7qP-mR-6pL" firstAttribute="bottom" secondItem="1Vk-Or-uKM" secondAttribute="bottom" constant="32" id="H7X-w5-ZW5"/>
+                            <constraint firstItem="1Vk-Or-uKM" firstAttribute="centerX" secondItem="SKL-jy-f1Q" secondAttribute="centerX" id="OYh-73-gRT"/>
                             <constraint firstItem="iMt-pK-T05" firstAttribute="centerX" secondItem="SKL-jy-f1Q" secondAttribute="centerX" id="bOp-tN-AQr"/>
                             <constraint firstItem="JeL-Gt-M94" firstAttribute="top" secondItem="iMt-pK-T05" secondAttribute="bottom" constant="65" id="ifz-dT-rwh"/>
                             <constraint firstItem="JeL-Gt-M94" firstAttribute="centerX" secondItem="SKL-jy-f1Q" secondAttribute="centerX" id="n59-Cm-Ozg"/>

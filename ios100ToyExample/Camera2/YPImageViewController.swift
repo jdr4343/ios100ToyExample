@@ -24,6 +24,7 @@ class YPImageViewController: UIViewController {
     
     @objc func ProfileChangeTapped() {
         var config = YPImagePickerConfiguration()
+        //비디오 기능은 추가 하지 않았지만 이런 기능도 있다고 보시라고 추가 해뒀습니다.
         config.screens = [.library,.video,.photo]
         //사진이 선택됬을때
         let picker = YPImagePicker(configuration: config)
