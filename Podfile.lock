@@ -3,9 +3,14 @@ PODS:
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
   - Floaty (4.2.0)
+  - PryntTrimmerView (4.0.2)
   - RAMAnimatedTabBarController (5.2.0)
+  - SteviaLayout (4.7.3)
   - TheAnimation (0.4.0)
   - TransitionButton (0.5.3)
+  - YPImagePicker (4.5.0):
+    - PryntTrimmerView (~> 4.0.2)
+    - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
   - Charts
@@ -13,22 +18,29 @@ DEPENDENCIES:
   - RAMAnimatedTabBarController
   - TheAnimation
   - TransitionButton
+  - YPImagePicker
 
 SPEC REPOS:
   trunk:
     - Charts
     - Floaty
+    - PryntTrimmerView
     - RAMAnimatedTabBarController
+    - SteviaLayout
     - TheAnimation
     - TransitionButton
+    - YPImagePicker
 
 SPEC CHECKSUMS:
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
+  PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
+  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   TheAnimation: b6d6bac50365897a3aecc5a9e7b4e1461909c1a0
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
+  YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
-PODFILE CHECKSUM: af736ce940e66732086756d6b663672bddbb068f
+PODFILE CHECKSUM: 5f2536d82937fdb344c4546f29baa4ddc4ee663d
 
 COCOAPODS: 1.10.1

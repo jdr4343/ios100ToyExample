@@ -12,7 +12,7 @@ pod 'Floaty'
 pod 'TransitionButton'
 pod 'Charts'
 pod 'TheAnimation'
-
+pod 'YPImagePicker'
 
 
 end

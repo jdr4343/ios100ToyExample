@@ -170,7 +170,6 @@
 		4035029E26CB4B4B004BD348 /* ios100ToyExample */ = {
 			isa = PBXGroup;
 			children = (
-				407A1F7226D0A9C30058F84D /* Camera2 */,
 				403502A126CB4B4B004BD348 /* SceneDelegate.swift */,
 				4035029F26CB4B4B004BD348 /* AppDelegate.swift */,
 				403502AD26CB4B4D004BD348 /* Info.plist */,
@@ -203,7 +202,8 @@
 				407A1F5326CF7D130058F84D /* CollectionView */,
 				407A1F3F26CE33F90058F84D /* TextFieldAlert */,
 				407A1F6426CFCC7D0058F84D /* AudioPlay */,
-				407A1F6F26D0A1FF0058F84D /* Camera */,
+				407A1F6F26D0A1FF0058F84D /* Camera1 */,
+				407A1F7226D0A9C30058F84D /* Camera2 */,
 			);
 			path = ios100ToyExample;
 			sourceTree = "<group>";
@@ -414,12 +414,12 @@
 			path = Timer;
 			sourceTree = "<group>";
 		};
-		407A1F6F26D0A1FF0058F84D /* Camera */ = {
+		407A1F6F26D0A1FF0058F84D /* Camera1 */ = {
 			isa = PBXGroup;
 			children = (
 				407A1F7026D0A21E0058F84D /* CameraViewController.swift */,
 			);
-			path = Camera;
+			path = Camera1;
 			sourceTree = "<group>";
 		};
 		407A1F7226D0A9C30058F84D /* Camera2 */ = {
