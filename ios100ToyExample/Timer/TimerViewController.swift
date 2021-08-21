@@ -105,6 +105,9 @@ class TimerViewController: UIViewController {
     
     
     
+    
+    
+    
 //    @objc func timerCounter() -> Void {
 //        count = count - 1
     
@@ -116,8 +119,8 @@ class TimerViewController: UIViewController {
 //
 //        if(timerCounting) {
 //            timerCounting = true
-//            StartStopBtn.setTitle("Stop", for: .normal)
-//            StartStopBtn.setTitleColor(UIColor.green, for: .normal)
+//            startButton.setTitle("Stop", for: .normal)
+//            startButton.setTitleColor(UIColor.green, for: .normal)
 //            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
 //        }
 //

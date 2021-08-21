@@ -17,6 +17,13 @@ class AudioViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabPlay), for: .touchUpInside)
        return button
     }()
+    let Stopbutton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 50))
+        button.setTitle("재생 중지", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(didTabStop), for: .touchUpInside)
+       return button
+    }()
     //오디오 준비
     var keyboard: AVAudioPlayer?
 
@@ -24,12 +31,19 @@ class AudioViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(button)
+        view.addSubview(Stopbutton)
         button.center = view.center
+       
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        Stopbutton.frame = CGRect(x: 165, y: button.bottom+10, width: 80, height: 50)
 
     }
   
     //오디오 재생
     @objc func didTabPlay() {
+        
         let audioSession = AVAudioSession.sharedInstance()
         //플레이 셋업
         let urlString = Bundle.main.path(forResource: "키보드", ofType: "mp3")
@@ -46,12 +60,22 @@ class AudioViewController: UIViewController {
             guard let player = keyboard else {
                 return
             }
-            //Stop으로 바꾸면 멈춥니다. 스탑버튼을 만들고 타겟을 연결하고 player.stop을 하면 재생이 멈추겠죠!?
-            player.play()
+            
+                player.play()
+            
         }
         catch {
             print("오류")
         }
     }
 
+    @objc func didTabStop() {
+         if let player = keyboard, player.isPlaying {
+        player.stop()
+        }
+    }
+
 }
+
+
+

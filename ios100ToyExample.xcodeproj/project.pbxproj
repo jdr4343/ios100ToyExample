@@ -168,7 +168,6 @@
 		4035029E26CB4B4B004BD348 /* ios100ToyExample */ = {
 			isa = PBXGroup;
 			children = (
-				407A1F6C26CFD7000058F84D /* Timer */,
 				403502A126CB4B4B004BD348 /* SceneDelegate.swift */,
 				4035029F26CB4B4B004BD348 /* AppDelegate.swift */,
 				403502AD26CB4B4D004BD348 /* Info.plist */,
@@ -179,6 +178,7 @@
 				407A1F4D26CF6A9D0058F84D /* TableView */,
 				403502B326CB4D0C004BD348 /* AnimatedTabBar */,
 				403502B626CB5E7A004BD348 /* Gradients */,
+				407A1F6C26CFD7000058F84D /* Timer */,
 				407A1F5826CF9C5B0058F84D /* Chart,Graph */,
 				403502BB26CB61BA004BD348 /* DateFormmater */,
 				403502CC26CBBD12004BD348 /* CheakList */,
