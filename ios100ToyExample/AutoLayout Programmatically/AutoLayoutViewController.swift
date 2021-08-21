@@ -71,8 +71,7 @@ class AutoLayoutViewController: UIViewController {
  정리
  Anchor을 추가해 뷰를 고정할수있다.
  Anchor에 constant를 추가해서 여백을 줄수 있다. 그러나 뷰의 크기를 교체하는 것은 아니고 뷰가 이동하기 때문에 4방향 모두 여백을 줄경우 충돌이 일어난다
- Anchor에 murtiplier을 추가하여 크기를 줄이거나 늘릴수 있고 그방식은 매개채의 폭과 높이의 곱셈이다.예를 들어 위의  코드를 보면
- myView를 매개체로 widthAnchor을 사용해 myView * 0.5를 해서 myView의 폭의 절반의 값을 secondView에 할당한다.
+ Anchor에 murtiplier을 추가하여 크기를 줄이거나 늘릴수 있습니다.
  centerYAnchor,centerXAnchor추가하여 수평과 수직을 잡을수 있다.
  잘모르는 부분이라 지금까지는 주먹구구 식으로 중심에 맞추려고 노력했었는데 앞으로는 오토 레이아웃을 사용해서 중심을 잡아봐야겠다..
  */

@@ -176,6 +176,13 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabAutoButton), for: .touchUpInside)
         return button
     }()
+    private let stackView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemPink
+        button.setTitle("스택 뷰", for: .normal)
+        button.addTarget(self, action: #selector(didTabStackButton), for: .touchUpInside)
+        return button
+    }()
     
     
     
@@ -206,6 +213,7 @@ class ExampleListViewController: UIViewController {
         view.addSubview(camerarView)
         view.addSubview(camerar2View)
         view.addSubview(autoLayoutView)
+        view.addSubview(stackView)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -251,11 +259,13 @@ class ExampleListViewController: UIViewController {
         timerView.frame = CGRect(x: 0, y: 290,
                                  width: 60, height: 50)
         camerarView.frame = CGRect(x: 60, y: 290,
-                                   width: 50, height: 50)
-        camerar2View.frame = CGRect(x: 110, y: 290,
+                                   width: 60, height: 50)
+        camerar2View.frame = CGRect(x: 120, y: 290,
                                    width: 110, height: 50)
-        autoLayoutView.frame = CGRect(x: 220, y: 290,
+        autoLayoutView.frame = CGRect(x: 230, y: 290,
                                       width: 110, height: 50)
+        stackView.frame = CGRect(x: 340, y: 290,
+                                 width: 80, height: 50)
         
     }
     
@@ -397,5 +407,9 @@ class ExampleListViewController: UIViewController {
     @objc func didTabAutoButton() {
         let AutoVC = AutoLayoutViewController()
         self.navigationController?.pushViewController(AutoVC, animated: true)
+    }
+    @objc func didTabStackButton() {
+        let stackVC = StackViewController()
+        present(stackVC, animated: true)
     }
 }
