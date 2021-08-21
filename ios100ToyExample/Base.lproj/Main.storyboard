@@ -338,6 +338,13 @@
                                     <action selector="didTanButton" destination="htC-9p-Iv7" eventType="touchUpInside" id="b8g-oj-wGm"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="사진" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fef-jZ-141">
+                                <rect key="frame" x="164" y="770" width="87" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YbE-G1-EXI"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
@@ -358,7 +365,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8El-JZ-v7B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2364" y="1051"/>
+            <point key="canvasLocation" x="2290" y="1429"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="Lfv-j4-4cY">
+            <objects>
+                <viewController storyboardIdentifier="Camera2VC" id="IGO-gl-hns" customClass="YPImageViewController" customModule="ios100ToyExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SKL-jy-f1Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeL-Gt-M94">
+                                <rect key="frame" x="60" y="509" width="294" height="50"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ddf-yK-S1J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="프로필 사진 바꾸기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iMt-pK-T05">
+                                <rect key="frame" x="107" y="244.5" width="200" height="199"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="MFM-RS-MtM"/>
+                                    <constraint firstAttribute="height" constant="200" id="y5Q-qX-Rt1"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7qP-mR-6pL"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <constraints>
+                            <constraint firstItem="JeL-Gt-M94" firstAttribute="leading" secondItem="7qP-mR-6pL" secondAttribute="leading" constant="60" id="654-VE-FDd"/>
+                            <constraint firstItem="iMt-pK-T05" firstAttribute="centerX" secondItem="SKL-jy-f1Q" secondAttribute="centerX" id="bOp-tN-AQr"/>
+                            <constraint firstItem="JeL-Gt-M94" firstAttribute="top" secondItem="iMt-pK-T05" secondAttribute="bottom" constant="65" id="ifz-dT-rwh"/>
+                            <constraint firstItem="JeL-Gt-M94" firstAttribute="centerX" secondItem="SKL-jy-f1Q" secondAttribute="centerX" id="n59-Cm-Ozg"/>
+                            <constraint firstItem="7qP-mR-6pL" firstAttribute="trailing" secondItem="JeL-Gt-M94" secondAttribute="trailing" constant="60" id="rsX-DE-QvR"/>
+                            <constraint firstItem="iMt-pK-T05" firstAttribute="top" secondItem="7qP-mR-6pL" secondAttribute="top" constant="200" id="sNs-A8-QgA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pickerButton" destination="JeL-Gt-M94" id="09U-nr-vZC"/>
+                        <outlet property="profileImage" destination="iMt-pK-T05" id="44N-YZ-TGT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ze-jv-913" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2933" y="1428"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="SSf-Ml-PZ7">
@@ -729,6 +785,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="note.text" catalog="system" width="128" height="106"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -741,11 +798,17 @@
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

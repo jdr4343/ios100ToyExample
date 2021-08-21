@@ -162,6 +162,13 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabCameraButton), for: .touchUpInside)
         return button
     }()
+    private let Camerar2View: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemPurple
+        button.setTitle("프로필 바꾸기", for: .normal)
+        button.addTarget(self, action: #selector(didTabCamera2Button), for: .touchUpInside)
+        return button
+    }()
     
     
     
@@ -190,6 +197,7 @@ class ExampleListViewController: UIViewController {
         view.addSubview(audioPlayView)
         view.addSubview(timerView)
         view.addSubview(CamerarView)
+        view.addSubview(Camerar2View)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -236,6 +244,8 @@ class ExampleListViewController: UIViewController {
                                  width: 60, height: 50)
         CamerarView.frame = CGRect(x: 60, y: 290,
                                    width: 50, height: 50)
+        Camerar2View.frame = CGRect(x: 110, y: 290,
+                                   width: 110, height: 50)
         
         
     }
@@ -367,6 +377,11 @@ class ExampleListViewController: UIViewController {
     }
     @objc func didTabCameraButton() {
         if let CameraVC = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") {
+            self.navigationController?.pushViewController(CameraVC, animated: true)
+        }
+    }
+    @objc func didTabCamera2Button() {
+        if let CameraVC = self.storyboard?.instantiateViewController(withIdentifier: "Camera2VC") {
             self.navigationController?.pushViewController(CameraVC, animated: true)
         }
     }
