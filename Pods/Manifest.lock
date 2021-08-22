@@ -5,6 +5,7 @@ PODS:
   - Floaty (4.2.0)
   - PryntTrimmerView (4.0.2)
   - RAMAnimatedTabBarController (5.2.0)
+  - SnapKit (5.0.1)
   - SteviaLayout (4.7.3)
   - TheAnimation (0.4.0)
   - TransitionButton (0.5.3)
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - Charts
   - Floaty
   - RAMAnimatedTabBarController
+  - SnapKit
   - TheAnimation
   - TransitionButton
   - YPImagePicker
@@ -26,6 +28,7 @@ SPEC REPOS:
     - Floaty
     - PryntTrimmerView
     - RAMAnimatedTabBarController
+    - SnapKit
     - SteviaLayout
     - TheAnimation
     - TransitionButton
@@ -36,11 +39,12 @@ SPEC CHECKSUMS:
   Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
   PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   TheAnimation: b6d6bac50365897a3aecc5a9e7b4e1461909c1a0
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
   YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
-PODFILE CHECKSUM: 5f2536d82937fdb344c4546f29baa4ddc4ee663d
+PODFILE CHECKSUM: cf42fcf7841348bc56fec06bfa8f6c24ad0cab4c
 
 COCOAPODS: 1.10.1

@@ -19,12 +19,15 @@ class CoreAnimationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "코어 애니메이션"
         view.layer.addSublayer(layer)
         //스피너에서 그랬던 것처럼 지연 시키겠습니다.
         DispatchQueue.main.asyncAfter(deadline: .now()+1) {
             self.animateMovement()
             self.animateOpacity()
         }
+        //뷰전환 버튼
+        nextButton()
         
     }
     func animateMovement() {
@@ -49,6 +52,18 @@ class CoreAnimationViewController: UIViewController {
         animation.beginTime = CACurrentMediaTime()
         layer.add(animation, forKey: nil)
     }
+
+    
+    
+  
+
+private func nextButton() {
+    navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.right"), style: .done, target: self, action: #selector(nextViewButton))
+}
+@objc private func nextViewButton() {
+    let VC = TheAnimaionViewController()
+    navigationController?.pushViewController(VC, animated: true)
+}
 
 
 }

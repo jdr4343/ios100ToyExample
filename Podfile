@@ -13,6 +13,7 @@ pod 'TransitionButton'
 pod 'Charts'
 pod 'TheAnimation'
 pod 'YPImagePicker'
+pod 'SnapKit'
 
 
 end

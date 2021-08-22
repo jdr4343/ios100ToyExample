@@ -63,6 +63,7 @@
 		407A1F7426D0AAE90058F84D /* YPImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F7326D0AAE90058F84D /* YPImageViewController.swift */; };
 		407A1F7726D0C44C0058F84D /* AutoLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F7626D0C44C0058F84D /* AutoLayoutViewController.swift */; };
 		407A1F7A26D0DE220058F84D /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F7926D0DE220058F84D /* StackViewController.swift */; };
+		407A1F7D26D24F520058F84D /* SnapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F7C26D24F520058F84D /* SnapkitViewController.swift */; };
 		40DF551126CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */; };
 		40DF551326CD12C300FD9FB8 /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */; };
 		40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */; };
@@ -132,6 +133,7 @@
 		407A1F7326D0AAE90058F84D /* YPImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPImageViewController.swift; sourceTree = "<group>"; };
 		407A1F7626D0C44C0058F84D /* AutoLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewController.swift; sourceTree = "<group>"; };
 		407A1F7926D0DE220058F84D /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		407A1F7C26D24F520058F84D /* SnapkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitViewController.swift; sourceTree = "<group>"; };
 		40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
 		40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvencedModel.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				403502A326CB4B4B004BD348 /* ExampleListViewController.swift */,
 				4078640626CE06A200C864FD /* FrameExtensions.swift */,
 				403502A526CB4B4B004BD348 /* Main.storyboard */,
+				407A1F7B26D244DA0058F84D /* MemoWithPhoto */,
 				407A1F4D26CF6A9D0058F84D /* TableView */,
 				403502B326CB4D0C004BD348 /* AnimatedTabBar */,
 				403502B626CB5E7A004BD348 /* Gradients */,
@@ -442,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				407A1F7626D0C44C0058F84D /* AutoLayoutViewController.swift */,
+				407A1F7C26D24F520058F84D /* SnapkitViewController.swift */,
 			);
 			path = "AutoLayout Programmatically";
 			sourceTree = "<group>";
@@ -452,6 +456,13 @@
 				407A1F7926D0DE220058F84D /* StackViewController.swift */,
 			);
 			path = StackView;
+			sourceTree = "<group>";
+		};
+		407A1F7B26D244DA0058F84D /* MemoWithPhoto */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MemoWithPhoto;
 			sourceTree = "<group>";
 		};
 		40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */ = {
@@ -647,6 +658,7 @@
 				407A1F4A26CF38F10058F84D /* SectionViewController.swift in Sources */,
 				403502BD26CB61F2004BD348 /* DateFormatterViewController.swift in Sources */,
 				403502D926CBF490004BD348 /* CustomTabBarController.swift in Sources */,
+				407A1F7D26D24F520058F84D /* SnapkitViewController.swift in Sources */,
 				407A1F6E26CFD7CC0058F84D /* TimerViewController.swift in Sources */,
 				407A1F5526CF7D440058F84D /* CollectionViewController.swift in Sources */,
 				40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */,
@@ -821,7 +833,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jihun.ios100ToyExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -841,7 +853,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jihun.ios100ToyExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -10,7 +10,7 @@ import TheAnimation
 //애니메이션을 좀더 쉽게 해주는 프레임 워크입니다. 애니메이션에 관심 있으신분은 한번 찾아보시길 바랍니다.
 //아래의 코드는 우리가 만들었던 CoreAnimationViewContller와 동일한 작동을합니다.
 //그러나 많은 부분이 메서드화 되어 있기때문에 좀더 편하다는거 같습니다.
-//따로 클래스를 뷰전환으로 연결해 두지 않았으니 궁금하신분은  @objc func didTabCoreAnimationButton() 를 복사하셔셔 cmd + shift + h 를 누른후 검색하셔셔 이클래스의 이름을 복사하여 뷰를 전환 하여 보시길 바랍니다. 
+
 class TheAnimaionViewController: UIViewController {
 
         private let layer: CALayer = {
@@ -23,6 +23,7 @@ class TheAnimaionViewController: UIViewController {
         
         override func viewDidLoad() {
             super.viewDidLoad()
+            title = "애니메이션 프레임워크"
             view.layer.addSublayer(layer)
             //스피너에서 그랬던 것처럼 지연 시키겠습니다.
             DispatchQueue.main.asyncAfter(deadline: .now()+1) {

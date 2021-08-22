@@ -30,6 +30,7 @@ class AutoLayoutViewController: UIViewController {
         //myView에 secondView를 추가 해보겠습니다.
         myView.addSubview(secondView)
         addConstrainsts()
+        nextButton()
 
      
     }
@@ -64,6 +65,14 @@ class AutoLayoutViewController: UIViewController {
         //작동
         NSLayoutConstraint.activate(constraints)
         
+    }
+    
+    private func nextButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.right"), style: .done, target: self, action: #selector(nextViewButton))
+    }
+    @objc private func nextViewButton() {
+        let VC = SnapkitViewController()
+        navigationController?.pushViewController(VC, animated: true)
     }
     
 }

@@ -383,7 +383,7 @@ class ExampleListViewController: UIViewController {
     }
     @objc func didTabCoreAnimationButton() {
         let CoreVC = CoreAnimationViewController()
-        present(CoreVC, animated: true)
+        self.navigationController?.pushViewController(CoreVC, animated: true)
     }
     @objc func didTabAudioButton() {
         let AudioVC = AudioViewController()
