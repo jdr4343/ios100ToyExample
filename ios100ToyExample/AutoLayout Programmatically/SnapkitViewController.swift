@@ -29,6 +29,7 @@ class SnapkitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "스냅킷"
         view.backgroundColor = .white
         view.addSubview(myView)
         //myView에 secondView를 추가 해보겠습니다.

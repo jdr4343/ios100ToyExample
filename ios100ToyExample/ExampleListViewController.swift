@@ -183,6 +183,13 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabStackButton), for: .touchUpInside)
         return button
     }()
+    private let usingTimerView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemGreen
+        button.setTitle("Timer()응용", for: .normal)
+        button.addTarget(self, action: #selector(didTabUsingTimerButton), for: .touchUpInside)
+        return button
+    }()
     
     
     
@@ -214,6 +221,7 @@ class ExampleListViewController: UIViewController {
         view.addSubview(camerar2View)
         view.addSubview(autoLayoutView)
         view.addSubview(stackView)
+        view.addSubview(usingTimerView)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -266,6 +274,8 @@ class ExampleListViewController: UIViewController {
                                       width: 110, height: 50)
         stackView.frame = CGRect(x: 340, y: 290,
                                  width: 80, height: 50)
+        usingTimerView.frame = CGRect(x: 0, y: 340,
+                                      width: 110, height: 50)
         
     }
     
@@ -411,5 +421,9 @@ class ExampleListViewController: UIViewController {
     @objc func didTabStackButton() {
         let stackVC = StackViewController()
         present(stackVC, animated: true)
+    }
+    @objc func didTabUsingTimerButton() {
+        let usingTimerVC = UsingTimerViewController()
+        present(usingTimerVC, animated: true)
     }
 }

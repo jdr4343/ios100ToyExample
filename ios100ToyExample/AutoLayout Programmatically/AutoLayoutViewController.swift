@@ -25,6 +25,7 @@ class AutoLayoutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "오토레이아웃"
         view.backgroundColor = .white
         view.addSubview(myView)
         //myView에 secondView를 추가 해보겠습니다.

@@ -8,7 +8,7 @@
 import UIKit
 import TheAnimation
 //애니메이션을 좀더 쉽게 해주는 프레임 워크입니다. 애니메이션에 관심 있으신분은 한번 찾아보시길 바랍니다.
-//아래의 코드는 우리가 만들었던 CoreAnimationViewContller와 동일한 작동을합니다.
+//아래의 코드는 우리가 만들었던 CoreAnimationViewContller와 비슷한 작동을합니다.
 //그러나 많은 부분이 메서드화 되어 있기때문에 좀더 편하다는거 같습니다.
 
 class TheAnimaionViewController: UIViewController {
