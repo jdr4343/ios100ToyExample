@@ -190,13 +190,13 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabUsingTimerButton), for: .touchUpInside)
         return button
     }()
-//    private let stratchyrView: UIButton = {
-//        let button = UIButton()
-//        button.backgroundColor = .systemGreen
-//        button.setTitle("늘어나고 줄어드는 테이블뷰 헤더", for: .normal)
-//        button.addTarget(self, action: #selector(didTabUsingTimerButton), for: .touchUpInside)
-//        return button
-//    }()
+    private let customcellsView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemYellow
+        button.setTitle("커스텀 셀", for: .normal)
+        button.addTarget(self, action: #selector(didTabCustomcellsButton), for: .touchUpInside)
+        return button
+    }()
     
     
     
@@ -229,6 +229,7 @@ class ExampleListViewController: UIViewController {
         view.addSubview(autoLayoutView)
         view.addSubview(stackView)
         view.addSubview(usingTimerView)
+        view.addSubview(customcellsView)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -283,6 +284,8 @@ class ExampleListViewController: UIViewController {
                                  width: 80, height: 50)
         usingTimerView.frame = CGRect(x: 0, y: 340,
                                       width: 110, height: 50)
+        customcellsView.frame = CGRect(x: 110, y: 340,
+                                       width: 80, height: 50)
         
     }
     
@@ -438,8 +441,8 @@ class ExampleListViewController: UIViewController {
         let usingTimerVC = UsingTimerViewController()
         present(usingTimerVC, animated: true)
     }
-//    @objc func didTabStretchyButton() {
-//        let stratchyVC = StretchyViewController()
-//        self.navigationController?.pushViewController(stratchyVC, animated: true)
-//    }
+    @objc func didTabCustomcellsButton() {
+        let customCellVC = CustomCellsViewController()
+        self.navigationController?.pushViewController(customCellVC, animated: true)
+    }
 }

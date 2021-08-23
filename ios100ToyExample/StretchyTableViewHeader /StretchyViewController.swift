@@ -51,7 +51,7 @@ class StretchyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        //navigationController?.navigationBar.isHidden = true 바를 없애고 보면 더 잘보입니다. 확인해보세유!
+        //navigationController?.navigationBar.isHidden = true //바를 없애고 보면 더 잘보입니다. 확인해보세유!
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
