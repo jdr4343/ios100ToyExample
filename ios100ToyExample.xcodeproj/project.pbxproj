@@ -190,7 +190,6 @@
 		4035029E26CB4B4B004BD348 /* ios100ToyExample */ = {
 			isa = PBXGroup;
 			children = (
-				407A1F8E26D3BB740058F84D /* PageControl */,
 				407A1F7B26D244DA0058F84D /* MemoWithPhoto */,
 				403502A126CB4B4B004BD348 /* SceneDelegate.swift */,
 				4035029F26CB4B4B004BD348 /* AppDelegate.swift */,
@@ -230,6 +229,7 @@
 				407A1F7226D0A9C30058F84D /* Camera2 */,
 				407A1F7526D0C4260058F84D /* AutoLayout Programmatically */,
 				407A1F8626D3A7C90058F84D /* CustomCells Programmatically */,
+				407A1F8E26D3BB740058F84D /* PageControl */,
 				407A1F7826D0DE090058F84D /* StackView */,
 			);
 			path = ios100ToyExample;
