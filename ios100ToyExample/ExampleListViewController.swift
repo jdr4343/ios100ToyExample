@@ -197,6 +197,13 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabCustomcellsButton), for: .touchUpInside)
         return button
     }()
+    private let pageControlView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .brown
+        button.setTitle("페이징 컨트롤", for: .normal)
+        button.addTarget(self, action: #selector(didTabPageControlButton), for: .touchUpInside)
+        return button
+    }()
     
     
     
@@ -230,6 +237,7 @@ class ExampleListViewController: UIViewController {
         view.addSubview(stackView)
         view.addSubview(usingTimerView)
         view.addSubview(customcellsView)
+        view.addSubview(pageControlView)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -286,6 +294,8 @@ class ExampleListViewController: UIViewController {
                                       width: 110, height: 50)
         customcellsView.frame = CGRect(x: 110, y: 340,
                                        width: 80, height: 50)
+        pageControlView.frame = CGRect(x: 190, y: 340,
+                                       width: 110, height: 50)
         
     }
     
@@ -445,4 +455,8 @@ class ExampleListViewController: UIViewController {
         let customCellVC = CustomCellsViewController()
         self.navigationController?.pushViewController(customCellVC, animated: true)
     }
+    @objc func didTabPageControlButton() {
+        let pageVC = PageControlViewController()
+        present(pageVC, animated: true)
+}
 }
