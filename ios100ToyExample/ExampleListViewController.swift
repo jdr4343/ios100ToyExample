@@ -190,6 +190,13 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabUsingTimerButton), for: .touchUpInside)
         return button
     }()
+//    private let stratchyrView: UIButton = {
+//        let button = UIButton()
+//        button.backgroundColor = .systemGreen
+//        button.setTitle("늘어나고 줄어드는 테이블뷰 헤더", for: .normal)
+//        button.addTarget(self, action: #selector(didTabUsingTimerButton), for: .touchUpInside)
+//        return button
+//    }()
     
     
     
@@ -289,6 +296,11 @@ class ExampleListViewController: UIViewController {
     //플로팅 버튼 구현
     func floatingButton() {
         let floating = Floaty()
+        floating.addItem("늘어나고 줄어드는 신축성 테이블 뷰 헤더", icon: UIImage(systemName:
+            "rectangle.topthird.inset")!, handler: { item in
+                let stratchyVC = StretchyViewController()
+                self.navigationController?.pushViewController(stratchyVC, animated: true)
+        })
         floating.addItem("테이블뷰 헤더와 푸터!", icon: UIImage(systemName:
             "lineweight")!, handler: { item in
             let  SectionVC = SectionViewController()
@@ -426,4 +438,8 @@ class ExampleListViewController: UIViewController {
         let usingTimerVC = UsingTimerViewController()
         present(usingTimerVC, animated: true)
     }
+//    @objc func didTabStretchyButton() {
+//        let stratchyVC = StretchyViewController()
+//        self.navigationController?.pushViewController(stratchyVC, animated: true)
+//    }
 }

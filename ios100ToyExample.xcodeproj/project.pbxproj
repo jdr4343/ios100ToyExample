@@ -65,6 +65,7 @@
 		407A1F7A26D0DE220058F84D /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F7926D0DE220058F84D /* StackViewController.swift */; };
 		407A1F7D26D24F520058F84D /* SnapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F7C26D24F520058F84D /* SnapkitViewController.swift */; };
 		407A1F8026D293140058F84D /* UsingTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F7F26D293140058F84D /* UsingTimerViewController.swift */; };
+		407A1F8326D375B40058F84D /* StretchyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1F8226D375B40058F84D /* StretchyViewController.swift */; };
 		40DF551126CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */; };
 		40DF551326CD12C300FD9FB8 /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */; };
 		40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */; };
@@ -136,6 +137,7 @@
 		407A1F7926D0DE220058F84D /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
 		407A1F7C26D24F520058F84D /* SnapkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitViewController.swift; sourceTree = "<group>"; };
 		407A1F7F26D293140058F84D /* UsingTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingTimerViewController.swift; sourceTree = "<group>"; };
+		407A1F8226D375B40058F84D /* StretchyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyViewController.swift; sourceTree = "<group>"; };
 		40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
 		40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvencedModel.swift; sourceTree = "<group>"; };
@@ -180,7 +182,7 @@
 		4035029E26CB4B4B004BD348 /* ios100ToyExample */ = {
 			isa = PBXGroup;
 			children = (
-				407A1F7E26D2928A0058F84D /* UsingTimer */,
+				407A1F8126D375850058F84D /* StretchyTableViewHeader  */,
 				407A1F7B26D244DA0058F84D /* MemoWithPhoto */,
 				403502A126CB4B4B004BD348 /* SceneDelegate.swift */,
 				4035029F26CB4B4B004BD348 /* AppDelegate.swift */,
@@ -193,6 +195,7 @@
 				407A1F4D26CF6A9D0058F84D /* TableView */,
 				403502B326CB4D0C004BD348 /* AnimatedTabBar */,
 				403502B626CB5E7A004BD348 /* Gradients */,
+				407A1F7E26D2928A0058F84D /* UsingTimer */,
 				407A1F6C26CFD7000058F84D /* Timer */,
 				407A1F5826CF9C5B0058F84D /* Chart,Graph */,
 				403502BB26CB61BA004BD348 /* DateFormmater */,
@@ -476,6 +479,14 @@
 			path = UsingTimer;
 			sourceTree = "<group>";
 		};
+		407A1F8126D375850058F84D /* StretchyTableViewHeader  */ = {
+			isa = PBXGroup;
+			children = (
+				407A1F8226D375B40058F84D /* StretchyViewController.swift */,
+			);
+			path = "StretchyTableViewHeader ";
+			sourceTree = "<group>";
+		};
 		40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +682,7 @@
 				403502D926CBF490004BD348 /* CustomTabBarController.swift in Sources */,
 				407A1F7D26D24F520058F84D /* SnapkitViewController.swift in Sources */,
 				407A1F6E26CFD7CC0058F84D /* TimerViewController.swift in Sources */,
+				407A1F8326D375B40058F84D /* StretchyViewController.swift in Sources */,
 				407A1F5526CF7D440058F84D /* CollectionViewController.swift in Sources */,
 				40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */,
 				407A1F6326CFC9630058F84D /* TheAnimaionViewController.swift in Sources */,
