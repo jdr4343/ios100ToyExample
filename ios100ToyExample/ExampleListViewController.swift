@@ -218,6 +218,7 @@ class ExampleListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "100가지 예제"
+        view.backgroundColor = .systemBackground
         NotAuthenticated()
         view.addSubview(animatedTabBar)
         view.addSubview(gradientView)

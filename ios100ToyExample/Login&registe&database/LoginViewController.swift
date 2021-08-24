@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
         field.tintColor = .darkGray
-        field.selectedTitleColor = .darkGray
+        field.selectedTitleColor = .systemPink
         field.selectedLineColor = .darkGray
         field.textColor = .darkGray
         field.lineColor = .lightGray
@@ -43,15 +43,15 @@ class LoginViewController: UIViewController {
     
     private let passwordField: SkyFloatingLabelTextField = {
       let field = SkyFloatingLabelTextField()
-        field.placeholder = "이메일"
-        field.title = "이메일을 작성하여 주세요."
+        field.placeholder = "비밀번호"
+        field.title = "비밀번호를 작성하여 주세요."
         field.isSecureTextEntry = true
         field.returnKeyType = .next
         field.leftViewMode = .always
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
         field.tintColor = .darkGray
-        field.selectedTitleColor = .darkGray
+        field.selectedTitleColor = .systemPink
         field.selectedLineColor = .darkGray
         field.textColor = .darkGray
         field.lineColor = .lightGray
@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
     
     //로그인 버튼 / 회원가입 버튼 / 서비스약관 버튼 /개인정보 정책 버튼을 만들겠습니다. 서비스 약관과 개인정보 정책은 추가할 이유가 없어 그냥 저의 url에 연결해놓겠습니다!만들어도 그만 안만들어도 그만 인 느낌인데 없으니깐 너무 횡해서요..
     
-    private let loginbutton: TransitionButton = {
+    private let loginButton: TransitionButton = {
         let button = TransitionButton()
         button.setTitle("로그인", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
         let header = UIView()
         //서브 뷰의 테두리 기준으로 잘리게 설정하겠습니다. clipsToBounds나 masksToBounds 를 설정하지 않으면 cornerRadius로 둥글게 만들었을때 잘라내어도 텍스트가 보일수 있습니다.
         header.clipsToBounds = true
-        let backgroundImage = UIImageView(image: UIImage(named: <#T##String#>))
+        let backgroundImage = UIImageView(image: UIImage(named: "헤더"))
         header.addSubview(backgroundImage)
         return header
     }()
@@ -111,17 +111,121 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        addSubView()
         
+        //버튼 타겟 설정
+        loginButton.addTarget(self, action: #selector(didTabLoginButton), for: .touchUpInside)
 
     }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //프레임을 설정합니다.
+        headerView.frame = CGRect(
+            x: 0,
+            y: 0.0,
+            width: view.width,
+            height: view.height/3.0
+        )
+        usernamaEmailField.frame = CGRect(
+            x: 25,
+            y: headerView.bottom + 40,
+            width: view.width - 50,
+            height: 52
+        )
+        passwordField.frame = CGRect(
+            x: 25,
+            y: usernamaEmailField.bottom + 10,
+            width: view.width - 50,
+            height: 52
+        )
+        loginButton.frame = CGRect(
+            x: 25,
+            y: passwordField.bottom + 15,
+            width: view.width - 50,
+            height: 52
+        )
+        createAccountButton.frame = CGRect(
+            x: 25,
+            y: loginButton.bottom + 5,
+            width: view.width - 50,
+            height: 52
+        )
+        termsButton.frame = CGRect(
+            x: 10,
+            y: view.height - view.safeAreaInsets.bottom - 100,
+            width: view.width-20,
+            height: 50
+        )
+        privacyButton.frame = CGRect(
+            x: 10,
+            y: view.height - view.safeAreaInsets.bottom - 50,
+            width: view.width-20,
+            height: 50
+        )
+        configureHeaderView()
+        
+    }
+    
+    private func addSubView() {
+        view.addSubview(headerView)
+        view.addSubview(usernamaEmailField)
+        view.addSubview(passwordField)
+        view.addSubview(loginButton)
+        view.addSubview(createAccountButton)
+        view.addSubview(termsButton)
+        view.addSubview(privacyButton)
+    }
+    //헤더 뷰 구성 추가
+    private func configureHeaderView() {
+        guard headerView.subviews.count == 1 else {
+            return
+        }
+        //헤더뷰의 첫번째 서브뷰(이미지뷰)가 헤더뷰를 꽉 채우도록 경계를 정해줍니다.
+        guard let backgroundView = headerView.subviews.first else {
+            return
+        }
+        backgroundView.frame = headerView.bounds
+    }
+    
+    
+    //버튼 구현
+    
     @objc func didTabLoginButton() {
-        loginbutton.startAnimation()
+        loginButton.startAnimation()
         DispatchQueue.main.async {
-            self.loginbutton.stopAnimation(animationStyle: .expand, revertAfterDelay: 1) {
-                <#code#>
+            self.loginButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 0.5) {
+                let vc = ExampleListViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true)
             }
         }
     }
+    
+    @objc func didTabcreateAccountButton() {
+        let vc = ResisterationViewController()
+        vc.title = "계정 생성"
+        present(UINavigationController(rootViewController: vc),animated: true)
+    }
+    
+    @objc func didTabtermsButton() {
+        guard let url = URL(string: "https://www.notion.so/9efbaec014d84700a6e17733ad829447?v=cb2389fba533469086f9798c5b23a75f") else {
+            return
+        }
+        let vc = SFSafariViewController(url:url)
+        present(vc, animated: true)
+    }
+    
+    @objc func didTabPrivacyButton() {
+        guard let url = URL(string: "https://github.com/jdr4343") else {
+        return
+        }
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
+    }
+   
 
-
+    
 }
