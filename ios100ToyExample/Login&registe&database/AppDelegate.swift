@@ -4,7 +4,7 @@
 //
 //  Created by 신지훈 on 2021/08/17.
 //
-
+import Firebase
 import UIKit
 
 @main
@@ -13,7 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        //파일을 넣고 추가하여줍니다.
+        FirebaseApp.configure()
+        
         return true
     }
 

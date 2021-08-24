@@ -102,6 +102,7 @@ PODS:
   - PromisesObjC (2.0.0)
   - PryntTrimmerView (4.0.2)
   - RAMAnimatedTabBarController (5.2.0)
+  - SkyFloatingLabelTextField (4.0.0)
   - SnapKit (5.0.1)
   - SteviaLayout (4.7.3)
   - TheAnimation (0.4.0)
@@ -117,6 +118,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Floaty
   - RAMAnimatedTabBarController
+  - SkyFloatingLabelTextField
   - SnapKit
   - TheAnimation
   - TransitionButton
@@ -142,6 +144,7 @@ SPEC REPOS:
     - PromisesObjC
     - PryntTrimmerView
     - RAMAnimatedTabBarController
+    - SkyFloatingLabelTextField
     - SnapKit
     - SteviaLayout
     - TheAnimation
@@ -167,12 +170,13 @@ SPEC CHECKSUMS:
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
+  SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   TheAnimation: b6d6bac50365897a3aecc5a9e7b4e1461909c1a0
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
   YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
-PODFILE CHECKSUM: 9b596c65d619a7dd11c88db3a73cf2b2f6c3cd05
+PODFILE CHECKSUM: cbaa5cf51e8f53511872cb95cd7dd2da1cd46242
 
 COCOAPODS: 1.10.1

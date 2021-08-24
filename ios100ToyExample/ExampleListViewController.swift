@@ -11,6 +11,7 @@
 import UIKit
 import RAMAnimatedTabBarController
 import Floaty
+import FirebaseAuth
 
 class ExampleListViewController: UIViewController {
 
@@ -204,12 +205,20 @@ class ExampleListViewController: UIViewController {
         button.addTarget(self, action: #selector(didTabPageControlButton), for: .touchUpInside)
         return button
     }()
+    private let floatingTextView: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .cyan
+        button.setTitle("텍스트필드", for: .normal)
+        button.addTarget(self, action: #selector(didTabFloatingTextButton), for: .touchUpInside)
+        return button
+    }()
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "100가지 예제"
+        //NotAuthenticated()
         view.addSubview(animatedTabBar)
         view.addSubview(gradientView)
         view.addSubview(dateFormatterView)
@@ -238,6 +247,7 @@ class ExampleListViewController: UIViewController {
         view.addSubview(usingTimerView)
         view.addSubview(customcellsView)
         view.addSubview(pageControlView)
+        view.addSubview(floatingTextView)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -296,12 +306,18 @@ class ExampleListViewController: UIViewController {
                                        width: 80, height: 50)
         pageControlView.frame = CGRect(x: 190, y: 340,
                                        width: 110, height: 50)
+        floatingTextView.frame = CGRect(x: 300, y: 340, width: 120, height: 50)
         
     }
+    //MARK: - Login
     
-    //
+    // 사용자가 로그인 하지 않았다면 로그인 화면을 보여주고 아니라면 메인 뷰를 보여줄것입니다.
     private func NotAuthenticated() {
-        
+        if Auth.auth().currentUser == nil {
+            let loginVC = LoginViewController()
+            loginVC.modalPresentationStyle = .fullScreen
+            present(loginVC, animated: true)
+        }
     }
     
     
@@ -461,5 +477,9 @@ class ExampleListViewController: UIViewController {
     @objc func didTabPageControlButton() {
         let pageVC = PageControlViewController()
         present(pageVC, animated: true)
-}
+   }
+    @objc func didTabFloatingTextButton() {
+        let TextFieldVC = FloatingTextViewController()
+        present(TextFieldVC, animated: true)
+   }
 }

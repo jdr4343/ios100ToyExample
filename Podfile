@@ -14,6 +14,7 @@ pod 'Charts'
 pod 'TheAnimation'
 pod 'YPImagePicker'
 pod 'SnapKit'
+pod 'SkyFloatingLabelTextField'
 
   #Firebase
 pod 'Firebase/Auth'
