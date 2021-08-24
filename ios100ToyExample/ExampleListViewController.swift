@@ -299,7 +299,10 @@ class ExampleListViewController: UIViewController {
         
     }
     
-    
+    //
+    private func NotAuthenticated() {
+        
+    }
     
     
     
@@ -307,7 +310,7 @@ class ExampleListViewController: UIViewController {
     
     
     //플로팅 버튼 구현
-    func floatingButton() {
+    private func floatingButton() {
         let floating = Floaty()
         floating.addItem("늘어나고 줄어드는 신축성 테이블 뷰 헤더", icon: UIImage(systemName:
             "rectangle.topthird.inset")!, handler: { item in

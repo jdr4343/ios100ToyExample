@@ -15,5 +15,10 @@ pod 'TheAnimation'
 pod 'YPImagePicker'
 pod 'SnapKit'
 
+  #Firebase
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
+pod 'Firebase/Analytics'
+
 
 end
