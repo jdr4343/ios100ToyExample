@@ -218,7 +218,7 @@ class ExampleListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "100가지 예제"
-        //NotAuthenticated()
+        NotAuthenticated()
         view.addSubview(animatedTabBar)
         view.addSubview(gradientView)
         view.addSubview(dateFormatterView)

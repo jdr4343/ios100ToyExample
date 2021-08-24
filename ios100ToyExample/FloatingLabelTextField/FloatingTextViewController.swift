@@ -12,7 +12,7 @@ import SkyFloatingLabelTextField
 class FloatingTextViewController: UIViewController {
 
     //일반 텍스트필드를 2게 추가하고 유용한 요소들을 추가해보겠습니다.
-    let textField: UITextField = {
+    private let textField: UITextField = {
         let field = UITextField()
         field.placeholder = "일반 텍스트 필드 입니다."
         field.backgroundColor = .secondarySystemBackground
@@ -31,7 +31,7 @@ class FloatingTextViewController: UIViewController {
         field.layer.borderColor = UIColor.secondaryLabel.cgColor
         return field
     }()
-    let passwordField: UITextField = {
+    private let passwordField: UITextField = {
         let field = UITextField()
         field.placeholder = "비밀번호를 작성한다 가정하겠습니다."
         //아래의 속성을 추가하면 글을 적을때 ***이런식으로 비밀로 만들어집니다!
@@ -50,15 +50,86 @@ class FloatingTextViewController: UIViewController {
     }()
     
     //프레임워크를 사용한 텍스트 필드를 만들겠습니다.
+    private let newTextField: SkyFloatingLabelTextField = {
+        let field = SkyFloatingLabelTextField()
+        field.placeholder = "이메일"
+        field.title = "이메일을 적어주세요."
+        field.returnKeyType = .continue
+        field.leftViewMode = .always
+        field.autocapitalizationType = .none
+        field.autocorrectionType = .no
+        field.tintColor = .darkGray
+        field.selectedTitleColor = .darkGray
+        field.selectedLineColor = .darkGray
+        field.textColor = .darkGray
+        field.lineColor = .lightGray
+        field.lineHeight = 1.0
+        field.selectedLineHeight = 2.0
+        
+        return field
+    }()
+    
+    
+   private let newPasswordField: SkyFloatingLabelTextFieldWithIcon = {
+        let field = SkyFloatingLabelTextFieldWithIcon()
+        field.placeholder = "비밀번호"
+        field.title = "비밀번호를 적어주세요."
+        //여기에 리터럴 이미지를 넣으면 색상이 변하게 할수 있지만 리터럴 이미지를 구하지 못했습니다... 있으시다면 한번 넣어서 사용해 보세요!
+       // field.iconImage = UIImage(imageLiteralResourceName:  )
+        field.returnKeyType = .continue
+        field.leftViewMode = .always
+        field.autocapitalizationType = .none
+        field.autocorrectionType = .no
+        field.isSecureTextEntry = true
+        field.tintColor = .darkGray
+        field.selectedTitleColor = .darkGray
+        field.selectedLineColor = .darkGray
+        field.textColor = .darkGray
+        field.lineColor = .lightGray
+        field.lineHeight = 1.0
+        field.selectedLineHeight = 2.0
+
+        return field
+    }()
+
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-
+        view.backgroundColor = .systemBackground
+        view.addSubview(textField)
+        view.addSubview(passwordField)
+        view.addSubview(newTextField)
+        view.addSubview(newPasswordField)
+        textField.delegate = self
+        passwordField.delegate = self
+        newTextField.delegate = self
+        newPasswordField.delegate = self
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        textField.frame = CGRect(x: 25, y: 140, width: view.width - 50, height: 52)
+        passwordField.frame = CGRect(x: 25, y: textField.bottom+10, width: view.width - 50, height: 52)
+        newTextField.frame = CGRect(x: 25, y: passwordField.bottom+10, width: view.width - 50, height: 52)
+        newPasswordField.frame = CGRect(x: 25, y: newTextField.bottom+10, width: view.width - 50, height: 52)
+    }
 
     
 
+}
+//텍스트 키보드에서 리턴키를 누르면 자동으로 다음 으로 넘어가도록 설정 하겠습니다.
+extension FloatingTextViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == textField {
+            passwordField.becomeFirstResponder()
+        }
+        if textField == newTextField {
+            newPasswordField.becomeFirstResponder()
+        }
+        return true
+    }
 }

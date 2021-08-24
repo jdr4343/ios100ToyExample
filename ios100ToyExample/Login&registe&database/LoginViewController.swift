@@ -5,6 +5,7 @@
 //  Created by 신지훈 on 2021/08/24.
 //
 import SkyFloatingLabelTextField
+import TransitionButton
 import SafariServices
 import UIKit
 /*
@@ -21,31 +22,106 @@ class LoginViewController: UIViewController {
     //MARK: - 요소 추가
     
     //이메일, 아이디 텍스트 필드 /'SkyFloatingLabelTextField'라는 프레임 워크를 이용해서 만들 것 입니다.
-    private let usernamaEmailField: UITextField = {
-      let field = UITextField()
+    private let usernamaEmailField: SkyFloatingLabelTextField = {
+      let field = SkyFloatingLabelTextField()
         field.placeholder = "이메일"
-        field.backgroundColor = .secondarySystemBackground
+        field.title = "이메일을 작성하여 주세요."
         field.returnKeyType = .next
         field.leftViewMode = .always
-        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         //자동으로 대문자가 되지 않게 설정합니다. / 자동완성기능으로 인해 글자가 수정되는 일이 없도록 하겠습니다.
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
-        //텍스트 뷰의 테두리를 기점으로 잘리게 masksToBounds를 추가해 줍니다. / 코너를 좀 둥글게 만들겠습니다.
-        field.layer.masksToBounds = true
-        field.layer.cornerRadius = 8.0
-        //테두리를 추가하겠습니다.
+        field.tintColor = .darkGray
+        field.selectedTitleColor = .darkGray
+        field.selectedLineColor = .darkGray
+        field.textColor = .darkGray
+        field.lineColor = .lightGray
+        field.lineHeight = 1.0
+        field.selectedLineHeight = 2.0
         return field
     }()
     
+    private let passwordField: SkyFloatingLabelTextField = {
+      let field = SkyFloatingLabelTextField()
+        field.placeholder = "이메일"
+        field.title = "이메일을 작성하여 주세요."
+        field.isSecureTextEntry = true
+        field.returnKeyType = .next
+        field.leftViewMode = .always
+        field.autocapitalizationType = .none
+        field.autocorrectionType = .no
+        field.tintColor = .darkGray
+        field.selectedTitleColor = .darkGray
+        field.selectedLineColor = .darkGray
+        field.textColor = .darkGray
+        field.lineColor = .lightGray
+        field.lineHeight = 1.0
+        field.selectedLineHeight = 2.0
+        return field
+    }()
+    
+    //로그인 버튼 / 회원가입 버튼 / 서비스약관 버튼 /개인정보 정책 버튼을 만들겠습니다. 서비스 약관과 개인정보 정책은 추가할 이유가 없어 그냥 저의 url에 연결해놓겠습니다!만들어도 그만 안만들어도 그만 인 느낌인데 없으니깐 너무 횡해서요..
+    
+    private let loginbutton: TransitionButton = {
+        let button = TransitionButton()
+        button.setTitle("로그인", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        button.backgroundColor = .systemPink
+        button.layer.masksToBounds = true
+        button.cornerRadius = 12.0
+        button.spinnerColor = .white
+        return button
+    }()
+    
+    private let createAccountButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("계정이 없으신가요?회원가입", for: .normal)
+        button.setTitleColor(.label, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        return button
+    }()
+    
+    private let termsButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("서비스약관", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 12)
+        button.setTitleColor(.secondaryLabel, for: .normal)
+        return button
+    }()
+    
+    private let privacyButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("개인정보처리방침", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 12)
+        button.setTitleColor(.secondaryLabel, for: .normal)
+        return button
+    }()
+    
+    //헤더 뷰를 생성 하겠습니다.
+    private let headerView: UIView = {
+        let header = UIView()
+        //서브 뷰의 테두리 기준으로 잘리게 설정하겠습니다. clipsToBounds나 masksToBounds 를 설정하지 않으면 cornerRadius로 둥글게 만들었을때 잘라내어도 텍스트가 보일수 있습니다.
+        header.clipsToBounds = true
+        let backgroundImage = UIImageView(image: UIImage(named: <#T##String#>))
+        header.addSubview(backgroundImage)
+        return header
+    }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        
 
     }
-    
+    @objc func didTabLoginButton() {
+        loginbutton.startAnimation()
+        DispatchQueue.main.async {
+            self.loginbutton.stopAnimation(animationStyle: .expand, revertAfterDelay: 1) {
+                <#code#>
+            }
+        }
+    }
 
 
 }
