@@ -42,7 +42,7 @@ public func registerNewUser(username: String, email: String, password: String, c
         }
     }
 }
-    //로그인
+    ///로그인
     public func loginUser(username: String?, email: String?, password: String, completion: @escaping (Bool) -> Void) {
         if let email = email {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
@@ -58,7 +58,20 @@ public func registerNewUser(username: String, email: String, password: String, c
             print(username)
         }
     }
-
+    ///로그아웃
+    public func logOut(completion: (Bool) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            completion(true)
+            return
+        }
+        catch {
+            print(error)
+            completion(false)
+            return
+        }
+    }
+ 
     
     
     

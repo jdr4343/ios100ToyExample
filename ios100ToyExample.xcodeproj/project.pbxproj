@@ -76,6 +76,8 @@
 		407A1FEF26D55A600058F84D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1FEE26D55A600058F84D /* RegistrationViewController.swift */; };
 		407A1FF126D5680B0058F84D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1FF026D5680B0058F84D /* AuthManager.swift */; };
 		407A1FF326D568220058F84D /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1FF226D568220058F84D /* DatabaseManager.swift */; };
+		407A1FFD26D66A780058F84D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1FFC26D66A780058F84D /* SettingViewController.swift */; };
+		407A1FFF26D66A9B0058F84D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1FFE26D66A9B0058F84D /* ProfileViewController.swift */; };
 		40DF551126CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */; };
 		40DF551326CD12C300FD9FB8 /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */; };
 		40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */; };
@@ -158,6 +160,8 @@
 		407A1FEE26D55A600058F84D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		407A1FF026D5680B0058F84D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		407A1FF226D568220058F84D /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		407A1FFC26D66A780058F84D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		407A1FFE26D66A9B0058F84D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
 		40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvencedModel.swift; sourceTree = "<group>"; };
@@ -202,48 +206,12 @@
 		4035029E26CB4B4B004BD348 /* ios100ToyExample */ = {
 			isa = PBXGroup;
 			children = (
-				407A1FE426D4C80D0058F84D /* Login&registe&database */,
 				407A1F7B26D244DA0058F84D /* MemoWithPhoto */,
-				403502A126CB4B4B004BD348 /* SceneDelegate.swift */,
+				407A1FF426D669180058F84D /* Example */,
+				407A1FE426D4C80D0058F84D /* Login&registe&database */,
 				403502AD26CB4B4D004BD348 /* Info.plist */,
 				403502A826CB4B4D004BD348 /* Assets.xcassets */,
-				403502A326CB4B4B004BD348 /* ExampleListViewController.swift */,
-				4078640626CE06A200C864FD /* FrameExtensions.swift */,
 				403502A526CB4B4B004BD348 /* Main.storyboard */,
-				407A1FEB26D52A0D0058F84D /* FloatingLabelTextField */,
-				403502CC26CBBD12004BD348 /* CheakList */,
-				407A1F4D26CF6A9D0058F84D /* TableView */,
-				403502B326CB4D0C004BD348 /* AnimatedTabBar */,
-				403502B626CB5E7A004BD348 /* Gradients */,
-				407A1F7E26D2928A0058F84D /* UsingTimer */,
-				407A1F6C26CFD7000058F84D /* Timer */,
-				407A1F5826CF9C5B0058F84D /* Chart,Graph */,
-				403502BB26CB61BA004BD348 /* DateFormmater */,
-				403502C026CB8444004BD348 /* Alarm */,
-				403502D126CBCD75004BD348 /* ColorWell */,
-				403502D426CBE3EE004BD348 /* FontPicker */,
-				403502D726CBF447004BD348 /* CustomTabBar */,
-				403502DE26CC8554004BD348 /* PDFkit */,
-				403502E626CCAC59004BD348 /* WebView */,
-				403502E326CC9EDC004BD348 /* Spinner */,
-				40DF551B26CD2F7200FD9FB8 /* BarButtonItem */,
-				403502E926CCCFD6004BD348 /* Carousel */,
-				4078640826CE11E000C864FD /* Memo */,
-				407A1F5F26CFB3270058F84D /* CoreAnimation */,
-				40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */,
-				4078640326CE027E00C864FD /* NewsAPIApp */,
-				407A1F4826CF37FB0058F84D /* TableViewSection&Headers,footers */,
-				407A1F5026CF72500058F84D /* KeyboardToolbar */,
-				407A1F5326CF7D130058F84D /* CollectionView */,
-				407A1F3F26CE33F90058F84D /* TextFieldAlert */,
-				407A1F6426CFCC7D0058F84D /* AudioPlay */,
-				407A1F8126D375850058F84D /* StretchyTableViewHeader  */,
-				407A1F6F26D0A1FF0058F84D /* Camera1 */,
-				407A1F7226D0A9C30058F84D /* Camera2 */,
-				407A1F7526D0C4260058F84D /* AutoLayout Programmatically */,
-				407A1F8626D3A7C90058F84D /* CustomCells Programmatically */,
-				407A1F8E26D3BB740058F84D /* PageControl */,
-				407A1F7826D0DE090058F84D /* StackView */,
 			);
 			path = ios100ToyExample;
 			sourceTree = "<group>";
@@ -531,12 +499,7 @@
 		407A1FE426D4C80D0058F84D /* Login&registe&database */ = {
 			isa = PBXGroup;
 			children = (
-				407A1FE926D524570058F84D /* GoogleService-Info.plist */,
-				4035029F26CB4B4B004BD348 /* AppDelegate.swift */,
-				407A1FE526D4C82B0058F84D /* LoginViewController.swift */,
-				407A1FEE26D55A600058F84D /* RegistrationViewController.swift */,
-				407A1FF026D5680B0058F84D /* AuthManager.swift */,
-				407A1FF226D568220058F84D /* DatabaseManager.swift */,
+				407A1FF626D669D30058F84D /* Controller */,
 			);
 			path = "Login&registe&database";
 			sourceTree = "<group>";
@@ -547,6 +510,97 @@
 				407A1FEC26D52A650058F84D /* FloatingTextViewController.swift */,
 			);
 			path = FloatingLabelTextField;
+			sourceTree = "<group>";
+		};
+		407A1FF426D669180058F84D /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				407A1FEB26D52A0D0058F84D /* FloatingLabelTextField */,
+				403502CC26CBBD12004BD348 /* CheakList */,
+				407A1F4D26CF6A9D0058F84D /* TableView */,
+				403502B326CB4D0C004BD348 /* AnimatedTabBar */,
+				403502B626CB5E7A004BD348 /* Gradients */,
+				407A1F7E26D2928A0058F84D /* UsingTimer */,
+				407A1F6C26CFD7000058F84D /* Timer */,
+				407A1F5826CF9C5B0058F84D /* Chart,Graph */,
+				403502BB26CB61BA004BD348 /* DateFormmater */,
+				403502C026CB8444004BD348 /* Alarm */,
+				403502D126CBCD75004BD348 /* ColorWell */,
+				403502D426CBE3EE004BD348 /* FontPicker */,
+				403502D726CBF447004BD348 /* CustomTabBar */,
+				403502DE26CC8554004BD348 /* PDFkit */,
+				403502E626CCAC59004BD348 /* WebView */,
+				403502E326CC9EDC004BD348 /* Spinner */,
+				40DF551B26CD2F7200FD9FB8 /* BarButtonItem */,
+				403502E926CCCFD6004BD348 /* Carousel */,
+				4078640826CE11E000C864FD /* Memo */,
+				407A1F5F26CFB3270058F84D /* CoreAnimation */,
+				40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */,
+				4078640326CE027E00C864FD /* NewsAPIApp */,
+				407A1F4826CF37FB0058F84D /* TableViewSection&Headers,footers */,
+				407A1F5026CF72500058F84D /* KeyboardToolbar */,
+				407A1F5326CF7D130058F84D /* CollectionView */,
+				407A1F3F26CE33F90058F84D /* TextFieldAlert */,
+				407A1F6426CFCC7D0058F84D /* AudioPlay */,
+				407A1F8126D375850058F84D /* StretchyTableViewHeader  */,
+				407A1F6F26D0A1FF0058F84D /* Camera1 */,
+				407A1F7226D0A9C30058F84D /* Camera2 */,
+				407A1F7526D0C4260058F84D /* AutoLayout Programmatically */,
+				407A1F8626D3A7C90058F84D /* CustomCells Programmatically */,
+				407A1F8E26D3BB740058F84D /* PageControl */,
+				407A1F7826D0DE090058F84D /* StackView */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		407A1FF526D669A30058F84D /* Resorce */ = {
+			isa = PBXGroup;
+			children = (
+				407A1FE926D524570058F84D /* GoogleService-Info.plist */,
+				403502A126CB4B4B004BD348 /* SceneDelegate.swift */,
+				4078640626CE06A200C864FD /* FrameExtensions.swift */,
+				4035029F26CB4B4B004BD348 /* AppDelegate.swift */,
+				407A1FF026D5680B0058F84D /* AuthManager.swift */,
+				407A1FF226D568220058F84D /* DatabaseManager.swift */,
+			);
+			path = Resorce;
+			sourceTree = "<group>";
+		};
+		407A1FF626D669D30058F84D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				407A1FF526D669A30058F84D /* Resorce */,
+				407A1FF926D66A130058F84D /* Onbording */,
+				407A1FF826D66A050058F84D /* CoreTabs */,
+				407A1FF726D669F40058F84D /* General */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		407A1FF726D669F40058F84D /* General */ = {
+			isa = PBXGroup;
+			children = (
+				407A1FFC26D66A780058F84D /* SettingViewController.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		407A1FF826D66A050058F84D /* CoreTabs */ = {
+			isa = PBXGroup;
+			children = (
+				403502A326CB4B4B004BD348 /* ExampleListViewController.swift */,
+				407A1FFE26D66A9B0058F84D /* ProfileViewController.swift */,
+			);
+			path = CoreTabs;
+			sourceTree = "<group>";
+		};
+		407A1FF926D66A130058F84D /* Onbording */ = {
+			isa = PBXGroup;
+			children = (
+				407A1FE526D4C82B0058F84D /* LoginViewController.swift */,
+				407A1FEE26D55A600058F84D /* RegistrationViewController.swift */,
+			);
+			path = Onbording;
 			sourceTree = "<group>";
 		};
 		40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */ = {
@@ -736,6 +790,7 @@
 				407A1F5226CF729C0058F84D /* KeyboardToolBarViewController.swift in Sources */,
 				407A1F6126CFB36B0058F84D /* CoreAnimationViewController.swift in Sources */,
 				4078640726CE06A200C864FD /* FrameExtensions.swift in Sources */,
+				407A1FFF26D66A9B0058F84D /* ProfileViewController.swift in Sources */,
 				407A1F4526CE6D170058F84D /* NewsTableViewCell.swift in Sources */,
 				407A1F3A26CE195A0058F84D /* ios100ToyExample.xcdatamodeld in Sources */,
 				407A1F7426D0AAE90058F84D /* YPImageViewController.swift in Sources */,
@@ -745,6 +800,7 @@
 				407A1F5A26CF9D280058F84D /* BarViewController.swift in Sources */,
 				407A1F8B26D3A87C0058F84D /* CustomCellsViewController.swift in Sources */,
 				403502EB26CCD098004BD348 /* CarouselViewController.swift in Sources */,
+				407A1FFD26D66A780058F84D /* SettingViewController.swift in Sources */,
 				407A1F7126D0A21E0058F84D /* CameraViewController.swift in Sources */,
 				403502D326CBCDC0004BD348 /* ColorWellViewController.swift in Sources */,
 				407A1F4A26CF38F10058F84D /* SectionViewController.swift in Sources */,
