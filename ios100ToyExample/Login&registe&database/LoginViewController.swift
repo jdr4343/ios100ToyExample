@@ -113,9 +113,14 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         addSubView()
+        usernamaEmailField.delegate = self
+        passwordField.delegate = self
         
         //버튼 타겟 설정
         loginButton.addTarget(self, action: #selector(didTabLoginButton), for: .touchUpInside)
+        createAccountButton.addTarget(self, action: #selector(didTabcreateAccountButton), for: .touchUpInside)
+        termsButton.addTarget(self, action: #selector(didTabtermsButton), for: .touchUpInside)
+        privacyButton.addTarget(self, action: #selector(didTabPrivacyButton), for: .touchUpInside)
 
     }
     
@@ -225,7 +230,17 @@ class LoginViewController: UIViewController {
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true)
     }
-   
-
     
+}
+// 텍스트 필드 델리게이트 연결
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernamaEmailField {
+            passwordField.becomeFirstResponder()
+        } else if textField == passwordField {
+            didTabLoginButton()
+        }
+        return true
+    }
 }
