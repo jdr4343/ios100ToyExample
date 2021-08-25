@@ -48,7 +48,7 @@ public func registerNewUser(username: String, email: String, password: String, c
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 //인증 결과가 nil이 아니고 오류가 nil과 같을떄 completion(true)를 호출하고 else라면 false를 반환 합니다!
                 guard authResult != nil, error == nil else {
-                    print("Auth51 - 로그인이 실패했습니다")
+                    print("Auth51 - 이메일 로그인이 실패 했습니다")
                     completion(false)
                     return
                 }

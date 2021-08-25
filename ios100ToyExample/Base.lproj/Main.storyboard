@@ -28,7 +28,7 @@
         <scene sceneID="4rR-Rd-mDV">
             <objects>
                 <navigationController id="9mv-dw-dBQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="homekit" catalog="system" id="leW-qA-baD"/>
+                    <tabBarItem key="tabBarItem" title="" id="leW-qA-baD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OnF-QI-icg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -177,17 +177,51 @@
             </objects>
             <point key="canvasLocation" x="-1849" y="55"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Item-->
+        <scene sceneID="Qbx-Zs-m5O">
+            <objects>
+                <navigationController id="wdk-e7-50f" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="k6N-ws-KzS"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KMQ-Kl-NuQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2kQ-Qs-TnE" kind="relationship" relationship="rootViewController" id="Tvy-bG-Ek9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gnO-FP-n7s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2692" y="-745"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Z5j-wg-LhH">
+            <objects>
+                <viewController id="2kQ-Qs-TnE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hwn-uu-4Sb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="bHL-QD-Xd9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bPh-F9-MW2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SeV-Xh-EUS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1878" y="-958"/>
+        </scene>
+        <!--iOS Tab Bar Controller-->
         <scene sceneID="rqE-0f-oxx">
             <objects>
-                <tabBarController id="szx-ia-Dxy" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lnk-au-Chb">
+                <tabBarController id="szx-ia-Dxy" customClass="IOSTabBarController" customModule="ios100ToyExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lnk-au-Chb" customClass="IOSTabBar" customModule="ios100ToyExample" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" systemColor="labelColor"/>
                     </tabBar>
                     <connections>
+                        <segue destination="wdk-e7-50f" kind="relationship" relationship="viewControllers" id="tYX-Da-4AE"/>
                         <segue destination="9mv-dw-dBQ" kind="relationship" relationship="viewControllers" id="jHg-fp-y1M"/>
                         <segue destination="rhD-OV-PYf" kind="relationship" relationship="viewControllers" id="iBc-F6-TGc"/>
                     </connections>
@@ -954,7 +988,6 @@
         <segue reference="nzV-nK-BRO"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>

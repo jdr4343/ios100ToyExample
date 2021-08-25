@@ -203,11 +203,15 @@ class LoginViewController: UIViewController {
         //탭 될떄 키보드를 닫도록 설정
         passwordField.resignFirstResponder()
         usernamaEmailField.resignFirstResponder()
-        loginButton.startAnimation()
         
         //텍스트가 비어 있는지 / 패스워드가 8자 이상인지 유효성 검사
         guard let usernameEmail = usernamaEmailField.text, !usernameEmail.isEmpty,
               let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
+            let alert = UIAlertController(title: "회원정보가 다릅니다.",
+                                          message: "패스워드의 길이가 8자 미만입니다.",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "닫기", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
             return
         }
         ///여기에서 로그인 기능을 연결 할 것입니다. 연결하기에 앞서  AuthManager,DataManager가 선행으로 작성 되어야 합니다. 또한 firebase의 Authentication에서 이메일을 사용저장 해주시고,
@@ -232,8 +236,9 @@ class LoginViewController: UIViewController {
         //사용자 정보를 확인하고 맞다면 창을 닫고 아니라면 경고 메시지를 띄우겠습니다. / async를 사용하여 비동기 처리 하겠습니다.
         AuthManager.shared.loginUser(username: username, email: email, password: password) { success in
             DispatchQueue.main.async {
-                self.loginButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 0.5) {
                     if success {
+                        self.loginButton.startAnimation()
+                        self.loginButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 0.5)
                         self.dismiss(animated: true, completion: nil)
                     } else {
                         let alert = UIAlertController(title: "회원정보가 다릅니다.",
@@ -243,7 +248,7 @@ class LoginViewController: UIViewController {
                         self.present(alert, animated: true)
                     }
                 }
-            }
+            
         }
         
     }
