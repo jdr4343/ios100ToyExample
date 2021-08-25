@@ -23,7 +23,7 @@ class IOSTabBarController: UITabBarController,UITabBarControllerDelegate {
        
        func setupMiddleButton() {
            //버튼 크기
-           let middelButton = UIButton(frame: CGRect(x: (self.view.bounds.width/2)-25,
+           let middelButton = UIButton(frame: CGRect(x: (self.view.bounds.width/2)-30,
                                                      y: -20,
                                                      width: 60,
                                                      height: 60))

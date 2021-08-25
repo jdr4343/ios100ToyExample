@@ -219,6 +219,7 @@ class ExampleListViewController: UIViewController {
         super.viewDidLoad()
        // title = "100가지 예제"
         view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.tintColor = .label
         NotAuthenticated()
         view.addSubview(animatedTabBar)
         view.addSubview(gradientView)

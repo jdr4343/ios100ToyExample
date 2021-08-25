@@ -15,7 +15,7 @@ class BarButtonItemViewController: UIViewController {
         title = "BarButton"
         
        //네비게이션 바 색상 변환
-        navigationController?.navigationBar.tintColor = .systemOrange
+        navigationController?.navigationBar.tintColor = .label
         
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         view.addSubview(button)
