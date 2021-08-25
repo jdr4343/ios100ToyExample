@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
     private let usernamaEmailField: SkyFloatingLabelTextField = {
       let field = SkyFloatingLabelTextField()
         field.placeholder = "이메일"
-        field.title = "이메일을 작성하여 주세요."
+        field.title = "이메일을 작성해 주세요."
         field.returnKeyType = .next
         field.leftViewMode = .always
         //자동으로 대문자가 되지 않게 설정합니다. / 자동완성기능으로 인해 글자가 수정되는 일이 없도록 하겠습니다.
@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
     private let passwordField: SkyFloatingLabelTextField = {
       let field = SkyFloatingLabelTextField()
         field.placeholder = "비밀번호"
-        field.title = "비밀번호를 작성하여 주세요."
+        field.title = "비밀번호를 작성해 주세요."
         field.isSecureTextEntry = true
         field.returnKeyType = .next
         field.leftViewMode = .always
@@ -108,6 +108,7 @@ class LoginViewController: UIViewController {
         return header
     }()
     
+    //MARK: - 화면
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -196,21 +197,59 @@ class LoginViewController: UIViewController {
     }
     
     
-    //버튼 구현
+    //MARK: - 버튼
     
     @objc func didTabLoginButton() {
+        //탭 될떄 키보드를 닫도록 설정
+        passwordField.resignFirstResponder()
+        usernamaEmailField.resignFirstResponder()
         loginButton.startAnimation()
-        DispatchQueue.main.async {
-            self.loginButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 0.5) {
-                let vc = ExampleListViewController()
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true)
+        
+        //텍스트가 비어 있는지 / 패스워드가 8자 이상인지 유효성 검사
+        guard let usernameEmail = usernamaEmailField.text, !usernameEmail.isEmpty,
+              let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
+            return
+        }
+        ///여기에서 로그인 기능을 연결 할 것입니다. 연결하기에 앞서  AuthManager,DataManager가 선행으로 작성 되어야 합니다. 또한 firebase의 Authentication에서 이메일을 사용저장 해주시고,
+        ///Realtime Database(테스트)가 만들어고 규칙을 수정 해야 합니다.그리고 회원가입을 해야 등록을 하니 Resister 뷰 또한 작성 되어야 하겠죠?
+        /*
+        - Realtime Database 규칙수정
+         {
+           "rules": {
+             ".read":true,
+             ".write":true
+           }
+         }
+         */
+        var username: String?
+        var email: String?
+        //"@","."을 포함하면 이메일로 저장하고 아니라면 사용자이름으로 저장하겠습니다.
+        if usernameEmail.contains("@"),usernameEmail.contains(".") {
+            email = usernameEmail
+        } else  {
+            username = usernameEmail
+        }
+        //사용자 정보를 확인하고 맞다면 창을 닫고 아니라면 경고 메시지를 띄우겠습니다. / async를 사용하여 비동기 처리 하겠습니다.
+        AuthManager.shared.loginUser(username: username, email: email, password: password) { success in
+            DispatchQueue.main.async {
+                self.loginButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 0.5) {
+                    if success {
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        let alert = UIAlertController(title: "회원정보가 다릅니다.",
+                                                      message: "아이디 혹은 패스워드를 확인해 주세요.",
+                                                      preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "닫기", style: .cancel, handler: nil))
+                        self.present(alert, animated: true)
+                    }
+                }
             }
         }
+        
     }
     
     @objc func didTabcreateAccountButton() {
-        let vc = ResisterationViewController()
+        let vc = RegistrationViewController()
         vc.title = "계정 생성"
         present(UINavigationController(rootViewController: vc),animated: true)
     }
@@ -232,7 +271,8 @@ class LoginViewController: UIViewController {
     }
     
 }
-// 텍스트 필드 델리게이트 연결
+
+//MARK: - 확장
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

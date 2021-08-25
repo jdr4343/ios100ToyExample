@@ -73,7 +73,7 @@
 		407A1FE626D4C82B0058F84D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1FE526D4C82B0058F84D /* LoginViewController.swift */; };
 		407A1FEA26D524580058F84D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 407A1FE926D524570058F84D /* GoogleService-Info.plist */; };
 		407A1FED26D52A650058F84D /* FloatingTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1FEC26D52A650058F84D /* FloatingTextViewController.swift */; };
-		407A1FEF26D55A600058F84D /* ResisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1FEE26D55A600058F84D /* ResisterationViewController.swift */; };
+		407A1FEF26D55A600058F84D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1FEE26D55A600058F84D /* RegistrationViewController.swift */; };
 		407A1FF126D5680B0058F84D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1FF026D5680B0058F84D /* AuthManager.swift */; };
 		407A1FF326D568220058F84D /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1FF226D568220058F84D /* DatabaseManager.swift */; };
 		40DF551126CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */; };
@@ -155,7 +155,7 @@
 		407A1FE526D4C82B0058F84D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		407A1FE926D524570058F84D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		407A1FEC26D52A650058F84D /* FloatingTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTextViewController.swift; sourceTree = "<group>"; };
-		407A1FEE26D55A600058F84D /* ResisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResisterationViewController.swift; sourceTree = "<group>"; };
+		407A1FEE26D55A600058F84D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		407A1FF026D5680B0058F84D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		407A1FF226D568220058F84D /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedCollectionTableViewCell.swift; sourceTree = "<group>"; };
@@ -534,7 +534,7 @@
 				407A1FE926D524570058F84D /* GoogleService-Info.plist */,
 				4035029F26CB4B4B004BD348 /* AppDelegate.swift */,
 				407A1FE526D4C82B0058F84D /* LoginViewController.swift */,
-				407A1FEE26D55A600058F84D /* ResisterationViewController.swift */,
+				407A1FEE26D55A600058F84D /* RegistrationViewController.swift */,
 				407A1FF026D5680B0058F84D /* AuthManager.swift */,
 				407A1FF226D568220058F84D /* DatabaseManager.swift */,
 			);
@@ -707,7 +707,7 @@
 				407A1F4326CE5AAD0058F84D /* APICaller.swift in Sources */,
 				407A1F4F26CF6AE60058F84D /* TableViewController.swift in Sources */,
 				4078641026CE129D00C864FD /* DetailViewController.swift in Sources */,
-				407A1FEF26D55A600058F84D /* ResisterationViewController.swift in Sources */,
+				407A1FEF26D55A600058F84D /* RegistrationViewController.swift in Sources */,
 				407A1FF326D568220058F84D /* DatabaseManager.swift in Sources */,
 				407A1F9226D3BC860058F84D /* PageControlViewController.swift in Sources */,
 				403502C426CB84F0004BD348 /* AlarmViewController.swift in Sources */,
