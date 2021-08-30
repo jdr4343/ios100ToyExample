@@ -108,3 +108,19 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
+
+//MARK: - ProfileInfoHeaderTableHeaderViewDelegate / 구현대기 
+
+extension ProfileViewController: ProfileInfoHeaderTableHeaderViewDelegate {
+    func didTapPostButton(_ header: ProfileInfoHeaderTableHeaderView) {
+        //게시물 작성 화면을 열겠습니다.
+        print("연결완료")
+    }
+    
+    func didTapEditProfileButton(_ header: ProfileInfoHeaderTableHeaderView) {
+        //프로필 변경 탭을 호출하겠습니다.
+        print("연결완료")
+    }
+    
+    
+}

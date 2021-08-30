@@ -110,8 +110,8 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        //프로필 백 그라운드를 지정합니다. 가능하다면 사용자들이 지정하는 데로 변경하고 싶으나 기술적인 한계의 문제로 구현안될수도 있습니다.
+        //MARK: - 구현대기 / 백 그라운드 이미지 변경
+        //프로필 백 그라운드를 지정합니다. 가능하다면 사용자들이 지정하는 데로 변경하고 싶으나 필자의 기술적인 한계의 문제로 구현 안될수도 있습니다.
         headerImageView.frame = CGRect(x: 0, y: 0, width: width, height: height/2)
         
         UIGraphicsBeginImageContext(self.headerImageView.frame.size)
