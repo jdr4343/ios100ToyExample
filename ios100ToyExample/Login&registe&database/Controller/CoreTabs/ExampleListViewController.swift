@@ -9,7 +9,6 @@
 
 
 import UIKit
-import RAMAnimatedTabBarController
 import Floaty
 import FirebaseAuth
 
@@ -326,10 +325,13 @@ class ExampleListViewController: UIViewController {
     
     
     
-    
+    // shapeLayer.fillColor = UIColor(named: "RG")?.cgColor
     //플로팅 버튼 구현
     private func floatingButton() {
-        let floating = Floaty()
+        let floating = Floaty(frame: CGRect(x: view.width - 60 - 10,
+                                            y: view.height - 155,
+                                            width: 60, height: 60))
+        floating.buttonColor = UIColor.white
         floating.addItem("늘어나고 줄어드는 신축성 테이블 뷰 헤더", icon: UIImage(systemName:
             "rectangle.topthird.inset")!, handler: { item in
                 let stratchyVC = StretchyViewController()

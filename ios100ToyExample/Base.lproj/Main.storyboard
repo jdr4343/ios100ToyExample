@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile View Controller-->
+        <!--프로필-->
         <scene sceneID="ztB-4d-hFo">
             <objects>
                 <viewController id="opH-tJ-QI8" customClass="ProfileViewController" customModule="ios100ToyExample" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,11 +18,11 @@
                         <viewLayoutGuide key="safeArea" id="ehi-38-ZRg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YYQ-2i-q3i"/>
+                    <navigationItem key="navigationItem" title="프로필" id="YYQ-2i-q3i"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9uA-gu-gs1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1849" y="727"/>
+            <point key="canvasLocation" x="-3730" y="2093"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4rR-Rd-mDV">
@@ -35,14 +35,64 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="rAp-J6-TcF"/>
+                        <segue destination="2xo-m9-oaj" kind="relationship" relationship="rootViewController" id="coZ-eW-ONX"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05a-YF-YK7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-923" y="121"/>
+            <point key="canvasLocation" x="-4539" y="645"/>
         </scene>
-        <!--Example List View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="vFS-aA-xQz">
+            <objects>
+                <navigationController id="8ld-bY-4iA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="doc.plaintext" catalog="system" id="jbP-2k-MHT"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5zZ-0G-6I0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bPE-8B-cuP" kind="relationship" relationship="rootViewController" id="fpD-ay-LhL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y64-cF-J56" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4552" y="-27"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0P9-6K-gRU">
+            <objects>
+                <navigationController id="yz0-5t-Gb3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="pencil" catalog="system" id="LKC-8A-B9Y"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ziK-Of-Thc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="BP4-KR-W5N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0lR-Sc-xiF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4539" y="1332"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hqa-9f-tNk">
+            <objects>
+                <viewController id="2xo-m9-oaj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Auj-nN-Sn6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="WGM-h8-8jw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bQR-8V-kjS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0vF-rd-adA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3730" y="645"/>
+        </scene>
+        <!--홈-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ExampleListViewController" customModule="ios100ToyExample" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,7 +119,7 @@
                             <constraint firstItem="1gj-4z-dXq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ekH-Y7-cRU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="h3W-id-Jfv">
+                    <navigationItem key="navigationItem" title="홈" id="h3W-id-Jfv">
                         <barButtonItem key="rightBarButtonItem" title="Memo" id="idd-Eb-f4r">
                             <connections>
                                 <segue destination="QuF-xe-QyH" kind="show" id="fnb-0J-HAu"/>
@@ -79,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45" y="138"/>
+            <point key="canvasLocation" x="-3730" y="1332"/>
         </scene>
         <!--Add Alarm View Controller-->
         <scene sceneID="QAV-lO-6J8">
@@ -175,13 +225,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLh-Lz-n30" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2383" y="562"/>
+            <point key="canvasLocation" x="-4552" y="2081"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Qbx-Zs-m5O">
             <objects>
                 <navigationController id="wdk-e7-50f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="k6N-ws-KzS"/>
+                    <tabBarItem key="tabBarItem" title="" image="message" catalog="system" id="k6N-ws-KzS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KMQ-Kl-NuQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -192,9 +242,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnO-FP-n7s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2692" y="-745"/>
+            <point key="canvasLocation" x="-4552" y="-702"/>
         </scene>
-        <!--View Controller-->
+        <!--채팅-->
         <scene sceneID="Z5j-wg-LhH">
             <objects>
                 <viewController id="2kQ-Qs-TnE" sceneMemberID="viewController">
@@ -204,11 +254,27 @@
                         <viewLayoutGuide key="safeArea" id="bHL-QD-Xd9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bPh-F9-MW2"/>
+                    <navigationItem key="navigationItem" title="채팅" id="bPh-F9-MW2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SeV-Xh-EUS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1878" y="-958"/>
+            <point key="canvasLocation" x="-3729" y="-702"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zB2-S8-5HD">
+            <objects>
+                <viewController id="bPE-8B-cuP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7NV-fD-jmW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="nYi-9I-F0n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UqZ-gz-jbc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uCv-Mi-ZAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3730" y="-27"/>
         </scene>
         <!--iOS Tab Bar Controller-->
         <scene sceneID="rqE-0f-oxx">
@@ -221,13 +287,15 @@
                     </tabBar>
                     <connections>
                         <segue destination="wdk-e7-50f" kind="relationship" relationship="viewControllers" id="tYX-Da-4AE"/>
+                        <segue destination="8ld-bY-4iA" kind="relationship" relationship="viewControllers" id="IRc-gg-li4"/>
                         <segue destination="9mv-dw-dBQ" kind="relationship" relationship="viewControllers" id="jHg-fp-y1M"/>
+                        <segue destination="yz0-5t-Gb3" kind="relationship" relationship="viewControllers" id="6Hc-0V-d32"/>
                         <segue destination="rhD-OV-PYf" kind="relationship" relationship="viewControllers" id="iBc-F6-TGc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0d-Av-IWO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2748" y="21"/>
+            <point key="canvasLocation" x="-5419" y="645"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3yX-MU-T7h">
@@ -854,7 +922,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8eF-sg-mtO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="881" y="138"/>
+            <point key="canvasLocation" x="-254" y="133"/>
         </scene>
         <!--목록-->
         <scene sceneID="DTH-JA-iWJ">
@@ -987,8 +1055,10 @@
         <segue reference="nzV-nK-BRO"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="doc.plaintext" catalog="system" width="115" height="128"/>
+        <image name="message" catalog="system" width="128" height="113"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
