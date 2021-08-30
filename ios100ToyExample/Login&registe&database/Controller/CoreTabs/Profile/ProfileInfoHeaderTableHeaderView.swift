@@ -9,8 +9,8 @@ import UIKit
 
 //프로토콜을 선언하여 ProfileViewController에서 버튼의 액션을 지정해주겠습니다.
 protocol ProfileInfoHeaderTableHeaderViewDelegate: AnyObject {
-    func didTapPostButton(_ header: ProfileInfoHeaderTableHeaderView)
-    func didTapEditProfileButton(_ header: ProfileInfoHeaderTableHeaderView)
+    func didTapPostButton()
+    func didTapEditProfileButton()
 }
 
 
@@ -20,7 +20,9 @@ class ProfileInfoHeaderTableHeaderView: UIView{
 
     static let identifier = "ProfileInfoHeaderTableHeaderView"
     
+    //프로토콜 연결
     public weak var delegate: ProfileInfoHeaderTableHeaderViewDelegate?
+    
     //MARK: - 요소 추가
 
     //헤더  백그라운드 이미지 뷰
@@ -46,13 +48,7 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         let button = UIButton()
         button.setImage(UIImage(systemName: "pencil"), for: .normal)
         button.tintColor = .label
-//        button.setTitleColor(.label, for: .normal)
-       button.backgroundColor = .systemBackground
-//        button.layer.borderWidth = 1
-//        button.layer.borderColor = UIColor.secondaryLabel.cgColor
-//        button.layer.masksToBounds = true
-//        button.layer.cornerRadius = 12
-//        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        button.backgroundColor = .systemBackground
         return button
     }()
     //프로필 편집 버튼
@@ -147,10 +143,6 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     }
     
     
-    
-    
-    
-    
     //MARK: - add
     private func addSubViews() {
         addSubview(headerImageView)
@@ -168,12 +160,11 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     }
         
     @objc private func didTapPostButton() {
-        print("ds")
-        delegate?.didTapPostButton(self)
+        delegate?.didTapPostButton()
     }
     @objc private func didTapEditProfileButton() {
-        print("ds")
-        delegate?.didTapEditProfileButton(self)
+        delegate?.didTapEditProfileButton()
+        
     }
     
    

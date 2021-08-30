@@ -8,7 +8,8 @@
 import UIKit
 //프로필 화면 입니다.
 ///참고자료: 테이블뷰, 테이블뷰 헤더와 푸터, 늘어나고 줄어드는 신축성 테이블뷰
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDelegate {
+   
 
     //테이블뷰를 생성합니다.
     private var tableView: UITableView = {
@@ -24,6 +25,7 @@ class ProfileViewController: UIViewController {
     private var userPost = [UserPost]()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -36,10 +38,14 @@ class ProfileViewController: UIViewController {
         self.tableView.alwaysBounceVertical = false
         tableView.bounces = true
         
-        //헤더 / 프로필 상단의 헤더에는 프로필을 나타낼것입니다.따로 헤더를 위한 뷰를 만들어서 연결 하겠습니다
+        
+        //헤더 / 프로필 상단의 헤더에는 프로필을 나타낼것입니다.따로 헤더를 위한 뷰를 만들어서 연결 하겠습니다 /그리고 만든 헤더에 우리가 만든 델리게이트를 연결 하겠습니다.
         let header = ProfileInfoHeaderTableHeaderView(frame: CGRect(x: 0, y: 0,
                                                                     width: view.width, height: view.width*1.5))
         tableView.tableHeaderView = header
+        header.delegate = self
+            
+        
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -66,6 +72,17 @@ class ProfileViewController: UIViewController {
     }
     
     
+    //MARK: - ProfileInfoHeaderTableHeaderViewDelegate / 구현대기
+   
+    func didTapPostButton() {
+        print("게시물 생성화면을 연결하겠습니다.")
+    }
+    
+    func didTapEditProfileButton() {
+        let vc = EditProfileViewController()
+        vc.title = "프로필 변경"
+        present(UINavigationController(rootViewController: vc),animated: true)
+    }
     
 }
 
@@ -89,6 +106,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "><"
         return cell
+        
+        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -97,35 +116,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - Header
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileInfoHeaderTableHeaderView.identifier)
-//        return header
-//    }
-//    //헤더 높이
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 400
-//    }
+    
+   
     
     
     
     
 }
 
-//MARK: - ProfileInfoHeaderTableHeaderViewDelegate / 구현대기
 
-extension ProfileViewController: ProfileInfoHeaderTableHeaderViewDelegate {
-    func didTapPostButton(_ header: ProfileInfoHeaderTableHeaderView) {
-        //게시물 작성 화면을 열겠습니다.
-        print("연결완료")
-    }
-    
-    func didTapEditProfileButton(_ header: ProfileInfoHeaderTableHeaderView) {
-        print("연결완")
-        //프로필 변경 탭을 호출하겠습니다.
-        let vc = EditProfileViewController()
-        vc.title = "프로필 변경"
-        vc.present(UINavigationController(rootViewController: vc),animated: true)
-    }
-    
-    
-}
