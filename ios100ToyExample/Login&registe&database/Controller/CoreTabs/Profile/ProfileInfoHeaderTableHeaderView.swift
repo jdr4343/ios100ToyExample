@@ -15,7 +15,7 @@ protocol ProfileInfoHeaderTableHeaderViewDelegate: AnyObject {
 
 
 //헤더를 만들겠습니다.
-class ProfileInfoHeaderTableHeaderView: UITableViewHeaderFooterView{
+class ProfileInfoHeaderTableHeaderView: UIView{
 
     static let identifier = "ProfileInfoHeaderTableHeaderView"
     
@@ -26,7 +26,7 @@ class ProfileInfoHeaderTableHeaderView: UITableViewHeaderFooterView{
     private let headerImageView: UIView = {
         let imageView = UIView()
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.masksToBounds = true
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -34,7 +34,7 @@ class ProfileInfoHeaderTableHeaderView: UITableViewHeaderFooterView{
     //프로필 이미지
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .lightGray
+        imageView.image = UIImage(named: "테스트프로필")
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         return imageView
@@ -44,7 +44,7 @@ class ProfileInfoHeaderTableHeaderView: UITableViewHeaderFooterView{
     private let postButton: UIButton = {
         let button = UIButton()
         button.setTitle("게시물", for: .normal)
-        button.setTitleColor(.label, for: .normal)
+        button.setTitleColor(UIColor(cgColor: "RIPurple" as! CGColor), for: .normal)
         button.backgroundColor = .secondarySystemBackground
         return button
     }()
@@ -77,12 +77,13 @@ class ProfileInfoHeaderTableHeaderView: UITableViewHeaderFooterView{
     
     //MARK: - Init
     
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         backgroundColor = .systemBackground
         clipsToBounds = true
         addSubViews()
         addButtonAction()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -114,9 +115,9 @@ class ProfileInfoHeaderTableHeaderView: UITableViewHeaderFooterView{
         profileImageView.layer.cornerRadius = profilePhotoSize/2.0
         profileImageView.center = center
         
-//        let buttonHeight = profilePhotoSize/2
-//        let buttonWidth = (width-10-profilePhotoSize)/3
-//        postButton.frame
+        let buttonHeight = profilePhotoSize/2
+        let buttonWidth = (width-10-profilePhotoSize)/3
+        postButton.frame
     }
     
     
@@ -146,6 +147,8 @@ class ProfileInfoHeaderTableHeaderView: UITableViewHeaderFooterView{
     @objc private func didTapEditProfileButton() {
         delegate?.didTapEditProfileButton(self)
     }
+    
+   
     
     
 }
