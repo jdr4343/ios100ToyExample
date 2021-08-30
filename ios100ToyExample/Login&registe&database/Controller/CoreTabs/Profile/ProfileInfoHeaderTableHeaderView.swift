@@ -44,7 +44,7 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     private let postButton: UIButton = {
         let button = UIButton()
         button.setTitle("게시물", for: .normal)
-        button.setTitleColor(UIColor(cgColor: "RIPurple" as! CGColor), for: .normal)
+      //  button.setTitleColor = UIColor(named: "RIPurple")
         button.backgroundColor = .secondarySystemBackground
         return button
     }()
