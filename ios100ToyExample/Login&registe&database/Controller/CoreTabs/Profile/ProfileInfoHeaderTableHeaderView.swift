@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 //프로토콜을 선언하여 ProfileViewController에서 버튼의 액션을 지정해주겠습니다.
 protocol ProfileInfoHeaderTableHeaderViewDelegate: AnyObject {
     func didTapPostButton(_ header: ProfileInfoHeaderTableHeaderView)
@@ -43,9 +44,15 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     //게시물 버튼
     private let postButton: UIButton = {
         let button = UIButton()
-        button.setTitle("게시물", for: .normal)
-      //  button.setTitleColor = UIColor(named: "RIPurple")
-        button.backgroundColor = .secondarySystemBackground
+        button.setImage(UIImage(systemName: "pencil"), for: .normal)
+        button.tintColor = .label
+//        button.setTitleColor(.label, for: .normal)
+       button.backgroundColor = .systemBackground
+//        button.layer.borderWidth = 1
+//        button.layer.borderColor = UIColor.secondaryLabel.cgColor
+//        button.layer.masksToBounds = true
+//        button.layer.cornerRadius = 12
+//        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
         return button
     }()
     //프로필 편집 버튼
@@ -53,7 +60,12 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         let button = UIButton()
         button.setTitle("프로필 변경", for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.backgroundColor = .secondarySystemBackground
+        button.backgroundColor = .systemBackground
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.secondaryLabel.cgColor
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 12
+        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
         return button
     }()
     
@@ -62,6 +74,8 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         let label = UILabel()
         label.text = "신지훈"
         label.textColor = .label
+        label.font = .boldSystemFont(ofSize: 16)
+        label.textAlignment = .center
         label.numberOfLines = 1
         return label
     }()
@@ -69,9 +83,11 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     //자기소개 라벨
     private let bioLabel: UILabel = {
         let label = UILabel()
-        label.text = "새로운 계정 입니다"
+        label.text = "새로운 계정 입니다\nGit hub: https://github.com/jdr4343 \n \nNotion: https://www.notion.so/9efbaec014d84700a6e17733ad829447?v=cb2389fba533469086f9798c5b23a75f"
         label.textColor = .label
-        label.numberOfLines = 1
+        label.font = .boldSystemFont(ofSize: 14)
+        label.textAlignment = .center
+        label.numberOfLines = 10
         return label
     }()
     
@@ -110,14 +126,24 @@ class ProfileInfoHeaderTableHeaderView: UIView{
          }
         
         //프로필 포토 사이즈
-        let profilePhotoSize  = width/3
+        let profilePhotoSize  = width/3.5
         profileImageView.frame = CGRect(x: 0, y: 0, width: profilePhotoSize, height: profilePhotoSize).integral
         profileImageView.layer.cornerRadius = profilePhotoSize/2.0
         profileImageView.center = center
         
-        let buttonHeight = profilePhotoSize/2
-        let buttonWidth = (width-10-profilePhotoSize)/3
-        postButton.frame
+        //라벨
+        let bioLabelSize = bioLabel.sizeThatFits(self.frame.size)
+        nameLabel.frame = CGRect(x: 5, y: 5 + profileImageView.bottom, width: width-16, height: 40).integral
+        bioLabel.frame = CGRect(x: 5, y: 5 + nameLabel.bottom, width: width-16, height: bioLabelSize.height).integral
+        
+        
+        let buttonHeight = profilePhotoSize/4
+        editProfileButton.frame = CGRect(x: 5, y: bioLabel.bottom+10, width: width-16, height: buttonHeight).integral
+        postButton.frame = CGRect(x: profileImageView.right+(profilePhotoSize-20),
+                                  y: headerImageView.bottom,
+                                  width: 50,
+                                  height: 50).integral
+        
     }
     
     

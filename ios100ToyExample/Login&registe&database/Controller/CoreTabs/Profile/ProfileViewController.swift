@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
         
         //헤더 / 프로필 상단의 헤더에는 프로필을 나타낼것입니다.따로 헤더를 위한 뷰를 만들어서 연결 하겠습니다
         let header = ProfileInfoHeaderTableHeaderView(frame: CGRect(x: 0, y: 0,
-                                                           width: view.width, height: view.width))
+                                                           width: view.width, height: view.width+100))
         tableView.tableHeaderView = header
     }
     override func viewDidLayoutSubviews() {
