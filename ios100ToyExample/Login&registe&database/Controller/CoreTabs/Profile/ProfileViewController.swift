@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
         
         //헤더 / 프로필 상단의 헤더에는 프로필을 나타낼것입니다.따로 헤더를 위한 뷰를 만들어서 연결 하겠습니다
         let header = ProfileInfoHeaderTableHeaderView(frame: CGRect(x: 0, y: 0,
-                                                           width: view.width, height: view.width+100))
+                                                                    width: view.width, height: view.width*1.5))
         tableView.tableHeaderView = header
     }
     override func viewDidLayoutSubviews() {
@@ -107,9 +107,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 //    }
     
     
+    
+    
 }
 
-//MARK: - ProfileInfoHeaderTableHeaderViewDelegate / 구현대기 
+//MARK: - ProfileInfoHeaderTableHeaderViewDelegate / 구현대기
 
 extension ProfileViewController: ProfileInfoHeaderTableHeaderViewDelegate {
     func didTapPostButton(_ header: ProfileInfoHeaderTableHeaderView) {
@@ -118,8 +120,11 @@ extension ProfileViewController: ProfileInfoHeaderTableHeaderViewDelegate {
     }
     
     func didTapEditProfileButton(_ header: ProfileInfoHeaderTableHeaderView) {
+        print("연결완")
         //프로필 변경 탭을 호출하겠습니다.
-        print("연결완료")
+        let vc = EditProfileViewController()
+        vc.title = "프로필 변경"
+        vc.present(UINavigationController(rootViewController: vc),animated: true)
     }
     
     

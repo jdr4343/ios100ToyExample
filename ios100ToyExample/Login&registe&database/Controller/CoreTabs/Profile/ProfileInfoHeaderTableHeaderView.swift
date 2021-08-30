@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SafariServices
+
 //프로토콜을 선언하여 ProfileViewController에서 버튼의 액션을 지정해주겠습니다.
 protocol ProfileInfoHeaderTableHeaderViewDelegate: AnyObject {
     func didTapPostButton(_ header: ProfileInfoHeaderTableHeaderView)
@@ -168,9 +168,11 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     }
         
     @objc private func didTapPostButton() {
+        print("ds")
         delegate?.didTapPostButton(self)
     }
     @objc private func didTapEditProfileButton() {
+        print("ds")
         delegate?.didTapEditProfileButton(self)
     }
     

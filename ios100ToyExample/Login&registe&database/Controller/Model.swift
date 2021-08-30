@@ -24,7 +24,7 @@ public struct UserPost {
     let likeCount: [PostLikes] // 사용자의 게시물을 좋아요한 숫자를 샙니다.
     let createDate: Date // 날짜를 기록 합니다.
     let toggedUser: [String]
-    let owner: User // 글쓴이 에대한 데이터 입니다.
+    let owner: UserModel // 글쓴이 에대한 데이터 입니다.
 }
 
 struct PostLikes {
@@ -34,17 +34,13 @@ struct PostLikes {
 
 //MARK: - 회원 정보
 
-struct User {
-    let username: String
+struct UserModel {
     let name: String
     let profilePhoto: URL
-    let birthDate: Date
-    let link: URL
-    let counts: UserCounts
+    let link: URL?
+    let placeholder: String?
+    var value: String?
 }
 
-struct UserCounts {
-    let followers: Int
-    let following: Int
-    let post: Int
-}
+
+
