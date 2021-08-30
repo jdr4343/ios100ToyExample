@@ -33,6 +33,8 @@
 		403502ED26CCD39A004BD348 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EC26CCD39A004BD348 /* CollectionTableViewCell.swift */; };
 		403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */; };
 		403502F126CCE22B004BD348 /* CarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502F026CCE22B004BD348 /* CarouselModel.swift */; };
+		406FE6B326DC00FD0036DE44 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406FE6B226DC00FD0036DE44 /* Model.swift */; };
+		406FE6B526DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406FE6B426DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift */; };
 		4078640526CE02A900C864FD /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078640426CE02A900C864FD /* NewsViewController.swift */; };
 		4078640726CE06A200C864FD /* FrameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078640626CE06A200C864FD /* FrameExtensions.swift */; };
 		4078640A26CE122100C864FD /* MemoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078640926CE122100C864FD /* MemoListTableViewController.swift */; };
@@ -119,6 +121,8 @@
 		403502EC26CCD39A004BD348 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
 		403502F026CCE22B004BD348 /* CarouselModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselModel.swift; sourceTree = "<group>"; };
+		406FE6B226DC00FD0036DE44 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		406FE6B426DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoHeaderTableHeaderView.swift; sourceTree = "<group>"; };
 		4078640426CE02A900C864FD /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		4078640626CE06A200C864FD /* FrameExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameExtensions.swift; sourceTree = "<group>"; };
 		4078640926CE122100C864FD /* MemoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +326,24 @@
 				403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */,
 			);
 			path = Carousel;
+			sourceTree = "<group>";
+		};
+		406FE6B126DC00580036DE44 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				406FE6B626DCD9350036DE44 /* Setting */,
+				407A1FFE26D66A9B0058F84D /* ProfileViewController.swift */,
+				406FE6B426DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		406FE6B626DCD9350036DE44 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				407A1FFC26D66A780058F84D /* SettingViewController.swift */,
+			);
+			name = Setting;
 			sourceTree = "<group>";
 		};
 		4078640326CE027E00C864FD /* NewsAPIApp */ = {
@@ -573,6 +595,7 @@
 		407A1FF626D669D30058F84D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				406FE6B226DC00FD0036DE44 /* Model.swift */,
 				407A1FF526D669A30058F84D /* Resorce */,
 				407A1FF926D66A130058F84D /* Onbording */,
 				407A1FF826D66A050058F84D /* CoreTabs */,
@@ -585,7 +608,6 @@
 			isa = PBXGroup;
 			children = (
 				407A200426D67F930058F84D /* TabBar */,
-				407A1FFC26D66A780058F84D /* SettingViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -594,7 +616,7 @@
 			isa = PBXGroup;
 			children = (
 				403502A326CB4B4B004BD348 /* ExampleListViewController.swift */,
-				407A1FFE26D66A9B0058F84D /* ProfileViewController.swift */,
+				406FE6B126DC00580036DE44 /* Profile */,
 			);
 			path = CoreTabs;
 			sourceTree = "<group>";
@@ -806,7 +828,9 @@
 				407A1F6126CFB36B0058F84D /* CoreAnimationViewController.swift in Sources */,
 				4078640726CE06A200C864FD /* FrameExtensions.swift in Sources */,
 				407A1FFF26D66A9B0058F84D /* ProfileViewController.swift in Sources */,
+				406FE6B526DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift in Sources */,
 				407A1F4526CE6D170058F84D /* NewsTableViewCell.swift in Sources */,
+				406FE6B326DC00FD0036DE44 /* Model.swift in Sources */,
 				407A1F3A26CE195A0058F84D /* ios100ToyExample.xcdatamodeld in Sources */,
 				407A1F7426D0AAE90058F84D /* YPImageViewController.swift in Sources */,
 				4078640A26CE122100C864FD /* MemoListTableViewController.swift in Sources */,
