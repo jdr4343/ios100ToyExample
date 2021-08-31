@@ -42,4 +42,8 @@ struct UserModel {
 }
 
 
-
+struct EditProfileFormModel {
+    let label: String
+    let placeholder: String?
+    var value : String?
+}

@@ -35,6 +35,7 @@
 		403502ED26CCD39A004BD348 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EC26CCD39A004BD348 /* CollectionTableViewCell.swift */; };
 		403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */; };
 		403502F126CCE22B004BD348 /* CarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502F026CCE22B004BD348 /* CarouselModel.swift */; };
+		405AD93826DE0CB90079734A /* EditTextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AD93726DE0CB90079734A /* EditTextViewTableViewCell.swift */; };
 		406FE6B326DC00FD0036DE44 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406FE6B226DC00FD0036DE44 /* Model.swift */; };
 		406FE6B526DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406FE6B426DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift */; };
 		4078640526CE02A900C864FD /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078640426CE02A900C864FD /* NewsViewController.swift */; };
@@ -125,6 +126,7 @@
 		403502EC26CCD39A004BD348 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
 		403502F026CCE22B004BD348 /* CarouselModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselModel.swift; sourceTree = "<group>"; };
+		405AD93726DE0CB90079734A /* EditTextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextViewTableViewCell.swift; sourceTree = "<group>"; };
 		406FE6B226DC00FD0036DE44 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		406FE6B426DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoHeaderTableHeaderView.swift; sourceTree = "<group>"; };
 		4078640426CE02A900C864FD /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				4004B1E726DD237A005CC3EB /* EditProfileTableViewCell.swift */,
+				405AD93726DE0CB90079734A /* EditTextViewTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -866,6 +869,7 @@
 				407A1F8326D375B40058F84D /* StretchyViewController.swift in Sources */,
 				407A200326D67E460058F84D /* IOSTabBarController.swift in Sources */,
 				407A1F5526CF7D440058F84D /* CollectionViewController.swift in Sources */,
+				405AD93826DE0CB90079734A /* EditTextViewTableViewCell.swift in Sources */,
 				40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */,
 				407A1F6326CFC9630058F84D /* TheAnimaionViewController.swift in Sources */,
 				407A1F5C26CF9D6C0058F84D /* LineViewController.swift in Sources */,
