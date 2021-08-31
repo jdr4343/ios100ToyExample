@@ -11,43 +11,42 @@ public class AuthManager {
     static let shared =  AuthManager()
 
     
-public func registerNewUser(username: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
-    ///-사용자이름을 사용할수 있는지 확입합니다.
-    ///-아메일을 사용할수 있는지 확인합니다. /계정당 하나의 이메일만 연결 할수 있습니다.
-    DatabaseManager.shared.canCreateNewUser(with: email, username: username) { canCreate in
-        if canCreate {
-            ///-계정을 생성합니다.
-            ///-데이터베이스에 계정을 등록합니다.
-            Auth.auth().createUser(withEmail: email, password: password) { authResult , error in
-                guard authResult != nil ,error == nil else {
-                    print("Auth19 - 계정을 만들수 없습니다.")
-                    completion(false)
-                    return
-                }
-                print("\(email)가 새로 생성되었습니다.")
-                ///데이터 베이스에 등록
-                DatabaseManager.shared.insertNewUser(with: UserModel(name: username, emailAdress: email)) { inserted in
-                    if inserted {
-                        completion(true)
-                        return
-                    } else {
-                        print("Auth29 - 등록에 실패 했습니다.")
-                        completion(false)
+    public func registerNewUser(username: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
+        ///-사용자이름을 사용할수 있는지 확입합니다.
+        ///-아메일을 사용할수 있는지 확인합니다. /계정당 하나의 이메일만 연결 할수 있습니다.
+        DatabaseManager.shared.canCreateNewUser(with: email, username: username) { canCreate in
+            if canCreate {
+                
+                DatabaseManager.shared.userExists(with: email, completion: { exists in
+                    guard !exists else {
                         return
                     }
-                }
+                    ///-계정을 생성합니다.
+                    ///-데이터베이스에 계정을 등록합니다.
+                    Auth.auth().createUser(withEmail: email, password: password) {  authResult , error in
+                        guard authResult != nil ,error == nil else {
+                            print("Auth19 - 계정을 만들수 없습니다.")
+                            completion(false)
+                            return
+                        }
+                        print("\(email)가 새로 생성되었습니다.")
+                        ///데이터 베이스에 등록
+                        DatabaseManager.shared.insertNewUser(with: UserModel(username: username, emailAdress: email))
+                    }
+                })
+                
+                
+            } else {
+                print("Auth36 - 유저 이름 또는 이메일이 잘못되었습니다")
+                completion(false)
             }
-        } else {
-            print("Auth36 - 유저 이름 또는 이메일이 잘못되었습니다")
-            completion(false)
         }
     }
-}
     ///로그인
     public func loginUser(username: String?, email: String?, password: String, completion: @escaping (Bool) -> Void) {
         if let email = email {
-            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-
+            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+                
                 //인증 결과가 nil이 아니고 오류가 nil과 같을떄 completion(true)를 호출하고 else라면 false를 반환 합니다!
                 guard authResult != nil, error == nil else {
                     print("Auth51 - \(email) 로그인이 실패 했습니다")

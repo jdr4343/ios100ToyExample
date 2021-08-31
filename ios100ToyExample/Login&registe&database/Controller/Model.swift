@@ -35,7 +35,7 @@ struct PostLikes {
 //MARK: - 회원 정보
 
 struct UserModel {
-    let name: String
+    let username: String
     let emailAdress: String
     //let profilePhoto: URL
 }
