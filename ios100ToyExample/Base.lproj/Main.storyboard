@@ -76,23 +76,23 @@
             </objects>
             <point key="canvasLocation" x="-4539" y="1332"/>
         </scene>
-        <!--View Controller-->
+        <!--홈-->
         <scene sceneID="hqa-9f-tNk">
             <objects>
-                <viewController id="2xo-m9-oaj" sceneMemberID="viewController">
+                <viewController id="2xo-m9-oaj" customClass="HomeViewController" customModule="ios100ToyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Auj-nN-Sn6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="WGM-h8-8jw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bQR-8V-kjS"/>
+                    <navigationItem key="navigationItem" title="홈" id="bQR-8V-kjS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vF-rd-adA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3730" y="645"/>
         </scene>
-        <!--홈-->
+        <!--예제-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ExampleListViewController" customModule="ios100ToyExample" customModuleProvider="target" sceneMemberID="viewController">
@@ -119,7 +119,7 @@
                             <constraint firstItem="1gj-4z-dXq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ekH-Y7-cRU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="홈" id="h3W-id-Jfv">
+                    <navigationItem key="navigationItem" title="예제" id="h3W-id-Jfv">
                         <barButtonItem key="rightBarButtonItem" title="Memo" id="idd-Eb-f4r">
                             <connections>
                                 <segue destination="QuF-xe-QyH" kind="show" id="fnb-0J-HAu"/>
@@ -260,7 +260,7 @@
             </objects>
             <point key="canvasLocation" x="-3729" y="-702"/>
         </scene>
-        <!--View Controller-->
+        <!--피드-->
         <scene sceneID="zB2-S8-5HD">
             <objects>
                 <viewController id="bPE-8B-cuP" sceneMemberID="viewController">
@@ -270,7 +270,7 @@
                         <viewLayoutGuide key="safeArea" id="nYi-9I-F0n"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="UqZ-gz-jbc"/>
+                    <navigationItem key="navigationItem" title="피드" id="UqZ-gz-jbc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCv-Mi-ZAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

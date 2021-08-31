@@ -16,7 +16,7 @@ class IOSTabBarController: UITabBarController,UITabBarControllerDelegate {
        override func viewDidLoad() {
            super.viewDidLoad()
            self.delegate = self
-           self.selectedIndex = 1
+           self.selectedIndex = 2
            
            setupMiddleButton()
        }
@@ -27,6 +27,7 @@ class IOSTabBarController: UITabBarController,UITabBarControllerDelegate {
                                                      y: -20,
                                                      width: 60,
                                                      height: 60))
+        
            //버튼 이미지삽입 / 테두리 그림자 설정
            middelButton.setBackgroundImage(UIImage(named: "애플로고1"), for: .normal)
            middelButton.layer.shadowColor = UIColor.black.cgColor
@@ -40,6 +41,6 @@ class IOSTabBarController: UITabBarController,UITabBarControllerDelegate {
        }
        //액션 기능 생성
        @objc func menuButtonAction(sender: UIButton) {
-           self.selectedIndex = 1
+           self.selectedIndex = 2
        }
 }

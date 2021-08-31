@@ -219,7 +219,6 @@ class ExampleListViewController: UIViewController {
        // title = "100가지 예제"
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.tintColor = .label
-        NotAuthenticated()
         view.addSubview(animatedTabBar)
         view.addSubview(gradientView)
         view.addSubview(dateFormatterView)
@@ -310,16 +309,8 @@ class ExampleListViewController: UIViewController {
         floatingTextView.frame = CGRect(x: 300, y: 340, width: 120, height: 50)
         
     }
-    //MARK: - Login
     
-    // 사용자가 로그인 하지 않았다면 로그인 화면을 보여주고 아니라면 메인 뷰를 보여줄것입니다.
-    private func NotAuthenticated() {
-        if Auth.auth().currentUser == nil {
-            let loginVC = LoginViewController()
-            loginVC.modalPresentationStyle = .fullScreen
-            present(loginVC, animated: true)
-        }
-    }
+    
     
     
     
