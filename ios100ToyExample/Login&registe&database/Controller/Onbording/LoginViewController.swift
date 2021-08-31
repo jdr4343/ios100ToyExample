@@ -10,6 +10,7 @@ import SafariServices
 import SkyFloatingLabelTextField
 import TransitionButton
 import FBSDKLoginKit
+import FirebaseAuth
 
 /*
 ios 100 ToyExample의 로그인 화면을 구축 할것입니다. 솔직히 로그인이 1도 필요없긴하지만 여러분들이 나중에 로그인을 구현해 볼수도 있으니 저도 배우는 김에 만들었습니다! 🙉
@@ -111,15 +112,16 @@ class LoginViewController: UIViewController {
         return header
     }()
     
-    //페이스북 로그인 버튼
-    private let facebookLoginButton: FBLoginButton = {
+    //페이스북 로그인 버튼 /저는 여기서 오래 해맸는데.. 이걸 private로 선언하면 FacebookAuthProvider를 찾지 못합니다..ㅔㅔ.. 파일이 점점 커지다보니 중복 이름을 쓰는 경우가 있을까봐 뭔가 생활화 됬는데 대참사네요.. 검색해도 이런식으로 알려주지는 않아서 ㅜㅜ 3시간 대참사네요 ㅜㅜㅜㅜㅜㅜㅜ
+     let facebookLoginButton: FBLoginButton = {
         let button = FBLoginButton()
         button.text("페이스북으로 시작")
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 16)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 12.0
-        
+        //권한을 설정 합니다. 사용자의 이메일과 공개프로필을 요청 하겠습니다.
+        button.permissions = ["email", "public_profile"]
         return button
     }()
     
@@ -132,13 +134,15 @@ class LoginViewController: UIViewController {
         usernamaEmailField.delegate = self
         passwordField.delegate = self
         
+        facebookLoginButton.delegate = self
+        
         //버튼 타겟 설정
         loginButton.addTarget(self, action: #selector(didTabLoginButton), for: .touchUpInside)
         createAccountButton.addTarget(self, action: #selector(didTabcreateAccountButton), for: .touchUpInside)
         termsButton.addTarget(self, action: #selector(didTabtermsButton), for: .touchUpInside)
         privacyButton.addTarget(self, action: #selector(didTabPrivacyButton), for: .touchUpInside)
 
-        facebookLoginButton.delegate = self
+       
 
 
     }
@@ -331,7 +335,24 @@ extension LoginViewController: LoginButtonDelegate {
             return
         }
         //엑세스 토큰을 사용 하겠습니다
-        let credential = FacebookAuthProvider.credential
+        let credential = FacebookAuthProvider.credential(withAccessToken: token)
+        FirebaseAuth.Auth.auth().signIn(with: credential, completion: { [weak self] authResult, error in
+            guard let strongSelf = self else {
+                return
+            }
+            print("2")
+            guard authResult != nil, error != nil else {
+                if let error = error {
+                    //에러가 생긴다면 파이어베이스에서 페이스북 을 Enabled를 했는지 확인 해보세요 😃 앱 아이디와 엡 비밀번호는 페이스북 디벨로퍼의 기본설정에 있습니다.
+                print("사용자가 페이스북 로그인에 실패 했습니다, MFA가 필요할수 있습니다. - \(error)")
+                }
+                print("\(authResult)")
+                return
+            }
+            //성공
+            print("4")
+            strongSelf.dismiss(animated: true, completion: nil)
+        })
     }
     
     

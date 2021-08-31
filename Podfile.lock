@@ -133,6 +133,7 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - Firebase/Analytics
   - Firebase/Auth
+  - Firebase/Core
   - Firebase/Database
   - Floaty
   - RAMAnimatedTabBarController
@@ -203,6 +204,6 @@ SPEC CHECKSUMS:
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
   YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
-PODFILE CHECKSUM: f0847c8b622e632f1c1325966097ccf18a501315
+PODFILE CHECKSUM: aa800c8c9b5a544c0b7b92dc6d2a8e0834ff5092
 
 COCOAPODS: 1.10.1
