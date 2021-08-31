@@ -36,6 +36,7 @@ class EditTextViewTableViewCell: UITableViewCell, UITextViewDelegate {
     private let textView: UITextView = {
         let textView = UITextView()
         textView.returnKeyType = .done
+        textView.font = .boldSystemFont(ofSize: 14)
         return textView
     }()
     
@@ -59,8 +60,8 @@ class EditTextViewTableViewCell: UITableViewCell, UITextViewDelegate {
         nameLabel.frame = CGRect(x: 10,
                                  y: 0,
                                  width: contentView.width/2,
-                                 height:contentView.height/5 )
-        textView.frame = CGRect(x: 10, y: nameLabel.bottom, width: contentView.width, height: contentView.height)
+                                 height:contentView.height/6 )
+        textView.frame = CGRect(x: 10, y: nameLabel.bottom, width: contentView.width-20, height: contentView.height-20)
         
     }
     
@@ -81,7 +82,7 @@ class EditTextViewTableViewCell: UITableViewCell, UITextViewDelegate {
     
     
     
-    
+    //MARK: textView
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         model?.value = textView.text
         guard let model = model else {
@@ -92,5 +93,8 @@ class EditTextViewTableViewCell: UITableViewCell, UITextViewDelegate {
         return true
     }
     
-   
+    
+
+    
+    
 }

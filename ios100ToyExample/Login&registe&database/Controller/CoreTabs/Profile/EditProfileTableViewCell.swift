@@ -35,6 +35,8 @@ class EditProfileTableViewCell: UITableViewCell, UITextFieldDelegate {
     private let field: UITextField = {
         let field = UITextField()
         field.returnKeyType = .done
+        field.font = .boldSystemFont(ofSize: 14)
+
         return field
     }()
     
@@ -59,10 +61,10 @@ class EditProfileTableViewCell: UITableViewCell, UITextFieldDelegate {
     override func layoutSubviews() {
         super.layoutSubviews()
         nameLabel.frame = CGRect(x: 10,
-                                 y: 0,
+                                 y: 10,
                                  width: contentView.width/2,
                                  height:contentView.height/5 )
-        field.frame = CGRect(x: 10, y: nameLabel.bottom, width: contentView.width, height: contentView.height)
+        field.frame = CGRect(x: 10, y: nameLabel.bottom, width: contentView.width, height: contentView.height/2)
         
     }
     
