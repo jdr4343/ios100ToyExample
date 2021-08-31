@@ -69,7 +69,7 @@ public class AuthManager {
             return
         }
         catch {
-            print(error)
+            print("로그아웃에 실패 했습니다.")
             completion(false)
             return
         }
