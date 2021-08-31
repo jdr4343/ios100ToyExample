@@ -4,10 +4,13 @@
 //
 //  Created by 신지훈 on 2021/08/24.
 //
+
+import UIKit
+import SafariServices
 import SkyFloatingLabelTextField
 import TransitionButton
-import SafariServices
-import UIKit
+import FBSDKLoginKit
+
 /*
 ios 100 ToyExample의 로그인 화면을 구축 할것입니다. 솔직히 로그인이 1도 필요없긴하지만 여러분들이 나중에 로그인을 구현해 볼수도 있으니 저도 배우는 김에 만들었습니다! 🙉
 만들기에 앞서 우리는 데이터베이스를 연결할것이기 떄문에 firebase에서 앱등록을 해야합니다! firebase의 홈페이지에 가셔서 앱등록을 하시고
@@ -108,6 +111,18 @@ class LoginViewController: UIViewController {
         return header
     }()
     
+    //페이스북 로그인 버튼
+    private let facebookLoginButton: FBLoginButton = {
+        let button = FBLoginButton()
+        button.text("페이스북으로 시작")
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 12.0
+        
+        return button
+    }()
+    
     //MARK: - 화면
     
     override func viewDidLoad() {
@@ -122,6 +137,9 @@ class LoginViewController: UIViewController {
         createAccountButton.addTarget(self, action: #selector(didTabcreateAccountButton), for: .touchUpInside)
         termsButton.addTarget(self, action: #selector(didTabtermsButton), for: .touchUpInside)
         privacyButton.addTarget(self, action: #selector(didTabPrivacyButton), for: .touchUpInside)
+
+        facebookLoginButton.delegate = self
+
 
     }
     
@@ -171,6 +189,12 @@ class LoginViewController: UIViewController {
             width: view.width-20,
             height: 50
         )
+        facebookLoginButton.frame = CGRect(x: 25,
+                                           y: createAccountButton.bottom + 5,
+                                           width: view.width - 50,
+                                           height: 40)
+        
+        
         configureHeaderView()
         
     }
@@ -183,6 +207,7 @@ class LoginViewController: UIViewController {
         view.addSubview(createAccountButton)
         view.addSubview(termsButton)
         view.addSubview(privacyButton)
+        view.addSubview(facebookLoginButton)
     }
     //헤더 뷰 구성 추가
     private func configureHeaderView() {
@@ -277,7 +302,8 @@ class LoginViewController: UIViewController {
     
 }
 
-//MARK: - 확장
+//MARK: - UITextFieldDelegate
+
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -288,4 +314,25 @@ extension LoginViewController: UITextFieldDelegate {
         }
         return true
     }
+}
+
+//MARK: - 페이스북 버튼 델리게이트
+
+extension LoginViewController: LoginButtonDelegate {
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        //버튼을 탭하면 로그아웃을 자동으로 표시하도록 버튼이 업데이트 되지만 저의 경우에는 뷰 컨트롤러에 로그인을 표시 하지 않기 때문에
+        //필수 메서드라 생성만 하고 비워두겠습니다.
+    }
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        //토큰을 가져옵니다
+        guard let token = result?.token?.tokenString else {
+            print("사용자가 페이스북으로 로그인에 실패 했습니다.")
+            return
+        }
+        //엑세스 토큰을 사용 하겠습니다
+        let credential = FacebookAuthProvider.credential
+    }
+    
+    
 }
