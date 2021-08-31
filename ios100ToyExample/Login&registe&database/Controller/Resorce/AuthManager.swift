@@ -6,7 +6,7 @@
 //
 //이 파일에서는 인증 항목을 관리할 파일을 만듭니다! 다른 뷰에서도 사용할수 있도록 모두 public으로 선언할 예정 입니다
 import FirebaseAuth
-
+import UIKit
 public class AuthManager {
     static let shared =  AuthManager()
 
@@ -18,14 +18,15 @@ public func registerNewUser(username: String, email: String, password: String, c
         if canCreate {
             ///-계정을 생성합니다.
             ///-데이터베이스에 계정을 등록합니다.
-            Auth.auth().createUser(withEmail: email, password: password) { createResult , error in
-                guard error == nil,createResult != nil else {
+            Auth.auth().createUser(withEmail: email, password: password) { authResult , error in
+                guard authResult != nil ,error == nil else {
                     print("Auth19 - 계정을 만들수 없습니다.")
                     completion(false)
                     return
                 }
+                print("\(email)가 새로 생성되었습니다.")
                 ///데이터 베이스에 등록
-                DatabaseManager.shared.insertNewUser(with: email, username: username) { inserted in
+                DatabaseManager.shared.insertNewUser(with: UserModel(name: username, emailAdress: email)) { inserted in
                     if inserted {
                         completion(true)
                         return
@@ -45,14 +46,17 @@ public func registerNewUser(username: String, email: String, password: String, c
     ///로그인
     public func loginUser(username: String?, email: String?, password: String, completion: @escaping (Bool) -> Void) {
         if let email = email {
-            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+
                 //인증 결과가 nil이 아니고 오류가 nil과 같을떄 completion(true)를 호출하고 else라면 false를 반환 합니다!
                 guard authResult != nil, error == nil else {
-                    print("Auth51 - 이메일 로그인이 실패 했습니다")
+                    print("Auth51 - \(email) 로그인이 실패 했습니다")
                     completion(false)
                     return
                 }
-                completion(true)
+                
+                print("\(email)가 로그인 하였습니다.")
+                completion(true )
             }
         } else if let username = username {
             print(username)

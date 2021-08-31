@@ -17,6 +17,24 @@ final class EditProfileViewController: UIViewController {
         return tableView
     }()
     
+    private let ProfileBackgroundPhotoButton: UIButton = {
+        let button = UIButton()
+        button.layer.masksToBounds = true
+        button.setBackgroundImage(UIImage(named: "헤더이미지"), for: .normal)
+        button.layer.borderColor = UIColor.secondarySystemBackground.cgColor
+        button.addTarget(self, action: #selector(didTapProfileBackgroundPhotoButton), for: .touchUpInside)
+        return button
+    }()
+    
+    private let ProfilePhotoButton: UIButton = {
+        let button = UIButton()
+        button.layer.masksToBounds = true
+        button.setBackgroundImage(UIImage(systemName: "person.circle"), for: .normal)
+        button.tintColor = .secondarySystemBackground
+        button.addTarget(self, action: #selector(didtapProfilePhotoButton), for: .touchUpInside)
+        return button
+    }()
+    
     private var models = [[EditProfileFormModel]]()
     
     override func viewDidLoad() {
@@ -68,32 +86,21 @@ final class EditProfileViewController: UIViewController {
 
     //MARK: - Header
     //헤더 생성
-    private func createTableHeaderView() -> UIView {
+    fileprivate func createTableHeaderView() -> UIView {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: view.height/2.5).integral)
             //사용자의 프로필의 현재사진을 보여주고 그것을 탭 하면 사용자가 자신의 사진을 변경할수 있도록 하는 버튼을 추가하겠습니다
-        let size = header.height/1.5
+        let size = header.height/2
         
-        //프로필 백그라운드
-        let ProfileBackgroundPhotoButton = UIButton(frame: CGRect(x: 0, y: 0, width: header.width, height: header.height))
+        //백그라운드 이미지
         header.addSubview(ProfileBackgroundPhotoButton)
-        ProfileBackgroundPhotoButton.layer.masksToBounds = true
-        ProfileBackgroundPhotoButton.setBackgroundImage(UIImage(named: "헤더이미지"), for: .normal)
-        ProfileBackgroundPhotoButton.layer.borderColor = UIColor.secondarySystemBackground.cgColor
-        ProfileBackgroundPhotoButton.addTarget(self, action: #selector(didTapProfileBackgroundPhotoButton), for: .touchUpInside)
-        
+        ProfileBackgroundPhotoButton.frame = CGRect(x: 0, y: 0, width: header.width, height: header.height)
         
         //프로필 변경
-        let ProfilePhotoButton = UIButton(frame: CGRect(x: (view.width-size)/2,
-                                                        y: (header.height-size)/2,
-                                                        width: size, height: size))
         header.addSubview(ProfilePhotoButton)
-        ProfilePhotoButton.layer.masksToBounds = true
+        ProfilePhotoButton.frame = CGRect(x: (view.width-size)/2,
+                                           y: (header.height-size)/2,
+                                           width: size, height: size)
         ProfilePhotoButton.layer.cornerRadius = size/2.0
-        ProfilePhotoButton.setBackgroundImage(UIImage(systemName: "person.circle"), for: .normal)
-        ProfilePhotoButton.tintColor = .label
-        ProfilePhotoButton.layer.borderWidth = 1
-        ProfilePhotoButton.layer.borderColor = UIColor.secondarySystemBackground.cgColor
-        ProfilePhotoButton.addTarget(self, action: #selector(didtapProfilePhotoButton), for: .touchUpInside)
         
         return header
     }
@@ -108,35 +115,7 @@ final class EditProfileViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func didtapProfilePhotoButton() {
-        let actionSheet = UIAlertController(title: "프로필 사진 변경",
-                                            message: "프로필 사진을 변경하시겠습니까?",
-                                            preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "사진찍기", style: .default, handler: { _ in
-            print("구현 대기")
-        }))
-        actionSheet.addAction(UIAlertAction(title: "사진 앨범에서 선택하기",style: .default,handler: { _ in
-            print("구현 대기")
-        }))
-        actionSheet.addAction(UIAlertAction(title: "닫기",style: .cancel,handler: nil))
-        
-        present(actionSheet, animated: true)
-    }
     
-    @objc func didTapProfileBackgroundPhotoButton() {
-        let actionSheet = UIAlertController(title: "배경화면 변경",
-                                            message: "배경화면을 변경하시겠습니까?",
-                                            preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "사진찍기", style: .default, handler: { _ in
-            print("구현 대기")
-        }))
-        actionSheet.addAction(UIAlertAction(title: "사진 앨범에서 선택하기",style: .default,handler: { _ in
-            print("구현 대기")
-        }))
-        actionSheet.addAction(UIAlertAction(title: "닫기",style: .cancel,handler: nil))
-        
-        present(actionSheet, animated: true)
-    }
 }
 
 
@@ -196,4 +175,81 @@ extension EditProfileViewController: UITableViewDelegate, UITableViewDataSource,
         //모델을 업데이트 합니다.
     }
     
+}
+
+//MARK: Photo
+//숫자를 사용해서 식별 하겠습니다. 아래의 포토피커에서 다중 카메라를 사용하기 위함입니다. 함수 마다 카운트를 설정해서 Int값으로 불리언값을 호출할것입니다.
+var count = 0
+
+extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @objc func didtapProfilePhotoButton() {
+        count = 1
+        let actionSheet = UIAlertController(title: "프로필 사진 변경",
+                                            message: "프로필 사진을 변경하시겠습니까?",
+                                            preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "사진찍기", style: .default, handler: { [weak self] _ in
+            self?.presentCamera()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "사진 앨범에서 선택하기",style: .default,handler: { [weak self] _ in
+            self?.presentPhotoPicker()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "닫기",style: .cancel,handler: nil))
+        
+        present(actionSheet, animated: true)
+    }
+    
+    @objc func didTapProfileBackgroundPhotoButton() {
+        count = 2
+        let actionSheet = UIAlertController(title: "배경화면 변경",
+                                            message: "배경화면을 변경하시겠습니까?",
+                                            preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "사진찍기", style: .default, handler: { [weak self] _ in
+            self?.presentCamera()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "사진 앨범에서 선택하기",style: .default,handler: { [weak self] _ in
+            self?.presentPhotoPicker()
+           
+        }))
+        actionSheet.addAction(UIAlertAction(title: "닫기",style: .cancel,handler: nil))
+        
+        present(actionSheet, animated: true)
+    }
+    
+    //사용자가 사진을 찍거나 카메라 롤에서 사진을 선택한 결과를 얻을수 있도록 합니다.
+    
+    func presentCamera() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+        
+    }
+    
+    func presentPhotoPicker() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+     //이미지 선택이 완료 된 경우
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        if count == 1 {
+            self.ProfilePhotoButton.setImage(selectedImage, for: .normal)
+        } else if count == 2 {
+            self.ProfileBackgroundPhotoButton.setImage(selectedImage, for: .normal)
+        }
+        
+    }
+    
+    //취소 된 경우
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
 }

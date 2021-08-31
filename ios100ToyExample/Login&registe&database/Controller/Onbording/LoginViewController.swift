@@ -238,7 +238,7 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                     if success {
                         self.loginButton.startAnimation()
-                        self.loginButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 0.5)
+                        self.loginButton.stopAnimation()
                         self.dismiss(animated: true, completion: nil)
                     } else {
                         let alert = UIAlertController(title: "회원정보가 다릅니다.",

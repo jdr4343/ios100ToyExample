@@ -20,12 +20,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSCameraUsageDescription</key>
-	<string>Camera 챕터를 만드시고 계시다면! 이권한을 추가하셔야됩니다. 여기에 적은 글은 Alert형식으로 사용자에게 알려지게 됩니다.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Camera2 챕터를 만드시고 계시다면 이권한을 추가하셔야됩니다. 마이크 권한입니다. 비디오를 찍을때 필요합니다.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Camera2 챕터를 만드시고 계시다면 이권한을 추가햐셔야됩니다. 사진앨범 권한입니다.</string>
+	<string>동영상 권한을 허용 해주세요!</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -66,5 +64,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>카메라 권한을 허용 해주세요!</string>
 </dict>
 </plist>

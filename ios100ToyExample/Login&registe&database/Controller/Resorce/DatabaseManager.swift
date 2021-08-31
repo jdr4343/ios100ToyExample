@@ -7,12 +7,13 @@
 
 import FirebaseDatabase
 
-public class DatabaseManager {
+final class DatabaseManager {
     
     static let shared = DatabaseManager()
     
     //데이터 베이스를 사용하기 위해 데이터베이스를 참조 하겠습니다.
     private let database = Database.database().reference()
+    
     
     //MARK: - public
     ///이메일과 유저이름을 사용할수 있는지 확인합니다.
@@ -24,14 +25,20 @@ public class DatabaseManager {
         completion(true)
     }
     
+   
+}
+
+//MARK: - 계정 관리
+
+extension DatabaseManager {
     ///신규 회원가입 유저의 데이터를 데이터베이스에 추가합니다.
     ///-parameter
     ///    -email: 이메일을 나타내는 문자열입니다.
     ///    -username: 유저이름을 나타내는 문자열입니다
     ///    -completion: 데이터베이스 입력이 성공한 경우 결과에 대한 비동기 콜백입니다.
-    public func insertNewUser(with email: String, username: String, completion: @escaping (Bool) -> Void) {
+    public func insertNewUser(with user: UserModel, completion: @escaping (Bool) -> Void) {
         //노드 삽입 / 키가 이메일이될 자식함수를 생성합니다.
-        database.child(email.safeDatabaseKey()).setValue(["username":username]) { error, _ in
+        database.child(user.emailAdress.safeDatabaseKey()).setValue(["name": user.name]) { error, _ in
             if error == nil {
                 completion(true)
                 return
@@ -43,6 +50,8 @@ public class DatabaseManager {
         }
     }
 }
+
+
 
 //MARK: - extention
 

@@ -247,7 +247,7 @@
         <!--채팅-->
         <scene sceneID="Z5j-wg-LhH">
             <objects>
-                <viewController id="2kQ-Qs-TnE" sceneMemberID="viewController">
+                <viewController id="2kQ-Qs-TnE" customClass="ConversationsViewController" customModule="ios100ToyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hwn-uu-4Sb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

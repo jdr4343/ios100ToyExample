@@ -108,17 +108,31 @@ class RegistrationViewController: UIViewController {
         guard let username = usernameField.text, !username.isEmpty,
               let email = emailField.text, !email.isEmpty,
               let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
+            
+            alertUserRegisterError()
             return
         }
         AuthManager.shared.registerNewUser(username: username, email: email, password: password) { registerd in
             DispatchQueue.main.async {
                 if registerd {
-                    //성공
+                    self.dismiss(animated: true, completion: nil)
+                // 성공
                 } else {
                     //실패
+                    self.alertUserRegisterError()
                 }
             }
         }
+    }
+    
+    private func alertUserRegisterError(message: String = "새 계정을 만들려면 모든 정보를 입력하십시오.비밀번호가 8자리 이상인지 확인해주게요.") {
+        let alert = UIAlertController(title: "회원가입 실패",
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "닫기",
+                                      style: .cancel,
+                                      handler: nil))
+        present(alert, animated: true)
     }
 
 

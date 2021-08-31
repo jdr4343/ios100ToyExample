@@ -36,9 +36,8 @@ struct PostLikes {
 
 struct UserModel {
     let name: String
-    let profilePhoto: URL
-    let placeholder: String?
-    var value: String?
+    let emailAdress: String
+    //let profilePhoto: URL
 }
 
 

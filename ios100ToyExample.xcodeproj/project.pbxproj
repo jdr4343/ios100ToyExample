@@ -36,6 +36,7 @@
 		403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */; };
 		403502F126CCE22B004BD348 /* CarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502F026CCE22B004BD348 /* CarouselModel.swift */; };
 		405AD93826DE0CB90079734A /* EditTextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AD93726DE0CB90079734A /* EditTextViewTableViewCell.swift */; };
+		405AD93B26DE542A0079734A /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AD93A26DE542A0079734A /* ConversationsViewController.swift */; };
 		406FE6B326DC00FD0036DE44 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406FE6B226DC00FD0036DE44 /* Model.swift */; };
 		406FE6B526DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406FE6B426DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift */; };
 		4078640526CE02A900C864FD /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078640426CE02A900C864FD /* NewsViewController.swift */; };
@@ -127,6 +128,7 @@
 		403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
 		403502F026CCE22B004BD348 /* CarouselModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselModel.swift; sourceTree = "<group>"; };
 		405AD93726DE0CB90079734A /* EditTextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextViewTableViewCell.swift; sourceTree = "<group>"; };
+		405AD93A26DE542A0079734A /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
 		406FE6B226DC00FD0036DE44 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		406FE6B426DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoHeaderTableHeaderView.swift; sourceTree = "<group>"; };
 		4078640426CE02A900C864FD /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -341,6 +343,14 @@
 				403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */,
 			);
 			path = Carousel;
+			sourceTree = "<group>";
+		};
+		405AD93926DE53F40079734A /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				405AD93A26DE542A0079734A /* ConversationsViewController.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		406FE6B126DC00580036DE44 /* Profile */ = {
@@ -632,6 +642,7 @@
 		407A1FF826D66A050058F84D /* CoreTabs */ = {
 			isa = PBXGroup;
 			children = (
+				405AD93926DE53F40079734A /* Chat */,
 				403502A326CB4B4B004BD348 /* ExampleListViewController.swift */,
 				406FE6B126DC00580036DE44 /* Profile */,
 			);
@@ -862,6 +873,7 @@
 				403502D326CBCDC0004BD348 /* ColorWellViewController.swift in Sources */,
 				407A1F4A26CF38F10058F84D /* SectionViewController.swift in Sources */,
 				403502BD26CB61F2004BD348 /* DateFormatterViewController.swift in Sources */,
+				405AD93B26DE542A0079734A /* ConversationsViewController.swift in Sources */,
 				403502D926CBF490004BD348 /* CustomTabBarController.swift in Sources */,
 				407A1F7D26D24F520058F84D /* SnapkitViewController.swift in Sources */,
 				407A1F6E26CFD7CC0058F84D /* TimerViewController.swift in Sources */,

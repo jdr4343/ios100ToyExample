@@ -21,7 +21,7 @@ final class SettingViewController: UIViewController {
     //먼저 일반적인 테이블 뷰를 만들겠습니다!
     private let tableView: UITableView = {
         let table = UITableView()
-        table.register(EditProfileTableViewCell.self, forCellReuseIdentifier: EditProfileTableViewCell.identifier)
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return table
     }()
     
@@ -101,7 +101,7 @@ extension SettingViewController: UITableViewDelegate,UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: EditProfileTableViewCell.identifier, for: indexPath) as! EditProfileTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = data[indexPath.section][indexPath.row].title
         return cell
     }
