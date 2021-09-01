@@ -42,9 +42,18 @@ class ConversationsViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(tableView)
         view.addSubview(noConversationsLabel)
+        //사용자가 새 대화를 추가 할수 있도록 네비게이션 바 아이템 추가
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose,
+                                                            target: self,
+                                                            action: #selector(didTapComposeButton))
         tableView.delegate = self
         tableView.dataSource = self
         fetchConversations()
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        //구현대기 /탭바가 너무 형편없이 사라져서 애니메이션을 추가 해줘야 할거 같음 우선은 그냥 내비두고 모든구현을 끝내고 돌아와서 만들자!
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidLayoutSubviews() {
@@ -53,6 +62,14 @@ class ConversationsViewController: UIViewController {
     }
     //대화를 가져오겠습니다
     private func fetchConversations() {
+        tableView.isHidden = false
+    }
+    
+    @objc private func didTapComposeButton() {
+        let vc = NewConversationViewController()
+        let nvc = UINavigationController(rootViewController: vc)
+        present(nvc, animated: true)
+        
         
     }
    
@@ -74,6 +91,7 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "테스트"
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
@@ -87,6 +105,6 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 75
     }
 }

@@ -8,12 +8,11 @@
 import UIKit
 import SkyFloatingLabelTextField
 import TransitionButton
-import JGProgressHUD
+
 
 class RegistrationViewController: UIViewController {
 
-    //로그인시에 스피너를 보여주기위해 추가 하겠습니다.
-    private let spinner = JGProgressHUD(style: .dark)
+  
     
     private let usernameField: SkyFloatingLabelTextField = {
       let field = SkyFloatingLabelTextField()

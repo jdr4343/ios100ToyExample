@@ -88,6 +88,7 @@
 		407A200326D67E460058F84D /* IOSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A200226D67E460058F84D /* IOSTabBarController.swift */; };
 		407A200626D67FB50058F84D /* IOSTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A200526D67FB50058F84D /* IOSTabBar.swift */; };
 		40C2442626DFEE1600374DB2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442526DFEE1600374DB2 /* ChatViewController.swift */; };
+		40C2442826E01BC200374DB2 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442726E01BC200374DB2 /* NewConversationViewController.swift */; };
 		40DF551126CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */; };
 		40DF551326CD12C300FD9FB8 /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */; };
 		40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */; };
@@ -182,6 +183,7 @@
 		407A200226D67E460058F84D /* IOSTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSTabBarController.swift; sourceTree = "<group>"; };
 		407A200526D67FB50058F84D /* IOSTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSTabBar.swift; sourceTree = "<group>"; };
 		40C2442526DFEE1600374DB2 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		40C2442726E01BC200374DB2 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		40DF551026CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		40DF551226CD12C300FD9FB8 /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
 		40DF551426CD12E600FD9FB8 /* AdvencedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvencedModel.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			children = (
 				405AD93A26DE542A0079734A /* ConversationsViewController.swift */,
 				40C2442526DFEE1600374DB2 /* ChatViewController.swift */,
+				40C2442726E01BC200374DB2 /* NewConversationViewController.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -878,6 +881,7 @@
 				407A1F3A26CE195A0058F84D /* ios100ToyExample.xcdatamodeld in Sources */,
 				407A1F7426D0AAE90058F84D /* YPImageViewController.swift in Sources */,
 				4078640A26CE122100C864FD /* MemoListTableViewController.swift in Sources */,
+				40C2442826E01BC200374DB2 /* NewConversationViewController.swift in Sources */,
 				403502BA26CB5EF3004BD348 /* GradientViewController.swift in Sources */,
 				40DF551126CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift in Sources */,
 				407A1F5A26CF9D280058F84D /* BarViewController.swift in Sources */,
