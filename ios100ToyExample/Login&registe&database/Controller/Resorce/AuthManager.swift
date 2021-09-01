@@ -29,9 +29,11 @@ public class AuthManager {
                             completion(false)
                             return
                         }
-                        print("\(email)가 새로 생성되었습니다.")
+
+                        
                         ///데이터 베이스에 등록
                         DatabaseManager.shared.insertNewUser(with: UserModel(username: username, emailAdress: email))
+                        
                     }
                 })
                 

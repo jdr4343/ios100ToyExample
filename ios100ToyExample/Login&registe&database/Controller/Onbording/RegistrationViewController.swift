@@ -8,9 +8,13 @@
 import UIKit
 import SkyFloatingLabelTextField
 import TransitionButton
+import JGProgressHUD
 
 class RegistrationViewController: UIViewController {
 
+    //로그인시에 스피너를 보여주기위해 추가 하겠습니다.
+    private let spinner = JGProgressHUD(style: .dark)
+    
     private let usernameField: SkyFloatingLabelTextField = {
       let field = SkyFloatingLabelTextField()
         field.placeholder = "이름"
@@ -67,7 +71,7 @@ class RegistrationViewController: UIViewController {
     }()
     
     
-    private let registerButton: TransitionButton = {
+    public let registerButton: TransitionButton = {
         let button = TransitionButton()
         button.setTitle("회원 가입", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -104,7 +108,7 @@ class RegistrationViewController: UIViewController {
         usernameField.resignFirstResponder()
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
-        
+        registerButton.startAnimation()
         guard let username = usernameField.text, !username.isEmpty,
               let email = emailField.text, !email.isEmpty,
               let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
@@ -112,16 +116,24 @@ class RegistrationViewController: UIViewController {
             alertUserRegisterError()
             return
         }
+      
         AuthManager.shared.registerNewUser(username: username, email: email, password: password) { registerd in
             DispatchQueue.main.async {
+                
+               
                 if registerd {
-                    self.dismiss(animated: true, completion: nil)
+                  
                 // 성공
                 } else {
                     //실패
                     self.alertUserRegisterError()
                 }
+                
+                
             }
+        }
+        self.registerButton.stopAnimation(animationStyle: .normal, revertAfterDelay: 0.5) {
+            self.navigationController?.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -133,6 +145,8 @@ class RegistrationViewController: UIViewController {
                                       style: .cancel,
                                       handler: nil))
         present(alert, animated: true)
+        registerButton.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.5, completion: nil)
+        
     }
 
 
