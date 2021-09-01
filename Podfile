@@ -18,6 +18,7 @@ pod 'SkyFloatingLabelTextField'
 
 pod 'MessageKit'
 pod 'JGProgressHUD'
+pod 'SDWebImage'
 
   #Firebase
 pod 'Firebase/Core'
