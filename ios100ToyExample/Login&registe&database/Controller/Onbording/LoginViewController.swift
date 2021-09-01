@@ -179,7 +179,7 @@ class LoginViewController: UIViewController {
             x: 25,
             y: loginButton.bottom + 5,
             width: view.width - 50,
-            height: 52
+            height: 40
         )
         termsButton.frame = CGRect(
             x: 10,
@@ -328,31 +328,57 @@ extension LoginViewController: LoginButtonDelegate {
         //필수 메서드라 생성만 하고 비워두겠습니다.
     }
     
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+    public func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         //토큰을 가져옵니다
         guard let token = result?.token?.tokenString else {
             print("사용자가 페이스북으로 로그인에 실패 했습니다.")
             return
         }
-        //엑세스 토큰을 사용 하겠습니다
-        let credential = FacebookAuthProvider.credential(withAccessToken: token)
-        FirebaseAuth.Auth.auth().signIn(with: credential, completion: { [weak self] authResult, error in
-            guard let strongSelf = self else {
+        
+        //페이스북으로 로그인한 사용자로 부터 사용자의 이메일과 이름을 가져오겠습니다.
+        let facebookRequset = FBSDKLoginKit.GraphRequest(graphPath: "me",
+                                                         parameters: ["fields" : "email, name"],
+                                                         tokenString: token,
+                                                         version: nil,
+                                                         httpMethod: .get)
+        facebookRequset.start(completion: { _, result, error in
+            guard let result = result as? [String: Any], error == nil else {
+                print("페이스북으로 부터 정보를 요청하지 못했습니다.")
                 return
             }
-            print("2")
-            guard authResult != nil, error != nil else {
-                if let error = error {
-                    //에러가 생긴다면 파이어베이스에서 페이스북 을 Enabled를 했는지 확인 해보세요 😃 앱 아이디와 엡 비밀번호는 페이스북 디벨로퍼의 기본설정에 있습니다.
-                print("사용자가 페이스북 로그인에 실패 했습니다, MFA가 필요할수 있습니다. - \(error)")
+    
+            guard let userName = result["name"] as? String,
+                  let email = result["email"] as? String else {
+                print("이메일과 이름 결과 값을 얻지 못했습니다.")
+                return
+            }
+            
+            //위에서 받은 이메일과 이름 결과값을 데이터베이스에 전달합니다
+            let name = userName
+            DatabaseManager.shared.userExists(with: email, completion: { exists in
+                if !exists {
+                    DatabaseManager.shared.insertNewUser(with: UserModel(username: name, emailAdress: email))
                 }
-                print("\(authResult)")
-                return
-            }
-            //성공
-            print("4")
-            strongSelf.dismiss(animated: true, completion: nil)
+            })
+            
+            //엑세스 토큰을 사용 하겠습니다
+            let credential = FacebookAuthProvider.credential(withAccessToken: token)
+            FirebaseAuth.Auth.auth().signIn(with: credential, completion: { [weak self] authResult, error in
+                guard let strongSelf = self else {
+                    return
+                }
+                guard authResult != nil, error == nil else {
+                    //에러가 생긴다면 파이어베이스에서 페이스북 을 Enabled를 했는지 확인 해보세요 😃 앱 아이디와 엡 비밀번호는 페이스북 디벨로퍼의 기본설정에 있습니다.
+                    print("사용자가 페이스북 로그인에 실패 했습니다, MFA가 필요할수 있습니다.")
+                    return
+                }
+                //성공
+                strongSelf.dismiss(animated: true, completion: nil)
+            })
+            
         })
+        
+        
     }
     
     
