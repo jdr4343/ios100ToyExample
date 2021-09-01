@@ -15,6 +15,7 @@ pod 'TheAnimation'
 pod 'YPImagePicker'
 pod 'SnapKit'
 pod 'SkyFloatingLabelTextField'
+pod 'MessageKit'
 
   #Firebase
 pod 'Firebase/Core'
