@@ -125,6 +125,11 @@ PODS:
   - PromisesObjC (2.0.0)
   - PryntTrimmerView (4.0.2)
   - RAMAnimatedTabBarController (5.2.0)
+  - Realm (10.13.0):
+    - Realm/Headers (= 10.13.0)
+  - Realm/Headers (10.13.0)
+  - RealmSwift (10.13.0):
+    - Realm (= 10.13.0)
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
@@ -148,6 +153,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - MessageKit
   - RAMAnimatedTabBarController
+  - RealmSwift
   - SDWebImage
   - SkyFloatingLabelTextField
   - SnapKit
@@ -182,6 +188,8 @@ SPEC REPOS:
     - PromisesObjC
     - PryntTrimmerView
     - RAMAnimatedTabBarController
+    - Realm
+    - RealmSwift
     - SDWebImage
     - SkyFloatingLabelTextField
     - SnapKit
@@ -216,6 +224,8 @@ SPEC CHECKSUMS:
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
+  Realm: e3a1225aafa7cec96a020dc199201b9d1f9cd59c
+  RealmSwift: 62585b4a934754a9d9117331689f4e8a5b1f6113
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
@@ -224,6 +234,6 @@ SPEC CHECKSUMS:
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
   YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
-PODFILE CHECKSUM: 241f6710eb4a208c5947d11cf8691a97630b36af
+PODFILE CHECKSUM: 7baf47bb87b985ea75059ed3946c682c7491422e
 
 COCOAPODS: 1.10.1
