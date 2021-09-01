@@ -15,12 +15,12 @@ class CustomTabBar: UITabBar {
                let shapeLayer = CAShapeLayer()
                shapeLayer.path = creatPath()
                shapeLayer.strokeColor = UIColor.clear.cgColor
-               shapeLayer.fillColor = UIColor(named: "RG")?.cgColor
+               shapeLayer.fillColor = UIColor(named: "쌈무")?.cgColor
                shapeLayer.lineWidth = 1.0
                
                shapeLayer.shadowOffset = CGSize(width: 0, height: 0)
                shapeLayer.shadowRadius = 10
-               shapeLayer.shadowColor = UIColor(named: "RG")?.cgColor
+               shapeLayer.shadowColor = UIColor(named: "쌈무")?.cgColor
                shapeLayer.shadowOpacity = 0.3
                
                if let oldShapeLayer = self.shapeLayer {
@@ -34,7 +34,7 @@ class CustomTabBar: UITabBar {
            override func draw(_ rect: CGRect) {
                self.addShape()
                self.unselectedItemTintColor = UIColor.white
-               self.tintColor = UIColor(named: "RG")
+               self.tintColor = UIColor(named: "쌈무")
            }
            
            func creatPath() -> CGPath {

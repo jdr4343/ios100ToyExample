@@ -19,6 +19,7 @@ class CoreAnimationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         title = "코어 애니메이션"
         view.layer.addSublayer(layer)
         //스피너에서 그랬던 것처럼 지연 시키겠습니다.
