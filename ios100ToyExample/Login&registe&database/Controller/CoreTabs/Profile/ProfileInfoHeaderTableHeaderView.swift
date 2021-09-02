@@ -131,6 +131,32 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         profileImageView.layer.cornerRadius = profilePhotoSize/2.0
         profileImageView.center = center
         
+        //사진을 가져옵니다!
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+            return
+        }
+
+        //데이터베이스에게 이메일 전달
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        let filename = safeEmail + "_profile_picture.png"
+        //모듈을 유지하도록 하는 함수 추가 / 디렉터리 구조
+        let path = "images/"+filename
+        let imageView = profileImageView
+
+        StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
+            guard let strongSelf = self else {
+                return
+            }
+            switch result {
+            case .success(let url):
+                // 이미지 다운로드
+                strongSelf.downloadImage(imageView: imageView, url: url)
+            case .failure(let error):
+                print("Faild to get download url: \(error)")
+            }
+        })
+
+        
         //라벨
         let bioLabelSize = bioLabel.sizeThatFits(self.frame.size)
         nameLabel.frame = CGRect(x: 5, y: 5 + profileImageView.bottom, width: width-16, height: 40).integral
@@ -146,6 +172,20 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         
     }
     
+    //다운로드 이미지 기능
+    func downloadImage(imageView: UIImageView, url: URL) {
+        URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                imageView.image = image
+            }
+        })
+        .resume()
+    }
+
     
     //MARK: - add
     private func addSubViews() {

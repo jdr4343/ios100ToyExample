@@ -14,7 +14,7 @@ final class DatabaseManager {
     //데이터 베이스를 사용하기 위해 데이터베이스를 참조 하겠습니다.
     private let database = Database.database().reference()
     
-    //재사용 가능한 속성으로 만들겠습니다. //실험 실패시 지울것
+    //재사용 가능한 속성으로 만들겠습니다. 
     static func safeEmail(emailAddress: String) -> String {
         var safeEmail = emailAddress.replacingOccurrences(of: ".", with: "-")
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")

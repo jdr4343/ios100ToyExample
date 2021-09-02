@@ -30,7 +30,7 @@ final class StorageManager {
             self.storage.child("images/\(fileName)").downloadURL(completion: { url, error in
                 guard let url = url else {
                     print("Database - 32 URL을 다운로드 하지 못했습니다.")
-                    complation(.failure(StorageErrors.faildToGetDownloadURL))
+                    complation(.failure(StorageErrors.failedToGetDownloadUrl))
                     return
                 }
                 let urlString = url.absoluteString
@@ -43,8 +43,21 @@ final class StorageManager {
     //오류를 정의 하겠습니다.
     public enum StorageErrors: Error {
         case faildToUpload
-        case faildToGetDownloadURL
+        case failedToGetDownloadUrl
     }
-    
+    //실험
+    //지정한 경로를 기반으로 다운로드 URL을 반환할 함수를 만들겠습니다. 클로저 escaping에서 escaping은 여기에서 완료를 호출할때 firebase가 제공하는 실행 블록을 탈출할 수 있음을 의미합니다.
+    public func downloadURL(for path: String, completion: @escaping (Result<URL, Error>) -> Void) {
+        let reference = storage.child(path)
+        
+        reference.downloadURL(completion: { url, error in
+            guard let url = url, error == nil else {
+                print("다운로드 실패")
+                completion(.failure(StorageErrors.failedToGetDownloadUrl))
+                return
+            }
+            completion(.success(url))
+        })
+    }
     
 }

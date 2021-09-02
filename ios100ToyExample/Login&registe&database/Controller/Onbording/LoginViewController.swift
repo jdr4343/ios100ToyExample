@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
     private let spinner = JGProgressHUD(style: .dark)
     
     //이메일, 아이디 텍스트 필드 /'SkyFloatingLabelTextField'라는 프레임 워크를 이용해서 만들 것 입니다.
-    private let usernamaEmailField: SkyFloatingLabelTextField = {
+    private let emailField: SkyFloatingLabelTextField = {
         let field = SkyFloatingLabelTextField()
         field.placeholder = "이메일"
         field.title = "이메일을 작성해 주세요."
@@ -136,7 +136,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         addSubView()
-        usernamaEmailField.delegate = self
+        emailField.delegate = self
         passwordField.delegate = self
         
         facebookLoginButton.delegate = self
@@ -161,7 +161,7 @@ class LoginViewController: UIViewController {
             width: view.width,
             height: view.height/3.0
         )
-        usernamaEmailField.frame = CGRect(
+        emailField.frame = CGRect(
             x: 25,
             y: headerView.bottom + 40,
             width: view.width - 50,
@@ -169,7 +169,7 @@ class LoginViewController: UIViewController {
         )
         passwordField.frame = CGRect(
             x: 25,
-            y: usernamaEmailField.bottom + 10,
+            y:emailField.bottom + 10,
             width: view.width - 50,
             height: 52
         )
@@ -209,7 +209,7 @@ class LoginViewController: UIViewController {
     
     private func addSubView() {
         view.addSubview(headerView)
-        view.addSubview(usernamaEmailField)
+        view.addSubview(emailField)
         view.addSubview(passwordField)
         view.addSubview(loginButton)
         view.addSubview(createAccountButton)
@@ -235,10 +235,10 @@ class LoginViewController: UIViewController {
     @objc func didTabLoginButton() {
         //탭 될떄 키보드를 닫도록 설정
         passwordField.resignFirstResponder()
-        usernamaEmailField.resignFirstResponder()
+        emailField.resignFirstResponder()
         
         //텍스트가 비어 있는지 / 패스워드가 8자 이상인지 유효성 검사
-        guard let email = usernamaEmailField.text, !email.isEmpty,
+        guard let email = emailField.text, !email.isEmpty,
               let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
             let alert = UIAlertController(title: "회원정보가 다릅니다.",
                                           message: "패스워드의 길이가 8자 미만입니다.",
@@ -285,7 +285,7 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            //사용자가 로그인하고 탐색 컨트롤러를 해제 하므로 해제 하기전에 사용자 이메일 주소를 저장하겠습니다. 사용자 이메일을 저장하는 이유는 저장소 버킷이 이미지에 대해 사용할수 있는 형식을 가지고 있기 때문입니다. 사용자에 대한 이미지를 쿼리하기 위한 이메일 입니다.
+            //사용자가 로그인하고 탐색 컨트롤러를 해제 하므로 해제 하기전에 사용자 이메일 주소를 저장하겠습니다. 사용자 이메일을 저장하는 이유는 저장소 버킷이 이미지에 대해 사용할수 있는 형식으로 저장했기 때문입니다. 사용자에 대한 이미지를 쿼리하기 위한 이메일 입니다.
             let user = result.user
             UserDefaults.standard.set(email, forKey: "email")  
             print("Logged IN User:\(user)")
@@ -324,7 +324,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == usernamaEmailField {
+        if textField == emailField {
             passwordField.becomeFirstResponder()
         } else if textField == passwordField {
             didTabLoginButton()
@@ -375,7 +375,7 @@ extension LoginViewController: LoginButtonDelegate {
             }
             
             //위에서 받은 이메일과 이름 결과값을 데이터베이스에 전달합니다
-//            let name = userName
+            //            let name = userName
             DatabaseManager.shared.userExists(with: email, completion: { exists in
                 if !exists {
                     let appUser = UserModel(username: userName, emailAddress: email)
@@ -388,7 +388,7 @@ extension LoginViewController: LoginButtonDelegate {
                                 print("url 개체를 생성할수 없습니다.")
                                 return
                             }
-
+                            
                             URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
                                 guard let data = data, error == nil else {
                                     print("페이스북으로 부터 데이터를 받아 오는것에 실패 했습니다.")
