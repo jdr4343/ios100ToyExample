@@ -45,4 +45,6 @@ final class StorageManager {
         case faildToUpload
         case faildToGetDownloadURL
     }
+    
+    
 }

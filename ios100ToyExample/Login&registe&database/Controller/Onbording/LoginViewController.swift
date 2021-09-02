@@ -151,8 +151,7 @@ class LoginViewController: UIViewController {
 
 
     }
-    
-    
+  
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         //프레임을 설정합니다.
@@ -373,7 +372,13 @@ extension LoginViewController: LoginButtonDelegate {
             let name = userName
             DatabaseManager.shared.userExists(with: email, completion: { exists in
                 if !exists {
-                    DatabaseManager.shared.insertNewUser(with: UserModel(username: name, emailAdress: email))
+                    
+                    DatabaseManager.shared.insertNewUser(with: UserModel(username: name, emailAddress: email), complation: { success in
+                        if success {
+                            //사진을 업로드 합니다.
+                            
+                        }
+                    })
                 }
             })
             

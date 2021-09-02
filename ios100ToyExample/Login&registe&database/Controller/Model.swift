@@ -36,9 +36,19 @@ struct PostLikes {
 
 struct UserModel {
     let username: String
-    let emailAdress: String
-    //let profilePhoto: URL
+    let emailAddress: String
+    
+    var safeEmail: String {
+        var safeEmail = emailAddress.replacingOccurrences(of: ".", with: "-")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        return safeEmail
+    }
+    
+    var profilePictureFileName: String {
+        return "\(safeEmail)_profile_picture.png"
+    }
 }
+
 
 
 struct EditProfileFormModel {

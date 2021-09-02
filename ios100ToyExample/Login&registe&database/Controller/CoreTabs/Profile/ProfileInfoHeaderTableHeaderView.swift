@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 //프로토콜을 선언하여 ProfileViewController에서 버튼의 액션을 지정해주겠습니다.
 protocol ProfileInfoHeaderTableHeaderViewDelegate: AnyObject {
@@ -40,8 +41,14 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         imageView.image = UIImage(named: "테스트프로필")
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
+        
         return imageView
     }()
+ 
+    
+    
+    
+    
     
     //게시물 버튼
     private let postButton: UIButton = {
@@ -120,7 +127,7 @@ class ProfileInfoHeaderTableHeaderView: UIView{
             UIGraphicsEndImageContext()
             print("프로필 - 백그라운드 이미지가 잘못되었습니다.")
          }
-        
+      
         //프로필 포토 사이즈
         let profilePhotoSize  = width/3.5
         profileImageView.frame = CGRect(x: 0, y: 0, width: profilePhotoSize, height: profilePhotoSize).integral
@@ -147,6 +154,7 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     private func addSubViews() {
         addSubview(headerImageView)
         addSubview(profileImageView)
+        
         addSubview(postButton)
         addSubview(editProfileButton)
         addSubview(nameLabel)

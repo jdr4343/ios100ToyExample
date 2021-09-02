@@ -55,6 +55,7 @@ final class EditProfileViewController: UIViewController {
                                                            target: self,
                                                            action: #selector(didTapCancel))
         navigationController?.navigationBar.tintColor = .label
+        
     }
     
     override func viewDidLayoutSubviews() {

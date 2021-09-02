@@ -12,7 +12,7 @@ import TransitionButton
 
 class RegistrationViewController: UIViewController {
 
-  
+   
     
     private let usernameField: SkyFloatingLabelTextField = {
       let field = SkyFloatingLabelTextField()
