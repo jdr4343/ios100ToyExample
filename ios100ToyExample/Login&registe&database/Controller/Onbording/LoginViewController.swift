@@ -238,7 +238,7 @@ class LoginViewController: UIViewController {
         usernamaEmailField.resignFirstResponder()
         
         //텍스트가 비어 있는지 / 패스워드가 8자 이상인지 유효성 검사
-        guard let usernameEmail = usernamaEmailField.text, !usernameEmail.isEmpty,
+        guard let email = usernamaEmailField.text, !email.isEmpty,
               let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
             let alert = UIAlertController(title: "회원정보가 다릅니다.",
                                           message: "패스워드의 길이가 8자 미만입니다.",
@@ -248,7 +248,7 @@ class LoginViewController: UIViewController {
             return
         }
         spinner.show(in: view)
-        
+        self.loginButton.startAnimation()
         ///여기에서 로그인 기능을 연결 할 것입니다. 연결하기에 앞서  AuthManager,DataManager가 선행으로 작성 되어야 합니다. 또한 firebase의 Authentication에서 이메일을 사용저장 해주시고,
         ///Realtime Database(테스트)가 만들어고 규칙을 수정 해야 합니다.그리고 회원가입을 해야 등록을 하니 Resister 뷰 또한 작성 되어야 하겠죠?
         /*
@@ -260,36 +260,39 @@ class LoginViewController: UIViewController {
          }
          }
          */
-        var username: String?
-        var email: String?
-        //"@","."을 포함하면 이메일로 저장하고 아니라면 사용자이름으로 저장하겠습니다.
-        if usernameEmail.contains("@"),usernameEmail.contains(".") {
-            email = usernameEmail
-        } else  {
-            username = usernameEmail
-        }
-        //사용자 정보를 확인하고 맞다면 창을 닫고 아니라면 경고 메시지를 띄우겠습니다. / async를 사용하여 비동기 처리 하겠습니다.
-        AuthManager.shared.loginUser(username: username, email: email, password: password) { success in
+        //파이어 베이스 로그인 구현 / 사용자가 버튼을 탭하면 로그인 기능에서 FirebaseAuth.Auth.auth 라고 로그인 하도록 하고 이메일과 패스워드가 맞는지 확인하겠습니다.
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] authResult, error in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            //firebase 인증시도에서 스피너를 제거하겠습니다.
             DispatchQueue.main.async {
-                self.loginButton.startAnimation()
-                if success {
-                    self.spinner.dismiss()
-                    self.loginButton.stopAnimation(animationStyle: .normal, revertAfterDelay: 0.5) {
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                } else {
-                    self.loginButton.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.5, completion: nil)
-                    self.spinner.dismiss()
-                    let alert = UIAlertController(title: "회원정보가 다릅니다.",
-                                                  message: "이메일 혹은 패스워드를 확인해 주세요.",
-                                                  preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "닫기", style: .cancel, handler: nil))
-                    self.present(alert, animated: true)
-                }
+                strongSelf.spinner.dismiss()
+                
             }
             
-        }
-        
+            //오류가 발생하지 않았는지 확인하기 위해 가드문을 추가 하겠습니다. 오류가 발생하면 프린트를 출력 할것입니다.
+            guard let result = authResult, error == nil else {
+                print("Error cureating User")
+                strongSelf.loginButton.stopAnimation(animationStyle: .shake, revertAfterDelay: 0, completion: nil)
+                
+                let alert = UIAlertController(title: "회원정보가 다릅니다.",
+                                              message: "이메일 혹은 패스워드를 확인해 주세요.",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "닫기", style: .cancel, handler: nil))
+                strongSelf.present(alert, animated: true)
+                return
+            }
+            
+            //사용자가 로그인하고 탐색 컨트롤러를 해제 하므로 해제 하기전에 사용자 이메일 주소를 저장하겠습니다. 사용자 이메일을 저장하는 이유는 저장소 버킷이 이미지에 대해 사용할수 있는 형식을 가지고 있기 때문입니다. 사용자에 대한 이미지를 쿼리하기 위한 이메일 입니다.
+            let user = result.user
+            UserDefaults.standard.set(email, forKey: "email")  
+            print("Logged IN User:\(user)")
+            strongSelf.loginButton.stopAnimation(animationStyle: .normal, revertAfterDelay: 0.5) {
+                strongSelf.dismiss(animated: true, completion: nil)
+            }
+        })
     }
     
     @objc func didTabcreateAccountButton() {

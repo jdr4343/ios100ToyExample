@@ -8,6 +8,7 @@
 import FirebaseAuth
 import UIKit
 public class AuthManager {
+    
     static let shared =  AuthManager()
 
     
@@ -55,25 +56,25 @@ public class AuthManager {
 //            }
 //        }
 //    }
-    ///로그인
-    public func loginUser(username: String?, email: String?, password: String, completion: @escaping (Bool) -> Void) {
-        if let email = email {
-            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                
-                //인증 결과가 nil이 아니고 오류가 nil과 같을떄 completion(true)를 호출하고 else라면 false를 반환 합니다!
-                guard authResult != nil, error == nil else {
-                    print("Auth51 - \(email) 로그인이 실패 했습니다")
-                    completion(false)
-                    return
-                }
-                
-                print("\(email)가 로그인 하였습니다.")
-                completion(true )
-            }
-        } else if let username = username {
-            print(username)
-        }
-    }
+//    ///로그인
+//    public func loginUser(username: String?, email: String?, password: String, completion: @escaping (Bool) -> Void) {
+//        if let email = email {
+//            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+//                
+//                //인증 결과가 nil이 아니고 오류가 nil과 같을떄 completion(true)를 호출하고 else라면 false를 반환 합니다!
+//                guard authResult != nil, error == nil else {
+//                    print("Auth51 - \(email) 로그인이 실패 했습니다")
+//                    completion(false)
+//                    return
+//                }
+//                
+//                print("\(email)가 로그인 하였습니다.")
+//                completion(true )
+//            }
+//        } else if let username = username {
+//            print(username)
+//        }
+//    }
     ///로그아웃
     public func logOut(completion: (Bool) -> Void) {
         do {
