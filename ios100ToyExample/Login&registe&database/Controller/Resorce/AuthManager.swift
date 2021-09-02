@@ -33,7 +33,7 @@ public class AuthManager {
 //
 //
 //                        ///데이터 베이스에 등록  // 구현대기 만들던 도중 나의 레지스터 뷰 에는 이미지 뷰가 없고 바꿀 팔요가 없어서 구현을 안함 추후 문제가 있다면 레지스터뷰를 이사해서 구현해야할듯
-//                        DatabaseManager.shared.insertNewUser(with: UserModel(username: username, emailAddress: email), complation: { success in
+//                        DatabaseManager.shared.insertNewUser(with: UserModel(username: username, emailAddress: email), completion: { success in
 ////                            if success {
 ////                                //사진을 업로드 합니다.
 ////                                guard let image = self.imageView.image,

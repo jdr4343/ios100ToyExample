@@ -57,16 +57,50 @@ extension DatabaseManager {
         })
     }
     
-    
-    public func insertNewUser(with user: UserModel, complation: @escaping (Bool) -> Void) {
+    //새로운 사용자 개체가 생성되면 user 컬렉션에 추가합니다
+    public func insertNewUser(with user: UserModel, completion: @escaping (Bool) -> Void) {
         //노드 삽입 / 키가 이메일이될 자식함수를 생성합니다. / 사용자가 다른 플랫폼을 통해서 로그인 할경우 사용자가 프로필 사진이 있는지 확인합니다. 삭제?
         database.child(user.safeEmail).setValue(["name": user.username], withCompletionBlock: { error, _ in
             guard error == nil else {
                 print("Database - 58 데이터 베이스를 읽지 못했습니다.")
-                complation(false)
+                completion(false)
                 return
             }
-            complation(true)
+            //이벤트를 관찰합니다.
+            self.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
+                if var usersCollection = snapshot.value as? [[String:String]] {
+                    //이중 dictionary 컬렉션 형식으로 추가합니다. 키도 문자열 값도 문자열입니다.
+                    let newElement = [
+                        "name": user.username,
+                        "email": user.safeEmail
+                    ]
+                    usersCollection.append(newElement)
+                    //사용자가 참조 할수 있도록 firebase에 추가합니다.
+                    self.database.child("users").setValue(usersCollection, withCompletionBlock: { error, _ in
+                        guard error == nil else {
+                            completion(false)
+                            return
+                        }
+                        completion(true)
+                    })
+                } else {
+                    // dictionary 배열을 만듭니다.
+                    let newCollection: [[String: String]] = [
+                        [
+                            "name": user.username,
+                            "email": user.safeEmail
+                        ]
+                    ]
+                    //사용자가 참조 할수 있도록 firebase에 추가합니다.
+                    self.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
+                        guard error == nil else {
+                            completion(false)
+                            return
+                        }
+                        completion(true)
+                    })
+                }
+            })
         })
     }
 }

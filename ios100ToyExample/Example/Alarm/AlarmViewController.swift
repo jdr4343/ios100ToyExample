@@ -31,7 +31,7 @@ class AlarmViewController: UIViewController {
                 vc.title = "새로운 알람"
                 vc.navigationItem.largeTitleDisplayMode = .never
                 //완료 핸들러
-                vc.complation = { title, body, date in
+                vc.completion = { title, body, date in
                     //추가 컨트롤러
                     DispatchQueue.main.async {
                         self.navigationController?.popToRootViewController(animated: true)

@@ -169,14 +169,14 @@ class RegistrationViewController: UIViewController {
                 let AppUser = UserModel(username: username, emailAddress: email)
                 
                 //데이터 베이스에 사진을 등록합니다.
-                DatabaseManager.shared.insertNewUser(with: AppUser, complation: { success in
+                DatabaseManager.shared.insertNewUser(with: AppUser, completion: { success in
                     if success {
                         guard let image = strongSelf.profileImageView.image,
                               let data = image.pngData() else {
                             return
                         }
                         let filename = AppUser.profilePictureFileName
-                        StorageManager.shared.uploadProfilePicture(with: data, fileName: filename, complation: { result in
+                        StorageManager.shared.uploadProfilePicture(with: data, fileName: filename, completion: { result in
                             switch result {
                             case .success(let downloadUrl):
                                 UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")

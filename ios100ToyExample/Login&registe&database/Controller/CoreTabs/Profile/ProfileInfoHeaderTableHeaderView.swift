@@ -38,10 +38,12 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     //프로필 이미지
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "테스트프로필")
+        imageView.image = UIImage(systemName: "person.circle")
+        imageView.tintColor = .label
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.borderWidth = 5
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.masksToBounds = true
-        
+        imageView.layer.masksToBounds = true  
         return imageView
     }()
  
@@ -139,10 +141,10 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         //데이터베이스에게 이메일 전달
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         let filename = safeEmail + "_profile_picture.png"
-        //모듈을 유지하도록 하는 함수 추가 / 디렉터리 구조
+        
+        // 디렉터리 구조에서 아래 유형의 이미지에 대한 URL을 반환하는 함수를 생성하겠습니다.
         let path = "images/"+filename
         let imageView = profileImageView
-
         StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
             guard let strongSelf = self else {
                 return
@@ -152,7 +154,7 @@ class ProfileInfoHeaderTableHeaderView: UIView{
                 // 이미지 다운로드
                 strongSelf.downloadImage(imageView: imageView, url: url)
             case .failure(let error):
-                print("Faild to get download url: \(error)")
+                print("Url 다운로드에 실패 했습니다.: \(error)")
             }
         })
 
@@ -172,17 +174,19 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         
     }
     
-    //다운로드 이미지 기능
+    //다운로드 이미지 기능 / url을 전달합니다.
     func downloadImage(imageView: UIImageView, url: URL) {
         URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
             guard let data = data, error == nil else {
                 return
             }
+            //다운로드 받은 url을 UIImage로 변환 합니다.
             DispatchQueue.main.async {
                 let image = UIImage(data: data)
                 imageView.image = image
             }
         })
+        // URLSession.shared.dataTask가 작업을 시작하기 위해 추가.
         .resume()
     }
 

@@ -380,7 +380,7 @@ extension LoginViewController: LoginButtonDelegate {
                 if !exists {
                     let appUser = UserModel(username: userName, emailAddress: email)
                     
-                    DatabaseManager.shared.insertNewUser(with: appUser, complation: { success in
+                    DatabaseManager.shared.insertNewUser(with: appUser, completion: { success in
                         if success {
                             
                             //가져온 사진을 데이터베이스에 저장합니다.⭐️⭐️⭐️
@@ -396,7 +396,7 @@ extension LoginViewController: LoginButtonDelegate {
                                 }
                                 
                                 let filename = appUser.profilePictureFileName
-                                StorageManager.shared.uploadProfilePicture(with: data, fileName: filename, complation: { result in
+                                StorageManager.shared.uploadProfilePicture(with: data, fileName: filename, completion: { result in
                                     switch result {
                                     case .success(let downloadUrl):
                                         UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")

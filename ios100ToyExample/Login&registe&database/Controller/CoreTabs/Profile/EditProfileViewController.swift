@@ -29,8 +29,11 @@ final class EditProfileViewController: UIViewController {
     private let ProfilePhotoButton: UIButton = {
         let button = UIButton()
         button.layer.masksToBounds = true
-        button.setBackgroundImage(UIImage(systemName: "person.circle"), for: .normal)
-        button.tintColor = .secondarySystemBackground
+        button.setBackgroundImage(UIImage(systemName: "person.circle.fill"), for: .normal)
+        button.backgroundColor = .lightGray
+        button.tintColor = .white
+        button.layer.borderWidth = 5
+        button.layer.borderColor = UIColor.white.cgColor
         button.addTarget(self, action: #selector(didtapProfilePhotoButton), for: .touchUpInside)
         return button
     }()

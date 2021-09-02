@@ -41,7 +41,7 @@ class NewsViewController: UIViewController {
     
     private func fetchTopStories() {
         //APi호출이 작동되는지 확인
-        APICaller.shared.getTopStories(complation: { [weak self] result in
+        APICaller.shared.getTopStories(completion: { [weak self] result in
             switch result {
             case .success(let articles):
                 self?.articles = articles
@@ -104,7 +104,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource, UISear
         guard let text = searchBar.text, !text.isEmpty else {
             return
         }
-        APICaller.shared.search(with: text, complation: { [weak self] result in
+        APICaller.shared.search(with: text, completion: { [weak self] result in
             switch result {
             case .success(let articles):
                 self?.articles = articles

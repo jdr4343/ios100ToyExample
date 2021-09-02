@@ -17,7 +17,7 @@ class AddAlarmViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     //사용자가 추가한 정보를 가져와 다른 컨트롤러에서 사용하기 위해 공용 완료 속성 추가
-    public var complation:((String, String, Date) -> Void)?
+    public var completion:((String, String, Date) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class AddAlarmViewController: UIViewController,UITextFieldDelegate {
             //데이트 피커에서 날짜 데이터 가져오기
             let targetDate = datePicker.date
             //데이터 가져오기 이 데이터들은 위에서 공용속성으로 선언했기 때문에 다른 컨트롤러에서도 사용할수 있습니다.
-            complation?(titleText, bodyText, targetDate)
+            completion?(titleText, bodyText, targetDate)
         }
     }
     //델리게이트 기능 추가
