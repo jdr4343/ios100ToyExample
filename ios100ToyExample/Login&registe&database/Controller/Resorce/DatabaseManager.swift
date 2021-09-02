@@ -69,7 +69,7 @@ extension DatabaseManager {
             //이벤트를 관찰합니다.
             self.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
                 if var usersCollection = snapshot.value as? [[String:String]] {
-                    //이중 dictionary 컬렉션 형식으로 추가합니다. 키도 문자열 값도 문자열입니다.
+                    //이중 dictionary 컬렉션 형식으로 두개의 node를 추가합니다. 키도 문자열 값도 문자열입니다.노드 창이 두개인 이유는 대화하는 발신자와 수신자를 구별하기 위해서 입니다.
                     let newElement = [
                         "name": user.username,
                         "email": user.safeEmail
@@ -104,6 +104,5 @@ extension DatabaseManager {
         })
     }
 }
-
 
 

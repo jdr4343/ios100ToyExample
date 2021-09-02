@@ -128,7 +128,7 @@ class ProfileInfoHeaderTableHeaderView: UIView{
          }
       
         //프로필 포토 사이즈
-        let profilePhotoSize  = width/3.5
+        let profilePhotoSize  = width/3
         profileImageView.frame = CGRect(x: 0, y: 0, width: profilePhotoSize, height: profilePhotoSize).integral
         profileImageView.layer.cornerRadius = profilePhotoSize/2.0
         profileImageView.center = center

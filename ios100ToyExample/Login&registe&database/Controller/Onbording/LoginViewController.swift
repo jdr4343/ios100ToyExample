@@ -374,8 +374,11 @@ extension LoginViewController: LoginButtonDelegate {
                 return
             }
             
+            //노드의 email값으로 식별 하겠습니다.
+            UserDefaults.standard.set(email, forKey: "email")
+            
             //위에서 받은 이메일과 이름 결과값을 데이터베이스에 전달합니다
-            //            let name = userName
+                      
             DatabaseManager.shared.userExists(with: email, completion: { exists in
                 if !exists {
                     let appUser = UserModel(username: userName, emailAddress: email)
