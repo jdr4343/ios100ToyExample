@@ -103,6 +103,24 @@ extension DatabaseManager {
             })
         })
     }
+    //검색 기능 구현을 위해 함수를 추가합니다.
+    public func getAllUsers(complation: @escaping (Result<[[String:String]], Error>) -> Void) {
+        database.child("users").observeSingleEvent(of: .value, with: { snapshot in
+            guard let value = snapshot.value as? [[String:String]] else {
+                complation(.failure(DatabaseError.failedToFetch))
+                return
+            }
+            //값을 전달합니다.
+            complation(.success(value))
+        })
+    }
+    
+    //오류를 정의 하겠습니다.
+    public enum DatabaseError: Error {
+        case failedToFetch
+    }
+    
+    
 }
 
 
