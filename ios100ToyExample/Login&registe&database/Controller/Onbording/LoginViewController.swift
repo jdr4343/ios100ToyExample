@@ -375,9 +375,11 @@ extension LoginViewController: LoginButtonDelegate {
                     
                     DatabaseManager.shared.insertNewUser(with: UserModel(username: name, emailAddress: email), complation: { success in
                         if success {
-                            //사진을 업로드 합니다.
-                            
+                            //구현대기 part9 24:32
                         }
+
+                        
+                        
                     })
                 }
             })
