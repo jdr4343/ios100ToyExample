@@ -8,11 +8,12 @@
 import UIKit
 import SkyFloatingLabelTextField
 import TransitionButton
+import FirebaseAuth
 
 
 class RegistrationViewController: UIViewController {
-
-   
+    
+    
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "person.circle")
@@ -23,7 +24,7 @@ class RegistrationViewController: UIViewController {
     }()
     
     private let usernameField: SkyFloatingLabelTextField = {
-      let field = SkyFloatingLabelTextField()
+        let field = SkyFloatingLabelTextField()
         field.placeholder = "이름"
         field.title = "이름을 작성해 주세요."
         field.returnKeyType = .next
@@ -41,7 +42,7 @@ class RegistrationViewController: UIViewController {
     }()
     
     private let emailField: SkyFloatingLabelTextField = {
-      let field = SkyFloatingLabelTextField()
+        let field = SkyFloatingLabelTextField()
         field.placeholder = "이메일"
         field.title = "이메일을 작성해 주세요."
         field.returnKeyType = .next
@@ -59,7 +60,7 @@ class RegistrationViewController: UIViewController {
     }()
     
     private let passwordField: SkyFloatingLabelTextField = {
-      let field = SkyFloatingLabelTextField()
+        let field = SkyFloatingLabelTextField()
         field.placeholder = "비밀번호"
         field.title = "비밀번호는 8자리 이상으로 작성 해주세요."
         field.isSecureTextEntry = true
@@ -126,14 +127,14 @@ class RegistrationViewController: UIViewController {
         registerButton.frame = CGRect(x: 20, y: passwordField.bottom+20, width: view.width-40, height: 52)
         
     }
-
+    
     @objc private func didTapChangeProfilePic() {
         //프로필 탭 액션 / 인포에서 카메라, 사진 권한 허용 /아래에 확장자 설정
         didtapProfilePhotoButton()
     }
     
     //회원 가입 버튼 기능 구현 / 사용자가 모든 데이터를 이상없이 전달했을경우 AuthManager를 통해서 계정을 생성하겠습니다.
-    @objc func didTabRegisterButton() {
+    @objc private func didTabRegisterButton() {
         usernameField.resignFirstResponder()
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
@@ -145,27 +146,54 @@ class RegistrationViewController: UIViewController {
             alertUserRegisterError()
             return
         }
-      
-        AuthManager.shared.registerNewUser(username: username, email: email, password: password) { registerd in
-            DispatchQueue.main.async {
-                
-               
-                if registerd {
-                  
-                // 성공
-                } else {
-                    //실패
-                    self.alertUserRegisterError()
-                }
-                
-                
+        ///실험 시도 문제가 없다면 사용
+        //회원가입시 사용자 이메일이 존재하는 경우 에러를 표시할것 입니다.
+        DatabaseManager.shared.userExists(with: email, completion: { [weak self] exists in
+            guard let strongSelf = self else {
+                return
             }
-        }
-        self.registerButton.stopAnimation(animationStyle: .normal, revertAfterDelay: 0.5) {
-            self.navigationController?.dismiss(animated: true, completion: nil)
-        }
+            
+            
+            guard !exists else {
+                //user already exists
+                strongSelf.alertUserRegisterError(message: "해당이메일이 존재하는거 같습니다.")
+                return
+            }
+            // 이메일과 비밀번호를 사용하여 계정을 만들수 있도록 코드를 선언하여 주겠습니다.
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
+                //오류가 발생하지 않았는지 확인하기 위해 가드문을 추가 하겠습니다. 오류가 발생하면 프린트를 출력 할것입니다.
+                guard authResult != nil, error == nil else {
+                    print("계정을 만들수 없습니다.")
+                    return
+                }
+                let AppUser = UserModel(username: username, emailAddress: email)
+                
+                //데이터 베이스에 사진을 등록합니다.
+                DatabaseManager.shared.insertNewUser(with: AppUser, complation: { success in
+                    if success {
+                        guard let image = strongSelf.profileImageView.image,
+                              let data = image.pngData() else {
+                            return
+                        }
+                        let filename = AppUser.profilePictureFileName
+                        StorageManager.shared.uploadProfilePicture(with: data, fileName: filename, complation: { result in
+                            switch result {
+                            case .success(let downloadUrl):
+                                UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                print(downloadUrl)
+                            case .failure(let error):
+                                print("스토리지 오류 \(error)")
+                            }
+                        })
+                    }
+                })
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            })
+            
+        })
+        
     }
-    
+    ///여기까지
     private func alertUserRegisterError(message: String = "새 계정을 만들려면 모든 정보를 입력하십시오.비밀번호가 8자리 이상인지 확인해주게요.") {
         let alert = UIAlertController(title: "회원가입 실패",
                                       message: message,
