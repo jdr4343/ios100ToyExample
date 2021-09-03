@@ -141,7 +141,7 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         //데이터베이스에게 이메일 전달
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         let filename = safeEmail + "_profile_picture.png"
-        
+        ///구현대기 프로필이미지 삭제 기능
         // 디렉터리 구조에서 아래 유형의 이미지에 대한 URL을 반환하는 함수를 생성하겠습니다.
         let path = "images/"+filename
         let imageView = profileImageView

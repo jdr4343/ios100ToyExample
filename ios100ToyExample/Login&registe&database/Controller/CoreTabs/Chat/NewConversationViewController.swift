@@ -12,6 +12,8 @@ class NewConversationViewController: UIViewController {
 //유저를 검색하고 새로운 대화창을 생성합니다.
     private let spinner = JGProgressHUD(style: .dark)
     
+    //completion은 배열이 아닌 노드의 dictionary배열을 취하는 클로저가 될것입니다. 이 클로저는
+    public var Chatcompletion: (([String:String]) -> (Void))?
     
     //검색 결과를 가져올 배열을 생성합니다.
     private var users = [[String:String]]()
@@ -90,9 +92,16 @@ extension NewConversationViewController: UITableViewDelegate, UITableViewDataSou
         cell.textLabel?.text = results[indexPath.row]["name"]
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        //검색을 통해 사용자를 찾았을경우 대화를 추가합니다
+        let targetUserData = results[indexPath.row]
+        dismiss(animated: true, completion: { [weak self] in
+            self?.Chatcompletion?(targetUserData)
+        })
+    
+    
     }
 }
 

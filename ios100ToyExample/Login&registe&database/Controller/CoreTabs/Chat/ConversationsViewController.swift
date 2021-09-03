@@ -64,15 +64,26 @@ class ConversationsViewController: UIViewController {
     private func fetchConversations() {
         tableView.isHidden = false
     }
-    
+    //대화창을 연결합니다. /새 대화를 생성하고 해당 결과를 보내서 알맞은 사람과 대화 할수 있도록 합니다.
     @objc private func didTapComposeButton() {
         let vc = NewConversationViewController()
+        vc.Chatcompletion = { [weak self] result in
+            //result는 옆의 유형처럼 전달되서 구분 가능하게 해줍니다. ["name": "아이유", "email": "IU-naver-com"]
+            self?.createNewConversation(result: result)
+        }
         let nvc = UINavigationController(rootViewController: vc)
         present(nvc, animated: true)
-        
-        
     }
-   
+    private func createNewConversation(result: [String: String]) {
+        //result의 결과를 토대로 구분하고 대화하고 있는 상대를 알수 있도록 title을 바꿔줍니다..
+        guard let name = result["name"], let email = result["email"] else {
+            return
+        }
+        let vc = ChatViewController(with: email)
+        vc.title = name
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
 

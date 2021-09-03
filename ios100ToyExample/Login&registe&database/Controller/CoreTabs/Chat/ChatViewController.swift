@@ -25,6 +25,12 @@ struct Sender: SenderType {
 //채팅 화면 입니다.
 class ChatViewController: MessagesViewController {
 
+    //채팅을 하고 있는 상대방을 나타냅니다.아래의 이니셜라이저로 초기화 하고 conversation에서 result의 email을 받아옵니다!
+    public let otherUserEmail: String
+    
+    //새로운 대화인지 아니면 대화중인 상대인지 알수 있기 위해 불리언값을 추가해줍니다.
+    public var isNewConversation = false
+    
     //메시지 배열을 만듭니다.
     private var messages = [Message]()
     
@@ -32,6 +38,17 @@ class ChatViewController: MessagesViewController {
     private let mockSender = Sender(photoURL: "",
                                     senderId: "1",
                                     displayName: "Test Sender")
+    
+    init(with email: String) {
+        self.otherUserEmail = email
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
