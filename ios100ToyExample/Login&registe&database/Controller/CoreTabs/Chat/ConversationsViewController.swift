@@ -80,6 +80,8 @@ class ConversationsViewController: UIViewController {
             return
         }
         let vc = ChatViewController(with: email)
+        //새로운 대화임을 알립니다.
+        vc.isNewConversation = true
         vc.title = name
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
@@ -109,7 +111,7 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         ///구현 대기 / 챗뷰를 만들고 지울것
-        let vc = ChatViewController()
+        let vc = ChatViewController(with: "jdr@naver.com")
         vc.title = "Test People"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)

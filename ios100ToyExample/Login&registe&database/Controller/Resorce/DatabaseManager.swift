@@ -103,6 +103,9 @@ extension DatabaseManager {
             })
         })
     }
+    
+    //MARK: - 대화 / 채팅 / 메시지
+    
     //검색 기능 구현을 위해 함수를 추가합니다.
     public func getAllUsers(complation: @escaping (Result<[[String:String]], Error>) -> Void) {
         database.child("users").observeSingleEvent(of: .value, with: { snapshot in
@@ -121,6 +124,26 @@ extension DatabaseManager {
     }
     
     
+}
+//새 대화 삽입 / 현재 사용자에 대한 모든 대화 목록을 반환 / 주어진 대화에 대한 모든 메시지를 반환
+
+extension DatabaseManager {
+    //상대방 이메일과 처음 보낸 메시지를 기반으로 새 대화를 생성 합니다.
+    public func createNewConversation(with otherUserEmail: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
+        
+    }
+    //전달된 이메일 사용자의 모든 대화목록을 가져와서 반환합니다.
+    public func getAllConversations(for email: String, completion: @escaping (Result<String,Error>) -> Void) {
+        
+    }
+    //보낸 사람의 대화 목록의 모든 메시지를 가져옵니다.
+    public func getAllMessagesForConversation(with id: String, completion: @escaping (Result<String, Error>) -> Void) {
+        
+    }
+    //대상 대화목록과 메시지를 보냅니다.
+    public func sendMessage(to conversation: String, message: Message, completion: @escaping (Bool) -> Void) {
+        
+    }
 }
 
 
