@@ -147,6 +147,7 @@ extension DatabaseManager {
          [
                "conversation_id":
                "other_user-email":
+               "name":
                "latest_message": => {
                "date": Date()
                "latest_message": "message"
@@ -160,7 +161,7 @@ extension DatabaseManager {
     
     
     //상대방 이메일과 처음 보낸 메시지를 기반으로 새 대화를 생성 합니다.
-    public func createNewConversation(with otherUserEmail: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
+    public func createNewConversation(with otherUserEmail: String, name: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
         guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String else {
             return
         }
@@ -207,6 +208,7 @@ extension DatabaseManager {
                 [
                     "id": conversationID,
                 "other_user_email": otherUserEmail,
+                    "name": name,
                 "latest_message":
                     [
                     "date": dateString,
@@ -219,16 +221,17 @@ extension DatabaseManager {
                 //현재 사용자에 대한 대화 배열을 추가해야합니다.
                 conversations.append(newConversationData)
                 userNode["conversations"] = conversations
-                 
+                
                 //사용자 노드의 값을 설정하고 싶다고 전달 합니다.
                 ref.setValue(userNode, withCompletionBlock: { [weak self] error, _ in
                     guard error == nil else {
                         completion(false)
                         return
                     }
-                    self?.finishCreatingConversation(conversationID: conversationID,
-                                                    firstMessage: firstMessage,
-                                                    completion: completion)
+                    self?.finishCreatingConversation(name: name,
+                                                     conversationID: conversationID,
+                                                     firstMessage: firstMessage,
+                                                     completion: completion)
                 })
             } else {
                 //위에서 만든 배열을 추가해 노드를 만듭니다.
@@ -241,15 +244,16 @@ extension DatabaseManager {
                         completion(false)
                         return
                     }
-                    self?.finishCreatingConversation(conversationID: conversationID,
-                                                    firstMessage: firstMessage,
-                                                    completion: completion)
+                    self?.finishCreatingConversation(name: name,
+                                                     conversationID: conversationID,
+                                                     firstMessage: firstMessage,
+                                                     completion: completion)
                 })
             }
         })
     }
     
-    private func finishCreatingConversation(conversationID: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
+    private func finishCreatingConversation(name: String, conversationID: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
 //
         //           "id": String,
         //           "type": text, photo, video,
@@ -298,7 +302,8 @@ extension DatabaseManager {
             "content": message,
             "date": dateString,
             "sender_email": currentUserEmail,
-            "is_read": false
+            "is_read": false,
+            "name": name
         ]
         
         let value: [String: Any] = [
