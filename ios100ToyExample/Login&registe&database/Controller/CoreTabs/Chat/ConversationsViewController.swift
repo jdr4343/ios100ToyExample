@@ -8,11 +8,28 @@
 import UIKit
 import JGProgressHUD
 
+//노드의 conversations를 가져옵니다.
+struct Conversation {
+    let id: String
+    let name: String
+    let otherUserEmail: String
+    let latestMessage: LatestMessage
+}
+
+struct LatestMessage {
+    let date: String
+    let text: String
+    let isRead: Bool
+}
+
 class ConversationsViewController: UIViewController {
 
+    //대화 모델
+    private var conversations = [Conversation]()
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(ConversationTableViewCell.self, forCellReuseIdentifier: ConversationTableViewCell.identifire)
         //현재 로그인한 사용자에 대한 대화를 가져오고 대화가 없는 경우에 가져오지 않기 위해서 isHidden 속성을 추가 해줍니다.
         tableView.isHidden = true
         return tableView
@@ -60,6 +77,27 @@ class ConversationsViewController: UIViewController {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
+    
+    //데이터베이스의 해당 배열에 리스너를 연결하는 함수를 만들고 새 대화가 추가될때 마다 기본적으로 테이블을 업데이트 하겠습니다.
+    private func startListeningForConversations() {
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+            return
+        }
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        DatabaseManager.shared.getAllConversations(for: safeEmail, completion: { [weak self] result in
+            switch result {
+            case .success(let conversations):
+                guard !conversations.isEmpty else {
+                    return
+                }
+                self?.conversations = conversations
+            case .failure(let error):
+                print("대화를 얻는데 실패 했습니다 - \(error)")
+            }
+        })
+    }
+    
+    
     //대화를 가져오겠습니다
     private func fetchConversations() {
         tableView.isHidden = false

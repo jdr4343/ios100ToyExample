@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4004B1E526DD209F005CC3EB /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004B1E426DD209F005CC3EB /* EditProfileViewController.swift */; };
 		4004B1E826DD237A005CC3EB /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004B1E726DD237A005CC3EB /* EditProfileTableViewCell.swift */; };
-		4014B97926E24C3800ADFEC8 /* ConveersationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4014B97826E24C3800ADFEC8 /* ConveersationTableViewCell.swift */; };
+		4014B97926E24C3800ADFEC8 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4014B97826E24C3800ADFEC8 /* ConversationTableViewCell.swift */; };
 		403502A026CB4B4B004BD348 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035029F26CB4B4B004BD348 /* AppDelegate.swift */; };
 		403502A226CB4B4B004BD348 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502A126CB4B4B004BD348 /* SceneDelegate.swift */; };
 		403502A426CB4B4B004BD348 /* ExampleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502A326CB4B4B004BD348 /* ExampleListViewController.swift */; };
@@ -104,7 +104,7 @@
 		10AF8711D20BB765BDA94AB6 /* Pods_ios100ToyExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios100ToyExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4004B1E426DD209F005CC3EB /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		4004B1E726DD237A005CC3EB /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
-		4014B97826E24C3800ADFEC8 /* ConveersationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConveersationTableViewCell.swift; sourceTree = "<group>"; };
+		4014B97826E24C3800ADFEC8 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		4035029C26CB4B4B004BD348 /* ios100ToyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios100ToyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4035029F26CB4B4B004BD348 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		403502A126CB4B4B004BD348 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -361,7 +361,7 @@
 				405AD93A26DE542A0079734A /* ConversationsViewController.swift */,
 				40C2442526DFEE1600374DB2 /* ChatViewController.swift */,
 				40C2442726E01BC200374DB2 /* NewConversationViewController.swift */,
-				4014B97826E24C3800ADFEC8 /* ConveersationTableViewCell.swift */,
+				4014B97826E24C3800ADFEC8 /* ConversationTableViewCell.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -903,7 +903,7 @@
 				403502D926CBF490004BD348 /* CustomTabBarController.swift in Sources */,
 				405AD93E26DE68C80079734A /* HomeViewController.swift in Sources */,
 				407A1F7D26D24F520058F84D /* SnapkitViewController.swift in Sources */,
-				4014B97926E24C3800ADFEC8 /* ConveersationTableViewCell.swift in Sources */,
+				4014B97926E24C3800ADFEC8 /* ConversationTableViewCell.swift in Sources */,
 				407A1F6E26CFD7CC0058F84D /* TimerViewController.swift in Sources */,
 				407A1FE626D4C82B0058F84D /* LoginViewController.swift in Sources */,
 				407A1F8326D375B40058F84D /* StretchyViewController.swift in Sources */,
