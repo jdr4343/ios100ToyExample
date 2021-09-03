@@ -129,20 +129,20 @@ extension DatabaseManager {
 
 extension DatabaseManager {
     /* 새로운 대화 노드를 데이터베이스에 추가합니다.
-     //메시지 노드
+     //메시지 노드 /받은사람
      "conversationID" {
          "messages": [
               {
                  "id": String, // 우리가 만들었던 messageId가 될것입니다. 받은사람_보낸사람_날짜 이런형식으로 저장될 것 입니다. 이형식을 토대로 식별 할것입니다
                  "type": text, photo, video, 메시지의 타입이 됩니다.
-                 "comtent": String, 대화 내용이 됩니다.
+                 "content": String, 대화 내용이 됩니다.
                  "date": Date(), 보낸 시각이 될 것 입니다.
                  "sender_email": String, 보낸사람이 될 것 입니다.
-                 "isRead": true/false 메시지를 확인 했는지 아니면 안보고 있는지를 나타 냅니다.
+                 "is_read": true/false 메시지를 확인 했는지 아니면 안보고 있는지를 나타 냅니다.
               }
             ]
        }
-     //대화 노드
+     //대화 노드 / 보낸 사람
      conversations => [
          [
                "conversation_id":
@@ -155,6 +155,7 @@ extension DatabaseManager {
          ],
      ]
      
+     
      */
     
     
@@ -163,37 +164,158 @@ extension DatabaseManager {
         guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String else {
             return
         }
-        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: currentEmail)
         let ref = database.child("\(safeEmail)")
         ref.observeSingleEvent(of: .value, with: { snapshot in
-            guard let userNode = snapshot.value as? [String: Any] else {
+            guard var userNode = snapshot.value as? [String: Any] else {
                 completion(false)
                 print("사용자를 찾지 못했습니다.")
                 return
             }
+            //ID 식별자를 지정해줍니다.
+            let conversationID = "conversation_\(firstMessage.messageId)"
+            
             //날짜를 문자열 형식으로 바꿉니다
             let messageDate = firstMessage.sentDate
-            let dateString = ChatViewController.dateFormatter.string(from: <#T##Date#>)
+            let dateString = ChatViewController.dateFormatter.string(from: messageDate)
             
+            //메시지의 내용을 텍스트 타입으로 추가해 줍니다.
+            var message = ""
+            switch firstMessage.kind {
+            case .text(let messageText):
+                message = messageText
+            case .attributedText(_):
+                break
+            case .photo(_):
+                break
+            case .video(_):
+                break
+            case .location(_):
+                break
+            case .emoji(_):
+                break
+            case .audio(_):
+                break
+            case .contact(_):
+                break
+            case .linkPreview(_):
+                break
+            case .custom(_):
+                break
+            }
             let newConversationData: [String: Any] =
                 [
-                "id": "",
-                "other_user-email": otherUserEmail,
+                    "id": conversationID,
+                "other_user_email": otherUserEmail,
                 "latest_message":
                     [
-                    "date": Date(),
-                    "message": "",
+                    "date": dateString,
+                    "message": message,
                     "is_read": false
                     ]
                 ]
             
             if var conversations = userNode["conversations"] as? [[String: Any]] {
                 //현재 사용자에 대한 대화 배열을 추가해야합니다.
+                conversations.append(newConversationData)
+                userNode["conversations"] = conversations
+                 
+                //사용자 노드의 값을 설정하고 싶다고 전달 합니다.
+                ref.setValue(userNode, withCompletionBlock: { [weak self] error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    self?.finishCreatingConversation(conversationID: conversationID,
+                                                    firstMessage: firstMessage,
+                                                    completion: completion)
+                })
             } else {
-               
+                //위에서 만든 배열을 추가해 노드를 만듭니다.
+                userNode["conversations"] = [
+                    newConversationData
+                ]
+                
+                ref.setValue(userNode, withCompletionBlock: { [weak self] error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    self?.finishCreatingConversation(conversationID: conversationID,
+                                                    firstMessage: firstMessage,
+                                                    completion: completion)
+                })
             }
         })
     }
+    
+    private func finishCreatingConversation(conversationID: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
+//
+        //           "id": String,
+        //           "type": text, photo, video,
+        //           "content": String,
+        //           "date": Date(),
+        //           "sender_email": String
+        //           "isRead": true/false
+        //메시지 내용
+        var message = ""
+        switch firstMessage.kind {
+        case .text(let messageText):
+            message = messageText
+        case .attributedText(_):
+            break
+        case .photo(_):
+            break
+        case .video(_):
+            break
+        case .location(_):
+            break
+        case .emoji(_):
+            break
+        case .audio(_):
+            break
+        case .contact(_):
+            break
+        case .linkPreview(_):
+            break
+        case .custom(_):
+            break
+        }
+        //날짜
+        let messageDate = firstMessage.sentDate
+        let dateString = ChatViewController.dateFormatter.string(from: messageDate)
+        
+        //보낸사람 지정 / email 형식을 안전한 이메일로 지정
+        guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+            completion(false)
+            return
+        }
+        let currentUserEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
+        
+        let CollectionMessage: [String: Any] = [
+            "id": firstMessage.messageId,
+            "type": firstMessage.kind.messageKindString,
+            "content": message,
+            "date": dateString,
+            "sender_email": currentUserEmail,
+            "is_read": false
+        ]
+        
+        let value: [String: Any] = [
+            "messages": [
+                CollectionMessage
+            ]
+        ]
+        print("식별자 확인: \(conversationID)")
+        database.child("\(conversationID)").setValue(value, withCompletionBlock: { error, _ in
+            guard error == nil else {
+                completion(false)
+                return
+            }
+            completion(true)
+        })
+    }
+
     //전달된 이메일 사용자의 모든 대화목록을 가져와서 반환합니다.
     public func getAllConversations(for email: String, completion: @escaping (Result<String,Error>) -> Void) {
         

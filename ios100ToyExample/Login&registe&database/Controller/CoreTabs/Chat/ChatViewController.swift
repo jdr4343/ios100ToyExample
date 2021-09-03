@@ -11,12 +11,41 @@ import InputBarAccessoryView
 
 //메시지
 struct Message: MessageType {
-    public var sender: SenderType //발신자
+    public var sender: SenderType //보낸사람
     public var messageId: String //이메일
     public var sentDate: Date //날짜
     public var kind: MessageKind //메시지 종류
 }
-//발송자
+//메시지 종류 확장 / 문자열 속성으로 바꿔줍니다.
+extension MessageKind {
+    var messageKindString: String {
+        switch self {
+        case .text(_):
+            return "text"
+        case .attributedText(_):
+            return "attributedText"
+        case .photo(_):
+            return "photo"
+        case .video(_):
+            return "video"
+        case .location(_):
+            return "location"
+        case .emoji(_):
+            return "emoji"
+        case .audio(_):
+            return "audio"
+        case .contact(_):
+            return "contact"
+        case .linkPreview(_):
+            return "linkPreview"
+        case .custom(_):
+            return "custom"
+        }
+    }
+}
+
+
+//보낸사람
 struct Sender: SenderType {
     public var photoURL: String //프로필 사진
     public var senderId: String //이메일
@@ -121,11 +150,14 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     //messageId(식별자) 생성 무작위 문자열
     private func createMessageId() -> String? {
         //받은사람, 날짜, 이메일, 보낸사람 이메일 , 랜덤 숫자
-        guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") else {
+        guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") as? String else {
             return nil
         }
+        //데이터베이스에서 사용할수 있도록 안전한 이메일로 바꿔 줍니다.
+        let safeCurrentEmail = DatabaseManager.safeEmail(emailAddress: currentUserEmail)
+        
         let dateString = Self.dateFormatter.string(from: Date())
-        let newIdentifier = "\(otherUserEmail)_\(currentUserEmail)_\(dateString)"
+        let newIdentifier = "\(otherUserEmail)_\(safeCurrentEmail)_\(dateString)"
         print("create message id: \(newIdentifier)") // create message id: IU-naver-com_jdr4343@naver.com_Sep 3, 2021 at 4:49 PM
         return newIdentifier
     }
