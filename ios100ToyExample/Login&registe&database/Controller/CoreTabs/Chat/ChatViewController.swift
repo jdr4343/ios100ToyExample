@@ -11,20 +11,29 @@ import InputBarAccessoryView
 
 //메시지
 struct Message: MessageType {
-    var sender: SenderType //발신자
-    var messageId: String //이메일
-    var sentDate: Date //날짜
-    var kind: MessageKind //메시지 종류
+    public var sender: SenderType //발신자
+    public var messageId: String //이메일
+    public var sentDate: Date //날짜
+    public var kind: MessageKind //메시지 종류
 }
 //발송자
 struct Sender: SenderType {
-    var photoURL: String //프로필 사진
-    var senderId: String //이메일
-    var displayName: String //유저이름
+    public var photoURL: String //프로필 사진
+    public var senderId: String //이메일
+    public var displayName: String //유저이름
 }
 
 //채팅 화면 입니다.
 class ChatViewController: MessagesViewController {
+    
+    //날짜 포멧터를 만듭니다./ public static형식으로 만든다면 클래스의 인스턴스 없이 호출 가능하며 제한 없이 어디에서든 사용가능 합니다.
+    public static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        formatter.locale = .current
+        return formatter
+    }()
     
     //채팅을 하고 있는 상대방을 나타냅니다.아래의 이니셜라이저로 초기화 하고 conversation에서 result의 email을 전달 받습니다!
     public let otherUserEmail: String
@@ -37,10 +46,10 @@ class ChatViewController: MessagesViewController {
     
     //발송자
     private var selfSender: Sender?{
-        guard let email = UserDefaults.standard.value(forKey: "email") else {
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return nil
         }
-        Sender(photoURL: "",
+       return Sender(photoURL: "",
                senderId: email,
                displayName: "Test Sender")
     }
@@ -87,24 +96,38 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     //보내기 버튼을 눌렀을때 텍스트 결과 값을 가져오 겠습니다
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         guard !text.replacingOccurrences(of: " ", with: "").isEmpty,
-              let selfSender = self.selfSender else {
+              let selfSender = self.selfSender,
+              let messageId = createMessageId() else {
             return
         }
         //메시지를 보냅니다. /새로운 대화 인지 기존 대화인지 식별합니다.
         if isNewConversation {
             //새로운 대화를 데이터베이스에 추가합니다.
             let message = Message(sender: selfSender,
-                                  messageId: <#T##String#>,
+                                  messageId: messageId,
                                   sentDate: Date(),
                                   kind: .text(text))
-            DatabaseManager.shared.createNewConversation(with: otherUserEmail, firstMessage: <#T##Message#>, completion: <#T##(Bool) -> Void#>)
+            DatabaseManager.shared.createNewConversation(with: otherUserEmail, firstMessage: message, completion: { success in
+                if success {
+                    print("메시지가 정상적으로 작동 했습니다.")
+                } else {
+                    print("메시지를 보내는것에 실패 했습니다")
+                }
+            })
         } else {
             //기존 대화를 데이터베이스에서 가져옵니다.
         }
     }
-    //messageId 생성 무작위 문자열?
-    private func createMessageId() -> String {
-        // 날짜, 받은사람 이메일, 보낸사람 이메일
+    //messageId(식별자) 생성 무작위 문자열
+    private func createMessageId() -> String? {
+        //받은사람, 날짜, 이메일, 보낸사람 이메일 , 랜덤 숫자
+        guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") else {
+            return nil
+        }
+        let dateString = Self.dateFormatter.string(from: Date())
+        let newIdentifier = "\(otherUserEmail)_\(currentUserEmail)_\(dateString)"
+        print("create message id: \(newIdentifier)") // create message id: IU-naver-com_jdr4343@naver.com_Sep 3, 2021 at 4:49 PM
+        return newIdentifier
     }
 }
 

@@ -128,9 +128,71 @@ extension DatabaseManager {
 //새 대화 삽입 / 현재 사용자에 대한 모든 대화 목록을 반환 / 주어진 대화에 대한 모든 메시지를 반환
 
 extension DatabaseManager {
+    /* 새로운 대화 노드를 데이터베이스에 추가합니다.
+     //메시지 노드
+     "conversationID" {
+         "messages": [
+              {
+                 "id": String, // 우리가 만들었던 messageId가 될것입니다. 받은사람_보낸사람_날짜 이런형식으로 저장될 것 입니다. 이형식을 토대로 식별 할것입니다
+                 "type": text, photo, video, 메시지의 타입이 됩니다.
+                 "comtent": String, 대화 내용이 됩니다.
+                 "date": Date(), 보낸 시각이 될 것 입니다.
+                 "sender_email": String, 보낸사람이 될 것 입니다.
+                 "isRead": true/false 메시지를 확인 했는지 아니면 안보고 있는지를 나타 냅니다.
+              }
+            ]
+       }
+     //대화 노드
+     conversations => [
+         [
+               "conversation_id":
+               "other_user-email":
+               "latest_message": => {
+               "date": Date()
+               "latest_message": "message"
+               "is_read": true/false
+            }
+         ],
+     ]
+     
+     */
+    
+    
     //상대방 이메일과 처음 보낸 메시지를 기반으로 새 대화를 생성 합니다.
     public func createNewConversation(with otherUserEmail: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
-        
+        guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+            return
+        }
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        let ref = database.child("\(safeEmail)")
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            guard let userNode = snapshot.value as? [String: Any] else {
+                completion(false)
+                print("사용자를 찾지 못했습니다.")
+                return
+            }
+            //날짜를 문자열 형식으로 바꿉니다
+            let messageDate = firstMessage.sentDate
+            let dateString = ChatViewController.dateFormatter.string(from: <#T##Date#>)
+            
+            let newConversationData: [String: Any] =
+                [
+                "id": "",
+                "other_user-email": otherUserEmail,
+                "latest_message":
+                    [
+                    "date": Date(),
+                    "message": "",
+                    "is_read": false
+                    ]
+                ]
+            
+            if var conversations = userNode["conversations"] as? [[String: Any]] {
+                //현재 사용자에 대한 대화 배열을 추가해야합니다.
+            } else {
+               
+            }
+        })
     }
     //전달된 이메일 사용자의 모든 대화목록을 가져와서 반환합니다.
     public func getAllConversations(for email: String, completion: @escaping (Result<String,Error>) -> Void) {
