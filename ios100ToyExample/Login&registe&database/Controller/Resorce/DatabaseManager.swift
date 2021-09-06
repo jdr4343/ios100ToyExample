@@ -149,29 +149,29 @@ extension DatabaseManager {
     /* 새로운 대화 노드를 데이터베이스에 추가합니다.
      //메시지 노드 /받은사람
      "conversationID" {
-         "messages": [
-              {
-                 "id": String, // 우리가 만들었던 messageId가 될것입니다. 받은사람_보낸사람_날짜 이런형식으로 저장될 것 입니다. 이형식을 토대로 식별 할것입니다
-                 "type": text, photo, video, 메시지의 타입이 됩니다.
-                 "content": String, 대화 내용이 됩니다.
-                 "date": Date(), 보낸 시각이 될 것 입니다.
-                 "sender_email": String, 보낸사람이 될 것 입니다.
-                 "is_read": true/false 메시지를 확인 했는지 아니면 안보고 있는지를 나타 냅니다.
-              }
-            ]
-       }
+     "messages": [
+     {
+     "id": String, // 우리가 만들었던 messageId가 될것입니다. 받은사람_보낸사람_날짜 이런형식으로 저장될 것 입니다. 이형식을 토대로 식별 할것입니다
+     "type": text, photo, video, 메시지의 타입이 됩니다.
+     "content": String, 대화 내용이 됩니다.
+     "date": Date(), 보낸 시각이 될 것 입니다.
+     "sender_email": String, 보낸사람이 될 것 입니다.
+     "is_read": true/false 메시지를 확인 했는지 아니면 안보고 있는지를 나타 냅니다.
+     }
+     ]
+     }
      //대화 노드 / 보낸 사람
      conversations => [
-         [
-               "conversation_id":
-               "other_user-email":
-               "name":
-               "latest_message": => {
-               "date": Date()
-               "latest_message": "message"
-               "is_read": true/false
-            }
-         ],
+     [
+     "conversation_id":
+     "other_user-email":
+     "name":
+     "latest_message": => {
+     "date": Date()
+     "latest_message": "message"
+     "is_read": true/false
+     }
+     ],
      ]
      
      
@@ -226,14 +226,14 @@ extension DatabaseManager {
             let newConversationData: [String: Any] =
                 [
                     "id": conversationID,
-                "other_user_email": otherUserEmail,
+                    "other_user_email": otherUserEmail,
                     "name": name,
-                "latest_message":
-                    [
-                    "date": dateString,
-                    "message": message,
-                    "is_read": false
-                    ]
+                    "latest_message":
+                        [
+                            "date": dateString,
+                            "message": message,
+                            "is_read": false
+                        ]
                 ]
             
             
@@ -309,7 +309,7 @@ extension DatabaseManager {
     
     
     private func finishCreatingConversation(name: String, conversationID: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
-//
+        //
         //           "id": String,
         //           "type": text, photo, video,
         //           "content": String,
@@ -377,7 +377,7 @@ extension DatabaseManager {
             completion(true)
         })
     }
-
+    
     //전달된 이메일 사용자의 모든 대화목록을 가져와서 반환합니다.
     public func getAllConversations(for email: String, completion: @escaping (Result<[Conversation],Error>) -> Void) {
         database.child("\(email)/conversations").observe(.value, with: { snapshot in
@@ -431,78 +431,160 @@ extension DatabaseManager {
             completion(.success(messages))
         })
     }
+    
+    //대상 대화목록과 메시지를 보냅니다.
+    public func sendMessage(to conversation: String, otherUserEmail: String , name: String, newMessage: Message, completion: @escaping (Bool) -> Void) {
         
-        //대상 대화목록과 메시지를 보냅니다.
-    public func sendMessage(to conversation: String, name: String, newMessage: Message, completion: @escaping (Bool) -> Void) {
-            //답신이 가능하도록 새롭게 메시지를 추가합니다. 먼저 대화의 현재 메시지 배열을 가져옵니다.
-            database.child("\(conversation)/messages").observeSingleEvent(of: .value, with: { [weak self] snapshot in
-                guard let strongSelf = self else {
-                    return
-                }
-                guard var currentMessages = snapshot.value as? [[String: Any]] else {
+        //현재 사용자를 언래핑하고 안전한 이메일로 바꿔줍니다.
+        guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+            completion(false)
+            return
+        }
+        let currentEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
+        
+        //답신이 가능하도록 새롭게 메시지를 추가합니다. 먼저 대화의 현재 메시지 배열을 가져옵니다.
+        database.child("\(conversation)/messages").observeSingleEvent(of: .value, with: { [weak self] snapshot in
+            guard let strongSelf = self else {
+                return
+            }
+            guard var currentMessages = snapshot.value as? [[String: Any]] else {
+                completion(false)
+                return
+            }
+            //날짜
+            let messageDate = newMessage.sentDate
+            let dateString = ChatViewController.dateFormatter.string(from: messageDate)
+            
+            
+            //메시지 내용
+            var message = ""
+            switch newMessage.kind {
+            case .text(let messageText):
+                message = messageText
+            case .attributedText(_):
+                break
+            case .photo(_):
+                break
+            case .video(_):
+                break
+            case .location(_):
+                break
+            case .emoji(_):
+                break
+            case .audio(_):
+                break
+            case .contact(_):
+                break
+            case .linkPreview(_):
+                break
+            case .custom(_):
+                break
+            }
+            
+            //보낸사람 지정 / email 형식을 안전한 이메일로 지정
+            guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+                completion(false)
+                return
+            }
+            let currentUserEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
+            
+            let newMessageEntry: [String: Any] = [
+                "id": newMessage.messageId,
+                "type": newMessage.kind.messageKindString,
+                "content": message,
+                "date": dateString,
+                "sender_email": currentUserEmail,
+                "is_read": false,
+                "name": name
+            ]
+            
+            //메시지를 추가 합니다.
+            currentMessages.append(newMessageEntry)
+            strongSelf.database.child("\(conversation)/messages").setValue(currentMessages) { error, _ in
+                guard error == nil else {
                     completion(false)
                     return
                 }
-                //날짜
-                let messageDate = newMessage.sentDate
-                let dateString = ChatViewController.dateFormatter.string(from: messageDate)
-                
-                
-                //메시지 내용
-                var message = ""
-                switch newMessage.kind {
-                case .text(let messageText):
-                    message = messageText
-                case .attributedText(_):
-                    break
-                case .photo(_):
-                    break
-                case .video(_):
-                    break
-                case .location(_):
-                    break
-                case .emoji(_):
-                    break
-                case .audio(_):
-                    break
-                case .contact(_):
-                    break
-                case .linkPreview(_):
-                    break
-                case .custom(_):
-                    break
-                }
-                
-                //보낸사람 지정 / email 형식을 안전한 이메일로 지정
-                guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
-                    completion(false)
-                    return
-                }
-                let currentUserEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
-                
-                let newMessageEntry: [String: Any] = [
-                    "id": newMessage.messageId,
-                    "type": newMessage.kind.messageKindString,
-                    "content": message,
-                    "date": dateString,
-                    "sender_email": currentUserEmail,
-                    "is_read": false,
-                    "name": name
-                ]
-                //메시지를 추가 합니다.
-                currentMessages.append(newMessageEntry)
-                strongSelf.database.child("\(conversation)/messages").setValue(currentMessages) { error, _ in
-                    guard error == nil else {
+                //보낸사람의 최신 메시지를 업데이트 합니다. 최신 메시지를 업데이트 함으로서 연락을 보내거나 받을떄 최신의 메시지가 화면에 보이게 할 것입니다.
+                //각 현재 사용자에 대한 대화노드를 얻고 / 해당 노드를 strongSelf로 선언 하고 현재 이메일을 단일이벤트를 옵저방 하겠습니다.
+                strongSelf.database.child("\(currentEmail)/conversations").observeSingleEvent(of: .value, with: { snapshot in
+                    guard var currentUserConversations = snapshot.value as? [[String: Any]] else {
                         completion(false)
                         return
                     }
-                    completion(true)
-                }
-            })
-            
-            //보낸사람의 최신 메시지를 업데이트 합니다.
-            
-            //받는사람의 최신 메시지르 업데이트 합니다.
-        }
+                    
+                    //conversationId의 항목의 대화 배열에서 최신 메시지를 업데이트 하겠습니다.
+                    let updateValue: [String: Any] = [
+                        "date": dateString,
+                        "is_read": false,
+                        "message": message
+                    ]
+                    
+                    var targetConversation: [String: Any]?
+                    var position = 0
+                    
+                    for conversationDictionary in currentUserConversations {
+                        if let currentId = conversationDictionary["id"] as? String, currentId == conversation {
+                            targetConversation = conversationDictionary
+                            break
+                        }
+                        position += 1
+                    }
+                    targetConversation?["latest_message"] = updateValue
+                    guard let finerConversation = targetConversation else {
+                        return
+                    }
+                    currentUserConversations[position] = finerConversation
+                    strongSelf.database.child("\(currentEmail)/conversations").setValue(currentUserConversations) { error, _ in
+                        guard error == nil else {
+                            completion(false)
+                            return
+                        }
+                        
+                        
+                        //받는사람의 최신 메시지르 업데이트 합니다.
+                        
+                        strongSelf.database.child("\(otherUserEmail)/conversations").observeSingleEvent(of: .value, with: { snapshot in
+                            guard var otherUserConversations = snapshot.value as? [[String: Any]] else {
+                                completion(false)
+                                return
+                            }
+                            
+                            //conversationId의 항목의 대화 배열에서 최신 메시지를 업데이트 하겠습니다.
+                            let updateValue: [String: Any] = [
+                                "date": dateString,
+                                "is_read": false,
+                                "message": message
+                            ]
+                            
+                            var targetConversation: [String: Any]?
+                            var position = 0
+                            
+                            for conversationDictionary in otherUserConversations {
+                                if let currentId = conversationDictionary["id"] as? String, currentId == conversation {
+                                    targetConversation = conversationDictionary
+                                    break
+                                }
+                                position += 1
+                            }
+                            targetConversation?["latest_message"] = updateValue
+                            guard let finerConversation = targetConversation else {
+                                return
+                            }
+                            otherUserConversations[position] = finerConversation
+                            strongSelf.database.child("\(otherUserEmail)/conversations").setValue(otherUserConversations) { error, _ in
+                                guard error == nil else {
+                                    completion(false)
+                                    return
+                                }
+                                completion(true)
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    }
 
 }
+

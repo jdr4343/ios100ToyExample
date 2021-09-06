@@ -44,13 +44,23 @@ extension MessageKind {
     }
 }
 
-
 //보낸사람
 struct Sender: SenderType {
     public var photoURL: String //프로필 사진
     public var senderId: String //이메일
     public var displayName: String //유저이름
 }
+
+//미디어 / 사진 비디오 등등
+struct Media: MediaItem {
+    var url: URL?
+    var image: UIImage?
+    var placeholderImage: UIImage
+    var size: CGSize
+
+}
+
+
 
 //채팅 화면 입니다.
 class ChatViewController: MessagesViewController {
@@ -108,7 +118,7 @@ class ChatViewController: MessagesViewController {
         view.backgroundColor = .brown
         self.tabBarController?.tabBar.isHidden = true
         addMessagesData()
-        
+        setupInputButton()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -119,6 +129,68 @@ class ChatViewController: MessagesViewController {
             listenForMessages(id: conversationId, shouldScrollToBottom: true)
         }
     }
+    
+    
+    //MARK: - setUpInputBar
+    //사진을 첨부하거나 비디오를 첨부하여 채팅을 보내기 위해 키보드 바 버튼을 만듭니다.
+    private func setupInputButton() {
+        let button = InputBarButtonItem()
+        button.setSize(CGSize(width: 35, height: 35), animated: false)
+        button.setImage(UIImage(systemName: "paperclip"), for: .normal)
+        //함수 내부에서 액션을 전달 하겠습니다.
+        button.onTouchUpInside { [weak self] _ in
+            self?.presentInputActionSheet()
+        }
+        //왼쪽으로 설정
+        messageInputBar.setLeftStackViewWidthConstant(to: 36, animated: false)
+        messageInputBar.setStackViewItems([button], forStack: .left, animated: false)
+    }
+    // 키보드 버튼 액션
+    private func presentInputActionSheet() {
+        let actionSheet = UIAlertController(title: "미디어를 첨부합니다.",
+                                            message: "어떤걸 추가 하시겠습니까?",
+                                            preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "사진", style: .default, handler: { [weak self] _ in
+            self?.presentPhotoInputActionSheet()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "동영상", style: .default, handler: {  _ in
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "오디오", style: .default, handler: {  _ in
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "닫기", style: .default, handler: nil))
+        present(actionSheet, animated: true)
+    }
+    
+    //키보드 사진 버튼 액션
+    private func presentPhotoInputActionSheet() {
+        let actionSheet = UIAlertController(title: "사진 첨부",
+                                            message: "사진을 첨부 하시겠습니까?",
+                                            preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "카메라", style: .default, handler: { [weak self] _ in
+            let picker = UIImagePickerController()
+            picker.sourceType = .camera
+            picker.delegate = self
+            picker.allowsEditing = true
+            self?.present(picker, animated: true)
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "사진 앨범", style: .default, handler: { [weak self] _ in
+            let picker = UIImagePickerController()
+            picker.sourceType = .photoLibrary
+            picker.delegate = self
+            picker.allowsEditing = true
+            self?.present(picker, animated: true)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "닫기", style: .default, handler: nil))
+        present(actionSheet, animated: true)
+    
+    
+    }
+    
+    
+    
     
     
     
@@ -157,6 +229,68 @@ class ChatViewController: MessagesViewController {
     
 
 }
+//MARK: - 이미지 피커 / 사진
+extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //이미지 선택기 취소
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    //이미지 선택기 이미지 선택 완료 / 사용자가 선택한 이미지를 가져옵니다.
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage,
+              let imageData = image.pngData(),
+              let messageId = createMessageId(),
+              let conversationId = conversationId ,
+              let name = self.title,
+              let selfSender = selfSender else {
+            return
+        }
+        //사진 업로드
+        
+        let fileName = "photo_message_" + messageId
+        
+        StorageManager.shared.uploadMessagePhoto(with: imageData, fileName: fileName, completion: { [weak self] result in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            switch result {
+            case .success(let urlString):
+                //메시지를 보낼 준비를 합니다.
+                print("메시지 사진을 업로드 합니다 - \(urlString)")
+                guard let url = URL(string: urlString),
+                      let placeholder = UIImage(systemName: "plus") else {
+                    return
+                }
+                
+                let media = Media(url: url, image: nil, placeholderImage: placeholder, size: .zero)
+                
+                let message = Message(sender: selfSender,
+                                      messageId: messageId,
+                                      sentDate: Date(),
+                                       kind: .photo(media))
+                
+                DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: strongSelf.otherUserEmail, name: name, newMessage: message, completion: { success in
+                    
+                    if success {
+                        print("사진 메시지가 성공적으로 전송 되었습니다.")
+                    } else  {
+                        print("사진 메시지 전송에 실패 했습니다.")
+                    }
+                    
+                })
+                
+            case .failure(let error):
+                print("메시지 사진을 업로드 하는 것에 실패 했습니다. - \(error)")
+            }
+        })
+    }
+}
+
+
+
 //MARK: - MessageInputBar
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
@@ -191,7 +325,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 return
             }
             //기존 대화를 데이터베이스에서 가져오고 메시지를 보내겠습니다.
-            DatabaseManager.shared.sendMessage(to: conversationId, name: name, newMessage: message, completion: { success in
+            DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: otherUserEmail,name: name, newMessage: message, completion: { success in
                 if success {
                     print("메시지를 보냈습니다.")
                 } else {
@@ -217,7 +351,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
 }
 
 
-//MARK: - Message
+//MARK: - 메세지
 
 extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate {
     //현재 발신자를 확인 / 프레임워크가 채팅을 보낸 것처럼 오른쪽에 표시하거나 받은 것처럼 왼쪽에 채팅을 표시 하도록 결정합니다.
