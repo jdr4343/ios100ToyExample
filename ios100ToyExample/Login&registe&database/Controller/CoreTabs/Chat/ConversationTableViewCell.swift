@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ConversationTableViewCell: UITableViewCell {
 
-  static let identifire = "ConveersationTableViewCell"
+  static let identifier = "ConversationTableViewCell"
     
     //프로필 사진이 될것입니다.
     private let userImageView: UIImageView = {
@@ -61,7 +62,22 @@ class ConversationTableViewCell: UITableViewCell {
                                         height: (contentView.height-20)/2)
     }
     
-    public func configure(with model: String) {
+    public func configure(with model: Conversation) {
+        self.userMessageLabel.text = model.latestMessage.text
+        self.userNameLabel.text = model.name
         
+        let path = "\(model.otherUserEmail)_profile_picture.png"
+        StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
+            switch result {
+            case .success(let url):
+                //다운로드 URL을 제공합니다.
+                DispatchQueue.main.async {
+                    self?.userImageView.sd_setImage(with: url, completed: nil)
+                }
+                
+            case .failure(let error):
+                print("이미지 URL을 가져오지 못했습니다.\(error)")
+            }
+        })
     }
 }

@@ -322,8 +322,29 @@ extension DatabaseManager {
     }
 
     //전달된 이메일 사용자의 모든 대화목록을 가져와서 반환합니다.
-    public func getAllConversations(for email: String, completion: @escaping (Result<String,Error>) -> Void) {
-        
+    public func getAllConversations(for email: String, completion: @escaping (Result<[Conversation],Error>) -> Void) {
+        database.child("\(email)/conversations").observe(.value, with: { snapshot in
+            guard let value = snapshot.value as? [[String: Any]] else {
+                print("실패")
+                completion(.failure(DatabaseError.failedToFetch))
+                return
+            }
+            let conversations: [Conversation] = value.compactMap({ dictionary in
+                guard let conversationId = dictionary["id"] as?  String,
+                      let name = dictionary["name"] as? String,
+                      let otherUserEmail = dictionary["other_user_email"] as? String,
+                      let latestMessage = dictionary["latest_message"] as? [String:Any],
+                      let date = latestMessage["date"] as? String,
+                      let message = latestMessage["message"] as? String,
+                      let isRead = latestMessage["is_read"] as? Bool else {
+                    return nil
+                }
+                //모델을 생성하고 반환
+                let latestMessageObject = LatestMessage(date: date, text: message, isRead: isRead)
+                return Conversation(id: conversationId, name: name, otherUserEmail: otherUserEmail, latestMessage: latestMessageObject)
+            })
+            completion(.success(conversations))
+        })
     }
     //보낸 사람의 대화 목록의 모든 메시지를 가져옵니다.
     public func getAllMessagesForConversation(with id: String, completion: @escaping (Result<String, Error>) -> Void) {
@@ -333,6 +354,9 @@ extension DatabaseManager {
     public func sendMessage(to conversation: String, message: Message, completion: @escaping (Bool) -> Void) {
         
     }
+    
+    
+    
 }
 
 
