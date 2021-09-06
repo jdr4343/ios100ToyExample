@@ -16,7 +16,7 @@ class ConversationTableViewCell: UITableViewCell {
     private let userImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 50
+        imageView.layer.cornerRadius = 15
         imageView.layer.masksToBounds = true
         return imageView
     }()
@@ -24,14 +24,15 @@ class ConversationTableViewCell: UITableViewCell {
     //채팅창의 이름 라벨이 될 것 입니다.
     private let userNameLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 21)
+        label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
     //채팅창의 말풍선의 라벨이 될 것 입니다.
     private let userMessageLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 19, weight: .regular)
-        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.textColor = .lightGray
+        label.numberOfLines = 2
         return label
     }()
     
@@ -50,23 +51,23 @@ class ConversationTableViewCell: UITableViewCell {
         super.layoutSubviews()
         userImageView.frame = CGRect(x: 10,
                                      y: 10,
-                                     width: 100,
-                                     height: 100)
+                                     width: 60,
+                                     height: 60)
         userNameLabel.frame = CGRect(x: userImageView.right + 10,
                                      y: 10,
-                                     width: contentView.width - 20 - userImageView.width,
-                                     height: (contentView.height-20)/2)
+                                     width: contentView.width - 10 - userImageView.width,
+                                     height: (contentView.height-30)/2)
         userMessageLabel.frame = CGRect(x: userImageView.right + 10,
-                                        y: userNameLabel.bottom + 10,
-                                        width: contentView.width-20-userImageView.width,
-                                        height: (contentView.height-20)/2)
+                                        y: userNameLabel.bottom+5,
+                                        width: contentView.width-10-userImageView.width,
+                                        height: (contentView.height-30)/2)
     }
     
     public func configure(with model: Conversation) {
         self.userMessageLabel.text = model.latestMessage.text
         self.userNameLabel.text = model.name
+        let path = "images/\(model.otherUserEmail)_profile_picture.png"
         
-        let path = "\(model.otherUserEmail)_profile_picture.png"
         StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
             switch result {
             case .success(let url):

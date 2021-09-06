@@ -38,7 +38,7 @@ class ConversationsViewController: UIViewController {
     //대화가 없을경우 보여줄 라벨
     private let noConversationsLabel: UILabel = {
         let label = UILabel()
-        label.text = "No Conversations"
+        label.text = "대화 목록이 없습니다."
         label.textAlignment = .center
         label.textColor = .gray
         label.font = .systemFont(ofSize: 21, weight: .medium)
@@ -66,7 +66,7 @@ class ConversationsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         fetchConversations()
-        
+        startListeningForConversations()
     }
     override func viewDidAppear(_ animated: Bool) {
         //구현대기 /탭바가 너무 형편없이 사라져서 애니메이션을 추가 해줘야 할거 같음 우선은 그냥 내비두고 모든구현을 끝내고 돌아와서 만들자!
@@ -146,7 +146,6 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
         let model = conversations[indexPath.row]
          let cell = tableView.dequeueReusableCell(withIdentifier: ConversationTableViewCell.identifier, for: indexPath) as! ConversationTableViewCell
         cell.configure(with: model)
-        cell.textLabel?.text = "??"
         return cell
     }
     
@@ -160,6 +159,6 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 80
     }
 }
