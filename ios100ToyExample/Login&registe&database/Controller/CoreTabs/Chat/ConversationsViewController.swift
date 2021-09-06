@@ -96,7 +96,7 @@ class ConversationsViewController: UIViewController {
             }
         })
     }
-    
+
     
     //대화를 가져오겠습니다
     private func fetchConversations() {
