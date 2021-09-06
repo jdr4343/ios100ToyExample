@@ -31,8 +31,22 @@ final class DatabaseManager {
         completion(true)
     }
     
-   
+    
 }
+
+extension DatabaseManager {
+    public func getDataFor(path: String, completion: @escaping (Result<Any,Error>) -> Void) {
+        self.database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
+            guard let value = snapshot.value else {
+                completion(.failure(DatabaseError.failedToFetch))
+                return
+            }
+            completion(.success(value))
+            
+        }
+    }
+}
+
 
 //MARK: - 계정 관리
 
@@ -60,14 +74,18 @@ extension DatabaseManager {
     //새로운 사용자 개체가 생성되면 user 컬렉션에 추가합니다
     public func insertNewUser(with user: UserModel, completion: @escaping (Bool) -> Void) {
         //노드 삽입 / 키가 이메일이될 자식함수를 생성합니다. / 사용자가 다른 플랫폼을 통해서 로그인 할경우 사용자가 프로필 사진이 있는지 확인합니다. 삭제?
-        database.child(user.safeEmail).setValue(["name": user.username], withCompletionBlock: { error, _ in
+        database.child(user.safeEmail).setValue(["name": user.username], withCompletionBlock: { [weak self] error, _ in
+            guard let strongSelf = self else {
+                return
+            }
             guard error == nil else {
                 print("Database - 58 데이터 베이스를 읽지 못했습니다.")
                 completion(false)
                 return
             }
+            completion(true)
             //이벤트를 관찰합니다.
-            self.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
+            strongSelf.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
                 if var usersCollection = snapshot.value as? [[String:String]] {
                     //이중 dictionary 컬렉션 형식으로 두개의 node를 추가합니다. 키도 문자열 값도 문자열입니다.노드 창이 두개인 이유는 대화하는 발신자와 수신자를 구별하기 위해서 입니다.
                     let newElement = [
@@ -76,7 +94,7 @@ extension DatabaseManager {
                     ]
                     usersCollection.append(newElement)
                     //사용자가 참조 할수 있도록 firebase에 추가합니다.
-                    self.database.child("users").setValue(usersCollection, withCompletionBlock: { error, _ in
+                    strongSelf.database.child("users").setValue(usersCollection, withCompletionBlock: { error, _ in
                         guard error == nil else {
                             completion(false)
                             return
@@ -92,7 +110,7 @@ extension DatabaseManager {
                         ]
                     ]
                     //사용자가 참조 할수 있도록 firebase에 추가합니다.
-                    self.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
+                    strongSelf.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
                         guard error == nil else {
                             completion(false)
                             return
@@ -162,7 +180,8 @@ extension DatabaseManager {
     
     //상대방 이메일과 처음 보낸 메시지를 기반으로 새 대화를 생성 합니다.
     public func createNewConversation(with otherUserEmail: String, name: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
-        guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+        guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String,
+              let currentname = UserDefaults.standard.value(forKey: "name") as? String else {
             return
         }
         let safeEmail = DatabaseManager.safeEmail(emailAddress: currentEmail)
@@ -258,7 +277,7 @@ extension DatabaseManager {
                 [
                     "id": conversationID,
                     "other_user_email": safeEmail,
-                    "name": "Self",
+                    "name": currentname,
                     "latest_message":
                         [
                             "date": dateString,
@@ -297,6 +316,11 @@ extension DatabaseManager {
         //           "date": Date(),
         //           "sender_email": String
         //           "isRead": true/false
+        //날짜
+        let messageDate = firstMessage.sentDate
+        let dateString = ChatViewController.dateFormatter.string(from: messageDate)
+        
+        
         //메시지 내용
         var message = ""
         switch firstMessage.kind {
@@ -321,9 +345,6 @@ extension DatabaseManager {
         case .custom(_):
             break
         }
-        //날짜
-        let messageDate = firstMessage.sentDate
-        let dateString = ChatViewController.dateFormatter.string(from: messageDate)
         
         //보낸사람 지정 / email 형식을 안전한 이메일로 지정
         guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
@@ -412,8 +433,76 @@ extension DatabaseManager {
     }
         
         //대상 대화목록과 메시지를 보냅니다.
-        public func sendMessage(to conversation: String, message: Message, completion: @escaping (Bool) -> Void) {
+    public func sendMessage(to conversation: String, name: String, newMessage: Message, completion: @escaping (Bool) -> Void) {
+            //답신이 가능하도록 새롭게 메시지를 추가합니다. 먼저 대화의 현재 메시지 배열을 가져옵니다.
+            database.child("\(conversation)/messages").observeSingleEvent(of: .value, with: { [weak self] snapshot in
+                guard let strongSelf = self else {
+                    return
+                }
+                guard var currentMessages = snapshot.value as? [[String: Any]] else {
+                    completion(false)
+                    return
+                }
+                //날짜
+                let messageDate = newMessage.sentDate
+                let dateString = ChatViewController.dateFormatter.string(from: messageDate)
+                
+                
+                //메시지 내용
+                var message = ""
+                switch newMessage.kind {
+                case .text(let messageText):
+                    message = messageText
+                case .attributedText(_):
+                    break
+                case .photo(_):
+                    break
+                case .video(_):
+                    break
+                case .location(_):
+                    break
+                case .emoji(_):
+                    break
+                case .audio(_):
+                    break
+                case .contact(_):
+                    break
+                case .linkPreview(_):
+                    break
+                case .custom(_):
+                    break
+                }
+                
+                //보낸사람 지정 / email 형식을 안전한 이메일로 지정
+                guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+                    completion(false)
+                    return
+                }
+                let currentUserEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
+                
+                let newMessageEntry: [String: Any] = [
+                    "id": newMessage.messageId,
+                    "type": newMessage.kind.messageKindString,
+                    "content": message,
+                    "date": dateString,
+                    "sender_email": currentUserEmail,
+                    "is_read": false,
+                    "name": name
+                ]
+                //메시지를 추가 합니다.
+                currentMessages.append(newMessageEntry)
+                strongSelf.database.child("\(conversation)/messages").setValue(currentMessages) { error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    completion(true)
+                }
+            })
             
+            //보낸사람의 최신 메시지를 업데이트 합니다.
+            
+            //받는사람의 최신 메시지르 업데이트 합니다.
         }
 
 }

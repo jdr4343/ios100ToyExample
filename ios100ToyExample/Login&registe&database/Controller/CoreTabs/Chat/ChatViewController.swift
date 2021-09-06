@@ -86,7 +86,7 @@ class ChatViewController: MessagesViewController {
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
        return Sender(photoURL: "",
                senderId: safeEmail,
-               displayName: "보낸사람")
+               displayName: "")
     }
     
  //생성자를 업데이트 하여 이메일과 ID를 가져옵니다
@@ -167,22 +167,37 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
               let messageId = createMessageId() else {
             return
         }
+        
+        //새로운 대화를 데이터베이스에 추가합니다.
+        let message = Message(sender: selfSender,
+                              messageId: messageId,
+                              sentDate: Date(),
+                              kind: .text(text))
+        
         //메시지를 보냅니다. /새로운 대화 인지 기존 대화인지 식별합니다.
         if isNewConversation {
-            //새로운 대화를 데이터베이스에 추가합니다.
-            let message = Message(sender: selfSender,
-                                  messageId: messageId,
-                                  sentDate: Date(),
-                                  kind: .text(text))
-            DatabaseManager.shared.createNewConversation(with: otherUserEmail, name: self.title ?? "User", firstMessage: message, completion: { success in
+         
+            DatabaseManager.shared.createNewConversation(with: otherUserEmail, name: self.title ?? "User", firstMessage: message, completion: { [weak self] success in
                 if success {
                     print("메시지가 정상적으로 작동 했습니다.")
+                    self?.isNewConversation = false
                 } else {
                     print("메시지를 보내는것에 실패 했습니다")
                 }
             })
         } else {
-            //기존 대화를 데이터베이스에서 가져옵니다.
+            guard let conversationId = conversationId,
+                  let name = self.title else {
+                return
+            }
+            //기존 대화를 데이터베이스에서 가져오고 메시지를 보내겠습니다.
+            DatabaseManager.shared.sendMessage(to: conversationId, name: name, newMessage: message, completion: { success in
+                if success {
+                    print("메시지를 보냈습니다.")
+                } else {
+                    print("메시지를 보내는데 실패했습니다.")
+                }
+            })
         }
     }
     //messageId(식별자) 생성 무작위 문자열

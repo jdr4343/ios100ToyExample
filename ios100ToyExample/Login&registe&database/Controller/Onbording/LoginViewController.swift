@@ -287,7 +287,23 @@ class LoginViewController: UIViewController {
             
             //사용자가 로그인하고 탐색 컨트롤러를 해제 하므로 해제 하기전에 사용자 이메일 주소를 저장하겠습니다. 사용자 이메일을 저장하는 이유는 저장소 버킷이 이미지에 대해 사용할수 있는 형식으로 저장했기 때문입니다. 사용자에 대한 이미지를 쿼리하기 위한 이메일 입니다.
             let user = result.user
-            UserDefaults.standard.set(email, forKey: "email")  
+            
+            let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+            DatabaseManager.shared.getDataFor(path: safeEmail, completion: { result in
+                switch result {
+                case .success(let data):
+                    guard let userData = data as? [String: Any],
+                          let username = userData["name"] as? String else {
+                        return
+                    }
+                    UserDefaults.standard.set(username, forKey: "name")
+                case . failure(let error):
+                    print("데이터를 읽어오지 못했습니다. - \(error)")
+                }
+            })
+            
+            UserDefaults.standard.set(email, forKey: "email")
+          
             print("Logged IN User:\(user)")
             strongSelf.loginButton.stopAnimation(animationStyle: .normal, revertAfterDelay: 0.5) {
                 strongSelf.dismiss(animated: true, completion: nil)
@@ -376,6 +392,7 @@ extension LoginViewController: LoginButtonDelegate {
             
             //노드의 email값으로 식별 하겠습니다.
             UserDefaults.standard.set(email, forKey: "email")
+            UserDefaults.standard.set(userName, forKey: "name")
             
             //위에서 받은 이메일과 이름 결과값을 데이터베이스에 전달합니다
                       
