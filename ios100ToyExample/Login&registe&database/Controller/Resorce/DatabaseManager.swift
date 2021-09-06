@@ -275,7 +275,7 @@ extension DatabaseManager {
                     self?.database.child("\(otherUserEmail)/conversations").setValue(conversationID)
                 } else {
                     //생성
-                    self?.database.child("\(otherUserEmail)/conversations").setValue(recipient_newConversationData)
+                    self?.database.child("\(otherUserEmail)/conversations").setValue([recipient_newConversationData])
                 }
             })
             

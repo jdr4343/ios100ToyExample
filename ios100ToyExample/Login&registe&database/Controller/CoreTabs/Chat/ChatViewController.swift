@@ -94,9 +94,7 @@ class ChatViewController: MessagesViewController {
         self.conversationId = id
         self.otherUserEmail = email
         super.init(nibName: nil, bundle: nil)
-        if let conversationId = conversationId {
-            listenForMessages(id: conversationId)
-        }
+       
     }
     
     required init?(coder: NSCoder) {
@@ -116,7 +114,13 @@ class ChatViewController: MessagesViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         messageInputBar.inputTextView.becomeFirstResponder()
+        if let conversationId = conversationId {
+            //메시지가 스크롤바에 가리지 않도록 shouldScrollToBottom 함수를 만들어 추가
+            listenForMessages(id: conversationId, shouldScrollToBottom: true)
+        }
     }
+    
+    
     
     //메시지
     private func addMessagesData() {
@@ -127,17 +131,23 @@ class ChatViewController: MessagesViewController {
     }
     
     //대화 ID가 있는 모든 메시지를 가져오기라는 함수를 스터브 처리하여 해당 대화 ID를 전달합니다.
-    private func listenForMessages(id: String) {
+    private func listenForMessages(id: String, shouldScrollToBottom: Bool) {
         DatabaseManager.shared.getAllMessagesForConversation(with: id, completion: { [weak self] result in
             switch result {
             case .success(let messages):
                 guard !messages.isEmpty else {
+                    print("메시지가 비었습니다.")
                     return
                 }
                 self?.messages = messages
                 DispatchQueue.main.async {
                 //데이터를 다시 로드하고 오프셋을 유지하기 위해 reloadDataAndKeepOffset 추가
                 self?.messagesCollectionView.reloadDataAndKeepOffset()
+                    //스크롤
+                    if shouldScrollToBottom {
+                        self?.messagesCollectionView.scrollToLastItem()
+                    }
+                    
                 }
             case .failure(let error):
                 print("메시지를 얻지 못했습니다.\(error)")
