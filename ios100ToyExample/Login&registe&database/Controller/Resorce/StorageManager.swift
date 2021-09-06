@@ -52,7 +52,6 @@ final class StorageManager {
         
         reference.downloadURL(completion: { url, error in
             guard let url = url, error == nil else {
-                print("\(error)")
                 print("다운로드 실패")
                 completion(.failure(StorageErrors.failedToGetDownloadUrl))
                 return

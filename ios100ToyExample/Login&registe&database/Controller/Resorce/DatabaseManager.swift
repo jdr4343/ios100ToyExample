@@ -325,7 +325,6 @@ extension DatabaseManager {
     public func getAllConversations(for email: String, completion: @escaping (Result<[Conversation],Error>) -> Void) {
         database.child("\(email)/conversations").observe(.value, with: { snapshot in
             guard let value = snapshot.value as? [[String: Any]] else {
-                print("실패")
                 completion(.failure(DatabaseError.failedToFetch))
                 return
             }
@@ -346,17 +345,39 @@ extension DatabaseManager {
             completion(.success(conversations))
         })
     }
+    
     //보낸 사람의 대화 목록의 모든 메시지를 가져옵니다.
-    public func getAllMessagesForConversation(with id: String, completion: @escaping (Result<String, Error>) -> Void) {
-        
+    public func getAllMessagesForConversation(with id: String, completion: @escaping (Result<[Message], Error>) -> Void) {
+        database.child("\(id)/messages").observe(.value, with: { snapshot in
+            guard let value = snapshot.value as? [[String: Any]] else {
+                print("실패")
+                completion(.failure(DatabaseError.failedToFetch))
+                return
+            }
+            let messages: [Message] = value.compactMap({ dictionary in
+                guard let name = dictionary["name"] as? String,
+                      let isRead = dictionary["is_read"] as? Bool,
+                      let messageId = dictionary["id"] as? String,
+                      let content = dictionary["content"] as? String,
+                      let senderEmail = dictionary["sender_email"] as? String,
+                      let type = dictionary["type"] as? String,
+                      let dateString = dictionary["date"] as? String ,
+                      let date = ChatViewController.dateFormatter.date(from: dateString) else {
+                    return nil
+                }
+                
+                //모델을 생성하고 반환
+                let sender = Sender(photoURL: "", senderId: senderEmail, displayName: name)
+                
+                return Message(sender: sender, messageId: messageId, sentDate: date, kind: .text(content))
+            })
+            completion(.success(messages))
+        })
     }
-    //대상 대화목록과 메시지를 보냅니다.
-    public func sendMessage(to conversation: String, message: Message, completion: @escaping (Bool) -> Void) {
         
-    }
-    
-    
-    
+        //대상 대화목록과 메시지를 보냅니다.
+        public func sendMessage(to conversation: String, message: Message, completion: @escaping (Bool) -> Void) {
+            
+        }
+
 }
-
-

@@ -66,6 +66,10 @@ class ChatViewController: MessagesViewController {
     
     //채팅을 하고 있는 상대방을 나타냅니다.아래의 이니셜라이저로 초기화 하고 conversation에서 result의 email을 전달 받습니다!
     public let otherUserEmail: String
+    //식별자를 만듭니다.
+    private let conversationId: String?
+    
+    
     
     //새로운 대화인지 아니면 대화중인 상대인지 알수 있기 위해 불리언값을 추가해줍니다.
     public var isNewConversation = false
@@ -78,14 +82,20 @@ class ChatViewController: MessagesViewController {
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return nil
         }
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
        return Sender(photoURL: "",
-               senderId: email,
+               senderId: safeEmail,
                displayName: "Test Sender")
     }
     
-    init(with email: String) {
+ //생성자를 업데이트 하여 이메일과 ID를 가져옵니다
+    init(with email: String, id: String?) {
+        self.conversationId = id
         self.otherUserEmail = email
         super.init(nibName: nil, bundle: nil)
+        if let conversationId = conversationId {
+            listenForMessages(id: conversationId)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -113,10 +123,27 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
-        
-     
-    
     }
+    
+    //대화 ID가 있는 모든 메시지를 가져오기라는 함수를 스터브 처리하여 해당 대화 ID를 전달합니다.
+    private func listenForMessages(id: String) {
+        DatabaseManager.shared.getAllMessagesForConversation(with: id, completion: { [weak self] result in
+            switch result {
+            case .success(let messages):
+                guard !messages.isEmpty else {
+                    return
+                }
+                self?.messages = messages
+                DispatchQueue.main.async {
+                //데이터를 다시 로드하고 오프셋을 유지하기 위해 reloadDataAndKeepOffset 추가
+                self?.messagesCollectionView.reloadDataAndKeepOffset()
+                }
+            case .failure(let error):
+                print("메시지를 얻지 못했습니다.\(error)")
+            }
+        })
+    }
+    
 
 }
 //MARK: - MessageInputBar
@@ -173,7 +200,7 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
             return sender
         }
         fatalError("발송인이 nil 이므로 이메일을 캐싱해야 합니다.")
-        return Sender(photoURL: "", senderId: "12", displayName: "")
+        
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
