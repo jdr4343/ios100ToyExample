@@ -167,7 +167,7 @@ extension DatabaseManager {
         }
         let safeEmail = DatabaseManager.safeEmail(emailAddress: currentEmail)
         let ref = database.child("\(safeEmail)")
-        ref.observeSingleEvent(of: .value, with: { snapshot in
+        ref.observeSingleEvent(of: .value, with: { [weak self] snapshot in
             guard var userNode = snapshot.value as? [String: Any] else {
                 completion(false)
                 print("사용자를 찾지 못했습니다.")
@@ -217,8 +217,10 @@ extension DatabaseManager {
                     ]
                 ]
             
+            
+            //현재 사용자에 대한 대화 배열을 추가합니다.
             if var conversations = userNode["conversations"] as? [[String: Any]] {
-                //현재 사용자에 대한 대화 배열을 추가해야합니다.
+                
                 conversations.append(newConversationData)
                 userNode["conversations"] = conversations
                 
@@ -250,8 +252,42 @@ extension DatabaseManager {
                                                      completion: completion)
                 })
             }
+            
+            //수신자의 화면에도 채팅을 띄우기 위해 받은 수신자에게도 노드를 만들어 주겠습니다.
+            let recipient_newConversationData: [String: Any] =
+                [
+                    "id": conversationID,
+                    "other_user_email": safeEmail,
+                    "name": "Self",
+                    "latest_message":
+                        [
+                            "date": dateString,
+                            "message": message,
+                            "is_read": false
+                        ]
+                ]
+            
+            //수신인 사용자 대화 배열을 업데이트 합니다.
+            self?.database.child("\(otherUserEmail)/conversations").observeSingleEvent(of: .value, with: { [weak self] snapshot in
+                if var conversations = snapshot.value as? [[String: Any]] {
+                    //추가
+                    conversations.append(recipient_newConversationData)
+                    self?.database.child("\(otherUserEmail)/conversations").setValue(conversationID)
+                } else {
+                    //생성
+                    self?.database.child("\(otherUserEmail)/conversations").setValue(recipient_newConversationData)
+                }
+            })
+            
+            
+            
         })
     }
+    
+    
+    
+    
+    
     
     private func finishCreatingConversation(name: String, conversationID: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
 //

@@ -82,10 +82,11 @@ class ChatViewController: MessagesViewController {
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return nil
         }
+        //사용자가 보낸 메시지를 오른쪽에 띄웁니다.
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
        return Sender(photoURL: "",
                senderId: safeEmail,
-               displayName: "Test Sender")
+               displayName: "보낸사람")
     }
     
  //생성자를 업데이트 하여 이메일과 ID를 가져옵니다
