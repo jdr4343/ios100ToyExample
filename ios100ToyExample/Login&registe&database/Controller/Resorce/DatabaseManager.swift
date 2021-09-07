@@ -6,6 +6,7 @@
 //
 
 import FirebaseDatabase
+import MessageKit
 
 final class DatabaseManager {
     
@@ -423,10 +424,33 @@ extension DatabaseManager {
                     return nil
                 }
                 
+                //사용자가 보내는 메시지의 타입의 유형을 검사 하겠습니다.
+                var kind: MessageKind?
+                
+                if type == "photo" {
+                    guard let imageUrl = URL(string: content),
+                          let placehorder = UIImage(systemName: "plus") else {
+                        return nil
+                    }
+                    let media = Media(url: imageUrl,
+                                      image: nil,
+                                      placeholderImage: placehorder,
+                                      size: CGSize(width: 300, height: 300))
+                    kind = .photo(media)
+                    
+                } else {
+                    kind = .text(content)
+                }
+                
+                guard let finalKind = kind else {
+                    return nil
+                }
+                 
+                
                 //모델을 생성하고 반환
                 let sender = Sender(photoURL: "", senderId: senderEmail, displayName: name)
                 
-                return Message(sender: sender, messageId: messageId, sentDate: date, kind: .text(content))
+                return Message(sender: sender, messageId: messageId, sentDate: date, kind: finalKind)
             })
             completion(.success(messages))
         })
@@ -456,14 +480,17 @@ extension DatabaseManager {
             let dateString = ChatViewController.dateFormatter.string(from: messageDate)
             
             
-            //메시지 내용
+            //메시지 내용. //사진 기반 메시지를 보내도록 조정합니다.
             var message = ""
             switch newMessage.kind {
             case .text(let messageText):
                 message = messageText
             case .attributedText(_):
                 break
-            case .photo(_):
+            case .photo(let mediaItem):
+                if let targetUrlString = mediaItem.url?.absoluteString {
+                    message = targetUrlString
+                }
                 break
             case .video(_):
                 break
