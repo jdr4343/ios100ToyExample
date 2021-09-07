@@ -118,8 +118,13 @@ class ChatViewController: MessagesViewController {
         super.viewDidLoad()
         view.backgroundColor = .brown
         self.tabBarController?.tabBar.isHidden = true
-        addMessagesData()
         setupInputButton()
+       
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messagesLayoutDelegate = self
+        messagesCollectionView.messagesDisplayDelegate = self
+        messagesCollectionView.messageCellDelegate = self
+        messageInputBar.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -154,8 +159,8 @@ class ChatViewController: MessagesViewController {
         actionSheet.addAction(UIAlertAction(title: "사진", style: .default, handler: { [weak self] _ in
             self?.presentPhotoInputActionSheet()
         }))
-        actionSheet.addAction(UIAlertAction(title: "동영상", style: .default, handler: {  _ in
-            
+        actionSheet.addAction(UIAlertAction(title: "동영상", style: .default, handler: { [weak self] _ in
+            self?.presentVideoInputActionSheet()
         }))
         actionSheet.addAction(UIAlertAction(title: "오디오", style: .default, handler: {  _ in
             
@@ -164,7 +169,7 @@ class ChatViewController: MessagesViewController {
         present(actionSheet, animated: true)
     }
     
-    //키보드 사진 버튼 액션
+    // 사진 액션시트 버튼 액션
     private func presentPhotoInputActionSheet() {
         let actionSheet = UIAlertController(title: "사진 첨부",
                                             message: "사진을 첨부 하시겠습니까?",
@@ -177,7 +182,7 @@ class ChatViewController: MessagesViewController {
             self?.present(picker, animated: true)
             
         }))
-        actionSheet.addAction(UIAlertAction(title: "사진 앨범", style: .default, handler: { [weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: "앨범", style: .default, handler: { [weak self] _ in
             let picker = UIImagePickerController()
             picker.sourceType = .photoLibrary
             picker.delegate = self
@@ -186,22 +191,41 @@ class ChatViewController: MessagesViewController {
         }))
         actionSheet.addAction(UIAlertAction(title: "닫기", style: .default, handler: nil))
         present(actionSheet, animated: true)
+    }
     
-    
+    //비디오 액션시트 버튼 액션
+    private func presentVideoInputActionSheet() {
+        let actionSheet = UIAlertController(title: "동영상 첨부",
+                                            message: "동영상를 첨부 하시겠습니까?",
+                                            preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "동영상", style: .default, handler: { [weak self] _ in
+            let picker = UIImagePickerController()
+            picker.sourceType = .camera
+            picker.delegate = self
+            //비디오만 선택할 수 있도록 제약 추가
+            picker.mediaTypes = ["public.movie"]
+            picker.videoQuality = .typeMedium
+            picker.allowsEditing = true
+            self?.present(picker, animated: true)
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "앨범", style: .default, handler: { [weak self] _ in
+            let picker = UIImagePickerController()
+            picker.sourceType = .photoLibrary
+            picker.delegate = self
+            //비디오만 선택할 수 있도록 제약 추가
+            picker.mediaTypes = ["public.movie"]
+            picker.videoQuality = .typeMedium
+            picker.allowsEditing = true
+            self?.present(picker, animated: true)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "닫기", style: .default, handler: nil))
+        present(actionSheet, animated: true)
     }
     
     
     
-    
-    
-    
-    //메시지
-    private func addMessagesData() {
-        messagesCollectionView.messagesDataSource = self
-        messagesCollectionView.messagesLayoutDelegate = self
-        messagesCollectionView.messagesDisplayDelegate = self
-        messageInputBar.delegate = self
-    }
+  
     
     //대화 ID가 있는 모든 메시지를 가져오기라는 함수를 스터브 처리하여 해당 대화 ID를 전달합니다.
     private func listenForMessages(id: String, shouldScrollToBottom: Bool) {
@@ -230,7 +254,7 @@ class ChatViewController: MessagesViewController {
     
 
 }
-//MARK: - 이미지 피커 / 사진
+//MARK: - 이미지 피커 / 사진 / 동영상
 extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //이미지 선택기 취소
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -240,53 +264,98 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
     //이미지 선택기 이미지 선택 완료 / 사용자가 선택한 이미지를 가져옵니다.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage,
-              let imageData = image.pngData(),
-              let messageId = createMessageId(),
+        
+        guard let messageId = createMessageId(),
               let conversationId = conversationId ,
               let name = self.title,
               let selfSender = selfSender else {
             return
         }
-        //사진 업로드
         
-        let fileName = "photo_message_" + messageId.replacingOccurrences(of: " ", with: "-") + ".png"
-        
-        StorageManager.shared.uploadMessagePhoto(with: imageData, fileName: fileName, completion: { [weak self] result in
-            guard let strongSelf = self else {
-                return
-            }
+        if let image = info[.editedImage] as? UIImage, let imageData = image.pngData() {
+            //사진 업로드
             
-            switch result {
-            case .success(let urlString):
-                //메시지를 보낼 준비를 합니다.
-                print("메시지 사진을 업로드 합니다 - \(urlString)")
-                guard let url = URL(string: urlString),
-                      let placeholder = UIImage(systemName: "plus") else {
+            let fileName = "photo_message_" + messageId.replacingOccurrences(of: " ", with: "-") + ".png"
+            
+            StorageManager.shared.uploadMessagePhoto(with: imageData, fileName: fileName, completion: { [weak self] result in
+                guard let strongSelf = self else {
                     return
                 }
                 
-                let media = Media(url: url, image: nil, placeholderImage: placeholder, size: .zero)
-                
-                let message = Message(sender: selfSender,
-                                      messageId: messageId,
-                                      sentDate: Date(),
-                                       kind: .photo(media))
-                
-                DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: strongSelf.otherUserEmail, name: name, newMessage: message, completion: { success in
-                    
-                    if success {
-                        print("사진 메시지가 성공적으로 전송 되었습니다.")
-                    } else  {
-                        print("사진 메시지 전송에 실패 했습니다.")
+                switch result {
+                case .success(let urlString):
+                    //메시지를 보낼 준비를 합니다.
+                    print("메시지 사진을 업로드 합니다 - \(urlString)")
+                    guard let url = URL(string: urlString),
+                          let placeholder = UIImage(systemName: "plus") else {
+                        return
                     }
                     
-                })
+                    let media = Media(url: url, image: nil, placeholderImage: placeholder, size: .zero)
+                    
+                    let message = Message(sender: selfSender,
+                                          messageId: messageId,
+                                          sentDate: Date(),
+                                           kind: .photo(media))
+                    
+                    DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: strongSelf.otherUserEmail, name: name, newMessage: message, completion: { success in
+                        
+                        if success {
+                            print("사진 메시지가 성공적으로 전송 되었습니다.")
+                        } else  {
+                            print("사진 메시지 전송에 실패 했습니다.")
+                        }
+                        
+                    })
+                    
+                case .failure(let error):
+                    print("메시지 사진을 업로드 하는 것에 실패 했습니다. - \(error)")
+                }
+            })
+            
+        } //비디오 업로드
+        else if let videoUrl = info[.mediaURL] as? URL {
+            let fileName = "video_message_" + messageId.replacingOccurrences(of: " ", with: "-") + ".mov"
+            
+            StorageManager.shared.uploadMessageVideo(with: videoUrl, fileName: fileName, completion: { [weak self] result in
+                guard let strongSelf = self else {
+                    return
+                }
                 
-            case .failure(let error):
-                print("메시지 사진을 업로드 하는 것에 실패 했습니다. - \(error)")
-            }
-        })
+                switch result {
+                case .success(let urlString):
+                    //메시지를 보낼 준비를 합니다.
+                    print("메시지 동영상을 업로드 합니다 - \(urlString)")
+                    guard let url = URL(string: urlString),
+                          let placeholder = UIImage(systemName: "plus") else {
+                        return
+                    }
+                    
+                    let media = Media(url: url, image: nil, placeholderImage: placeholder, size: .zero)
+                    
+                    let message = Message(sender: selfSender,
+                                          messageId: messageId,
+                                          sentDate: Date(),
+                                           kind: .video(media))
+                    
+                    DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: strongSelf.otherUserEmail, name: name, newMessage: message, completion: { success in
+                        
+                        if success {
+                            print("동영상 메시지가 성공적으로 전송 되었습니다.")
+                        } else  {
+                            print("동영상 메시지 전송에 실패 했습니다.")
+                        }
+                        
+                    })
+                    
+                case .failure(let error):
+                    print("메시지 동영상을 업로드 하는 것에 실패 했습니다. - \(error)")
+                }
+            })
+            
+            
+            
+        }
     }
 }
 
@@ -387,5 +456,29 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
             break
         }
     }
+   
+   
 }
+
+extension ChatViewController: MessageCellDelegate {
+    //사용자가 사진 채팅 이미지를 클릭하면 사진을 크게 보일수 있도록 뷰를 연결해주는 액션을 추가 하겠습니다.
+    func didTapImage(in cell: MessageCollectionViewCell) {
+        guard let indexPath = messagesCollectionView.indexPath(for: cell) else {
+            return
+        }
+        
+      let message = messages[indexPath.section]
+      switch message.kind {
+      case .photo(let media):
+          guard let imageUrl = media.url else {
+              return
+          }
+          let vc = PhotoViewerViewController(with: imageUrl)
+          self.navigationController?.pushViewController(vc, animated: true)
+      default:
+          break
+      }
+    }
+}
+
 

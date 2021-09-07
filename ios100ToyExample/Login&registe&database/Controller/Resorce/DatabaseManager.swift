@@ -408,7 +408,6 @@ extension DatabaseManager {
     public func getAllMessagesForConversation(with id: String, completion: @escaping (Result<[Message], Error>) -> Void) {
         database.child("\(id)/messages").observe(.value, with: { snapshot in
             guard let value = snapshot.value as? [[String: Any]] else {
-                print("실패")
                 completion(.failure(DatabaseError.failedToFetch))
                 return
             }
@@ -426,7 +425,7 @@ extension DatabaseManager {
                 
                 //사용자가 보내는 메시지의 타입의 유형을 검사 하겠습니다.
                 var kind: MessageKind?
-                
+                //사진 유형
                 if type == "photo" {
                     guard let imageUrl = URL(string: content),
                           let placehorder = UIImage(systemName: "plus") else {
@@ -438,7 +437,21 @@ extension DatabaseManager {
                                       size: CGSize(width: 300, height: 300))
                     kind = .photo(media)
                     
-                } else {
+                //비디오 유형
+                } else  if type == "video" {
+                    guard let videoUrl = URL(string: content),
+                          let placehorder = UIImage(systemName: "plus") else {
+                        return nil
+                    }
+                    let media = Media(url: videoUrl,
+                                      image: nil,
+                                      placeholderImage: placehorder,
+                                      size: CGSize(width: 300, height: 300))
+                    kind = .video(media)
+                    
+                }
+                //텍스트 유형
+                else {
                     kind = .text(content)
                 }
                 
@@ -492,7 +505,10 @@ extension DatabaseManager {
                     message = targetUrlString
                 }
                 break
-            case .video(_):
+            case .video(let mediaItem):
+                if let targetUrlString = mediaItem.url?.absoluteString {
+                    message = targetUrlString
+                }
                 break
             case .location(_):
                 break

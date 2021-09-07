@@ -49,26 +49,46 @@ final class StorageManager {
     //MARK: - 대화 메시지로 보낼 이미지를 스토리지에 업로드 합니다.
     
     public func uploadMessagePhoto(with data: Data, fileName: String, completion: @escaping (Result<String, Error>) -> Void) {
-        storage.child("message_images/\(fileName)").putData(data,metadata: nil,completion: { metadata, error in
+        storage.child("message_images/\(fileName)").putData(data,metadata: nil,completion: { [weak self] metadata, error in
             guard error == nil else {
                 print(" 파이어베이스에 사진을 업로드 하는 것을 실패 했습니다.")
                 completion(.failure(StorageErrors.faildToUpload))
                 return
             }
-            self.storage.child("message_images/\(fileName)").downloadURL(completion: { url, error in
+            self?.storage.child("message_images/\(fileName)").downloadURL(completion: { url, error in
                 guard let url = url else {
-                    print("URL을 다운로드 하지 못했습니다.")
+                    print("사진 URL을 다운로드 하지 못했습니다.")
                     completion(.failure(StorageErrors.failedToGetDownloadUrl))
                     return
                 }
                 let urlString = url.absoluteString
-                print("URL을 다운로드 하는것에 성공 했습니다.")
+                print("사진 URL을 다운로드 하는것에 성공 했습니다.")
                 completion(.success(urlString))
             })
         })
     }
     
+    //MARK: - 대화 메시지로 보낼 동영상을 스토리지에 업로드 합니다.
     
+    public func uploadMessageVideo(with fileUrl: URL, fileName: String, completion: @escaping (Result<String, Error>) -> Void) {
+        storage.child("message_videos/\(fileName)").putFile(from: fileUrl,metadata: nil,completion: { [weak self] metadata, error in
+            guard error == nil else {
+                print("파이어베이스에 동영상을 업로드 하는 것을 실패 했습니다.")
+                completion(.failure(StorageErrors.faildToUpload))
+                return
+            }
+            self?.storage.child("message_videos/\(fileName)").downloadURL(completion: { url, error in
+                guard let url = url else {
+                    print("동영상 URL을 다운로드 하지 못했습니다.")
+                    completion(.failure(StorageErrors.failedToGetDownloadUrl))
+                    return
+                }
+                let urlString = url.absoluteString
+                print("동영상 URL을 다운로드 하는것에 성공 했습니다.")
+                completion(.success(urlString))
+            })
+        })
+    }
     
     
     
