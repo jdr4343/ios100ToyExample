@@ -56,3 +56,7 @@ struct EditProfileFormModel {
     let placeholder: String?
     var value : String?
 }
+//사용자가 로그인 하면 알수 있습니다.
+extension Notification.Name {
+    static let didLogInNotification = Notification.Name("didLogInNotification")
+}

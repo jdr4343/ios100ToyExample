@@ -628,6 +628,49 @@ extension DatabaseManager {
             }
         })
     }
+    
+    //MARK: - 대화 목록 삭제
+    
+    public func deleteConverstion(conversationId: String, completion: @escaping (Bool) -> Void ) {
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+            return
+        }
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        print("\(conversationId)와의 대화를 삭제합니다.")
+        
+        //현재 사용자의 모든 대화 목록을 가져옵니다
+        //대상 ID가 있는 컬렉션에서 대화를 삭제합니다.
+        //데이터베이스의 사용자에 대한 대화를 재설정합니다.
+        let ref = database.child("\(safeEmail)/conversations")
+        ref.observeSingleEvent(of: .value) { snapshot in
+            if var conversations = snapshot.value as? [[String: Any]] {
+                var positionToRemove = 0
+                for conversation in conversations {
+                    if let id = conversation["id"] as? String,
+                       id == conversationId {
+                        print("삭제할 대화를 찾았습니다.")
+                        break
+                    }
+                    positionToRemove += 1
+                }
+                conversations.remove(at: positionToRemove)
+                ref.setValue(conversations,withCompletionBlock: { error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        print("대화를 삭제하는데 실패 했습니다.")
+                        return
+                    }
+                    print("대화가 삭제 되었습니다.")
+                    completion(true)
+                })
+        }
+    }
+   
+}
 
+
+
+
+//MARK: - 프로필 삭제
 }
 

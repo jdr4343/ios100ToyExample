@@ -27,6 +27,8 @@ class ConversationsViewController: UIViewController {
     //대화 모델
     private var conversations = [Conversation]()
     
+    private var loginObserver: NSObjectProtocol?
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(ConversationTableViewCell.self, forCellReuseIdentifier: ConversationTableViewCell.identifier)
@@ -67,6 +69,15 @@ class ConversationsViewController: UIViewController {
         tableView.dataSource = self
         fetchConversations()
         startListeningForConversations()
+        
+        //채팅이 바로 업데이트 되도록 추가
+        loginObserver = NotificationCenter.default.addObserver(forName: .didLogInNotification, object: nil, queue: .main, using: { [weak self] _ in
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.startListeningForConversations()
+        })
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         //구현대기 /탭바가 너무 형편없이 사라져서 애니메이션을 추가 해줘야 할거 같음 우선은 그냥 내비두고 모든구현을 끝내고 돌아와서 만들자!
@@ -82,6 +93,10 @@ class ConversationsViewController: UIViewController {
     private func startListeningForConversations() {
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return
+        }
+        //채팅 업데이트
+        if let observer = loginObserver {
+            NotificationCenter.default.removeObserver(observer)
         }
         print("대화를 불러옵니다")
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
@@ -109,6 +124,7 @@ class ConversationsViewController: UIViewController {
     private func fetchConversations() {
         tableView.isHidden = false
     }
+    
     //대화창을 연결합니다. /새 대화를 생성하고 해당 결과를 보내서 알맞은 사람과 대화 할수 있도록 합니다.
     @objc private func didTapComposeButton() {
         let vc = NewConversationViewController()
@@ -144,7 +160,7 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = conversations[indexPath.row]
-         let cell = tableView.dequeueReusableCell(withIdentifier: ConversationTableViewCell.identifier, for: indexPath) as! ConversationTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ConversationTableViewCell.identifier, for: indexPath) as! ConversationTableViewCell
         cell.configure(with: model)
         return cell
     }
@@ -160,5 +176,29 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    //MARK: - 대화 목록 삭제
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //행을 삭제
+            let conversationId = conversations[indexPath.row].id
+            tableView.beginUpdates()
+            //데이터베이스에서 만든 함수를 연결하여줍니다. //행을 삭제한후 모델 업데이트
+            DatabaseManager.shared.deleteConverstion(conversationId: conversationId, completion: { [weak self] success in
+                if success {
+                    self?.conversations.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .left)
+                }
+            })
+            
+            tableView.endUpdates()
+        }
+      
+        
     }
 }

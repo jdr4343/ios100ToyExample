@@ -25,6 +25,7 @@ import JGProgressHUD
 class LoginViewController: UIViewController {
     
     //MARK: - 요소 추가
+    private var loginObserver: NSObjectProtocol?
     
     //로그인시에 스피너를 보여주기위해 추가 하겠습니다.
     private let spinner = JGProgressHUD(style: .dark)
@@ -134,6 +135,17 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //삭제 대기
+        loginObserver = NotificationCenter.default.addObserver(forName: .didLogInNotification, object: nil, queue: .main, using: { [weak self] _ in
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+        })
+        
+        
+        
+        
         view.backgroundColor = .systemBackground
         addSubView()
         emailField.delegate = self
