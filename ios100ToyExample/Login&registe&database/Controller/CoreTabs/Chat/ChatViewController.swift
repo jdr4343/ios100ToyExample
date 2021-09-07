@@ -9,6 +9,8 @@ import UIKit
 import MessageKit
 import InputBarAccessoryView
 import SDWebImage
+import AVFoundation
+import AVKit
 
 //메시지
 struct Message: MessageType {
@@ -461,20 +463,32 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
 }
 
 extension ChatViewController: MessageCellDelegate {
-    //사용자가 사진 채팅 이미지를 클릭하면 사진을 크게 보일수 있도록 뷰를 연결해주는 액션을 추가 하겠습니다.
+    //사용자가 사진 채팅 이미지를 클릭하면 사진혹은 비디오를 크게 보일수 있도록 뷰를 연결해주는 액션을 추가 하겠습니다.
     func didTapImage(in cell: MessageCollectionViewCell) {
         guard let indexPath = messagesCollectionView.indexPath(for: cell) else {
             return
         }
         
       let message = messages[indexPath.section]
+        
       switch message.kind {
+      
       case .photo(let media):
           guard let imageUrl = media.url else {
               return
           }
           let vc = PhotoViewerViewController(with: imageUrl)
           self.navigationController?.pushViewController(vc, animated: true)
+        
+      case .video(let media):
+          guard let videoUrl = media.url else {
+              return
+          }
+          //내장된 프레임 워크를 사용 하겠습니다.
+          let vc = AVPlayerViewController()
+            vc.player = AVPlayer(url: videoUrl)
+            present(vc, animated: true)
+        
       default:
           break
       }

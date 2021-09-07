@@ -440,7 +440,7 @@ extension DatabaseManager {
                 //비디오 유형
                 } else  if type == "video" {
                     guard let videoUrl = URL(string: content),
-                          let placehorder = UIImage(systemName: "plus") else {
+                          let placehorder = UIImage(named: "비디오플레이어") else {
                         return nil
                     }
                     let media = Media(url: videoUrl,

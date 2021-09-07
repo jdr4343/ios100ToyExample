@@ -8,17 +8,23 @@
 import UIKit
 import JGProgressHUD
 
+//검색 결과에 대한 모델을 만듭니다.
+struct SearchResult {
+    let name: String
+    let email: String
+}
+
 class NewConversationViewController: UIViewController {
 //유저를 검색하고 새로운 대화창을 생성합니다.
     private let spinner = JGProgressHUD(style: .dark)
     
     //completion은 배열이 아닌 노드의 dictionary배열을 취하는 클로저가 될것입니다. 이 클로저는
-    public var Chatcompletion: (([String:String]) -> (Void))?
+    public var Chatcompletion: ((SearchResult) -> (Void))?
     
     //검색 결과를 가져올 배열을 생성합니다.
     private var users = [[String:String]]()
     //검색결과를 보유하는 배열입니다.
-    private var results = [[String:String]]()
+    private var results = [SearchResult]()
     
     //결과가 있는지 없는지를 확인 해주기위해 불리언값 추가
     private var hasFetched = false
@@ -33,7 +39,7 @@ class NewConversationViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.isHidden = true
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(NewConversationCell.self, forCellReuseIdentifier: NewConversationCell.identifier)
         return tableView
     }()
     
@@ -88,8 +94,10 @@ extension NewConversationViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = results[indexPath.row]["name"]
+        let model = results[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: NewConversationCell.identifier,
+                                                 for: indexPath) as! NewConversationCell
+        cell.configure(with: model)
         return cell
     }
     
@@ -100,8 +108,9 @@ extension NewConversationViewController: UITableViewDelegate, UITableViewDataSou
         dismiss(animated: true, completion: { [weak self] in
             self?.Chatcompletion?(targetUserData)
         })
-    
-    
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 }
 
@@ -146,20 +155,33 @@ extension NewConversationViewController: UISearchBarDelegate {
             })
         }
     }
-    //사용자가 있는지 확인 합니다. 그에 따른 UI를 업데이트 합니다.
+    //사용자가 있는지 확인 합니다. 그에 따른 UI를 업데이트 합니다. / 사용자 본인이 검색되지 않도록 하기위해서 이메일을 통해 제약을 추가 해줍니다.
     func filterUser(with term: String) {
-        guard hasFetched else {
+        guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") as? String, hasFetched else {
             return
         }
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: currentUserEmail)
         
         self.spinner.dismiss()
         //하나의 다른 배열을 생성합니다.
-        let result: [[String:String]] = self.users.filter({
+        let result: [SearchResult] = self.users.filter({
+            guard let email = $0["email"], email != safeEmail else {
+                return false
+            }
+            
             guard let name = $0["name"]?.lowercased() else {
                 return false
             }
             return name.hasPrefix(term.lowercased())
+            
+        }).compactMap({
+            guard let email = $0["email"],
+                  let name = $0["name"] else {
+                return nil
+            }
+            return SearchResult(name: name, email: email)
         })
+        
         self.results = result
         
         updateUI()
@@ -175,3 +197,5 @@ extension NewConversationViewController: UISearchBarDelegate {
         }
     }
 }
+
+

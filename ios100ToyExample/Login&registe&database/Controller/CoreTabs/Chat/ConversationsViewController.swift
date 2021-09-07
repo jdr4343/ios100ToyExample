@@ -119,11 +119,11 @@ class ConversationsViewController: UIViewController {
         let nvc = UINavigationController(rootViewController: vc)
         present(nvc, animated: true)
     }
-    private func createNewConversation(result: [String: String]) {
+    private func createNewConversation(result: SearchResult) {
         //result의 결과를 토대로 구분하고 대화하고 있는 상대를 알수 있도록 title을 바꿔줍니다..
-        guard let name = result["name"], let email = result["email"] else {
-            return
-        }
+        let name = result.name
+        let email = result.email
+        
         let vc = ChatViewController(with: email, id: nil)
         //새로운 대화임을 알립니다.
         vc.isNewConversation = true

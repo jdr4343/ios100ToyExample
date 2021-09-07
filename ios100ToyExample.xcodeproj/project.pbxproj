@@ -11,6 +11,7 @@
 		4004B1E826DD237A005CC3EB /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004B1E726DD237A005CC3EB /* EditProfileTableViewCell.swift */; };
 		4014B97926E24C3800ADFEC8 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4014B97826E24C3800ADFEC8 /* ConversationTableViewCell.swift */; };
 		4014B97B26E779B400ADFEC8 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4014B97A26E779B400ADFEC8 /* PhotoViewerViewController.swift */; };
+		4014B97D26E7A69900ADFEC8 /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4014B97C26E7A69900ADFEC8 /* NewConversationCell.swift */; };
 		403502A026CB4B4B004BD348 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035029F26CB4B4B004BD348 /* AppDelegate.swift */; };
 		403502A226CB4B4B004BD348 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502A126CB4B4B004BD348 /* SceneDelegate.swift */; };
 		403502A426CB4B4B004BD348 /* ExampleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502A326CB4B4B004BD348 /* ExampleListViewController.swift */; };
@@ -107,6 +108,7 @@
 		4004B1E726DD237A005CC3EB /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
 		4014B97826E24C3800ADFEC8 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		4014B97A26E779B400ADFEC8 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
+		4014B97C26E7A69900ADFEC8 /* NewConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationCell.swift; sourceTree = "<group>"; };
 		4035029C26CB4B4B004BD348 /* ios100ToyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios100ToyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4035029F26CB4B4B004BD348 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		403502A126CB4B4B004BD348 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				40C2442726E01BC200374DB2 /* NewConversationViewController.swift */,
 				4014B97826E24C3800ADFEC8 /* ConversationTableViewCell.swift */,
 				4014B97A26E779B400ADFEC8 /* PhotoViewerViewController.swift */,
+				4014B97C26E7A69900ADFEC8 /* NewConversationCell.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -864,6 +867,7 @@
 				407A1FF126D5680B0058F84D /* AuthManager.swift in Sources */,
 				403502A426CB4B4B004BD348 /* ExampleListViewController.swift in Sources */,
 				403502A026CB4B4B004BD348 /* AppDelegate.swift in Sources */,
+				4014B97D26E7A69900ADFEC8 /* NewConversationCell.swift in Sources */,
 				407A1F4726CE6EE80058F84D /* NewsModel.swift in Sources */,
 				4014B97B26E779B400ADFEC8 /* PhotoViewerViewController.swift in Sources */,
 				403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */,
