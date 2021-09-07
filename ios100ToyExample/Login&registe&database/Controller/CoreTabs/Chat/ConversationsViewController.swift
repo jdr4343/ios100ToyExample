@@ -188,8 +188,7 @@ class ConversationsViewController: UIViewController {
             }
         })
     }
-}//메시지에서 대화생성 날짜 이후보다 날짜가 더 큰 메시지만 표시하도록 하겠습니다. 그 이유는 대화 목록을 지웠음에도 상대방에게 대화목록이 남아 있다면 표시되기 때문입니다.
-
+}
 //MARK: - TableView
 
 extension ConversationsViewController: UITableViewDelegate, UITableViewDataSource {

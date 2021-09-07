@@ -612,34 +612,68 @@ extension DatabaseManager {
                         //받는사람의 최신 메시지르 업데이트 합니다.
                         
                         strongSelf.database.child("\(otherUserEmail)/conversations").observeSingleEvent(of: .value, with: { snapshot in
-                            guard var otherUserConversations = snapshot.value as? [[String: Any]] else {
-                                completion(false)
-                                return
-                            }
-                            
                             //conversationId의 항목의 대화 배열에서 최신 메시지를 업데이트 하겠습니다.
                             let updateValue: [String: Any] = [
                                 "date": dateString,
                                 "is_read": false,
                                 "message": message
                             ]
+                            var databaseEntryConversations = [[String: Any]]()
                             
-                            var targetConversation: [String: Any]?
-                            var position = 0
-                            
-                            for conversationDictionary in otherUserConversations {
-                                if let currentId = conversationDictionary["id"] as? String, currentId == conversation {
-                                    targetConversation = conversationDictionary
-                                    break
-                                }
-                                position += 1
-                            }
-                            targetConversation?["latest_message"] = updateValue
-                            guard let finerConversation = targetConversation else {
+                            guard let currentName = UserDefaults.standard.value(forKey: "name") as? String else {
                                 return
                             }
-                            otherUserConversations[position] = finerConversation
-                            strongSelf.database.child("\(otherUserEmail)/conversations").setValue(otherUserConversations) { error, _ in
+                            
+                            if var otherUserConversations = snapshot.value as? [[String: Any]]  {
+                                 
+                                var targetConversation: [String: Any]?
+                                var position = 0
+                                
+                                for conversationDictionary in otherUserConversations {
+                                    if let currentId = conversationDictionary["id"] as? String, currentId == conversation {
+                                        targetConversation = conversationDictionary
+                                        break
+                                    }
+                                    position += 1
+                                }
+                                
+                                if var targetConversation = targetConversation {
+                                    targetConversation["latest_message"] = updateValue
+                                    otherUserConversations[position] = targetConversation
+                                    databaseEntryConversations = otherUserConversations
+                                }
+                                else {
+                                print("현재 컬렉션에서 찾는것에 실패 했습니다.")
+                                    let newConversationData: [String: Any] =
+                                        [
+                                            "id": conversation,
+                                            "other_user_email": DatabaseManager.safeEmail(emailAddress: currentEmail),
+                                            "name": currentName,
+                                            "latest_message": updateValue
+                                        ]
+                                    otherUserConversations.append(newConversationData)
+                                    databaseEntryConversations = otherUserConversations
+                                }
+                            }
+                            else {
+                                print("현재 컬렉션이 존재하지 않습니다.")
+                                let newConversationData: [String: Any] =
+                                    [
+                                        "id": conversation,
+                                        "other_user_email": DatabaseManager.safeEmail(emailAddress: currentEmail),
+                                        "name": currentName,
+                                        "latest_message": updateValue
+                                    ]
+                                //사용자가 기존 대화를 지우고 새롭게 대화했던 상대와 대화를 시작할때의 배열이 될 것 입니다.
+                                //이렇게 새 배열을 만드는 이유는 중복을 피하기 위해서 입니다. 기술적으로 사용자는 대화를 지웠다고 생각하겠지만 상대방에게는 대화가 남아 있을것 이므로 사용자가 기존 대화를 지우고 다시 대화를 시작할 경우 중복이 일어날것이기 떄문입니다.
+                                databaseEntryConversations = [newConversationData]
+                            
+                            
+                            }
+                          
+                            
+                          
+                            strongSelf.database.child("\(otherUserEmail)/conversations").setValue(databaseEntryConversations) { error, _ in
                                 guard error == nil else {
                                     completion(false)
                                     return
