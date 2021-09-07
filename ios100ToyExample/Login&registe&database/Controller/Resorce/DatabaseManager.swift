@@ -60,11 +60,10 @@ extension DatabaseManager {
     ///    -completion: 데이터베이스 입력이 성공한 경우 결과에 대한 비동기 콜백입니다.
     
     public func userExists(with email: String, completion: @escaping ((Bool) -> Void)) {
-        var safeEmail = email.replacingOccurrences(of: ".", with: "-")
-        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
         database.child(safeEmail).observeSingleEvent(of: .value, with: { snapshot in
-            guard snapshot.value as? String != nil else {
+            guard snapshot.value as? [String: Any] != nil else {
                 completion(false)
                 return
             }
@@ -126,14 +125,14 @@ extension DatabaseManager {
     //MARK: - 대화 / 채팅 / 메시지
     
     //검색 기능 구현을 위해 함수를 추가합니다.
-    public func getAllUsers(complation: @escaping (Result<[[String:String]], Error>) -> Void) {
+    public func getAllUsers(completion: @escaping (Result<[[String:String]], Error>) -> Void) {
         database.child("users").observeSingleEvent(of: .value, with: { snapshot in
             guard let value = snapshot.value as? [[String:String]] else {
-                complation(.failure(DatabaseError.failedToFetch))
+                completion(.failure(DatabaseError.failedToFetch))
                 return
             }
             //값을 전달합니다.
-            complation(.success(value))
+            completion(.success(value))
         })
     }
     
@@ -292,7 +291,7 @@ extension DatabaseManager {
                 if var conversations = snapshot.value as? [[String: Any]] {
                     //추가
                     conversations.append(recipient_newConversationData)
-                    self?.database.child("\(otherUserEmail)/conversations").setValue(conversationID)
+                    self?.database.child("\(otherUserEmail)/conversations").setValue(conversations)
                 } else {
                     //생성
                     self?.database.child("\(otherUserEmail)/conversations").setValue([recipient_newConversationData])
@@ -663,14 +662,47 @@ extension DatabaseManager {
                     print("대화가 삭제 되었습니다.")
                     completion(true)
                 })
+            }
         }
+        
     }
-   
-}
-
-
-
-
-//MARK: - 프로필 삭제
+    
+    //MARK: - 프로필 삭제
+    
+    
+    //MARK: - 검색시 진행중인 대화 목록이 있을 경우 존재하는 대화 데이터베이스와 재사용 합니다.
+    
+    public func conversationExists(with targetRecipientEmail: String, completion: @escaping (Result<String, Error>) -> Void) {
+        let safeRecipientEmail = DatabaseManager.safeEmail(emailAddress: targetRecipientEmail)
+        guard let senderEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+            return
+        }
+        let safeSenderEmail = DatabaseManager.safeEmail(emailAddress: senderEmail)
+        
+        database.child("\(safeRecipientEmail)/conversations").observeSingleEvent(of: .value, with: { snapshot in
+            guard let collection = snapshot.value as? [[String: Any]] else {
+                completion(.failure(DatabaseError.failedToFetch))
+                return
+            }
+            //진행중인 대화를 찾으면 연결 합니다.
+            if let conversation = collection.first(where: {
+                guard let targetSenderEmail = $0["other_user_email"] as? String else {
+                    return false
+                }
+                return safeSenderEmail == targetSenderEmail
+            }) {
+                //id를 얻습니다.
+                guard let id = conversation["id"] as? String else {
+                    completion(.failure(DatabaseError.failedToFetch))
+                    return
+                }
+                //id를 전달 합니다.
+                completion(.success(id))
+                return
+            }
+            completion(.failure(DatabaseError.failedToFetch))
+            return
+        })
+    }
 }
 

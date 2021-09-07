@@ -129,25 +129,65 @@ class ConversationsViewController: UIViewController {
     @objc private func didTapComposeButton() {
         let vc = NewConversationViewController()
         vc.Chatcompletion = { [weak self] result in
-            //result는 옆의 유형처럼 전달되서 구분 가능하게 해줍니다. ["name": "아이유", "email": "IU-naver-com"]
-            self?.createNewConversation(result: result)
+            guard let strongSelf = self else {
+                return
+            }
+            //검색시 이미 진행중인 대화가 있다면 그 대화와 연결합니다.
+            let currentConversations = strongSelf.conversations
+            
+            if let targetConversation = currentConversations.first(where: {
+                $0.otherUserEmail == DatabaseManager.safeEmail(emailAddress: result.email)
+            }) {
+                let vc = ChatViewController(with: targetConversation.otherUserEmail, id: targetConversation.id)
+                //새로운 대화가 아님을 알립니다.
+                vc.isNewConversation = false
+                vc.title = targetConversation.name
+                vc.navigationItem.largeTitleDisplayMode = .never
+                strongSelf.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                //새대화를 생성합니다. / result는 옆의 유형처럼 전달되서 구분 가능하게 해줍니다. ["name": "아이유", "email": "IU-naver-com"]
+                strongSelf.createNewConversation(result: result)
+            }
         }
         let nvc = UINavigationController(rootViewController: vc)
         present(nvc, animated: true)
     }
+    
     private func createNewConversation(result: SearchResult) {
         //result의 결과를 토대로 구분하고 대화하고 있는 상대를 알수 있도록 title을 바꿔줍니다..
         let name = result.name
-        let email = result.email
+        let email = DatabaseManager.safeEmail(emailAddress: result.email)
         
-        let vc = ChatViewController(with: email, id: nil)
-        //새로운 대화임을 알립니다.
-        vc.isNewConversation = true
-        vc.title = name
-        vc.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(vc, animated: true)
+        //두 사용자와의 대화가 존재하는 경우 (데이터베이스)를 체크합니다.
+        //이렇게 연결하여 주는 이유는 위에서 한 사용자가 대화 항목을 지우고 대화를 지운 사람이 새 대화를 만들경우 두 사용자간의 중복 대화가 생기는 걸 방지하기 위합입니다.
+        //존재한다면 conversationId 를 재사용합니다.
+        //그렇지 않다면 기존 코드를 사용합니다.
+        DatabaseManager.shared.conversationExists(with: email, completion: { [weak self] result in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            switch result {
+            case .success(let conversationId):
+                //진행중인 대화 데이터베이스 항목이 있으므로 두 사용자의 대화를 연결 합니다.
+                let vc = ChatViewController(with: email, id: conversationId)
+                //새로운 대화가 아님을 알립니다.
+                vc.isNewConversation = false
+                vc.title = name
+                vc.navigationItem.largeTitleDisplayMode = .never
+                strongSelf.navigationController?.pushViewController(vc, animated: true)
+                
+            case .failure(_):
+                //진행중인 대화 데이터베이스 항목이 없으므로 대화를 생성합니다.
+                let vc = ChatViewController(with: email, id: nil)
+                //새로운 대화임을 알립니다.
+                vc.isNewConversation = true
+                vc.title = name
+                vc.navigationItem.largeTitleDisplayMode = .never
+                strongSelf.navigationController?.pushViewController(vc, animated: true)
+            }
+        })
     }
-
 }
 
 //MARK: - TableView
@@ -168,11 +208,16 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let model = conversations[indexPath.row]
+        openConversation(model)
+    }
+     
+    func openConversation(_ model: Conversation) {
         let vc = ChatViewController(with: model.otherUserEmail, id: model.id)
         vc.title = model.name
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80

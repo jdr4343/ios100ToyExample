@@ -636,6 +636,7 @@
 		407A1FF526D669A30058F84D /* Resorce */ = {
 			isa = PBXGroup;
 			children = (
+				406FE6B226DC00FD0036DE44 /* Model.swift */,
 				407A1FE926D524570058F84D /* GoogleService-Info.plist */,
 				403502A126CB4B4B004BD348 /* SceneDelegate.swift */,
 				4078640626CE06A200C864FD /* FrameExtensions.swift */,
@@ -650,7 +651,6 @@
 		407A1FF626D669D30058F84D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				406FE6B226DC00FD0036DE44 /* Model.swift */,
 				407A1FF526D669A30058F84D /* Resorce */,
 				407A1FF926D66A130058F84D /* Onbording */,
 				407A1FF826D66A050058F84D /* CoreTabs */,
