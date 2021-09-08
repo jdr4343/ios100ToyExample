@@ -245,6 +245,7 @@ class ChatViewController: MessagesViewController {
     //위치 정보 액션시트 버튼 액션
     private func presentLocationInputActionSheet() {
         let vc = LocationPickerViewController(coordinates: nil)
+        vc.isPickable = true
         vc.title = "위치 정보를 선택 하세요"
         vc.navigationItem.largeTitleDisplayMode = .never
         vc.completion = { [weak self] selectedCoordinates in

@@ -13,7 +13,7 @@ class LocationPickerViewController: UIViewController {
 
     public var completion: ((CLLocationCoordinate2D) -> Void)?
     private var coordinates: CLLocationCoordinate2D?
-    private var isPickable = true
+    public var isPickable = true
     //지도 생성
     private let map: MKMapView = {
         let map = MKMapView()
@@ -33,6 +33,7 @@ class LocationPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //보내는 사람에게만 제스처를 연결하고 전송 버튼을 보여주겠습니다. 위치 경로를 클릭해서 들어오는 사람은 이 버튼을 보지 못합니다.
         if isPickable {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "전송", style: .done
@@ -48,7 +49,7 @@ class LocationPickerViewController: UIViewController {
             guard let coordinates = self.coordinates else  {
                 return
             }
-            //지도가 더 가깝게 보이도록 합니다.
+            //지도가 더 가깝게 보이도록 합니다. // 구현대기
             //map.setRegion(<#T##region: MKCoordinateRegion##MKCoordinateRegion#>, animated: <#T##Bool#>)
             //지도의 위치를 핀으로 고정하여 사용자가 탭한 위치를 시각적으로 볼수 있도록 합니다.
             let pin = MKPointAnnotation()

@@ -7,13 +7,13 @@
 
 import UIKit
 import FirebaseStorage
+import SDWebImage
 
 //프로토콜을 선언하여 ProfileViewController에서 버튼의 액션을 지정해주겠습니다.
 protocol ProfileInfoHeaderTableHeaderViewDelegate: AnyObject {
     func didTapPostButton()
     func didTapEditProfileButton()
 }
-
 
 
 //헤더를 만들겠습니다.
@@ -24,9 +24,10 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     //프로토콜 연결
     public weak var delegate: ProfileInfoHeaderTableHeaderViewDelegate?
     
+    
     //MARK: - 요소 추가
 
-    //헤더  백그라운드 이미지 뷰
+    //헤더  백그라운드 이미지 뷰 // 구현대기 서버에 올리고 변경가능하게
     private let headerImageView: UIView = {
         let imageView = UIView()
         imageView.contentMode = .scaleAspectFill
@@ -74,7 +75,8 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     //이름 라벨
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "신지훈"
+        let name = UserDefaults.standard.value(forKey: "name") as? String ?? "noName"
+        label.text = name
         label.textColor = .label
         label.font = .boldSystemFont(ofSize: 16)
         label.textAlignment = .center
@@ -145,14 +147,13 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         // 디렉터리 구조에서 아래 유형의 이미지에 대한 URL을 반환하는 함수를 생성하겠습니다.
         let path = "images/"+filename
         let imageView = profileImageView
-        StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
-            guard let strongSelf = self else {
-                return
-            }
+        //url을 가져옵니다.
+        StorageManager.shared.downloadURL(for: path, completion: { result in
+            
             switch result {
             case .success(let url):
                 // 이미지 다운로드
-                strongSelf.downloadImage(imageView: imageView, url: url)
+                imageView.sd_setImage(with: url, completed: nil)
             case .failure(let error):
                 print("Url 다운로드에 실패 했습니다.: \(error)")
             }
@@ -174,21 +175,6 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         
     }
     
-    //다운로드 이미지 기능 / url을 전달합니다.
-    func downloadImage(imageView: UIImageView, url: URL) {
-        URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
-            guard let data = data, error == nil else {
-                return
-            }
-            //다운로드 받은 url을 UIImage로 변환 합니다.
-            DispatchQueue.main.async {
-                let image = UIImage(data: data)
-                imageView.image = image
-            }
-        })
-        // URLSession.shared.dataTask가 작업을 시작하기 위해 추가.
-        .resume()
-    }
 
     
     //MARK: - add
