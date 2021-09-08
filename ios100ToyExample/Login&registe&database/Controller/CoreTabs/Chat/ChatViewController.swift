@@ -244,7 +244,8 @@ class ChatViewController: MessagesViewController {
     
     //위치 정보 액션시트 버튼 액션
     private func presentLocationInputActionSheet() {
-        let vc = LocationPickerViewController()
+        let vc = LocationPickerViewController(coordinates: nil)
+        vc.title = "위치 정보를 선택 하세요"
         vc.navigationItem.largeTitleDisplayMode = .never
         vc.completion = { [weak self] selectedCoordinates in
             guard let strongSelf = self else {
@@ -547,9 +548,40 @@ extension ChatViewController: MessageCellDelegate {
             present(vc, animated: true)
         
       default:
-          break
+        break
       }
     }
+    //사용자가 위치 정보 메시지를 클릭하면 지도를 보여주겠습니다.
+    func didTapMessage(in cell: MessageCollectionViewCell) {
+        guard let indexPath = messagesCollectionView.indexPath(for: cell) else {
+            return
+        }
+        
+        let message = messages[indexPath.section]
+        
+        switch message.kind {
+        
+        case .location(let locationData):
+            let coordinates = locationData.location.coordinate
+            //초기화를 통해 위치를 가져옵니다.
+            let vc = LocationPickerViewController(coordinates: coordinates)
+            vc.title = "위치"
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        case .video(let media):
+            guard let videoUrl = media.url else {
+                return
+            }
+            //내장된 프레임 워크를 사용 하겠습니다.
+            let vc = AVPlayerViewController()
+            vc.player = AVPlayer(url: videoUrl)
+            present(vc, animated: true)
+            
+        default:
+            break
+        }
+    }
 }
+
 
 
