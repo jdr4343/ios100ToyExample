@@ -11,6 +11,7 @@ import InputBarAccessoryView
 import SDWebImage
 import AVFoundation
 import AVKit
+import CoreLocation
 
 //메시지
 struct Message: MessageType {
@@ -63,6 +64,18 @@ struct Media: MediaItem {
 
 }
 
+//위치
+struct Location: LocationItem {
+    var location: CLLocation
+    var size: CGSize
+}
+
+//오디오 // 구현대기
+struct Audio: AudioItem {
+    var url: URL
+    var duration: Float
+    var size: CGSize
+}
 
 
 //채팅 화면 입니다.
@@ -121,7 +134,7 @@ class ChatViewController: MessagesViewController {
         view.backgroundColor = .brown
         self.tabBarController?.tabBar.isHidden = true
         setupInputButton()
-       
+        navigationController?.navigationBar.tintColor = .label
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
@@ -145,6 +158,7 @@ class ChatViewController: MessagesViewController {
         let button = InputBarButtonItem()
         button.setSize(CGSize(width: 35, height: 35), animated: false)
         button.setImage(UIImage(systemName: "paperclip"), for: .normal)
+        button.tintColor = .label
         //함수 내부에서 액션을 전달 하겠습니다.
         button.onTouchUpInside { [weak self] _ in
             self?.presentInputActionSheet()
@@ -165,6 +179,9 @@ class ChatViewController: MessagesViewController {
             self?.presentVideoInputActionSheet()
         }))
         actionSheet.addAction(UIAlertAction(title: "오디오", style: .default, handler: {  _ in
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "위치 정보", style: .default, handler: {  _ in
             
         }))
         actionSheet.addAction(UIAlertAction(title: "닫기", style: .default, handler: nil))
@@ -225,7 +242,18 @@ class ChatViewController: MessagesViewController {
         present(actionSheet, animated: true)
     }
     
-    
+    //위치 정보 액션시트 버튼 액션
+    private func presentLocationInputActionSheet() {
+        let vc = LocationPickerViewController()
+        vc.navigationItem.largeTitleDisplayMode = .never
+        vc.completion = { [weak self] selectedCoordinates in
+            //경도 / 위도
+            let logitude: Double = selectedCoordinates.longitude
+            let latitude: Double = selectedCoordinates.latitude
+            print("경도 \(logitude) | 위도 \(latitude)")
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
   
     

@@ -64,6 +64,7 @@ class NewConversationViewController: UIViewController {
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(dissmissSelf))
+        navigationController?.navigationBar.tintColor = .label
         searchBar.becomeFirstResponder()
         searchBar.delegate = self
         view.addSubview(noResultLabel)

@@ -65,6 +65,7 @@ class ConversationsViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose,
                                                             target: self,
                                                             action: #selector(didTapComposeButton))
+        navigationController?.navigationBar.tintColor = .label
         tableView.delegate = self
         tableView.dataSource = self
         fetchConversations()

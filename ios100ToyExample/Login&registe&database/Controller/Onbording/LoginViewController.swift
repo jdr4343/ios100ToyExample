@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
         field.tintColor = .darkGray
         field.selectedTitleColor = .systemPink
         field.selectedLineColor = .darkGray
-        field.textColor = .darkGray
+        field.textColor = .label
         field.lineColor = .lightGray
         field.lineHeight = 1.0
         field.selectedLineHeight = 2.0
@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
         field.tintColor = .darkGray
         field.selectedTitleColor = .systemPink
         field.selectedLineColor = .darkGray
-        field.textColor = .darkGray
+        field.textColor = .label
         field.lineColor = .lightGray
         field.lineHeight = 1.0
         field.selectedLineHeight = 2.0
