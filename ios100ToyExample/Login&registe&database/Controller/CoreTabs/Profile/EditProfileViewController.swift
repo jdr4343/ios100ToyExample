@@ -70,6 +70,7 @@ final class EditProfileViewController: UIViewController {
         profileCoverImageView.addGestureRecognizer(coverGesture)
         
         downloadCover()
+        downloadProfile()
     }
     
     override func viewDidLayoutSubviews() {
@@ -129,7 +130,7 @@ final class EditProfileViewController: UIViewController {
     
     //MARK: - 구현대기
     @objc func didTapSave() {
-        uploadCover()
+        uploadCoverProfile()
         
         navigationController?.dismiss(animated: true, completion: nil)
     }
@@ -138,8 +139,9 @@ final class EditProfileViewController: UIViewController {
     }
     
     
-    // 커버사진 업로드
-    private func uploadCover() {
+    // 커버사진 업로드 / 프로필 사진 업로드
+    private func uploadCoverProfile() {
+        //커버 사진 업로드
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return
         }
@@ -157,7 +159,25 @@ final class EditProfileViewController: UIViewController {
             case .failure(let error):
                 print("스토리지 오류 \(error)")
             }
-            
+        })
+        //프로필 사진 업로드
+        guard let name = UserDefaults.standard.value(forKey: "name") as? String else {
+            return
+        }
+        guard let profileimage = profilePhotoimageView.image,
+              let data = profileimage.pngData() else {
+            return
+        }
+        let AppUser = UserModel(username: name, emailAddress: safeEmail)
+        let proFilename = AppUser.profilePictureFileName
+        StorageManager.shared.uploadProfilePicture(with: data, fileName: proFilename, completion: { result in
+            switch result {
+            case .success(let downloadUrl):
+                UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                print(downloadUrl)
+            case .failure(let error):
+                print("스토리지 오류 \(error)")
+            }
         })
     }
     //커버 사진 다운로드
@@ -178,6 +198,29 @@ final class EditProfileViewController: UIViewController {
             }
         })
     }
+    //프로필 사진 다운로드
+    func downloadProfile() {
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+            return
+        }
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        let path = "images/\(safeEmail)_profile_picture.png"
+        
+        StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
+            switch result {
+            case .success(let url):
+                //다운로드 URL을 제공합니다.
+                DispatchQueue.main.async {
+                    self?.profilePhotoimageView.sd_setImage(with: url, completed: nil)
+                }
+
+            case .failure(let error):
+                print("이미지 URL을 가져오지 못했습니다.\(error)")
+            }
+        })
+    }
+    
+  
 }
 
 
