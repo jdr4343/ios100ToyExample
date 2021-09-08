@@ -44,6 +44,7 @@ class LocationPickerViewController: UIViewController {
         guard let coordinates = coordinates else {
             return
         }
+        navigationController?.popViewController(animated: true)
         completion?(coordinates)
     }
 
@@ -53,9 +54,16 @@ class LocationPickerViewController: UIViewController {
         let coordinates = map.convert(locationInView, toCoordinateFrom: map)
         self.coordinates = coordinates
         
+        //새로운 지역을 핀으로 고정하면 기존의 고정되어 있는 핀을 지우겠습니다.
+        for annotation in map.annotations {
+            map.removeAnnotation(annotation)
+        }
+        
         //지도의 위치를 핀으로 고정하여 사용자가 탭한 위치를 시각적으로 볼수 있도록 합니다.
         let pin = MKPointAnnotation()
-        pin.coordinate = self.coordinates
+        pin.coordinate = coordinates
         map.addAnnotation(pin)
+       
+        
     }
 }

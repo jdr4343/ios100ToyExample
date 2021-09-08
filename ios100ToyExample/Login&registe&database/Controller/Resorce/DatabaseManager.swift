@@ -7,6 +7,7 @@
 
 import FirebaseDatabase
 import MessageKit
+import CoreLocation
 
 final class DatabaseManager {
     
@@ -437,7 +438,7 @@ extension DatabaseManager {
                     kind = .photo(media)
                     
                     //비디오 유형
-                } else  if type == "video" {
+                } else if type == "video" {
                     guard let videoUrl = URL(string: content),
                           let placehorder = UIImage(named: "비디오플레이어") else {
                         return nil
@@ -447,7 +448,18 @@ extension DatabaseManager {
                                       placeholderImage: placehorder,
                                       size: CGSize(width: 300, height: 300))
                     kind = .video(media)
+                  //위치 정보 유형
+                } else if type == "location" {
+                    let locationComponents = content.components(separatedBy: ",")
+                    guard let longitude = Double(locationComponents[0]),
+                          let latitude = Double(locationComponents[1]) else {
+                        return nil
+                    }
                     
+                    let location = Location(location: CLLocation(latitude: latitude, longitude: longitude),
+                                                                 size: CGSize(width: 300, height: 300))
+                                            
+                    kind = .location(location)
                 }
                 //텍스트 유형
                 else {
@@ -509,7 +521,10 @@ extension DatabaseManager {
                     message = targetUrlString
                 }
                 break
-            case .location(_):
+            case .location(let locationData):
+                let location = locationData.location
+                    //위도,경도 수행
+                    message = "\(location.coordinate.longitude),\(location.coordinate.latitude)"
                 break
             case .emoji(_):
                 break

@@ -181,8 +181,8 @@ class ChatViewController: MessagesViewController {
         actionSheet.addAction(UIAlertAction(title: "오디오", style: .default, handler: {  _ in
             
         }))
-        actionSheet.addAction(UIAlertAction(title: "위치 정보", style: .default, handler: {  _ in
-            
+        actionSheet.addAction(UIAlertAction(title: "위치 정보", style: .default, handler: { [weak self] _ in
+            self?.presentLocationInputActionSheet()
         }))
         actionSheet.addAction(UIAlertAction(title: "닫기", style: .default, handler: nil))
         present(actionSheet, animated: true)
@@ -247,10 +247,39 @@ class ChatViewController: MessagesViewController {
         let vc = LocationPickerViewController()
         vc.navigationItem.largeTitleDisplayMode = .never
         vc.completion = { [weak self] selectedCoordinates in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            guard let messageId = strongSelf.createMessageId(),
+                  let conversationId = strongSelf.conversationId ,
+                  let name = strongSelf.title,
+                  let selfSender = strongSelf.selfSender else {
+                return
+            }
+            
             //경도 / 위도
-            let logitude: Double = selectedCoordinates.longitude
+            let longitude: Double = selectedCoordinates.longitude
             let latitude: Double = selectedCoordinates.latitude
-            print("경도 \(logitude) | 위도 \(latitude)")
+            print("경도 \(longitude) | 위도 \(latitude)")
+            
+            let location = Location(location: CLLocation(latitude: latitude, longitude: longitude), size: .zero)
+            
+            let message = Message(sender: selfSender,
+                                  messageId: messageId,
+                                  sentDate: Date(),
+                                   kind: .location(location))
+            
+            DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: strongSelf.otherUserEmail, name: name, newMessage: message, completion: { success in
+                
+                if success {
+                    print("위치 정보 메시지가 성공적으로 전송 되었습니다.")
+                } else  {
+                    print("위치 정보 메시지 전송에 실패 했습니다.")
+                }
+                
+            })
+            
         }
         navigationController?.pushViewController(vc, animated: true)
     }
