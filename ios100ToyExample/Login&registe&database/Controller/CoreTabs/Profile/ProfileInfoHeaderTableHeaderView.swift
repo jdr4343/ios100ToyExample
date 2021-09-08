@@ -28,8 +28,8 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     //MARK: - 요소 추가
 
     //헤더  백그라운드 이미지 뷰 // 구현대기 서버에 올리고 변경가능하게
-    private let headerImageView: UIView = {
-        let imageView = UIView()
+    private let headerImageView: UIImageView = {
+        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -156,6 +156,18 @@ class ProfileInfoHeaderTableHeaderView: UIView{
                 imageView.sd_setImage(with: url, completed: nil)
             case .failure(let error):
                 print("Url 다운로드에 실패 했습니다.: \(error)")
+            }
+        })
+        
+        let coverimageView = headerImageView
+        let coverfilename = "cover_image_" + safeEmail + ".png"
+        let coverpath = "cover_images/" + coverfilename
+        StorageManager.shared.downloadURL(for: coverpath, completion: { result in
+            switch result {
+            case .success(let url):
+                coverimageView.sd_setImage(with: url, completed: nil)
+            case .failure(_):
+                print("커버 사진 URL 다운로드에 실패했습니다.")
             }
         })
 

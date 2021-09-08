@@ -68,6 +68,8 @@ final class EditProfileViewController: UIViewController {
         profilePhotoimageView.addGestureRecognizer(profileGesture)
         let coverGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileCoverImageView))
         profileCoverImageView.addGestureRecognizer(coverGesture)
+        
+        downloadCover()
     }
     
     override func viewDidLayoutSubviews() {
@@ -158,7 +160,24 @@ final class EditProfileViewController: UIViewController {
             
         })
     }
-    
+    //커버 사진 다운로드
+    private func downloadCover() {
+        let imageView = profileCoverImageView
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+            return
+        }
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        let filename = "cover_image_" + safeEmail + ".png"
+        let path = "cover_images/" + filename
+        StorageManager.shared.downloadURL(for: path, completion: { result in
+            switch result {
+            case .success(let url):
+                imageView.sd_setImage(with: url, completed: nil)
+            case .failure(_):
+                print("커버 사진 URL 다운로드에 실패했습니다.")
+            }
+        })
+    }
 }
 
 
