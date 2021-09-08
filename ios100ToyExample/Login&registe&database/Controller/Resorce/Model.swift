@@ -47,6 +47,7 @@ struct UserModel {
     var profilePictureFileName: String {
         return "\(safeEmail)_profile_picture.png"
     }
+    
 }
 
 

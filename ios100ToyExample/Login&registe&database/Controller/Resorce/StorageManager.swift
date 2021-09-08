@@ -20,7 +20,7 @@ final class StorageManager {
         case faildToUpload
         case failedToGetDownloadUrl
     }
-    
+    //프로필
     //데이터를 받아오고 파일 이름(명명구조 표준화)을 저장하는 함수를 추가하겠습니다. / 문자열 타입으로 URL을 다운로드 할 것 입니다.
     /* 명명 구조
      /images/이메일-naver-com_profile_picture.png
@@ -90,7 +90,27 @@ final class StorageManager {
         })
     }
     
+    //MARK: - 커버 사진을 스토리지에 업로드 합니다.
     
+    public func uploadCoverPhoto(with data: Data, fileName: String, completion: @escaping (Result<String, Error>) -> Void) {
+        storage.child("cover_images/\(fileName)").putData(data, metadata: nil, completion: { [weak self] metadata, error in
+            guard error == nil else {
+                print("파이어베이스에 동영상을 업로드 하는 것을 실패 하였습니다.")
+                completion(.failure(StorageErrors.faildToUpload))
+                return
+            }
+            self?.storage.child("cover_images/\(fileName)").downloadURL(completion: { url, error in
+                guard let url = url else {
+                    print("커버 사진 URL을 다운로드 하지 못했스니다.")
+                    completion(.failure(StorageErrors.failedToGetDownloadUrl))
+                    return
+                }
+                let urlString = url.absoluteString
+                print("커버 사진을 다운로드 하는것에 성공 했습니다.")
+                completion(.success(urlString))
+            })
+        })
+    }
     
     
    

@@ -17,25 +17,25 @@ final class EditProfileViewController: UIViewController {
         return tableView
     }()
     
-    private let ProfileBackgroundPhotoButton: UIButton = {
-        let button = UIButton()
-        button.layer.masksToBounds = true
-        button.setBackgroundImage(UIImage(named: "헤더이미지"), for: .normal)
-        button.layer.borderColor = UIColor.secondarySystemBackground.cgColor
-        button.addTarget(self, action: #selector(didTapProfileBackgroundPhotoButton), for: .touchUpInside)
-        return button
+    private let profileCoverImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "헤더이미지")
+        imageView.layer.borderColor = UIColor.secondarySystemBackground.cgColor
+        return imageView
     }()
     
-    private let ProfilePhotoButton: UIButton = {
-        let button = UIButton()
-        button.layer.masksToBounds = true
-        button.setBackgroundImage(UIImage(systemName: "person.circle.fill"), for: .normal)
-        button.backgroundColor = .lightGray
-        button.tintColor = .white
-        button.layer.borderWidth = 5
-        button.layer.borderColor = UIColor.white.cgColor
-        button.addTarget(self, action: #selector(didtapProfilePhotoButton), for: .touchUpInside)
-        return button
+    private let profilePhotoimageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(systemName: "person.circle.fill")
+        imageView.backgroundColor = .lightGray
+        imageView.tintColor = .white
+        imageView.layer.borderWidth = 5
+        imageView.layer.borderColor = UIColor.white.cgColor
+        return imageView
     }()
     
     private var models = [[EditProfileFormModel]]()
@@ -59,6 +59,15 @@ final class EditProfileViewController: UIViewController {
                                                            action: #selector(didTapCancel))
         navigationController?.navigationBar.tintColor = .label
         
+        //imageView 제스쳐 활성화
+        profilePhotoimageView.isUserInteractionEnabled = true
+        profileCoverImageView.isUserInteractionEnabled = true
+        view.isUserInteractionEnabled = true
+        
+        let profileGesture = UITapGestureRecognizer(target: self, action: #selector(didtapProfilePhotoimageView))
+        profilePhotoimageView.addGestureRecognizer(profileGesture)
+        let coverGesture = UITapGestureRecognizer(target: self, action: #selector(didTapProfileCoverImageView))
+        profileCoverImageView.addGestureRecognizer(coverGesture)
     }
     
     override func viewDidLayoutSubviews() {
@@ -96,15 +105,15 @@ final class EditProfileViewController: UIViewController {
         let size = header.height/2
         
         //백그라운드 이미지
-        header.addSubview(ProfileBackgroundPhotoButton)
-        ProfileBackgroundPhotoButton.frame = CGRect(x: 0, y: 0, width: header.width, height: header.height)
+        header.addSubview(profileCoverImageView)
+        profileCoverImageView.frame = CGRect(x: 0, y: 0, width: header.width, height: header.height)
         
         //프로필 변경
-        header.addSubview(ProfilePhotoButton)
-        ProfilePhotoButton.frame = CGRect(x: (view.width-size)/2,
+        header.addSubview(profilePhotoimageView)
+        profilePhotoimageView.frame = CGRect(x: (view.width-size)/2,
                                            y: (header.height-size)/2,
                                            width: size, height: size)
-        ProfilePhotoButton.layer.cornerRadius = size/2.0
+        profilePhotoimageView.layer.cornerRadius = size/2.0
         
         
         
@@ -118,12 +127,37 @@ final class EditProfileViewController: UIViewController {
     
     //MARK: - 구현대기
     @objc func didTapSave() {
-        print("변경사항을 저장 할것입니다.")
+        uploadCover()
+        
+        navigationController?.dismiss(animated: true, completion: nil)
     }
     @objc private func didTapCancel() {
         dismiss(animated: true, completion: nil)
     }
     
+    
+    // 커버사진 업로드
+    private func uploadCover() {
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+            return
+        }
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        guard let image = profileCoverImageView.image,
+              let data = image.pngData() else {
+            return
+        }
+        let filename = "cover_image_" + safeEmail + ".png"
+        StorageManager.shared.uploadCoverPhoto(with: data, fileName: filename, completion: { result in
+            switch result {
+            case .success(let downloadUrl):
+                UserDefaults.standard.set(downloadUrl, forKey: "cover_image_")
+                print(downloadUrl)
+            case .failure(let error):
+                print("스토리지 오류 \(error)")
+            }
+            
+        })
+    }
     
 }
 
@@ -192,7 +226,7 @@ var count = 0
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     ///구현대기 프로필 이미지 삭제기능을 추가하고 이미지를 변경하는 작업을 추가 해야됨 아마 예측 가능 시나리오는 데이터베이스에서 이미지 URL을 지워주는 delete 기능을 활성화하고 이미지를 지워줘야할거 같음. 그리고 이미지를 변경하는 동시에 이미지가 delete되는 기능을 구현해야함 그러함으로서 이미지를 변경하게 되면 이미지가 지워지면서 자동으로 기본이미지로 변경되고 교체했을경우 데이터베이스에 저장되는 기능을 구현할것임 물론헤더 또한 저장해줘야하는데 아마 이름 형식을 바꿔주면 되지 않을까 싶음..또한 라벨또한 데이터베이스에 저장할수 있도록 생각해봐야함..아마 채팅기능이랑 비슷하지 않을까 싶음 대화 구현 방식을 참조해봐야 할거 같음
-    @objc func didtapProfilePhotoButton() {
+    @objc func didtapProfilePhotoimageView() {
         count = 1
         let actionSheet = UIAlertController(title: "프로필 사진 변경",
                                             message: "프로필 사진을 변경하시겠습니까?",
@@ -208,7 +242,7 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         present(actionSheet, animated: true)
     }
     
-    @objc func didTapProfileBackgroundPhotoButton() {
+    @objc func didTapProfileCoverImageView() {
         count = 2
         let actionSheet = UIAlertController(title: "배경화면 변경",
                                             message: "배경화면을 변경하시겠습니까?",
@@ -250,9 +284,9 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
             return
         }
         if count == 1 {
-            self.ProfilePhotoButton.setImage(selectedImage, for: .normal)
+            profilePhotoimageView.image = selectedImage
         } else if count == 2 {
-            self.ProfileBackgroundPhotoButton.setImage(selectedImage, for: .normal)
+            profileCoverImageView.image = selectedImage
         }
         
     }
