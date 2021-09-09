@@ -103,19 +103,19 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         clipsToBounds = true
         addSubViews()
         addButtonAction()
-        
+        profileCoverImage()
+
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private var profileChageObserver: NSObjectProtocol?
     //MARK: - Frame
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        //MARK: - 구현대기 / 백 그라운드 이미지 변경
-        //프로필 백 그라운드를 지정합니다. 가능하다면 사용자들이 지정하는 데로 변경하고 싶으나 필자의 기술적인 한계의 문제로 구현 안될수도 있습니다.
         headerImageView.frame = CGRect(x: 0, y: 0, width: width, height: height/2)
         
         UIGraphicsBeginImageContext(self.headerImageView.frame.size)
@@ -135,11 +135,41 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         profileImageView.layer.cornerRadius = profilePhotoSize/2.0
         profileImageView.center = center
         
+       
+        
+        //라벨
+        let bioLabelSize = bioLabel.sizeThatFits(self.frame.size)
+        nameLabel.frame = CGRect(x: 5, y: 5 + profileImageView.bottom, width: width-16, height: 40).integral
+        bioLabel.frame = CGRect(x: 5, y: 5 + nameLabel.bottom, width: width-16, height: bioLabelSize.height).integral
+        
+        
+        let buttonHeight = profilePhotoSize/4
+        editProfileButton.frame = CGRect(x: 5, y: bioLabel.bottom+10, width: width-16, height: buttonHeight).integral
+        postButton.frame = CGRect(x: profileImageView.right+(profilePhotoSize-20),
+                                  y: headerImageView.bottom,
+                                  width: 50,
+                                  height: 50).integral
+        
+    }
+    
+
+    
+    //MARK: - add
+    private func addSubViews() {
+        addSubview(headerImageView)
+        addSubview(profileImageView)
+        
+        addSubview(postButton)
+        addSubview(editProfileButton)
+        addSubview(nameLabel)
+        addSubview(bioLabel)
+    }
+    private func profileCoverImage() {
         //사진을 가져옵니다!
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return
         }
-
+        
         //데이터베이스에게 이메일 전달
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         let filename = safeEmail + "_profile_picture.png"
@@ -170,35 +200,10 @@ class ProfileInfoHeaderTableHeaderView: UIView{
                 print("커버 사진 URL 다운로드에 실패했습니다.")
             }
         })
-
-        
-        //라벨
-        let bioLabelSize = bioLabel.sizeThatFits(self.frame.size)
-        nameLabel.frame = CGRect(x: 5, y: 5 + profileImageView.bottom, width: width-16, height: 40).integral
-        bioLabel.frame = CGRect(x: 5, y: 5 + nameLabel.bottom, width: width-16, height: bioLabelSize.height).integral
-        
-        
-        let buttonHeight = profilePhotoSize/4
-        editProfileButton.frame = CGRect(x: 5, y: bioLabel.bottom+10, width: width-16, height: buttonHeight).integral
-        postButton.frame = CGRect(x: profileImageView.right+(profilePhotoSize-20),
-                                  y: headerImageView.bottom,
-                                  width: 50,
-                                  height: 50).integral
         
     }
-    
 
     
-    //MARK: - add
-    private func addSubViews() {
-        addSubview(headerImageView)
-        addSubview(profileImageView)
-        
-        addSubview(postButton)
-        addSubview(editProfileButton)
-        addSubview(nameLabel)
-        addSubview(bioLabel)
-    }
     
     //여기에서 위에서 만든 델리게이트를 연결해줍니다.
     private func addButtonAction() {

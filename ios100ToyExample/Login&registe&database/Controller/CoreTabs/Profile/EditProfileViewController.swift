@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 //프로필 변경 화면 입니다.
 final class EditProfileViewController: UIViewController {
@@ -36,6 +37,15 @@ final class EditProfileViewController: UIViewController {
         imageView.layer.borderWidth = 5
         imageView.layer.borderColor = UIColor.white.cgColor
         return imageView
+    }()
+    
+    //대화를 가저오는 동안 보여줄 스피너를 추가 하여 줍니다.
+    private let spinner: JGProgressHUD = {
+        let spinner = JGProgressHUD(style: .dark)
+        spinner.textLabel.text = "Save"
+        //spinner.show(in: tableview)
+        spinner.dismiss(afterDelay: 1)
+        return spinner
     }()
     
     private var models = [[EditProfileFormModel]]()
@@ -77,6 +87,7 @@ final class EditProfileViewController: UIViewController {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
+    
     
     //MARK: - 구현대기 / 텍스트 필드가 전해준 값 전달
     
@@ -127,12 +138,16 @@ final class EditProfileViewController: UIViewController {
     }
     
     
-    
+    //구현 오류 시 삭제 대기
     //MARK: - 구현대기
     @objc func didTapSave() {
         uploadCoverProfile()
+        self.spinner.show(in: self.view)
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        })
+          
         
-        navigationController?.dismiss(animated: true, completion: nil)
     }
     @objc private func didTapCancel() {
         dismiss(animated: true, completion: nil)
