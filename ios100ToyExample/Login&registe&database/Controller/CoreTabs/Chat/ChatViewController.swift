@@ -93,7 +93,7 @@ class ChatViewController: MessagesViewController {
     //채팅을 하고 있는 상대방을 나타냅니다.아래의 이니셜라이저로 초기화 하고 conversation에서 result의 email을 전달 받습니다!
     public let otherUserEmail: String
     //식별자를 만듭니다.
-    private let conversationId: String?
+    private var conversationId: String?
     
     //두 사용자의 이미지를 받아오기 위해 변수를 저장합니다.
     private var senderPhotoURL: URL?
@@ -447,8 +447,14 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             
             DatabaseManager.shared.createNewConversation(with: otherUserEmail, name: self.title ?? "User", firstMessage: message, completion: { [weak self] success in
                 if success {
-                    print("메시지가 정상적으로 작동 했습니다.")
                     self?.isNewConversation = false
+                    //첫번째 메시지가 화면에 표시되도록 합니다.
+                    let newConversationID = "conversation_\(message.messageId)"
+                    self?.conversationId = newConversationID
+                    self?.listenForMessages(id: newConversationID, shouldScrollToBottom: true)
+                    //메시지를 전송한후 키보드바의 텍스트를 지우겠습니다.
+                    self?.messageInputBar.inputTextView.text = nil
+                    print("메시지를 보냈습니다.")
                 } else {
                     print("메시지를 보내는것에 실패 했습니다")
                 }
@@ -459,8 +465,9 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 return
             }
             //기존 대화를 데이터베이스에서 가져오고 메시지를 보내겠습니다.
-            DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: otherUserEmail,name: name, newMessage: message, completion: { success in
+            DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: otherUserEmail,name: name, newMessage: message, completion: { [weak self] success in
                 if success {
+                    self?.messageInputBar.inputTextView.text = nil
                     print("메시지를 보냈습니다.")
                 } else {
                     print("메시지를 보내는데 실패했습니다.")

@@ -64,6 +64,11 @@ final class SettingViewController: UIViewController {
         actionSheet.addAction(UIAlertAction(title: "닫기", style: .cancel, handler: nil))
         //destructive는 사용자 데이터를 삭제하거나 앱을 취소 할수 없게 변경하는 작업에 이 옵션을 사용합니다.이옵션을 쓰면 강조 표현이 들어갑니다!!이게 중요한 점이쥬!!굳이 색깔을 안넣어도 된다니! 🤩
         actionSheet.addAction(UIAlertAction(title: "확인", style: .destructive, handler: { _ in
+            //사용자 기본값에 있는 캐시를 제거합니다.
+        
+            UserDefaults.standard.setValue(nil, forKey: "email")
+            UserDefaults.standard.setValue(nil, forKey: "name")
+            
             //페이스북 로그아웃 /아래의 메소드를 추가해 두번 로그아웃 하지 않도록 합니다.
             FBSDKLoginKit.LoginManager().logOut()
             

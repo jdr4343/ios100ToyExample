@@ -42,7 +42,7 @@ class ConversationsViewController: UIViewController {
         let label = UILabel()
         label.text = "대화 목록이 없습니다."
         label.textAlignment = .center
-        label.textColor = .gray
+        label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 21, weight: .medium)
         label.isHidden = true
         return label
@@ -68,7 +68,6 @@ class ConversationsViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .label
         tableView.delegate = self
         tableView.dataSource = self
-        fetchConversations()
         startListeningForConversations()
         
         //채팅이 바로 업데이트 되도록 추가
@@ -88,6 +87,7 @@ class ConversationsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
+        noConversationsLabel.frame = CGRect(x: 10, y: (view.height-100)/2, width: view.width-20, height: 100)
     }
     
     //데이터베이스의 해당 배열에 리스너를 연결하는 함수를 만들고 새 대화가 추가될때 마다 기본적으로 테이블을 업데이트 하겠습니다.
@@ -106,8 +106,12 @@ class ConversationsViewController: UIViewController {
             case .success(let conversations):
                 print("성공적으로 대화를 불러왔습니다.")
                 guard !conversations.isEmpty else {
+                    self?.tableView.isHidden = true
+                    self?.noConversationsLabel.isHidden = false
                     return
               }
+                self?.tableView.isHidden = false
+                self?.noConversationsLabel.isHidden = true
                 self?.conversations = conversations
                 
                 //새로운 대화를 할당
@@ -115,16 +119,14 @@ class ConversationsViewController: UIViewController {
                     self?.tableView.reloadData()
                 }
             case .failure(let error):
+                self?.tableView.isHidden = true
+                self?.noConversationsLabel.isHidden = false
                 print("대화를 얻는데 실패 했습니다 - \(error)")
             }
         })
     }
 
-    
-    //대화를 가져오겠습니다
-    private func fetchConversations() {
-        tableView.isHidden = false
-    }
+ 
     
     //대화창을 연결합니다. /새 대화를 생성하고 해당 결과를 보내서 알맞은 사람과 대화 할수 있도록 합니다.
     @objc private func didTapComposeButton() {

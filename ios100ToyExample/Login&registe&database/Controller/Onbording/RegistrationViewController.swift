@@ -166,6 +166,10 @@ class RegistrationViewController: UIViewController {
                     print("계정을 만들수 없습니다.")
                     return
                 }
+                //사용자 기본값 캐시를 제거합니다. 로그아웃후 로그인을 다시 시도 할경우 뷰를 재 로딩 하기 위해서 입니다.
+                UserDefaults.standard.setValue(email, forKey: "email")
+                UserDefaults.standard.setValue(username, forKey: "name")
+                
                 let AppUser = UserModel(username: username, emailAddress: email)
                 
                 //데이터 베이스에 사진을 등록합니다.
