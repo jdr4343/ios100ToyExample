@@ -9,4 +9,15 @@ import UIKit
 
 class ExampleCollectionViewCell: UICollectionViewCell {
     
+    static let identifier = "ExampleCollectionViewCell"
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        contentView.backgroundColor = .systemTeal
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }
