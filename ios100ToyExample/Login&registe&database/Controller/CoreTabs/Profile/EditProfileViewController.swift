@@ -138,16 +138,16 @@ final class EditProfileViewController: UIViewController {
     }
     
     
-    //구현 오류 시 삭제 대기
-    //MARK: - 구현대기
+    
+    //MARK: - 파일 업로드 다운로드
     @objc func didTapSave() {
         uploadCoverProfile()
         self.spinner.show(in: self.view)
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
             self.navigationController?.dismiss(animated: true, completion: nil)
+         
         })
-          
-        
+     
     }
     @objc private func didTapCancel() {
         dismiss(animated: true, completion: nil)

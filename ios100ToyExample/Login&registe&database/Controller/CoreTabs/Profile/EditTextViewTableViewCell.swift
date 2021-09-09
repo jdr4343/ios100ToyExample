@@ -36,6 +36,7 @@ class EditTextViewTableViewCell: UITableViewCell, UITextViewDelegate {
     private let textView: UITextView = {
         let textView = UITextView()
         textView.returnKeyType = .done
+        
         textView.font = .boldSystemFont(ofSize: 14)
         return textView
     }()

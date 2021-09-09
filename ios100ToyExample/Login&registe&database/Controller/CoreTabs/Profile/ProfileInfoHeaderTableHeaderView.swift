@@ -164,7 +164,7 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         addSubview(nameLabel)
         addSubview(bioLabel)
     }
-    private func profileCoverImage() {
+    public func profileCoverImage() {
         //사진을 가져옵니다!
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return

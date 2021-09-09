@@ -95,13 +95,13 @@ final class StorageManager {
     public func uploadCoverPhoto(with data: Data, fileName: String, completion: @escaping (Result<String, Error>) -> Void) {
         storage.child("cover_images/\(fileName)").putData(data, metadata: nil, completion: { [weak self] metadata, error in
             guard error == nil else {
-                print("파이어베이스에 동영상을 업로드 하는 것을 실패 하였습니다.")
+                print("파이어베이스에 커버 사진을 업로드 하는 것을 실패 하였습니다.")
                 completion(.failure(StorageErrors.faildToUpload))
                 return
             }
             self?.storage.child("cover_images/\(fileName)").downloadURL(completion: { url, error in
                 guard let url = url else {
-                    print("커버 사진 URL을 다운로드 하지 못했스니다.")
+                    print("커버 사진 URL을 다운로드 하지 못했습니다.")
                     completion(.failure(StorageErrors.failedToGetDownloadUrl))
                     return
                 }
