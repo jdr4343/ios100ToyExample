@@ -57,7 +57,7 @@ final class ConversationsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         startListeningForConversations()
-        
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         //채팅이 바로 업데이트 되도록 추가
         loginObserver = NotificationCenter.default.addObserver(forName: .didLogInNotification, object: nil, queue: .main, using: { [weak self] _ in
             guard let strongSelf = self else {

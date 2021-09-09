@@ -341,7 +341,7 @@ class ExampleListViewController: UIViewController {
         floating.addItem("수평 슬라이드 컬렉션 테이블뷰", icon: UIImage(systemName: "slider.horizontal.below.square.fill.and.square")!, handler: { item in
             //핸들러를 열고 기능 구현을 하면 됩니다.
             let CarouselVC = CarouselViewController()
-            self.present(CarouselVC, animated: true, completion: nil)
+            self.navigationController?.pushViewController(CarouselVC, animated: true)
         })
         floating.addItem("동영상,수평,수직 컬렉션 테이블뷰", icon: UIImage(systemName: "square.grid.3x1.fill.below.line.grid.1x2")!, handler: { item in
             let AdvancedVC = AdvancedViewController()

@@ -68,12 +68,28 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="BP4-KR-W5N"/>
+                        <segue destination="k4i-lq-ogW" kind="relationship" relationship="rootViewController" id="EPw-u7-9hY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lR-Sc-xiF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4539" y="1332"/>
+        </scene>
+        <!--Example View Controller-->
+        <scene sceneID="WAG-ZQ-KkL">
+            <objects>
+                <viewController id="k4i-lq-ogW" customClass="ExampleViewController" customModule="ios100ToyExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wje-Cd-T9j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="XUr-8w-kxs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PB0-pK-jVM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TbP-ik-ab3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3749" y="1313"/>
         </scene>
         <!--홈-->
         <scene sceneID="hqa-9f-tNk">
@@ -128,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3730" y="1332"/>
+            <point key="canvasLocation" x="-2778" y="1074"/>
         </scene>
         <!--Add Alarm View Controller-->
         <scene sceneID="QAV-lO-6J8">
@@ -688,7 +704,7 @@
             <objects>
                 <tableViewController id="Zwi-tI-ddg" customClass="MemoListTableViewController" customModule="ios100ToyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Eai-LR-5uc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -800,11 +816,11 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="U6C-yb-3Ac" customClass="DetailViewController" customModule="ios100ToyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wae-ce-ntg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FQA-kX-JaJ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="memoCell" textLabel="WEr-st-SSf" style="IBUITableViewCellStyleDefault" id="GzR-Oe-U7x">
@@ -850,7 +866,7 @@
                                 </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISB-W2-ndj">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="759" width="414" height="49"/>
                                 <items>
                                     <barButtonItem systemItem="compose" id="vMB-Pb-2D9">
                                         <color key="tintColor" red="0.37647059560000001" green="0.49019610879999997" blue="0.5411764979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -903,7 +919,7 @@
                     <tabBarItem key="tabBarItem" title="" image="note.text" catalog="system" id="eeo-6f-OJO"/>
                     <navigationItem key="navigationItem" id="8EF-o4-Obd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="lO5-l6-riY">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.19112412500000001" green="0.25125721239999999" blue="0.27792746439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
