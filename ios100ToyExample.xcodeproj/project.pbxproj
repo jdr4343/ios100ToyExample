@@ -366,9 +366,9 @@
 			children = (
 				405AD93A26DE542A0079734A /* ConversationsViewController.swift */,
 				40C2442526DFEE1600374DB2 /* ChatViewController.swift */,
-				40C2442726E01BC200374DB2 /* NewConversationViewController.swift */,
 				4014B97826E24C3800ADFEC8 /* ConversationTableViewCell.swift */,
 				4014B97A26E779B400ADFEC8 /* PhotoViewerViewController.swift */,
+				40C2442726E01BC200374DB2 /* NewConversationViewController.swift */,
 				4014B97C26E7A69900ADFEC8 /* NewConversationCell.swift */,
 				408D96F626E840C700C87FF9 /* LocationPickerViewController.swift */,
 			);
@@ -748,6 +748,7 @@
 				4035029926CB4B4B004BD348 /* Frameworks */,
 				4035029A26CB4B4B004BD348 /* Resources */,
 				73E7BFC9996BE057D52078AC /* [CP] Embed Pods Frameworks */,
+				408D96F826E9E07300C87FF9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -808,6 +809,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		408D96F826E9E07300C87FF9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		73E7BFC9996BE057D52078AC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1088,6 +1107,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = L765CYF8SR;
 				INFOPLIST_FILE = ios100ToyExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

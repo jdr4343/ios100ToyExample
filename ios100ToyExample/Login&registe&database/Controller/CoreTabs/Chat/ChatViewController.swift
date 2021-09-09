@@ -95,6 +95,9 @@ class ChatViewController: MessagesViewController {
     //식별자를 만듭니다.
     private let conversationId: String?
     
+    //두 사용자의 이미지를 받아오기 위해 변수를 저장합니다.
+    private var senderPhotoURL: URL?
+    private var otherUserPhotoURL: URL?
     
     
     //새로운 대화인지 아니면 대화중인 상대인지 알수 있기 위해 불리언값을 추가해줍니다.
@@ -131,7 +134,7 @@ class ChatViewController: MessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .brown
+        view.backgroundColor = .systemBackground
         self.tabBarController?.tabBar.isHidden = true
         setupInputButton()
         navigationController?.navigationBar.tintColor = .label
@@ -357,7 +360,7 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
                     let message = Message(sender: selfSender,
                                           messageId: messageId,
                                           sentDate: Date(),
-                                           kind: .photo(media))
+                                          kind: .photo(media))
                     
                     DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: strongSelf.otherUserEmail, name: name, newMessage: message, completion: { success in
                         
@@ -397,7 +400,7 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
                     let message = Message(sender: selfSender,
                                           messageId: messageId,
                                           sentDate: Date(),
-                                           kind: .video(media))
+                                          kind: .video(media))
                     
                     DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: strongSelf.otherUserEmail, name: name, newMessage: message, completion: { success in
                         
@@ -441,7 +444,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         
         //메시지를 보냅니다. /새로운 대화 인지 기존 대화인지 식별합니다.
         if isNewConversation {
-         
+            
             DatabaseManager.shared.createNewConversation(with: otherUserEmail, name: self.title ?? "User", firstMessage: message, completion: { [weak self] success in
                 if success {
                     print("메시지가 정상적으로 작동 했습니다.")
@@ -517,9 +520,71 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
             break
         }
     }
-   
-   
+    
+    //채팅 풍선의 색깔을 변경합니다.
+    func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        let sender = message.sender
+        if sender.senderId == selfSender?.senderId {
+            //발신자
+            return .systemGreen
+        }
+        return .secondarySystemBackground
+    }
+    
+    //채팅 풍선의 이미지에 프로필 사진을 넣겠습니다.
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        let sender = message.sender
+        //발신자 이미지
+        if sender.senderId == selfSender?.senderId {
+            if let currentUserImageURL = self.senderPhotoURL {
+                avatarView.sd_setImage(with: currentUserImageURL, completed: nil)
+            } else {
+                //URL을 다운로드 합니다.
+                guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+                    return
+                }
+                let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+                let path = "images/\(safeEmail)_profile_picture.png"
+                StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
+                    switch result {
+                    case .success(let url):
+                        self?.senderPhotoURL = url
+                        DispatchQueue.main.async {
+                            avatarView.sd_setImage(with: url, completed: nil)
+                        }
+                    case .failure(let error):
+                        print("ChatView - URL 에러 \(error)")
+                    }
+                })
+                
+            }
+            //수신자 이미지
+        } else {
+            if let otherUserImageURL = self.otherUserPhotoURL {
+                avatarView.sd_setImage(with: otherUserImageURL, completed: nil)
+            } else {
+                //URL을 다운로드 합니다.
+                let email = self.otherUserEmail
+                let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+                let path = "images/\(safeEmail)_profile_picture.png"
+                StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
+                    switch result {
+                    case .success(let url):
+                        self?.otherUserPhotoURL = url
+                        DispatchQueue.main.async {
+                            avatarView.sd_setImage(with: url, completed: nil)
+                        }
+                    case .failure(let error):
+                        print("ChatView - URL 에러 \(error)")
+                    }
+                })
+            }
+        }
+        
+    }
 }
+
+
 
 extension ChatViewController: MessageCellDelegate {
     //사용자가 사진 채팅 이미지를 클릭하면 사진혹은 비디오를 크게 보일수 있도록 뷰를 연결해주는 액션을 추가 하겠습니다.
@@ -528,7 +593,7 @@ extension ChatViewController: MessageCellDelegate {
             return
         }
         
-      let message = messages[indexPath.section]
+        let message = messages[indexPath.section]
         
       switch message.kind {
       

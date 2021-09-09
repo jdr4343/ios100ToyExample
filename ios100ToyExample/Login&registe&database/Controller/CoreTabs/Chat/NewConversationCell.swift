@@ -22,9 +22,10 @@ class NewConversationCell: UITableViewCell {
         return imageView
     }()
     
-    //채팅창의 이름 라벨이 될 것 입니다.
+    //검색창의 이름 라벨이 될 것 입니다.
     private let userNameLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .label
         label.font = .boldSystemFont(ofSize: 16)
         return label
     }()

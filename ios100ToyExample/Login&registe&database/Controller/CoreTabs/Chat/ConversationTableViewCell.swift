@@ -12,7 +12,7 @@ class ConversationTableViewCell: UITableViewCell {
 
   static let identifier = "ConversationTableViewCell"
     
-    //프로필 사진이 될것입니다.
+    //채팅 항목의 프로필 사진이 될것입니다.
     private let userImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -21,13 +21,13 @@ class ConversationTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    //채팅창의 이름 라벨이 될 것 입니다.
+    //채팅항목의 이름입니다
     private let userNameLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
-    //채팅창의 말풍선의 라벨이 될 것 입니다.
+    //채팅 항목의 채팅 미리보기 라벨입니다.
     private let userMessageLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14, weight: .regular)
