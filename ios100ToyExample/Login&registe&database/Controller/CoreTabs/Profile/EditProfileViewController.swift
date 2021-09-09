@@ -63,10 +63,7 @@ final class EditProfileViewController: UIViewController {
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(didTapSave))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "닫기",
-                                                           style: .done,
-                                                           target: self,
-                                                           action: #selector(didTapCancel))
+     
         navigationController?.navigationBar.tintColor = .label
         
         //imageView 제스쳐 활성화
@@ -143,15 +140,13 @@ final class EditProfileViewController: UIViewController {
     @objc func didTapSave() {
         uploadCoverProfile()
         self.spinner.show(in: self.view)
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
-            self.navigationController?.dismiss(animated: true, completion: nil)
-         
+        DispatchQueue.main.asyncAfter(deadline: .now()+1.5, execute: {
+            self.navigationController?.popViewController(animated: true)
+
         })
-     
+      
     }
-    @objc private func didTapCancel() {
-        dismiss(animated: true, completion: nil)
-    }
+
     
     
     // 커버사진 업로드 / 프로필 사진 업로드

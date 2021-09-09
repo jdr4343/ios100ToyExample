@@ -24,8 +24,8 @@ class BarViewController: UIViewController, ChartViewDelegate {
         super.viewDidLayoutSubviews()
         //프레임 설정
         barChart.frame = CGRect(x: 0, y: 0,
-                                width: self.view.frame.size.width,
-                                height: self.view.frame.size.width)
+                                width: view.frame.size.width,
+                                height: view.frame.size.width)
         //중심잡기
         barChart.center = view.center
         //서브 뷰 추가

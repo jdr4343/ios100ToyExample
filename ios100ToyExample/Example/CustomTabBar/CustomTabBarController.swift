@@ -17,14 +17,14 @@ class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
        override func viewDidLoad() {
            super.viewDidLoad()
            self.delegate = self
-           self.selectedIndex = 1
+          selectedIndex = 1
            
            setupMiddleButton()
        }
        
        func setupMiddleButton() {
            //버튼 크기
-           let middelButton = UIButton(frame: CGRect(x: (self.view.bounds.width/2)-25,
+           let middelButton = UIButton(frame: CGRect(x: (view.bounds.width/2)-25,
                                                      y: -20,
                                                      width: 60,
                                                      height: 60))
@@ -34,14 +34,14 @@ class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
            middelButton.layer.shadowOpacity = 0.1
            middelButton.layer.shadowOffset = CGSize(width: 4, height: 4)
            //탭바 추가 / 액션 추가
-           self.tabBar.addSubview(middelButton)
+           tabBar.addSubview(middelButton)
            middelButton.addTarget(self, action: #selector(menuButtonAction), for: .touchUpInside)
            
-           self.view.layoutIfNeeded()
+           view.layoutIfNeeded()
        }
        //액션 기능 생성
        @objc func menuButtonAction(sender: UIButton) {
-           self.selectedIndex = 1
+           selectedIndex = 1
        }
    }
 

@@ -24,23 +24,23 @@ class CustomTabBar: UITabBar {
                shapeLayer.shadowOpacity = 0.3
                
                if let oldShapeLayer = self.shapeLayer {
-                   self.layer.replaceSublayer(oldShapeLayer, with: shapeLayer)
+                  layer.replaceSublayer(oldShapeLayer, with: shapeLayer)
                } else {
-                   self.layer.insertSublayer(shapeLayer, at: 0)
+                   layer.insertSublayer(shapeLayer, at: 0)
                }
                self.shapeLayer = shapeLayer
            }
            
            override func draw(_ rect: CGRect) {
-               self.addShape()
-               self.unselectedItemTintColor = UIColor.white
-               self.tintColor = UIColor(named: "쌈무")
+               addShape()
+               unselectedItemTintColor = UIColor.white
+               tintColor = UIColor(named: "쌈무")
            }
            
            func creatPath() -> CGPath {
                let height: CGFloat = 15
                let path = UIBezierPath()
-               let centerWidth = self.frame.width/2
+               let centerWidth = frame.width/2
               
                path.move(to: CGPoint(x: 0, y: -20)) //start pos
                
@@ -58,11 +58,11 @@ class CustomTabBar: UITabBar {
                path.addLine(to: CGPoint(x: centerWidth + 41, y: 20))//오른쪽 수직선
                path.addQuadCurve(to: CGPoint(x: centerWidth + 50, y: 0),//오른쪽 위 곡선
                                  controlPoint: CGPoint(x: centerWidth + 41, y: 5))
-               path.addLine(to: CGPoint(x: self.frame.width, y: -20)) //오른쪽 경사
+               path.addLine(to: CGPoint(x: frame.width, y: -20)) //오른쪽 경사
                
                //경로 해제
-               path.addLine(to: CGPoint(x: self.frame.width, y: self.frame.height))
-               path.addLine(to: CGPoint(x: 0, y: self.frame.height))
+               path.addLine(to: CGPoint(x: frame.width, y:frame.height))
+               path.addLine(to: CGPoint(x: 0, y: frame.height))
                path.close()
                
                return path.cgPath

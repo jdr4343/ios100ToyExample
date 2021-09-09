@@ -45,9 +45,9 @@ class TimerViewController: UIViewController {
     
     
     @IBAction func didTabResetButton(_ sender: Any) {
-        self.count = 0
-        self.timer.invalidate()
-        self.timeLabel.text = self.makeTimeString(hours: 0, minute: 0, seconds: 0)
+        count = 0
+        timer.invalidate()
+        timeLabel.text = makeTimeString(hours: 0, minute: 0, seconds: 0)
         startButton.setTitle("Start", for: .normal)
         startButton.setTitleColor(UIColor.green, for: .normal)
         

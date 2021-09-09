@@ -8,13 +8,8 @@
 import UIKit
 import JGProgressHUD
 
-//검색 결과에 대한 모델을 만듭니다.
-struct SearchResult {
-    let name: String
-    let email: String
-}
 
-class NewConversationViewController: UIViewController {
+final class NewConversationViewController: UIViewController {
 //유저를 검색하고 새로운 대화창을 생성합니다.
     private let spinner = JGProgressHUD(style: .dark)
     

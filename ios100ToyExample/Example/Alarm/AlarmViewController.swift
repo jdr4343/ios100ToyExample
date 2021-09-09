@@ -31,13 +31,16 @@ class AlarmViewController: UIViewController {
                 vc.title = "새로운 알람"
                 vc.navigationItem.largeTitleDisplayMode = .never
                 //완료 핸들러
-                vc.completion = { title, body, date in
+                vc.completion = { [weak self] title, body, date in
+                    guard let strongSelf = self else {
+                        return
+                    }
                     //추가 컨트롤러
                     DispatchQueue.main.async {
-                        self.navigationController?.popToRootViewController(animated: true)
+                        strongSelf.navigationController?.popToRootViewController(animated: true)
                         let new = AlarmModel(title: title, date: date, identifier: "id_\(title)")
-                        self.models.append(new)
-                        self.table.reloadData()
+                        strongSelf.models.append(new)
+                        strongSelf.table.reloadData()
                         
                         //알림 콘텐츠 개체를 생성하여 UNMutableNotificationContent를 저장후 속성 부여
                         let content = UNMutableNotificationContent()

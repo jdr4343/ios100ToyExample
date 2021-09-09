@@ -14,12 +14,12 @@ class YPImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.profileImage.layer.cornerRadius = profileImage.frame.height/2
-        self.profileImage.layer.cornerRadius = profileImage.frame.height/2
-        self.pickerButton.layer.cornerRadius = 12
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
+        pickerButton.layer.cornerRadius = 12
         
         //버튼을 액션으로 끌어오는 방법도 있지만 많이 경험해 보았으므로 코드로 연결해보겠습니다.
-        self.pickerButton.addTarget(self, action: #selector(ProfileChangeTapped), for: .touchUpInside)
+       pickerButton.addTarget(self, action: #selector(ProfileChangeTapped), for: .touchUpInside)
         }
     
     @objc func ProfileChangeTapped() {

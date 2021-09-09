@@ -78,7 +78,7 @@ extension CollectionTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func configure(with viewModel: CollectionTableViewCellViewModel) {
-        self.viewModels = viewModel.viewModels
+       viewModels = viewModel.viewModels
         collectionView.reloadData()
     }
     

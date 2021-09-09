@@ -25,8 +25,8 @@ class LineViewController: UIViewController, ChartViewDelegate {
         super.viewDidLayoutSubviews()
         
         lineChart.frame = CGRect(x: 0, y: 0,
-                                 width: self.view.frame.size.width,
-                                 height: self.view.frame.size.width)
+                                 width: view.frame.size.width,
+                                 height: view.frame.size.width)
         lineChart.center = view.center
         view.addSubview(lineChart)
         

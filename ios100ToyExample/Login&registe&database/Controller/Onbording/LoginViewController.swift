@@ -260,7 +260,7 @@ class LoginViewController: UIViewController {
             return
         }
         spinner.show(in: view)
-        self.loginButton.startAnimation()
+        loginButton.startAnimation()
         ///여기에서 로그인 기능을 연결 할 것입니다. 연결하기에 앞서  AuthManager,DataManager가 선행으로 작성 되어야 합니다. 또한 firebase의 Authentication에서 이메일을 사용저장 해주시고,
         ///Realtime Database(테스트)가 만들어고 규칙을 수정 해야 합니다.그리고 회원가입을 해야 등록을 하니 Resister 뷰 또한 작성 되어야 하겠죠?
         /*
@@ -315,7 +315,7 @@ class LoginViewController: UIViewController {
             })
             
             UserDefaults.standard.set(email, forKey: "email")
-          
+            
             print("Logged IN User:\(user)")
             strongSelf.loginButton.stopAnimation(animationStyle: .normal, revertAfterDelay: 0.5) {
                 strongSelf.dismiss(animated: true, completion: nil)

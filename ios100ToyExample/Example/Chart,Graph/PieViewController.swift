@@ -24,8 +24,8 @@ class PieViewController: UIViewController, ChartViewDelegate {
         
         
         pieChart.frame = CGRect(x: 0, y: 0,
-                                 width: self.view.frame.size.width,
-                                 height: self.view.frame.size.width)
+                                 width: view.frame.size.width,
+                                 height: view.frame.size.width)
         pieChart.center = view.center
         view.addSubview(pieChart)
         

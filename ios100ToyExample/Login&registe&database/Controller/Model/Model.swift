@@ -15,8 +15,9 @@ public enum UserPostType: String {
     case write = "Write"
 }
 
-//사용자 게시물을 나타내는 모델입니다.
+
 public struct UserPost {
+    ///사용자 게시물을 나타내는 모델입니다.
     let identifier: String //게시물에 대한 식별자 입니다.
     let postType: UserPostType // 게시물 타입입니다. 사진 혹은 글이 될수 있습니다.
     let postURL: String? // 파이어 베이스에서 받아올 사진 URL입니다.
@@ -26,6 +27,7 @@ public struct UserPost {
     let toggedUser: [String]
     let owner: UserModel // 글쓴이 에대한 데이터 입니다.
 }
+
 
 struct PostLikes {
     let userName: String
@@ -57,8 +59,11 @@ struct EditProfileFormModel {
     let placeholder: String?
     var value : String?
 }
-//사용자가 로그인 하면 알수 있습니다.
+
 extension Notification.Name {
+    ///사용자가 로그인 하면 알수 있습니다.
     static let didLogInNotification = Notification.Name("didLogInNotification")
 }
+
+
 

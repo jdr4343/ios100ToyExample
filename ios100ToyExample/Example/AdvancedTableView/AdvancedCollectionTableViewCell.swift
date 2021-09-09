@@ -35,7 +35,7 @@ class AdvancedCollectionTableViewCell: UITableViewCell {
                                            bottom: 15,
                                            right: 3)
         
-        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         collectionView.showsHorizontalScrollIndicator = false

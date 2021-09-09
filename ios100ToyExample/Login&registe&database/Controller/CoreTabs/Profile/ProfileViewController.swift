@@ -40,14 +40,20 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
         tableView.bounces = true
         NotAuthenticated()
         
+            
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
         //헤더 / 프로필 상단의 헤더에는 프로필을 나타낼것입니다.따로 헤더를 위한 뷰를 만들어서 연결 하겠습니다 /그리고 만든 헤더에 우리가 만든 델리게이트를 연결 하겠습니다.
         let header = ProfileInfoHeaderTableHeaderView(frame: CGRect(x: 0, y: 0,
                                                                     width: view.width, height: view.width*1.5))
         tableView.tableHeaderView = header
         header.delegate = self
-            
-        
     }
+    
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
@@ -91,7 +97,8 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
     func didTapEditProfileButton() {
         let vc = EditProfileViewController()
         vc.title = "프로필 변경"
-        present(UINavigationController(rootViewController: vc),animated: true)
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

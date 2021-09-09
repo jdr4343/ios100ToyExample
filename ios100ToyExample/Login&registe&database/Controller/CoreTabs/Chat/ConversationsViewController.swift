@@ -8,21 +8,9 @@
 import UIKit
 import JGProgressHUD
 
-//노드의 conversations를 가져옵니다.
-struct Conversation {
-    let id: String
-    let name: String
-    let otherUserEmail: String
-    let latestMessage: LatestMessage
-}
 
-struct LatestMessage {
-    let date: String
-    let text: String
-    let isRead: Bool
-}
-
-class ConversationsViewController: UIViewController {
+///대화 항목을 표시하는 화면 입니다.
+final class ConversationsViewController: UIViewController {
 
     //대화 모델
     private var conversations = [Conversation]()
@@ -81,7 +69,8 @@ class ConversationsViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         //구현대기 /탭바가 너무 형편없이 사라져서 애니메이션을 추가 해줘야 할거 같음 우선은 그냥 내비두고 모든구현을 끝내고 돌아와서 만들자!
-        self.tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
+        startListeningForConversations()
     }
     
     override func viewDidLayoutSubviews() {
@@ -146,10 +135,10 @@ class ConversationsViewController: UIViewController {
                 vc.isNewConversation = false
                 vc.title = targetConversation.name
                 vc.navigationItem.largeTitleDisplayMode = .never
-                strongSelf.navigationController?.pushViewController(vc, animated: true)
+                self?.navigationController?.pushViewController(vc, animated: true)
             } else {
                 //새대화를 생성합니다. / result는 옆의 유형처럼 전달되서 구분 가능하게 해줍니다. ["name": "아이유", "email": "IU-naver-com"]
-                strongSelf.createNewConversation(result: result)
+                self?.createNewConversation(result: result)
             }
         }
         let nvc = UINavigationController(rootViewController: vc)
@@ -166,10 +155,7 @@ class ConversationsViewController: UIViewController {
         //존재한다면 conversationId 를 재사용합니다.
         //그렇지 않다면 기존 코드를 사용합니다.
         DatabaseManager.shared.conversationExists(with: email, completion: { [weak self] result in
-            guard let strongSelf = self else {
-                return
-            }
-            
+           
             switch result {
             case .success(let conversationId):
                 //진행중인 대화 데이터베이스 항목이 있으므로 두 사용자의 대화를 연결 합니다.
@@ -178,7 +164,7 @@ class ConversationsViewController: UIViewController {
                 vc.isNewConversation = false
                 vc.title = name
                 vc.navigationItem.largeTitleDisplayMode = .never
-                strongSelf.navigationController?.pushViewController(vc, animated: true)
+                self?.navigationController?.pushViewController(vc, animated: true)
                 
             case .failure(_):
                 //진행중인 대화 데이터베이스 항목이 없으므로 대화를 생성합니다.
@@ -187,7 +173,7 @@ class ConversationsViewController: UIViewController {
                 vc.isNewConversation = true
                 vc.title = name
                 vc.navigationItem.largeTitleDisplayMode = .never
-                strongSelf.navigationController?.pushViewController(vc, animated: true)
+                self?.navigationController?.pushViewController(vc, animated: true)
             }
         })
     }
@@ -238,7 +224,13 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
             //데이터베이스에서 만든 함수를 연결하여줍니다. //행을 삭제한후 모델 업데이트
             DatabaseManager.shared.deleteConverstion(conversationId: conversationId, completion: { [weak self] success in
                 if success {
-                    self?.conversations.remove(at: indexPath.row)
+                    guard let count = self?.conversations.count else {
+                        return
+                    }
+                    if count >= indexPath.row {
+                        self?.conversations.remove(at: indexPath.row)
+                    }
+                    
                     tableView.deleteRows(at: [indexPath], with: .left)
                 }
             })

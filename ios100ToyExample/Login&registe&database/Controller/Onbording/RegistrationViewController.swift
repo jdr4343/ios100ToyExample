@@ -272,7 +272,7 @@ extension RegistrationViewController: UIImagePickerControllerDelegate, UINavigat
             return
         }
         
-            self.profileImageView.image = selectedImage
+           profileImageView.image = selectedImage
        
     }
     

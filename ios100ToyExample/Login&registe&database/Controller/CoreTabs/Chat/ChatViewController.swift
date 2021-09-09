@@ -13,73 +13,9 @@ import AVFoundation
 import AVKit
 import CoreLocation
 
-//메시지
-struct Message: MessageType {
-    public var sender: SenderType //보낸사람
-    public var messageId: String //이메일
-    public var sentDate: Date //날짜
-    public var kind: MessageKind //메시지 종류
-}
-//메시지 종류 확장 / 문자열 속성으로 바꿔줍니다.
-extension MessageKind {
-    var messageKindString: String {
-        switch self {
-        case .text(_):
-            return "text"
-        case .attributedText(_):
-            return "attributedText"
-        case .photo(_):
-            return "photo"
-        case .video(_):
-            return "video"
-        case .location(_):
-            return "location"
-        case .emoji(_):
-            return "emoji"
-        case .audio(_):
-            return "audio"
-        case .contact(_):
-            return "contact"
-        case .linkPreview(_):
-            return "linkPreview"
-        case .custom(_):
-            return "custom"
-        }
-    }
-}
-
-//보낸사람
-struct Sender: SenderType {
-    public var photoURL: String //프로필 사진
-    public var senderId: String //이메일
-    public var displayName: String //유저이름
-}
-
-//미디어 / 사진 비디오 등등
-struct Media: MediaItem {
-    var url: URL?
-    var image: UIImage?
-    var placeholderImage: UIImage
-    var size: CGSize
-
-}
-
-//위치
-struct Location: LocationItem {
-    var location: CLLocation
-    var size: CGSize
-}
-
-//오디오 // 구현대기
-struct Audio: AudioItem {
-    var url: URL
-    var duration: Float
-    var size: CGSize
-}
-
 
 //채팅 화면 입니다.
-class ChatViewController: MessagesViewController {
+final class ChatViewController: MessagesViewController {
     
     //날짜 포멧터를 만듭니다./ public static형식으로 만든다면 클래스의 인스턴스 없이 호출 가능하며 제한 없이 어디에서든 사용가능 합니다.
     public static let dateFormatter: DateFormatter = {
@@ -248,7 +184,7 @@ class ChatViewController: MessagesViewController {
     //위치 정보 액션시트 버튼 액션
     private func presentLocationInputActionSheet() {
         let vc = LocationPickerViewController(coordinates: nil)
-        vc.isPickable = true
+        
         vc.title = "위치 정보를 선택 하세요"
         vc.navigationItem.largeTitleDisplayMode = .never
         vc.completion = { [weak self] selectedCoordinates in
@@ -288,7 +224,7 @@ class ChatViewController: MessagesViewController {
         }
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+      
   
     
     //대화 ID가 있는 모든 메시지를 가져오기라는 함수를 스터브 처리하여 해당 대화 ID를 전달합니다.
@@ -640,16 +576,7 @@ extension ChatViewController: MessageCellDelegate {
             let vc = LocationPickerViewController(coordinates: coordinates)
             vc.title = "위치"
             self.navigationController?.pushViewController(vc, animated: true)
-            
-        case .video(let media):
-            guard let videoUrl = media.url else {
-                return
-            }
-            //내장된 프레임 워크를 사용 하겠습니다.
-            let vc = AVPlayerViewController()
-            vc.player = AVPlayer(url: videoUrl)
-            present(vc, animated: true)
-            
+        
         default:
             break
         }

@@ -9,8 +9,10 @@ import FirebaseDatabase
 import MessageKit
 import CoreLocation
 
+///파이어베이스 데이터 기반으로 데이터를 읽고 쓰기를 할 관리자 개체 입니다.
 final class DatabaseManager {
     
+    ///공유 클래스 인스턴스
     static let shared = DatabaseManager()
     
     //데이터 베이스를 사용하기 위해 데이터베이스를 참조 하겠습니다.
@@ -22,21 +24,15 @@ final class DatabaseManager {
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
         return safeEmail
     }
-    
-    //MARK: - public
-    ///이메일과 유저이름을 사용할수 있는지 확인합니다.
-    ///-parameter
-    ///    -email: 이메일을 나타내는 문자열입니다.
-    ///    -username: 유저이름을 나타내는 문자열입니다
-    
+  
     public func canCreateNewUser(with email: String, username: String, completion: (Bool) -> Void) {
         completion(true)
     }
     
-    
 }
 
 extension DatabaseManager {
+    ///하위 경로의 dictionary 노드를 반환합니다.
     public func getDataFor(path: String, completion: @escaping (Result<Any,Error>) -> Void) {
         self.database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value else {
@@ -60,6 +56,10 @@ extension DatabaseManager {
     ///    -username: 유저이름을 나타내는 문자열입니다
     ///    -completion: 데이터베이스 입력이 성공한 경우 결과에 대한 비동기 콜백입니다.
     
+    /// 이메일을 사용할수 있는지 확인합니다.
+    /// -parameter
+    ///    `email`: 이메일을 나타내는 문자열입니다.
+    ///    `completion`: 결과에 대한 비동기 클로저입니다.
     public func userExists(with email: String, completion: @escaping ((Bool) -> Void)) {
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
@@ -125,7 +125,7 @@ extension DatabaseManager {
     
     //MARK: - 대화 / 채팅 / 메시지
     
-    //검색 기능 구현을 위해 함수를 추가합니다.
+    ///데이터베이스에서 모든 사용자 데이터를 가져옵니다.
     public func getAllUsers(completion: @escaping (Result<[[String:String]], Error>) -> Void) {
         database.child("users").observeSingleEvent(of: .value, with: { snapshot in
             guard let value = snapshot.value as? [[String:String]] else {
@@ -137,9 +137,17 @@ extension DatabaseManager {
         })
     }
     
-    //오류를 정의 하겠습니다.
+    ///오류 정의
     public enum DatabaseError: Error {
         case failedToFetch
+        
+        //구현대기 /나중에 에러 케이스 가져와서 정리하기
+        var localizedDescription: String {
+            switch self {
+            case .failedToFetch:
+                return "블라블라"
+            }
+        }
     }
     
     

@@ -7,7 +7,8 @@
 
 import Foundation
 import FirebaseStorage
-//스토리지를 관리 할것 입니다.
+
+///파이어베이스 스토리지에 파일을 업로드하고 가져올수 있습니다.
 final class StorageManager {
     
     static let shared = StorageManager()
@@ -20,20 +21,23 @@ final class StorageManager {
         case faildToUpload
         case failedToGetDownloadUrl
     }
-    //프로필
+    
     //데이터를 받아오고 파일 이름(명명구조 표준화)을 저장하는 함수를 추가하겠습니다. / 문자열 타입으로 URL을 다운로드 할 것 입니다.
     /* 명명 구조
      /images/이메일-naver-com_profile_picture.png
      */
-    ///사진을 파이어베이스 저장소에 업로드하고 다운로드할 URL문자열과 함께 완료를 반환 합니다.
+    ///프로필 사진을 파이어베이스 저장소에 업로드하고 다운로드할 URL문자열과 함께 완료를 반환 합니다.
     public func uploadProfilePicture(with data: Data, fileName: String, completion: @escaping (Result<String, Error>) -> Void) {
-        storage.child("images/\(fileName)").putData(data,metadata: nil,completion: { metadata, error in
+        storage.child("images/\(fileName)").putData(data,metadata: nil,completion: { [weak self] metadata, error in
+            guard let strongSelf = self else {
+                return
+            }
             guard error == nil else {
                 print("파이어베이스에 사진을 업로드 하는 것을 실패 했습니다.")
                 completion(.failure(StorageErrors.faildToUpload))
                 return
             }
-            self.storage.child("images/\(fileName)").downloadURL(completion: { url, error in
+            strongSelf.storage.child("images/\(fileName)").downloadURL(completion: { url, error in
                 guard let url = url else {
                     print(" URL을 다운로드 하지 못했습니다.")
                     completion(.failure(StorageErrors.failedToGetDownloadUrl))
@@ -46,16 +50,18 @@ final class StorageManager {
         })
     }
     
-    //MARK: - 대화 메시지로 보낼 이미지를 스토리지에 업로드 합니다.
-    
+   /// 대화 메시지로 보낼 이미지를 저장소에 업로드하고 다운로드할 URL문자열과 함께 완료를 반환 합니다.
     public func uploadMessagePhoto(with data: Data, fileName: String, completion: @escaping (Result<String, Error>) -> Void) {
         storage.child("message_images/\(fileName)").putData(data,metadata: nil,completion: { [weak self] metadata, error in
+            guard let strongSelf = self else {
+                return
+            }
             guard error == nil else {
                 print(" 파이어베이스에 사진을 업로드 하는 것을 실패 했습니다.")
                 completion(.failure(StorageErrors.faildToUpload))
                 return
             }
-            self?.storage.child("message_images/\(fileName)").downloadURL(completion: { url, error in
+            strongSelf.storage.child("message_images/\(fileName)").downloadURL(completion: { url, error in
                 guard let url = url else {
                     print("사진 URL을 다운로드 하지 못했습니다.")
                     completion(.failure(StorageErrors.failedToGetDownloadUrl))
@@ -68,16 +74,18 @@ final class StorageManager {
         })
     }
     
-    //MARK: - 대화 메시지로 보낼 동영상을 스토리지에 업로드 합니다.
-    
+   /// 대화 메시지로 보낼 동영상을 저장소에 업로드하고 다운로드할 URL문자열과 함께 완료를 반환 합니다.
     public func uploadMessageVideo(with fileUrl: URL, fileName: String, completion: @escaping (Result<String, Error>) -> Void) {
         storage.child("message_videos/\(fileName)").putFile(from: fileUrl,metadata: nil,completion: { [weak self] metadata, error in
+            guard let strongSelf = self else {
+                return
+            }
             guard error == nil else {
                 print("파이어베이스에 동영상을 업로드 하는 것을 실패 했습니다.")
                 completion(.failure(StorageErrors.faildToUpload))
                 return
             }
-            self?.storage.child("message_videos/\(fileName)").downloadURL(completion: { url, error in
+            strongSelf.storage.child("message_videos/\(fileName)").downloadURL(completion: { url, error in
                 guard let url = url else {
                     print("동영상 URL을 다운로드 하지 못했습니다.")
                     completion(.failure(StorageErrors.failedToGetDownloadUrl))
@@ -90,16 +98,18 @@ final class StorageManager {
         })
     }
     
-    //MARK: - 커버 사진을 스토리지에 업로드 합니다.
-    
+    ///커버 사진을 저장소에 업로드하고 다운로드할 URL문자열과 함께 완료를 반환 합니다.
     public func uploadCoverPhoto(with data: Data, fileName: String, completion: @escaping (Result<String, Error>) -> Void) {
         storage.child("cover_images/\(fileName)").putData(data, metadata: nil, completion: { [weak self] metadata, error in
+            guard let strongSelf = self else {
+                return
+            }
             guard error == nil else {
                 print("파이어베이스에 커버 사진을 업로드 하는 것을 실패 하였습니다.")
                 completion(.failure(StorageErrors.faildToUpload))
                 return
             }
-            self?.storage.child("cover_images/\(fileName)").downloadURL(completion: { url, error in
+            strongSelf.storage.child("cover_images/\(fileName)").downloadURL(completion: { url, error in
                 guard let url = url else {
                     print("커버 사진 URL을 다운로드 하지 못했습니다.")
                     completion(.failure(StorageErrors.failedToGetDownloadUrl))
@@ -114,8 +124,8 @@ final class StorageManager {
     
     
    
-    //실험
-    //지정한 경로를 기반으로 다운로드 URL을 반환할 함수를 만들겠습니다. 클로저 escaping에서 escaping은 여기에서 완료를 호출할때 firebase가 제공하는 실행 블록을 탈출할 수 있음을 의미합니다.
+    
+    ///지정한 경로를 기반으로 다운로드 URL을 반환합니다.
     public func downloadURL(for path: String, completion: @escaping (Result<URL, Error>) -> Void) {
         let reference = storage.child(path)
         

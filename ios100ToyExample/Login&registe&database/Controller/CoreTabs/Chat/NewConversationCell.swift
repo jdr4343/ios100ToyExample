@@ -9,7 +9,7 @@ import Foundation
 import SDWebImage
 
 
-class NewConversationCell: UITableViewCell {
+final class NewConversationCell: UITableViewCell {
 
   static let identifier = "NewConversationCell"
     
