@@ -6,3 +6,19 @@
 //
 
 import Foundation
+import UIKit
+
+struct ExampleTableViewCellModel {
+    let title: String
+    let viewModels: [ExampleCollectionViewModel]
+}
+
+struct ExampleCollectionViewModel {
+    let name: String
+    let backgroundImage: UIImage?
+    let handle: () -> Void
+}
+
+protocol ExampleCollectionTableViewCellDelegate: AnyObject {
+    func collectionTableViewCellDidTabItem(with viewModel: ExampleCollectionViewModel)
+}

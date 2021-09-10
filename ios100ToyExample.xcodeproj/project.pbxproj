@@ -18,6 +18,7 @@
 		40180B3126EA767E00E64A9C /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40180B3026EA767E00E64A9C /* ExampleViewController.swift */; };
 		40180B3326EA785200E64A9C /* ExampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40180B3226EA785200E64A9C /* ExampleTableViewCell.swift */; };
 		40180B3526EA7B4600E64A9C /* ExampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40180B3426EA7B4600E64A9C /* ExampleCollectionViewCell.swift */; };
+		40180B3726EA81EF00E64A9C /* ExampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40180B3626EA81EF00E64A9C /* ExampleViewModel.swift */; };
 		403502A026CB4B4B004BD348 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035029F26CB4B4B004BD348 /* AppDelegate.swift */; };
 		403502A226CB4B4B004BD348 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502A126CB4B4B004BD348 /* SceneDelegate.swift */; };
 		403502A426CB4B4B004BD348 /* ExampleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502A326CB4B4B004BD348 /* ExampleListViewController.swift */; };
@@ -122,6 +123,7 @@
 		40180B3026EA767E00E64A9C /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		40180B3226EA785200E64A9C /* ExampleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTableViewCell.swift; sourceTree = "<group>"; };
 		40180B3426EA7B4600E64A9C /* ExampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewCell.swift; sourceTree = "<group>"; };
+		40180B3626EA81EF00E64A9C /* ExampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewModel.swift; sourceTree = "<group>"; };
 		4035029C26CB4B4B004BD348 /* ios100ToyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios100ToyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4035029F26CB4B4B004BD348 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		403502A126CB4B4B004BD348 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				40180B3026EA767E00E64A9C /* ExampleViewController.swift */,
 				40180B3226EA785200E64A9C /* ExampleTableViewCell.swift */,
 				40180B3426EA7B4600E64A9C /* ExampleCollectionViewCell.swift */,
+				40180B3626EA81EF00E64A9C /* ExampleViewModel.swift */,
 			);
 			path = ExampleView;
 			sourceTree = "<group>";
@@ -968,6 +971,7 @@
 				407A1F4A26CF38F10058F84D /* SectionViewController.swift in Sources */,
 				403502BD26CB61F2004BD348 /* DateFormatterViewController.swift in Sources */,
 				405AD93B26DE542A0079734A /* ConversationsViewController.swift in Sources */,
+				40180B3726EA81EF00E64A9C /* ExampleViewModel.swift in Sources */,
 				40180B3526EA7B4600E64A9C /* ExampleCollectionViewCell.swift in Sources */,
 				403502D926CBF490004BD348 /* CustomTabBarController.swift in Sources */,
 				405AD93E26DE68C80079734A /* HomeViewController.swift in Sources */,

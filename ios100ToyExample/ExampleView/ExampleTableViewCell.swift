@@ -11,6 +11,9 @@ class ExampleTableViewCell: UITableViewCell {
 
     static let identifier = "ExampleTableViewCell"
     
+    private var viewModels: [ExampleCollectionViewModel] = []
+    
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
@@ -24,7 +27,7 @@ class ExampleTableViewCell: UITableViewCell {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        layout.sectionInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(ExampleCollectionViewCell.self, forCellWithReuseIdentifier: ExampleCollectionViewCell.identifier)
         collectionView.backgroundColor = .systemBackground
@@ -37,6 +40,7 @@ class ExampleTableViewCell: UITableViewCell {
         contentView.addSubview(collectionView)
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.showsHorizontalScrollIndicator = false
     }
     
     required init?(coder: NSCoder) {
@@ -45,34 +49,40 @@ class ExampleTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let collectionSize = (contentView.height/5)*4-10
+        
         titleLabel.frame = CGRect(x: 20, y: 10, width: contentView.width-20, height: contentView.height/6)
-        collectionView.frame = CGRect(x: 10, y: titleLabel.bottom+10, width: collectionSize, height: collectionSize)
+        collectionView.frame = CGRect(x: 10, y: titleLabel.bottom+10, width: contentView.width - 10, height: contentView.height-titleLabel.height)
+        
     }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
     }
     
-    func configure(with: String) {
-        
-    }
+   
 }
 
-extension ExampleTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ExampleTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExampleCollectionViewCell.identifier, for: indexPath) as? ExampleCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
-        
+        cell.configure(with: viewModels[indexPath.row])
         return cell
     }
     
-    
+    func configure(with viewModel: ExampleTableViewCellModel) {
+        //구현이 안된다면 찾아올것
+        self.titleLabel.text = viewModel.title
+        self.viewModels = viewModel.viewModels
+        collectionView.reloadData()
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = contentView.width/1.8
+        return CGSize(width: width, height: width/1.1)
+    }
 }
