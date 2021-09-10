@@ -16,7 +16,6 @@ struct ExampleTableViewCellModel {
 struct ExampleCollectionViewModel {
     let name: String
     let backgroundImage: UIImage?
-    let handle: () -> Void
 }
 
 protocol ExampleCollectionTableViewCellDelegate: AnyObject {

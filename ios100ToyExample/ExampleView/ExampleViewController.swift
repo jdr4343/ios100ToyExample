@@ -16,63 +16,38 @@ class ExampleViewController: UIViewController {
         //첫번쨰 섹션
         viewModels.append([ExampleTableViewCellModel(title: "예제파일", viewModels:
           [ExampleCollectionViewModel(name: "1번 예제",
-                                     backgroundImage: UIImage(named: "food1"), handle: {
-                                      print("1")
-          }),
+                                     backgroundImage: UIImage(named: "food1")),
            ExampleCollectionViewModel(name: "2번 예제",
-                                     backgroundImage: UIImage(named: "food2"), handle: {
-                                      print("2")
-          }),
+                                     backgroundImage: UIImage(named: "food2")),
            ExampleCollectionViewModel(name: "3번 예제",
-                                       backgroundImage: UIImage(named: "food3"), handle: {
-                                      print("3")
-                                        
-                                       })
+                                       backgroundImage: UIImage(named: "food3"))
           ])])
         //두번째 섹션
         viewModels.append([ExampleTableViewCellModel(title: "뷰 활용", viewModels:
           [ExampleCollectionViewModel(name: "",
-                                     backgroundImage: UIImage(named: "food4"), handle: {
-                                      print("1")
-          }),
+                                     backgroundImage: UIImage(named: "food4")),
            ExampleCollectionViewModel(name: "",
-                                     backgroundImage: UIImage(named: "food5"), handle: {
-                                      print("2")
-          }),
+                                     backgroundImage: UIImage(named: "food5")),
            ExampleCollectionViewModel(name: "",
-                                       backgroundImage: UIImage(named: "food6"), handle: {
-                                      print("3")
-                                       })
+                                       backgroundImage: UIImage(named: "food6"))
           ])])
         //세번째 섹션
         viewModels.append([ExampleTableViewCellModel(title: "프레임 워크", viewModels:
           [ExampleCollectionViewModel(name: "",
-                                     backgroundImage: UIImage(named: "food1"), handle: {
-                                      print("1")
-          }),
+                                     backgroundImage: UIImage(named: "food1")),
            ExampleCollectionViewModel(name: "",
-                                     backgroundImage: UIImage(named: "food1"), handle: {
-                                      print("2")
-          }),
+                                     backgroundImage: UIImage(named: "food1")),
            ExampleCollectionViewModel(name: "",
-                                       backgroundImage: UIImage(named: "food1"), handle: {
-                                      print("3")
-                                       })
+                                       backgroundImage: UIImage(named: "food1"))
           ])])
         
         viewModels.append([ExampleTableViewCellModel(title: "간단앱", viewModels:
           [ExampleCollectionViewModel(name: "",
-                                     backgroundImage: UIImage(named: "food1"), handle: {
-                                      print("1")
-          }),
+                                     backgroundImage: UIImage(named: "food1")),
            ExampleCollectionViewModel(name: "",
-                                     backgroundImage: UIImage(named: "food1"), handle: {
-                                      print("2")
-          }),
+                                     backgroundImage: UIImage(named: "food1")),
            ExampleCollectionViewModel(name: "",
-                                       backgroundImage: UIImage(named: "food1"), handle: {
-                                      print("3")
-                                       })
+                                       backgroundImage: UIImage(named: "food1"))
           ])])
         
     }
