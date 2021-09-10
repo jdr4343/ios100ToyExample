@@ -101,63 +101,63 @@ class ExampleViewController: UIViewController {
         
 
         viewModels.append([ExampleTableViewCellModel(title: "기본 예제", viewModels:
-          [ExampleCollectionViewModel(name: "바 버튼",
-                                      backgroundImage: "food1", handler: { [weak self] in
+          [ExampleCollectionViewModel(name: "바버튼",
+                                      backgroundImage: "바버튼", handler: { [weak self] in
                                         self?.didTabBarButtonItem()
                                       }),
-           ExampleCollectionViewModel(name: "텍스트 경고창",
-                                      backgroundImage: "food2", handler: { [weak self] in
+           ExampleCollectionViewModel(name: "텍스트경고창",
+                                      backgroundImage: "텍스트경고창", handler: { [weak self] in
                                         self?.didTabTextFieldAlertButton()
                                       }),
-           ExampleCollectionViewModel(name: "날짜 생성",
-                                      backgroundImage: "food3", handler: { [weak self] in
+           ExampleCollectionViewModel(name: "날짜생성",
+                                      backgroundImage: "날짜생성", handler: { [weak self] in
                                         self?.didTabDateFormatterButton()
                                       }),
-           ExampleCollectionViewModel(name: "키보드 툴바",
-                                      backgroundImage: "food3", handler: { [weak self] in
+           ExampleCollectionViewModel(name: "키보드툴바",
+                                      backgroundImage: "키보드툴바", handler: { [weak self] in
                                         self?.didTabKeyboardBarButton()
                                       }),
-           ExampleCollectionViewModel(name: "오디오 재생",
-                                      backgroundImage: "food3", handler: { [weak self] in
+           ExampleCollectionViewModel(name: "오디오재생",
+                                      backgroundImage: "오디오재생", handler: { [weak self] in
                                         self?.didTabAudioButton()
                                       }),
            ExampleCollectionViewModel(name: "Timer()응용",
-                                      backgroundImage: "food3", handler: { [weak self] in
+                                      backgroundImage: "타이머응용", handler: { [weak self] in
                                         self?.didTabUsingTimerButton()
                                       }),
            ExampleCollectionViewModel(name: "사진",
-                                      backgroundImage: "food3", handler: { [weak self] in
+                                      backgroundImage: "사진찍기", handler: { [weak self] in
                                         self?.didTabCameraButton()
                                       })
           ])])
         
         viewModels.append([ExampleTableViewCellModel(title: "기본 뷰 다루기", viewModels:
-          [ExampleCollectionViewModel(name: "테이블 뷰",
-                                      backgroundImage: "food1", handler: { [weak self] in
+          [ExampleCollectionViewModel(name: "테이블뷰",
+                                      backgroundImage: "테이블뷰", handler: { [weak self] in
                                         self?.didTabTableViewButton()
                                       }),
-           ExampleCollectionViewModel(name: "컬렉션 뷰",
-                                      backgroundImage: "food2", handler: { [weak self] in
+           ExampleCollectionViewModel(name: "컬렉션뷰",
+                                      backgroundImage: "컬렉션뷰", handler: { [weak self] in
                                         self?.didTabCollectionViewButton()
                                       }),
            ExampleCollectionViewModel(name: "오토레이아웃",
-                                      backgroundImage: "food2", handler: { [weak self] in
+                                      backgroundImage: "오토레이아웃", handler: { [weak self] in
                                         self?.didTabAutoButton()
                                       }),
-           ExampleCollectionViewModel(name: "스택 뷰",
-                                      backgroundImage: "food2", handler: { [weak self] in
+           ExampleCollectionViewModel(name: "스택뷰",
+                                      backgroundImage: "스택뷰", handler: { [weak self] in
                                         self?.didTabStackButton()
                                       }),
-           ExampleCollectionViewModel(name: "커스텀 셀",
-                                      backgroundImage: "food2", handler: { [weak self] in
+           ExampleCollectionViewModel(name: "커스텀셀",
+                                      backgroundImage: "커스텀셀", handler: { [weak self] in
                                         self?.didTabCustomcellsButton()
                                       }),
-           ExampleCollectionViewModel(name: "페이징 컨트롤",
-                                      backgroundImage: "food2", handler: { [weak self] in
+           ExampleCollectionViewModel(name: "페이징컨트롤",
+                                      backgroundImage: "페이징컨트롤", handler: { [weak self] in
                                         self?.didTabPageControlButton()
                                       }),
-           ExampleCollectionViewModel(name: "커스텀 탭바",
-                                      backgroundImage: "food2", handler: { [weak self] in
+           ExampleCollectionViewModel(name: "커스텀탭바",
+                                      backgroundImage: "커스텀탭바", handler: { [weak self] in
                                         self?.didTabCustomTabBarButton()
                                       })
           
@@ -165,41 +165,45 @@ class ExampleViewController: UIViewController {
         
         
         viewModels.append([ExampleTableViewCellModel(title: "프레임 워크", viewModels:
-          [ExampleCollectionViewModel(name: "애니메이션 탭바",
-                                      backgroundImage: "food1", handler: { [weak self] in
+          [ExampleCollectionViewModel(name: "애니메이션탭바",
+                                      backgroundImage: "애니메이션탭바", handler: { [weak self] in
                                         self?.didTabAnimatedButton()
                                       }),
            ExampleCollectionViewModel(name: "차트/그래프",
-                                      backgroundImage: "food2", handler: { [weak self] in
+                                      backgroundImage: "그래프", handler: { [weak self] in
                                         self?.didTabChartsButton()
                                       }),
-           ExampleCollectionViewModel(name: "코어 애니메이션",
-                                      backgroundImage: "food3", handler: { [weak self] in
+           ExampleCollectionViewModel(name: "코어애니메이션",
+                                      backgroundImage: "그래프", handler: { [weak self] in
                                         self?.didTabCoreAnimationButton()
                                       }),
-           ExampleCollectionViewModel(name: "스피너 버튼",
-                                      backgroundImage: "food3", handler: { [weak self] in
+           ExampleCollectionViewModel(name: "스피너버튼",
+                                      backgroundImage: "스피너버튼", handler: { [weak self] in
                                         self?.didTabSpinnerButton()
                                       }),
            ExampleCollectionViewModel(name: "프로필 바꾸기",
-                                      backgroundImage: "food3", handler: { [weak self] in
+                                      backgroundImage: "프로필사진", handler: { [weak self] in
                                         self?.didTabCamera2Button()
                                       }),
            ExampleCollectionViewModel(name: "텍스트필드",
-                                      backgroundImage: "food3", handler: { [weak self] in
+                                      backgroundImage: "텍스트필드", handler: { [weak self] in
                                         self?.didTabFloatingTextButton()
                                       })
         
           ])])
         
         viewModels.append([ExampleTableViewCellModel(title: "간단한 앱", viewModels:
-          [ExampleCollectionViewModel(name: "알람 앱",
-                                      backgroundImage: "food1", handler: { [weak self] in
+          [ExampleCollectionViewModel(name: "알람앱",
+                                      backgroundImage: "알람앱", handler: { [weak self] in
                                         self?.didTabAlarmButton()
                                       }),
-           ExampleCollectionViewModel(name: "뉴스 앱",
-                                       backgroundImage: "food1", handler: { [weak self] in
+           ExampleCollectionViewModel(name: "뉴스앱",
+                                       backgroundImage: "뉴스앱", handler: { [weak self] in
                                          self?.didTabNewsAppButton()
+                                       }),
+           ExampleCollectionViewModel(name: "메모앱",
+                                       backgroundImage: "메모앱", handler: { [weak self] in
+                                         self?.didTabMemoButton()
                                        })
          
           ])])
@@ -311,6 +315,7 @@ class ExampleViewController: UIViewController {
             self.navigationController?.pushViewController(CameraVC, animated: true)
         }
     }
+   
     @objc func didTabNewsAppButton() {
         let NewsVC = NewsViewController()
             self.navigationController?.pushViewController(NewsVC, animated: true)
@@ -319,6 +324,11 @@ class ExampleViewController: UIViewController {
     @objc func didTabAutoButton() {
         let AutoVC = AutoLayoutViewController()
         self.navigationController?.pushViewController(AutoVC, animated: true)
+    }
+    @objc func didTabMemoButton() {
+        if let MemoVC = self.storyboard?.instantiateViewController(withIdentifier: "MemoVC") {
+            self.navigationController?.pushViewController(MemoVC, animated: true)
+        }
     }
     @objc func didTabStackButton() {
         let stackVC = StackViewController()

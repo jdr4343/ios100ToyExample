@@ -18,9 +18,10 @@ class AudioViewController: UIViewController {
        return button
     }()
     let Stopbutton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 50))
+        let button = UIButton()
         button.setTitle("재생 중지", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .systemTeal
         button.addTarget(self, action: #selector(didTabStop), for: .touchUpInside)
        return button
     }()
@@ -37,7 +38,7 @@ class AudioViewController: UIViewController {
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        Stopbutton.frame = CGRect(x: 165, y: button.bottom+10, width: 80, height: 50)
+        Stopbutton.frame = CGRect(x: 50, y: button.bottom+20, width: view.width - 100, height: 50)
 
     }
   

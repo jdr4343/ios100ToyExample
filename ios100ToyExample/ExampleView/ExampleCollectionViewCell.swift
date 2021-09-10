@@ -13,9 +13,9 @@ class ExampleCollectionViewCell: UICollectionViewCell {
     
     private let label: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .secondaryLabel
         label.textAlignment = .center
-        label.font = .boldSystemFont(ofSize: 25)
+        label.font = .boldSystemFont(ofSize: 23)
         return label
     }()
     
