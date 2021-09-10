@@ -13,6 +13,7 @@ class ExampleTableViewCell: UITableViewCell {
     
     private var viewModels: [ExampleCollectionViewModel] = []
     
+    weak var delegate: ExampleCollectionTableViewCellDelegate?
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -84,5 +85,11 @@ extension ExampleTableViewCell: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = contentView.width/1.8
         return CGSize(width: width, height: width/1.1)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let viewModel = viewModels[indexPath.row]
+        delegate?.collectionTableViewCellDidTabItem(with: viewModel)
     }
 }

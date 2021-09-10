@@ -15,16 +15,26 @@ class ExampleCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .white
         label.textAlignment = .center
-        label.font = .systemFont(ofSize:20, weight: .medium)
+        label.font = .boldSystemFont(ofSize: 25)
         return label
+    }()
+    
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 20
+        imageView.layer.borderWidth = 3
+        imageView.layer.borderColor = UIColor.quaternaryLabel.cgColor
+        return imageView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+       
+        contentView.addSubview(imageView)
         contentView.addSubview(label)
-        contentView.layer.cornerRadius = 20
-        contentView.layer.borderWidth = 1.5
-        contentView.layer.borderColor = UIColor.quaternaryLabel.cgColor
+        
     }
     
     required init?(coder: NSCoder) {
@@ -34,10 +44,11 @@ class ExampleCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         label.frame = contentView.bounds
+        imageView.frame = contentView.bounds
     }
     
     func configure(with viewModel: ExampleCollectionViewModel) {
-        contentView.largeContentImage = viewModel.backgroundImage
         label.text = viewModel.name
+        imageView.image = UIImage(named: viewModel.backgroundImage)
     }
 }
