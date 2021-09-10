@@ -86,7 +86,7 @@ final class EditProfileViewController: UIViewController {
     }
     
     
-    //MARK: - 구현대기 / 텍스트 필드가 전해준 값 전달
+    //MARK: - 구현대기 / 텍스트 필드가 전해준 값을 데이터베이스에 전달하고 이름과 텍스트뷰를 프로필 뷰에 전달하여 뷰를 업데이트 해야함
     
     private func configureModels() {
     

@@ -75,6 +75,7 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     //이름 라벨
     private let nameLabel: UILabel = {
         let label = UILabel()
+        //구현대기 임시값전달
         let name = UserDefaults.standard.value(forKey: "name") as? String ?? "noName"
         label.text = name
         label.textColor = .label
@@ -87,6 +88,7 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     //자기소개 라벨
     private let bioLabel: UILabel = {
         let label = UILabel()
+        //구현대기 임시값전달
         label.text = "새로운 계정 입니다\nGit hub: https://github.com/jdr4343 \n \nNotion: https://www.notion.so/9efbaec014d84700a6e17733ad829447?v=cb2389fba533469086f9798c5b23a75f"
         label.textColor = .label
         label.font = .boldSystemFont(ofSize: 14)
