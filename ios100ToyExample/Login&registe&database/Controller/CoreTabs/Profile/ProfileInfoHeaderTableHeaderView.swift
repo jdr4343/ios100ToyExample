@@ -122,7 +122,7 @@ class ProfileInfoHeaderTableHeaderView: UIView{
         headerImageView.frame = CGRect(x: 0, y: 0, width: width, height: height/2)
         
         UIGraphicsBeginImageContext(self.headerImageView.frame.size)
-        UIImage(named: "헤더이미지")?.draw(in: self.headerImageView.bounds)
+      //  UIImage(named: "헤더이미지")?.draw(in: self.headerImageView.bounds)
 
         if let image = UIGraphicsGetImageFromCurrentImageContext(){
             UIGraphicsEndImageContext()

@@ -116,6 +116,7 @@ PODS:
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
+  - GooglePlaces (5.0.0)
   - GoogleUtilities/AppDelegateSwizzler (7.5.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -179,6 +180,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - Floaty
+  - GooglePlaces
   - JGProgressHUD
   - MessageKit
   - RAMAnimatedTabBarController
@@ -210,6 +212,7 @@ SPEC REPOS:
     - Floaty
     - GoogleAppMeasurement
     - GoogleDataTransport
+    - GooglePlaces
     - GoogleUtilities
     - GTMSessionFetcher
     - InputBarAccessoryView
@@ -249,6 +252,7 @@ SPEC CHECKSUMS:
   Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
   GoogleAppMeasurement: 8d10c1c470fcb0e5143ed74fddd164f0a0384800
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
+  GooglePlaces: 5d87ca13ed98b7a937e0d8bc7026f718c7263271
   GoogleUtilities: eea970f4a389963963bffe8d8fabe43540678b9c
   GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
   InputBarAccessoryView: 1f75d8c9f75e5e57f3ffac36ed58635a8005e0bc
@@ -269,6 +273,6 @@ SPEC CHECKSUMS:
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
   YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
-PODFILE CHECKSUM: 7c8c0745ae52b2c9d314c45d3a313c0e219f0e81
+PODFILE CHECKSUM: db6ac780c23aeb64d709c913a9a0462bdce537df
 
 COCOAPODS: 1.10.1

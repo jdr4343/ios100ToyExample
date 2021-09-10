@@ -2619,6 +2619,10 @@ Copyright 2021 Google
    limitations under the License.
 
 
+## GooglePlaces
+
+Copyright 2021 Google
+
 ## GoogleUtilities
 
 

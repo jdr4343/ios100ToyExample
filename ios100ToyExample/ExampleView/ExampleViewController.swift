@@ -205,9 +205,9 @@ class ExampleViewController: UIViewController {
                                        backgroundImage: "메모앱", handler: { [weak self] in
                                          self?.didTabMemoButton()
                                        }),
-           ExampleCollectionViewModel(name: "코로나앱",
-                                       backgroundImage: "코로나앱", handler: { [weak self] in
-                                         self?.didTabMemoButton()
+           ExampleCollectionViewModel(name: "지도앱",
+                                       backgroundImage: "지도앱", handler: { [weak self] in
+                                         self?.didTabCoinAppButton()
                                        })
          
           ])])
@@ -323,6 +323,10 @@ class ExampleViewController: UIViewController {
     @objc func didTabNewsAppButton() {
         let NewsVC = NewsViewController()
             self.navigationController?.pushViewController(NewsVC, animated: true)
+    }
+    @objc func didTabCoinAppButton() {
+        let mapVC = MapViewController()
+            self.navigationController?.pushViewController(mapVC, animated: true)
     }
    
   
