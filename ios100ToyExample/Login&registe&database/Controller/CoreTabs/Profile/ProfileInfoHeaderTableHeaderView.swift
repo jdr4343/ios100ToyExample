@@ -49,7 +49,7 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     }()
  
     
-    
+    ddddd
     //게시물 버튼
     private let postButton: UIButton = {
         let button = UIButton()

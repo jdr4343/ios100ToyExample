@@ -259,11 +259,11 @@
 			path = ExampleView;
 			sourceTree = "<group>";
 		};
-		40180B3826EBB39D00E64A9C /* New Group */ = {
+		40180B3826EBB39D00E64A9C /* Feed */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "New Group";
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		4035029326CB4B4B004BD348 = {
@@ -714,7 +714,7 @@
 		407A1FF826D66A050058F84D /* CoreTabs */ = {
 			isa = PBXGroup;
 			children = (
-				40180B3826EBB39D00E64A9C /* New Group */,
+				40180B3826EBB39D00E64A9C /* Feed */,
 				405AD93926DE53F40079734A /* Chat */,
 				405AD93C26DE68B50079734A /* Home */,
 				40180B2F26EA721D00E64A9C /* ExampleView */,
