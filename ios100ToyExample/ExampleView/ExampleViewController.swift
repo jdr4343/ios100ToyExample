@@ -204,6 +204,10 @@ class ExampleViewController: UIViewController {
            ExampleCollectionViewModel(name: "메모앱",
                                        backgroundImage: "메모앱", handler: { [weak self] in
                                          self?.didTabMemoButton()
+                                       }),
+           ExampleCollectionViewModel(name: "코로나앱",
+                                       backgroundImage: "코로나앱", handler: { [weak self] in
+                                         self?.didTabMemoButton()
                                        })
          
           ])])
@@ -320,6 +324,7 @@ class ExampleViewController: UIViewController {
         let NewsVC = NewsViewController()
             self.navigationController?.pushViewController(NewsVC, animated: true)
     }
+   
   
     @objc func didTabAutoButton() {
         let AutoVC = AutoLayoutViewController()

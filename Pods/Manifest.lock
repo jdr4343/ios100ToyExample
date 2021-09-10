@@ -35,6 +35,9 @@ PODS:
   - Firebase/Database (8.5.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 8.5.0)
+  - Firebase/Messaging (8.5.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 8.5.0)
   - Firebase/Storage (8.5.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 8.5.0)
@@ -85,6 +88,13 @@ PODS:
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/UserDefaults (~> 7.4)
     - PromisesObjC (< 3.0, >= 1.2)
+  - FirebaseMessaging (8.5.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/Reachability (~> 7.4)
+    - GoogleUtilities/UserDefaults (~> 7.4)
   - FirebaseStorage (8.5.0):
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
@@ -166,6 +176,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Crashlytics
   - Firebase/Database
+  - Firebase/Messaging
   - Firebase/Storage
   - Floaty
   - JGProgressHUD
@@ -194,6 +205,7 @@ SPEC REPOS:
     - FirebaseCrashlytics
     - FirebaseDatabase
     - FirebaseInstallations
+    - FirebaseMessaging
     - FirebaseStorage
     - Floaty
     - GoogleAppMeasurement
@@ -232,6 +244,7 @@ SPEC CHECKSUMS:
   FirebaseCrashlytics: 8e7cf678cb149d421198388c6fc3d3acfd266539
   FirebaseDatabase: 65c3742ed355f9b9db222036fd154e699ab7d672
   FirebaseInstallations: f2bc590b291d25fb40a9a05b8281c02a881b5117
+  FirebaseMessaging: 0705ec705c21705efc51c071fba924c8e25c63e7
   FirebaseStorage: 2c176ca64a68b45bddc3c7d4d2c0c839927ad92c
   Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
   GoogleAppMeasurement: 8d10c1c470fcb0e5143ed74fddd164f0a0384800
@@ -256,6 +269,6 @@ SPEC CHECKSUMS:
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
   YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
-PODFILE CHECKSUM: 66ab6b8b9a4d1c760187c29088a096ae95f0a763
+PODFILE CHECKSUM: 7c8c0745ae52b2c9d314c45d3a313c0e219f0e81
 
 COCOAPODS: 1.10.1

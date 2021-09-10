@@ -288,6 +288,7 @@
 		4035029E26CB4B4B004BD348 /* ios100ToyExample */ = {
 			isa = PBXGroup;
 			children = (
+				40180B2F26EA721D00E64A9C /* ExampleView */,
 				407A1F7B26D244DA0058F84D /* MemoWithPhoto */,
 				407A1FF426D669180058F84D /* Example */,
 				407A1FE426D4C80D0058F84D /* Login&registe&database */,
@@ -717,7 +718,6 @@
 				40180B3826EBB39D00E64A9C /* Feed */,
 				405AD93926DE53F40079734A /* Chat */,
 				405AD93C26DE68B50079734A /* Home */,
-				40180B2F26EA721D00E64A9C /* ExampleView */,
 				406FE6B126DC00580036DE44 /* Profile */,
 			);
 			path = CoreTabs;
