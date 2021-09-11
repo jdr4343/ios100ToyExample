@@ -159,7 +159,12 @@ class ExampleViewController: UIViewController {
            ExampleCollectionViewModel(name: "커스텀탭바",
                                       backgroundImage: "커스텀탭바", handler: { [weak self] in
                                         self?.didTabCustomTabBarButton()
+                                      }),
+           ExampleCollectionViewModel(name: "MVVM이벤트패턴",
+                                      backgroundImage: "MVVM", handler: { [weak self] in
+                                        self?.didTabMVVMButton()
                                       })
+           
           
           ])])
         
@@ -205,10 +210,7 @@ class ExampleViewController: UIViewController {
                                        backgroundImage: "메모앱", handler: { [weak self] in
                                          self?.didTabMemoButton()
                                        }),
-           ExampleCollectionViewModel(name: "지도앱",
-                                       backgroundImage: "지도앱", handler: { [weak self] in
-                                         self?.didTabCoinAppButton()
-                                       })
+          
          
           ])])
     }
@@ -324,9 +326,9 @@ class ExampleViewController: UIViewController {
         let NewsVC = NewsViewController()
             self.navigationController?.pushViewController(NewsVC, animated: true)
     }
-    @objc func didTabCoinAppButton() {
-        let mapVC = MapViewController()
-            self.navigationController?.pushViewController(mapVC, animated: true)
+    @objc func didTabMVVMButton() {
+        let vc = MVVMEventViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
     }
    
   

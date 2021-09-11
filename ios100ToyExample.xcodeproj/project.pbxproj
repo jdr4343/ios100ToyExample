@@ -19,8 +19,6 @@
 		40180B3326EA785200E64A9C /* ExampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40180B3226EA785200E64A9C /* ExampleTableViewCell.swift */; };
 		40180B3526EA7B4600E64A9C /* ExampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40180B3426EA7B4600E64A9C /* ExampleCollectionViewCell.swift */; };
 		40180B3726EA81EF00E64A9C /* ExampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40180B3626EA81EF00E64A9C /* ExampleViewModel.swift */; };
-		40180B4426EBE45F00E64A9C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40180B4326EBE45F00E64A9C /* MapViewController.swift */; };
-		40180B4626EBE59100E64A9C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40180B4526EBE59100E64A9C /* SearchResultViewController.swift */; };
 		403502A026CB4B4B004BD348 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035029F26CB4B4B004BD348 /* AppDelegate.swift */; };
 		403502A226CB4B4B004BD348 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502A126CB4B4B004BD348 /* SceneDelegate.swift */; };
 		403502A726CB4B4B004BD348 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403502A526CB4B4B004BD348 /* Main.storyboard */; };
@@ -98,6 +96,9 @@
 		407A1FFF26D66A9B0058F84D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1FFE26D66A9B0058F84D /* ProfileViewController.swift */; };
 		407A200326D67E460058F84D /* IOSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A200226D67E460058F84D /* IOSTabBarController.swift */; };
 		407A200626D67FB50058F84D /* IOSTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A200526D67FB50058F84D /* IOSTabBar.swift */; };
+		408AFA8826EBED6800DF7B0B /* MVVMEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408AFA8726EBED6800DF7B0B /* MVVMEventViewController.swift */; };
+		408AFA8A26EBEFCF00DF7B0B /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408AFA8926EBEFCF00DF7B0B /* Bus.swift */; };
+		408AFA8C26EBF02600DF7B0B /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408AFA8B26EBF02600DF7B0B /* Events.swift */; };
 		408D96F726E840C700C87FF9 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408D96F626E840C700C87FF9 /* LocationPickerViewController.swift */; };
 		40C2442626DFEE1600374DB2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442526DFEE1600374DB2 /* ChatViewController.swift */; };
 		40C2442826E01BC200374DB2 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442726E01BC200374DB2 /* NewConversationViewController.swift */; };
@@ -125,8 +126,6 @@
 		40180B3226EA785200E64A9C /* ExampleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTableViewCell.swift; sourceTree = "<group>"; };
 		40180B3426EA7B4600E64A9C /* ExampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewCell.swift; sourceTree = "<group>"; };
 		40180B3626EA81EF00E64A9C /* ExampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewModel.swift; sourceTree = "<group>"; };
-		40180B4326EBE45F00E64A9C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		40180B4526EBE59100E64A9C /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		4035029C26CB4B4B004BD348 /* ios100ToyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios100ToyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4035029F26CB4B4B004BD348 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		403502A126CB4B4B004BD348 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +205,9 @@
 		407A1FFE26D66A9B0058F84D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		407A200226D67E460058F84D /* IOSTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSTabBarController.swift; sourceTree = "<group>"; };
 		407A200526D67FB50058F84D /* IOSTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSTabBar.swift; sourceTree = "<group>"; };
+		408AFA8726EBED6800DF7B0B /* MVVMEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMEventViewController.swift; sourceTree = "<group>"; };
+		408AFA8926EBEFCF00DF7B0B /* Bus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
+		408AFA8B26EBF02600DF7B0B /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		408D96F626E840C700C87FF9 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		40C2442526DFEE1600374DB2 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		40C2442726E01BC200374DB2 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
@@ -268,15 +270,6 @@
 			children = (
 			);
 			path = Feed;
-			sourceTree = "<group>";
-		};
-		40180B4226EBE44900E64A9C /* MapApp */ = {
-			isa = PBXGroup;
-			children = (
-				40180B4326EBE45F00E64A9C /* MapViewController.swift */,
-				40180B4526EBE59100E64A9C /* SearchResultViewController.swift */,
-			);
-			path = MapApp;
 			sourceTree = "<group>";
 		};
 		4035029326CB4B4B004BD348 = {
@@ -653,7 +646,7 @@
 		407A1FF426D669180058F84D /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				40180B4226EBE44900E64A9C /* MapApp */,
+				408AFA8626EBED2E00DF7B0B /* MVVM Event Bus Pattern */,
 				407A1FEB26D52A0D0058F84D /* FloatingLabelTextField */,
 				403502CC26CBBD12004BD348 /* CheakList */,
 				407A1F4D26CF6A9D0058F84D /* TableView */,
@@ -755,6 +748,16 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		408AFA8626EBED2E00DF7B0B /* MVVM Event Bus Pattern */ = {
+			isa = PBXGroup;
+			children = (
+				408AFA8726EBED6800DF7B0B /* MVVMEventViewController.swift */,
+				408AFA8926EBEFCF00DF7B0B /* Bus.swift */,
+				408AFA8B26EBF02600DF7B0B /* Events.swift */,
+			);
+			path = "MVVM Event Bus Pattern";
+			sourceTree = "<group>";
+		};
 		40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -805,7 +808,6 @@
 				4035029A26CB4B4B004BD348 /* Resources */,
 				73E7BFC9996BE057D52078AC /* [CP] Embed Pods Frameworks */,
 				408D96F826E9E07300C87FF9 /* ShellScript */,
-				9CF0C81ABFDBCC5A0B9A4459 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -901,23 +903,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9CF0C81ABFDBCC5A0B9A4459 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C654C262D138D344075D2EDC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -953,6 +938,7 @@
 				407A1FEF26D55A600058F84D /* RegistrationViewController.swift in Sources */,
 				407A1FF326D568220058F84D /* DatabaseManager.swift in Sources */,
 				407A1F9226D3BC860058F84D /* PageControlViewController.swift in Sources */,
+				408AFA8826EBED6800DF7B0B /* MVVMEventViewController.swift in Sources */,
 				403502C426CB84F0004BD348 /* AlarmViewController.swift in Sources */,
 				407A1F4C26CF411F0058F84D /* SectionITableViewHeader&FooterView.swift in Sources */,
 				403502E826CCAC76004BD348 /* WebViewController.swift in Sources */,
@@ -965,6 +951,7 @@
 				403502A026CB4B4B004BD348 /* AppDelegate.swift in Sources */,
 				4014B97D26E7A69900ADFEC8 /* NewConversationCell.swift in Sources */,
 				407A1F4726CE6EE80058F84D /* NewsModel.swift in Sources */,
+				408AFA8C26EBF02600DF7B0B /* Events.swift in Sources */,
 				4014B97B26E779B400ADFEC8 /* PhotoViewerViewController.swift in Sources */,
 				403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */,
 				40C2442626DFEE1600374DB2 /* ChatViewController.swift in Sources */,
@@ -978,7 +965,6 @@
 				4004B1E526DD209F005CC3EB /* EditProfileViewController.swift in Sources */,
 				407A1F7A26D0DE220058F84D /* StackViewController.swift in Sources */,
 				403502C226CB847F004BD348 /* AlarmModel.swift in Sources */,
-				40180B4426EBE45F00E64A9C /* MapViewController.swift in Sources */,
 				403502E526CCA016004BD348 /* SpinnerViewController.swift in Sources */,
 				407A1F8526D3799F0058F84D /* StretchyHeader.swift in Sources */,
 				4078640526CE02A900C864FD /* NewsViewController.swift in Sources */,
@@ -987,7 +973,6 @@
 				407A1F5726CF8C640058F84D /* PhotoCollectionViewCell.swift in Sources */,
 				407A1F5226CF729C0058F84D /* KeyboardToolBarViewController.swift in Sources */,
 				40180B2A26EA25A400E64A9C /* ConversationModel.swift in Sources */,
-				40180B4626EBE59100E64A9C /* SearchResultViewController.swift in Sources */,
 				407A1F6126CFB36B0058F84D /* CoreAnimationViewController.swift in Sources */,
 				4078640726CE06A200C864FD /* FrameExtensions.swift in Sources */,
 				407A1FFF26D66A9B0058F84D /* ProfileViewController.swift in Sources */,
@@ -1026,6 +1011,7 @@
 				407A1F5C26CF9D6C0058F84D /* LineViewController.swift in Sources */,
 				4078640E26CE127D00C864FD /* UIViewController+Alert.swift in Sources */,
 				403502CE26CBBD6B004BD348 /* CheckViewController.swift in Sources */,
+				408AFA8A26EBEFCF00DF7B0B /* Bus.swift in Sources */,
 				407A1F8D26D3AB5F0058F84D /* CustomTableViewCell.swift in Sources */,
 				40DF551E26CD2FB400FD9FB8 /* BarButtonItemViewController.swift in Sources */,
 				403502D026CBBD9D004BD348 /* CheckModel.swift in Sources */,
@@ -1192,6 +1178,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = L765CYF8SR;
 				INFOPLIST_FILE = ios100ToyExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1212,6 +1199,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L765CYF8SR;
 				INFOPLIST_FILE = ios100ToyExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
