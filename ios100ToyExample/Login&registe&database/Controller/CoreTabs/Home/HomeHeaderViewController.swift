@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class HomeHeaderViewController: UIView {
 
@@ -14,8 +15,8 @@ class HomeHeaderViewController: UIView {
     private var timer = Timer()
     private var count = 0
     private var timecounting = false
-    
     private var buttonimage = false
+    private var isplay = false
     
     ///헤더의 백그라운드 이미지 입니다.
     private let headerImageView: UIImageView = {
@@ -37,60 +38,65 @@ class HomeHeaderViewController: UIView {
     }()
     
     
+    
     ///시간 추가 라벨 입니다
-    private let tenMinLabel: UILabel = {
-        let label = UILabel()
-        label.text = "10분"
-        label.font = .boldSystemFont(ofSize: 16)
-        label.textColor = .white
-        label.textAlignment = .center
-       // label.target(forAction: <#T##Selector#>, withSender: <#T##Any?#>)
-        return label
+    private let min10Button: UIButton = {
+        let button = UIButton()
+        button.setTitle("10분", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(didTap10MinLabel), for: .touchUpInside)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .bold)
+        return button
     }()
-    private let twentyMinLabel: UILabel = {
-        let label = UILabel()
-        label.text = "20분"
-        label.font = .boldSystemFont(ofSize: 16)
-        label.textColor = .white
-        label.textAlignment = .center
-      //  label.target(forAction: <#T##Selector#>, withSender: <#T##Any?#>)
-        return label
+    private let min20Button: UIButton = {
+        let button = UIButton()
+        button.setTitle("20분", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(didTap20MinLabel), for: .touchUpInside)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .bold)
+        return button
     }()
-    private let thirtyMinLabel: UILabel = {
-        let label = UILabel()
-        label.text = "30분"
-        label.font = .boldSystemFont(ofSize: 16)
-        label.textColor = .white
-        label.textAlignment = .center
-       // label.target(forAction: <#T##Selector#>, withSender: <#T##Any?#>)
-        return label
+    private let min30Button: UIButton = {
+        let button = UIButton()
+        button.setTitle("30분", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(didTap30MinLabel), for: .touchUpInside)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .bold)
+        return button
     }()
-    private let onehourLabel: UILabel = {
-        let label = UILabel()
-        label.text = "1시간"
-        label.font = .boldSystemFont(ofSize: 16)
-        label.textColor = .white
-        label.textAlignment = .center
-       // label.target(forAction: <#T##Selector#>, withSender: <#T##Any?#>)
-        return label
+    private let hour1Button: UIButton = {
+        let button = UIButton()
+        button.setTitle("1시간", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(didTap1HourLabel), for: .touchUpInside)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .bold)
+        return button
     }()
-    private let addFiveMinLabel: UILabel = {
-        let label = UILabel()
-        label.text = "+5분"
-        label.font = .boldSystemFont(ofSize: 16)
-        label.textColor = .white
-        label.textAlignment = .center
-        //label.target(forAction: <#T##Selector#>, withSender: <#T##Any?#>)
-        return label
+    private let add10MinButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("+10분", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(didTapAdd10MinLabel), for: .touchUpInside)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .bold)
+        return button
     }()
     
     //백색소음
+    var fire: AVAudioPlayer?
+    var wind: AVAudioPlayer?
+    var rain: AVAudioPlayer?
+    var forest: AVAudioPlayer?
+    var pencil: AVAudioPlayer?
+    var keyboard: AVAudioPlayer?
+    var wave: AVAudioPlayer?
+    
+ 
     
     private let fireButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "flame.fill"), for: .normal)
         button.tintColor = .white
-        button.addTarget(self, action: #selector(didTapStartStopButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapPlayfire), for: .touchUpInside)
         return button
     }()
     
@@ -98,7 +104,7 @@ class HomeHeaderViewController: UIView {
         let button = UIButton()
         button.setImage(UIImage(systemName: "wind"), for: .normal)
         button.tintColor = .white
-        button.addTarget(self, action: #selector(didTapStartStopButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapPlaywind), for: .touchUpInside)
         return button
     }()
     
@@ -106,7 +112,7 @@ class HomeHeaderViewController: UIView {
         let button = UIButton()
         button.setImage(UIImage(systemName: "cloud.rain.fill"), for: .normal)
         button.tintColor = .white
-        button.addTarget(self, action: #selector(didTapStartStopButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapPlayrain), for: .touchUpInside)
         return button
     }()
     
@@ -114,7 +120,7 @@ class HomeHeaderViewController: UIView {
         let button = UIButton()
         button.setImage(UIImage(systemName: "leaf.fill"), for: .normal)
         button.tintColor = .white
-        button.addTarget(self, action: #selector(didTapStartStopButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapPlayforeset), for: .touchUpInside)
         return button
     }()
     
@@ -122,7 +128,7 @@ class HomeHeaderViewController: UIView {
         let button = UIButton()
         button.setImage(UIImage(systemName: "pencil"), for: .normal)
         button.tintColor = .white
-        button.addTarget(self, action: #selector(didTapStartStopButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapPlaypencil), for: .touchUpInside)
         return button
     }()
     
@@ -130,7 +136,7 @@ class HomeHeaderViewController: UIView {
         let button = UIButton()
         button.setImage(UIImage(systemName: "keyboard"), for: .normal)
         button.tintColor = .white
-        button.addTarget(self, action: #selector(didTapStartStopButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapPlaykeybord), for: .touchUpInside)
         return button
     }()
     
@@ -140,7 +146,7 @@ class HomeHeaderViewController: UIView {
         button.tintColor = .white
         button.contentMode = .scaleAspectFill
         button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(didTapStartStopButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapPlaywave), for: .touchUpInside)
         return button
     }()
     
@@ -160,11 +166,11 @@ class HomeHeaderViewController: UIView {
         button.setTitle("reset", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(didTapResetButton), for: .touchUpInside)
-        
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .bold)
         return button
     }()
     
-    
+    //구현대기 / 음악파일 배열을 만들어서 재생하기
     private let backwordButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "backward.fill"), for: .normal)
@@ -197,75 +203,75 @@ class HomeHeaderViewController: UIView {
         headerImageView.frame = bounds
         
         //라벨
-        thirtyMinLabel.frame = CGRect(x: width/2-25,
+        min30Button.frame = CGRect(x: width/2-25,
                                       y: safeAreaInsets.bottom+20,
                                       width: 50, height: 50)
         
-        twentyMinLabel.frame = CGRect(x: thirtyMinLabel.left-75,
+        min20Button.frame = CGRect(x: min30Button.left-75,
                                       y: safeAreaInsets.bottom+20,
                                       width: 50, height: 50)
-        tenMinLabel.frame = CGRect(x: twentyMinLabel.left-75,
+        min10Button.frame = CGRect(x: min20Button.left-75,
                                    y: safeAreaInsets.bottom+20,
                                    width: 50, height: 50)
 
-        onehourLabel.frame = CGRect(x: thirtyMinLabel.right+25,
+        hour1Button.frame = CGRect(x: min30Button.right+25,
                                     y: safeAreaInsets.bottom+20,
                                     width: 50, height: 50)
-        addFiveMinLabel.frame = CGRect(x: onehourLabel.right+25,
+        add10MinButton.frame = CGRect(x: hour1Button.right+25,
                                        y: safeAreaInsets.bottom+20,
                                        width: 50, height: 50)
         
-        timeLabel.frame = CGRect(x: 0, y: thirtyMinLabel.bottom+80, width: width, height: 50)
+        timeLabel.frame = CGRect(x: 0, y: min30Button.bottom+80, width: width, height: 50)
         
         
         
         //버튼
-        startStopButton.frame = CGRect(x: width/2-25,
-                                       y: thirtyMinLabel.bottom+130,
-                                       width: 50, height: 50)
+        startStopButton.frame = CGRect(x: width/2-30,
+                                       y: min30Button.bottom+130,
+                                       width: 60, height: 60)
         backwordButton.frame = CGRect(x: startStopButton.left - 75
-                                      , y: thirtyMinLabel.bottom+130,
-                                      width: 50, height: 50)
+                                      , y: min30Button.bottom+130,
+                                      width: 60, height: 60)
         forwardButton.frame = CGRect(x: startStopButton.right+25,
-                                     y: thirtyMinLabel.bottom+130,
-                                     width: 50, height: 50)
-        resetLabel.frame = CGRect(x: width/2-30, y: thirtyMinLabel.bottom+180, width: 60, height: 50)
+                                     y: min30Button.bottom+130,
+                                     width: 60, height: 60)
+        resetLabel.frame = CGRect(x: width/2-30, y: min30Button.bottom+180, width: 60, height: 50)
         
         
         //음악 버튼
         fireButton.frame = CGRect(x: width/2-25,
-                                  y: thirtyMinLabel.bottom+30,
+                                  y: min30Button.bottom+30,
                                   width: 50, height: 50)
         rainButton.frame = CGRect(x: fireButton.right+10,
-                                  y: thirtyMinLabel.bottom+30,
+                                  y: min30Button.bottom+30,
                                   width: 50, height: 50)
         windButton.frame = CGRect(x: rainButton.right+10,
-                                  y: thirtyMinLabel.bottom+30,
+                                  y: min30Button.bottom+30,
                                   width: 50, height: 50)
         forestButton.frame = CGRect(x: windButton.right+10,
-                                  y: thirtyMinLabel.bottom+30,
+                                  y: min30Button.bottom+30,
                                   width: 50, height: 50)
         pencilButton.frame = CGRect(x: fireButton.left-60,
-                                  y: thirtyMinLabel.bottom+30,
+                                  y: min30Button.bottom+30,
                                   width: 50, height: 50)
         keybordButton.frame = CGRect(x: pencilButton.left-60,
-                                  y: thirtyMinLabel.bottom+30,
+                                  y: min30Button.bottom+30,
                                   width: 50, height: 50)
         
         
         waveButton.frame = CGRect(x: keybordButton.left-50,
-                                  y: thirtyMinLabel.bottom+40,
+                                  y: min30Button.bottom+40,
                                   width: 30, height: 30)
         
     }
 
      func addSubview() {
         addSubview(headerImageView)
-        addSubview(tenMinLabel)
-        addSubview(twentyMinLabel)
-        addSubview(thirtyMinLabel)
-        addSubview(onehourLabel)
-        addSubview(addFiveMinLabel)
+        addSubview(min10Button)
+        addSubview(min20Button)
+        addSubview(min30Button)
+        addSubview(hour1Button)
+        addSubview(add10MinButton)
         addSubview(startStopButton)
         addSubview(backwordButton)
         addSubview(forwardButton)
@@ -281,42 +287,76 @@ class HomeHeaderViewController: UIView {
         addSubview(waveButton)
     }
     
-    //라벨 액션
+    //MARK: -타이머
     
-    
+    //시간 추가 액션
+    @objc private func didTap10MinLabel() {
+        count = 600
+        timeLabel.text = makeTimeString(hours: 00, minute: 10, seconds: 00)
+    }
+    @objc private func didTap20MinLabel() {
+        count = 1200
+        timeLabel.text = makeTimeString(hours: 00, minute: 20, seconds: 00)
+    }
+    @objc private func didTap30MinLabel() {
+        count = 1800
+        timeLabel.text = makeTimeString(hours: 00, minute: 30, seconds: 00)
+    }
+    @objc private func didTap1HourLabel() {
+        count = 3600
+        timeLabel.text = makeTimeString(hours: 01, minute: 00, seconds: 00)
+    }
+    @objc private func didTapAdd10MinLabel() {
+        
+        if timeLabel.text == makeTimeString(hours: 00, minute: 00, seconds: 00) {
+            
+
+        } else {
+            count += 600
+        }
+    }
     
     
     //버튼 액션
     @objc private func didTapStartStopButton() {
+        
+        
+        
         if (timecounting) {
             buttonimage = false
             timecounting = false
             timer.invalidate()
             startStopButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-          
-            } else {
+            didTapPause()
+        } else {
+            didTapPlay()
+            if timeLabel.text != makeTimeString(hours: 00, minute: 00, seconds: 00) {
                 timecounting = true
                 buttonimage = true
                 startStopButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+                //didTapPlay()
                 timer = Timer.scheduledTimer(
                     timeInterval: 1,
                     target: self,
                     selector: #selector(timerCounter),
                     userInfo: nil,
                     repeats: true)
-          
-          }
+            }
+            
+        }
     }
     
     @objc private func didTapResetButton() {
+        didTapStop()
         count = 0
         timer.invalidate()
-        timeLabel.text = makeTimeString(hours: 0, minute: 0, seconds: 0)
+        timeLabel.text = makeTimeString(hours: 00, minute: 00, seconds: 00)
         startStopButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
     }
-    
         
-       @objc private func timerCounter() -> Void {
+    
+    
+    @objc private func timerCounter() -> Void {
         count -= 1
         let time = secondsToHoursMinutesSeconds(seconds: count)
         let timeString = makeTimeString(hours: time.0, minute: time.1, seconds: time.2)
@@ -329,7 +369,7 @@ class HomeHeaderViewController: UIView {
                 ((seconds % 3600) % 60))
     }
     
-   private func makeTimeString(hours: Int, minute: Int, seconds: Int) -> String {
+    private func makeTimeString(hours: Int, minute: Int, seconds: Int) -> String {
         var timeString = ""
         timeString += String(format: "%02d", hours)
         timeString += ":"
@@ -337,6 +377,275 @@ class HomeHeaderViewController: UIView {
         timeString += ":"
         timeString += String(format: "%02d", seconds)
         return timeString
+    }
+    
+    //MARK: - 음악재생
+    
+    @objc func didTapPlayfire() {
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        //플레이 셋업
+        let urlString = Bundle.main.path(forResource: "불", ofType: "mp3")
+        do {
+            try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            try audioSession.setCategory(AVAudioSession.Category.playback)
+            
+            guard let urlString = urlString else {
+                return
+            }
+            fire = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+            fire?.volume = 0.6
+            guard let player = fire else {
+                return
+            }
+            
+            player.play()
+            
+        }
+        catch {
+            print("오류")
+        }
+    }
+    @objc func didTapPlaywind() {
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        //플레이 셋업
+        let urlString = Bundle.main.path(forResource: "바람소리", ofType: "mp3")
+        do {
+            try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            try audioSession.setCategory(AVAudioSession.Category.playback)
+            
+            guard let urlString = urlString else {
+                return
+            }
+            wind = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+            wind?.volume = 1.4
+            guard let player = wind else {
+                return
+            }
+            
+            player.play()
+            
+        }
+        catch {
+            print("오류")
+        }
+    }
+    @objc func didTapPlayrain() {
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        //플레이 셋업
+        let urlString = Bundle.main.path(forResource: "비", ofType: "mp3")
+        do {
+            try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            try audioSession.setCategory(AVAudioSession.Category.playback)
+            
+            guard let urlString = urlString else {
+                return
+            }
+            rain = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+            rain?.volume = 0.5
+            guard let player = rain else {
+                return
+            }
+            
+            player.play()
+            
+        }
+        catch {
+            print("오류")
+        }
+    }
+    @objc func didTapPlayforeset() {
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        //플레이 셋업
+        let urlString = Bundle.main.path(forResource: "숲", ofType: "mp3")
+        do {
+            try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            try audioSession.setCategory(AVAudioSession.Category.playback)
+            
+            guard let urlString = urlString else {
+                return
+            }
+            forest = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+            
+            guard let player = forest else {
+                return
+            }
+            
+            player.play()
+            
+        }
+        catch {
+            print("오류")
+        }
+    }
+    @objc func didTapPlaypencil() {
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        //플레이 셋업
+        let urlString = Bundle.main.path(forResource: "연필", ofType: "mp3")
+        do {
+            try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            try audioSession.setCategory(AVAudioSession.Category.playback)
+            
+            guard let urlString = urlString else {
+                return
+            }
+            pencil = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+            pencil?.volume = 3.3
+            guard let player = pencil else {
+                return
+            }
+            
+            player.play()
+            
+        }
+        catch {
+            print("오류")
+        }
+    }
+    @objc func didTapPlaykeybord() {
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        //플레이 셋업
+        let urlString = Bundle.main.path(forResource: "키보드", ofType: "mp3")
+        do {
+            try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            try audioSession.setCategory(AVAudioSession.Category.playback)
+            
+            guard let urlString = urlString else {
+                return
+            }
+            keyboard = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+            keyboard?.volume = 0.9
+            guard let player = keyboard else {
+                return
+            }
+            
+            player.play()
+            
+        }
+        catch {
+            print("오류")
+        }
+    }
+    @objc func didTapPlaywave() {
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        //플레이 셋업
+        let urlString = Bundle.main.path(forResource: "파도소리", ofType: "mp3")
+        do {
+            try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            try audioSession.setCategory(AVAudioSession.Category.playback)
+            
+            guard let urlString = urlString else {
+                return
+            }
+            wave = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+            wave?.volume = 0.6
+            guard let player = wave else {
+                return
+            }
+            
+            player.play()
+            
+        }
+        catch {
+            print("오류")
+        }
+    }
+    
+    
+    ///재생 초기화 함수입니다.
+    func didTapStop() {
+        isplay = false
+        if let player = fire {
+            player.stop()
+            fire = nil
+        }
+        if let player = wind {
+            player.stop()
+            wind = nil
+        }
+        if let player = rain {
+            player.stop()
+            rain = nil
+        }
+        if let player = forest {
+            player.stop()
+            forest = nil
+        }
+        if let player = pencil {
+            player.stop()
+            pencil = nil
+        }
+        if let player = keyboard {
+            player.stop()
+            keyboard = nil
+        }
+        if let player = wave {
+            player.stop()
+            wave = nil
+        }
+    }
+    ///재생 중지 함수 입니다.
+    func didTapPause() {
+        isplay = true
+        if let player = fire, player.isPlaying {
+            player.pause()
+        }
+        if let player = wind, player.isPlaying {
+            player.pause()
+        }
+        if let player = rain, player.isPlaying {
+            player.pause()
+        }
+        if let player = forest, player.isPlaying {
+            player.pause()
+        }
+        if let player = pencil, player.isPlaying {
+            player.pause()
+        }
+        if let player = keyboard, player.isPlaying {
+            player.pause()
+        }
+        if let player = wave, player.isPlaying {
+
+            player.pause()
+        }
+    }
+    ///재생 함수입니다.
+    func didTapPlay() {
+        if let player = fire, player.prepareToPlay(), isplay == true {
+            player.play()
+        }
+        if let player = wind, player.prepareToPlay(), isplay == true {
+            player.play()
+        }
+        if let player = rain, player.prepareToPlay(), isplay == true {
+            player.play()
+        }
+        if let player = forest, player.prepareToPlay(), isplay == true {
+            player.play()
+        }
+        if let player = pencil, player.prepareToPlay(), isplay == true {
+            player.play()
+        }
+        if let player = keyboard, player.prepareToPlay(), isplay == true {
+            player.play()
+        }
+        if let player = wave, player.prepareToPlay(), isplay == true {
+            player.play()
+        }
     }
     
 }

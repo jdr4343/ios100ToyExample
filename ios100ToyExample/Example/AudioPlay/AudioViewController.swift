@@ -73,6 +73,7 @@ class AudioViewController: UIViewController {
     @objc func didTabStop() {
          if let player = keyboard, player.isPlaying {
         player.stop()
+            player.play()
         }
     }
 

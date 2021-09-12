@@ -435,7 +435,7 @@
 			path = Carousel;
 			sourceTree = "<group>";
 		};
-		405A84BF26EDEF090082FDFA /* Music */ = {
+		405A84BF26EDEF090082FDFA /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
 				405A84C626EDEF230082FDFA /* 델타파.mp3 */,
@@ -452,7 +452,7 @@
 				405A84C826EDEF280082FDFA /* 파도소리.mp3 */,
 				405A84CB26EDEF2C0082FDFA /* mueum.mp3 */,
 			);
-			path = Music;
+			path = MusicPlayer;
 			sourceTree = "<group>";
 		};
 		405AD93926DE53F40079734A /* Chat */ = {
@@ -472,7 +472,7 @@
 		405AD93C26DE68B50079734A /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				405A84BF26EDEF090082FDFA /* Music */,
+				405A84BF26EDEF090082FDFA /* MusicPlayer */,
 				405AD93D26DE68C80079734A /* HomeViewController.swift */,
 				408E14B426ED2C6700AF1A08 /* HomeHeaderViewController.swift */,
 			);

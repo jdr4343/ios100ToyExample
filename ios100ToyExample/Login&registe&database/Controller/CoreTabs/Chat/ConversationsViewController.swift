@@ -49,6 +49,7 @@ final class ConversationsViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(tableView)
         view.addSubview(noConversationsLabel)
+        
         //사용자가 새 대화를 추가 할수 있도록 네비게이션 바 아이템 추가
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose,
                                                             target: self,
