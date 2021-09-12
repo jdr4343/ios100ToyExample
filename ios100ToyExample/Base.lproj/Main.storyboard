@@ -29,8 +29,8 @@
             <objects>
                 <navigationController id="9mv-dw-dBQ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" id="leW-qA-baD"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="OnF-QI-icg">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OnF-QI-icg">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -97,7 +97,7 @@
             </objects>
             <point key="canvasLocation" x="-3749" y="1313"/>
         </scene>
-        <!--홈-->
+        <!--Home View Controller-->
         <scene sceneID="hqa-9f-tNk">
             <objects>
                 <viewController id="2xo-m9-oaj" customClass="HomeViewController" customModule="ios100ToyExample" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,7 +107,7 @@
                         <viewLayoutGuide key="safeArea" id="WGM-h8-8jw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="홈" id="bQR-8V-kjS"/>
+                    <navigationItem key="navigationItem" id="bQR-8V-kjS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vF-rd-adA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
