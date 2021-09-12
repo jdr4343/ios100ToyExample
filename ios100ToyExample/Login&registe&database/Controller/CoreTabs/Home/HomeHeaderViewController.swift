@@ -81,7 +81,7 @@ class HomeHeaderViewController: UIView {
         return button
     }()
     
-    //백색소음
+    //백색소음 //다양한 소리를 섞을수 있게 하기 위해 여러번 선언하겠습니다.
     var fire: AVAudioPlayer?
     var wind: AVAudioPlayer?
     var rain: AVAudioPlayer?
@@ -89,8 +89,7 @@ class HomeHeaderViewController: UIView {
     var pencil: AVAudioPlayer?
     var keyboard: AVAudioPlayer?
     var wave: AVAudioPlayer?
-    
- 
+     
     
     private let fireButton: UIButton = {
         let button = UIButton()
@@ -321,7 +320,6 @@ class HomeHeaderViewController: UIView {
     @objc private func didTapStartStopButton() {
         
         
-        
         if (timecounting) {
             buttonimage = false
             timecounting = false
@@ -361,6 +359,9 @@ class HomeHeaderViewController: UIView {
         let time = secondsToHoursMinutesSeconds(seconds: count)
         let timeString = makeTimeString(hours: time.0, minute: time.1, seconds: time.2)
         timeLabel.text = timeString
+        if count == 1 {
+            Alarm()
+        }
     }
     
     private func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {
@@ -563,7 +564,28 @@ class HomeHeaderViewController: UIView {
             print("오류")
         }
     }
-    
+    private func Alarm() {
+        didTapStop()
+        let audioSession = AVAudioSession.sharedInstance()
+        let urlString = Bundle.main.path(forResource: "삐삐삐삐알람소리", ofType: "mp3")
+        do {
+           try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            try audioSession.setCategory(AVAudioSession.Category.playback)
+            guard let urlString = urlString else {
+                return
+            }
+            fire = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+            
+            guard let player = fire else {
+                return
+            }
+            player.play()
+        }
+        catch {
+            print("알람오류")
+        }
+    }
     
     ///재생 초기화 함수입니다.
     func didTapStop() {

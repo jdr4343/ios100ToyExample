@@ -8,7 +8,7 @@
 import UIKit
 
 
-
+//MVME Pattern을 알아봅니다.
 class MVVMEventViewController: UIViewController {
 
     override func viewDidLoad() {
