@@ -47,7 +47,7 @@ class AudioViewController: UIViewController {
         
         let audioSession = AVAudioSession.sharedInstance()
         //플레이 셋업
-        let urlString = Bundle.main.path(forResource: "키보드", ofType: "mp3")
+        let urlString = Bundle.main.path(forResource: "삐삐삐삐알람소리", ofType: "mp3")
         do {
             try AVAudioSession.sharedInstance().setMode(.default)
             try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
