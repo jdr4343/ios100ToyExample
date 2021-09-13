@@ -214,6 +214,10 @@ class ExampleViewController: UIViewController {
                                        backgroundImage: "메모앱", handler: { [weak self] in
                                          self?.didTabMemoButton()
                                        }),
+           ExampleCollectionViewModel(name: "날씨앱",
+                                       backgroundImage: "날씨앱", handler: { [weak self] in
+                                         self?.didTapWeatherAppButton()
+                                       }),
           
          
           ])])
@@ -336,6 +340,10 @@ class ExampleViewController: UIViewController {
     }
     @objc func didTaMultipleButton() {
         let vc = MultipleCellViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func didTapWeatherAppButton() {
+        let vc = WeatherViewController()
             self.navigationController?.pushViewController(vc, animated: true)
     }
    

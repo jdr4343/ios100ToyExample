@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(HomeWidzetTableViewCell.self, forCellReuseIdentifier: HomeWidzetTableViewCell.identifier)
         return tableView
     }()
     
@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.showsVerticalScrollIndicator = false
         navigationController?.navigationBar.isHidden = true
+        
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -69,8 +70,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Test"
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeWidzetTableViewCell.identifier, for: indexPath)
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -78,5 +79,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return view.height/3.5
+    }
     
 }

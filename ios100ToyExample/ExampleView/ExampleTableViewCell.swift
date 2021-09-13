@@ -55,10 +55,7 @@ class ExampleTableViewCell: UITableViewCell {
         collectionView.frame = CGRect(x: 10, y: titleLabel.bottom, width: contentView.width - 10, height: contentView.height-titleLabel.height)
         
     }
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
+   
    
 }
 

@@ -49,6 +49,11 @@
 		403A118B26EF8F600052D20E /* SecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A118926EF8F600052D20E /* SecondTableViewCell.swift */; };
 		403A118C26EF8F600052D20E /* SecondTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 403A118A26EF8F600052D20E /* SecondTableViewCell.xib */; };
 		403A118E26EF96B10052D20E /* ThirdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A118D26EF96B10052D20E /* ThirdTableViewCell.swift */; };
+		403A119026EFB44B0052D20E /* HomeWidzetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A118F26EFB44B0052D20E /* HomeWidzetTableViewCell.swift */; };
+		403A119A26EFC1950052D20E /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A119826EFC1950052D20E /* WeatherViewController.swift */; };
+		403A119B26EFC1950052D20E /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 403A119926EFC1950052D20E /* WeatherViewController.xib */; };
+		403A119D26EFD6BC0052D20E /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A119C26EFD6BC0052D20E /* NetworkController.swift */; };
+		403A119F26EFD78C0052D20E /* weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A119E26EFD78C0052D20E /* weather.swift */; };
 		405A84CD26EDEF2C0082FDFA /* 바람소리.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 405A84C026EDEF1A0082FDFA /* 바람소리.mp3 */; };
 		405A84CE26EDEF2C0082FDFA /* 쎄타파.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 405A84C126EDEF1C0082FDFA /* 쎄타파.mp3 */; };
 		405A84CF26EDEF2C0082FDFA /* 베타파.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 405A84C226EDEF1E0082FDFA /* 베타파.mp3 */; };
@@ -176,6 +181,11 @@
 		403A118926EF8F600052D20E /* SecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewCell.swift; sourceTree = "<group>"; };
 		403A118A26EF8F600052D20E /* SecondTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondTableViewCell.xib; sourceTree = "<group>"; };
 		403A118D26EF96B10052D20E /* ThirdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTableViewCell.swift; sourceTree = "<group>"; };
+		403A118F26EFB44B0052D20E /* HomeWidzetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWidzetTableViewCell.swift; sourceTree = "<group>"; };
+		403A119826EFC1950052D20E /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		403A119926EFC1950052D20E /* WeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
+		403A119C26EFD6BC0052D20E /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		403A119E26EFD78C0052D20E /* weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather.swift; sourceTree = "<group>"; };
 		405A84C026EDEF1A0082FDFA /* 바람소리.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "바람소리.mp3"; sourceTree = "<group>"; };
 		405A84C126EDEF1C0082FDFA /* 쎄타파.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "쎄타파.mp3"; sourceTree = "<group>"; };
 		405A84C226EDEF1E0082FDFA /* 베타파.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "베타파.mp3"; sourceTree = "<group>"; };
@@ -457,6 +467,17 @@
 			path = "Multiple Custom Cell";
 			sourceTree = "<group>";
 		};
+		403A119126EFBBEF0052D20E /* weatherApp */ = {
+			isa = PBXGroup;
+			children = (
+				403A119826EFC1950052D20E /* WeatherViewController.swift */,
+				403A119926EFC1950052D20E /* WeatherViewController.xib */,
+				403A119C26EFD6BC0052D20E /* NetworkController.swift */,
+				403A119E26EFD78C0052D20E /* weather.swift */,
+			);
+			path = weatherApp;
+			sourceTree = "<group>";
+		};
 		405A84BF26EDEF090082FDFA /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,6 +518,7 @@
 				405A84BF26EDEF090082FDFA /* MusicPlayer */,
 				405AD93D26DE68C80079734A /* HomeViewController.swift */,
 				408E14B426ED2C6700AF1A08 /* HomeHeaderViewController.swift */,
+				403A118F26EFB44B0052D20E /* HomeWidzetTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -715,6 +737,7 @@
 		407A1FF426D669180058F84D /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				403A119126EFBBEF0052D20E /* weatherApp */,
 				403A118426EF78780052D20E /* Multiple Custom Cell */,
 				408AFA8626EBED2E00DF7B0B /* MVVM Event Bus Pattern */,
 				407A1FEB26D52A0D0058F84D /* FloatingLabelTextField */,
@@ -938,6 +961,7 @@
 				405A84D026EDEF2C0082FDFA /* 불.mp3 in Resources */,
 				405A84D926EDEF2C0082FDFA /* 키보드.mp3 in Resources */,
 				403502A926CB4B4D004BD348 /* Assets.xcassets in Resources */,
+				403A119B26EFC1950052D20E /* WeatherViewController.xib in Resources */,
 				405A84D526EDEF2C0082FDFA /* 파도소리.mp3 in Resources */,
 				405A84D126EDEF2C0082FDFA /* 삐삐삐삐알람소리.mp3 in Resources */,
 				405A84D726EDEF2C0082FDFA /* 숲.mp3 in Resources */,
@@ -1016,6 +1040,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				407A1F4326CE5AAD0058F84D /* APICaller.swift in Sources */,
+				403A119A26EFC1950052D20E /* WeatherViewController.swift in Sources */,
 				407A1F4F26CF6AE60058F84D /* TableViewController.swift in Sources */,
 				4078641026CE129D00C864FD /* DetailViewController.swift in Sources */,
 				407A1FEF26D55A600058F84D /* RegistrationViewController.swift in Sources */,
@@ -1038,6 +1063,7 @@
 				403A118826EF7C250052D20E /* FirstTableViewCell.swift in Sources */,
 				4014B97B26E779B400ADFEC8 /* PhotoViewerViewController.swift in Sources */,
 				403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */,
+				403A119F26EFD78C0052D20E /* weather.swift in Sources */,
 				40C2442626DFEE1600374DB2 /* ChatViewController.swift in Sources */,
 				4078641226CE12D200C864FD /* DataManager.swift in Sources */,
 				407A1FED26D52A650058F84D /* FloatingTextViewController.swift in Sources */,
@@ -1055,8 +1081,10 @@
 				403502E226CC869A004BD348 /* PDFkitViewController.swift in Sources */,
 				40180B2C26EA25ED00E64A9C /* ChatModel.swift in Sources */,
 				407A1F5726CF8C640058F84D /* PhotoCollectionViewCell.swift in Sources */,
+				403A119D26EFD6BC0052D20E /* NetworkController.swift in Sources */,
 				407A1F5226CF729C0058F84D /* KeyboardToolBarViewController.swift in Sources */,
 				40180B2A26EA25A400E64A9C /* ConversationModel.swift in Sources */,
+				403A119026EFB44B0052D20E /* HomeWidzetTableViewCell.swift in Sources */,
 				407A1F6126CFB36B0058F84D /* CoreAnimationViewController.swift in Sources */,
 				408E14B526ED2C6700AF1A08 /* HomeHeaderViewController.swift in Sources */,
 				4078640726CE06A200C864FD /* FrameExtensions.swift in Sources */,

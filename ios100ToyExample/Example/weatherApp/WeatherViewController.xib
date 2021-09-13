@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherViewController" customModule="ios100ToyExample" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MEc-QZ-aa0">
+                    <rect key="frame" x="20" y="64" width="374" height="269"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 ℃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LvT-2Q-4Is">
+                            <rect key="frame" x="131.5" y="93" width="111.5" height="51"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="42"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서울, 관악구 00 ℃" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AY-RN-Bt3">
+                            <rect key="frame" x="95.5" y="152" width="183" height="29"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="LvT-2Q-4Is" firstAttribute="centerX" secondItem="MEc-QZ-aa0" secondAttribute="centerX" id="VH9-Rf-b8R"/>
+                        <constraint firstItem="0AY-RN-Bt3" firstAttribute="centerX" secondItem="LvT-2Q-4Is" secondAttribute="centerX" id="aNQ-AR-Qa2"/>
+                        <constraint firstItem="0AY-RN-Bt3" firstAttribute="top" secondItem="LvT-2Q-4Is" secondAttribute="bottom" constant="8" id="cG5-7q-eJ1"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0AY-RN-Bt3" secondAttribute="trailing" id="f9H-II-Lzu"/>
+                        <constraint firstItem="0AY-RN-Bt3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MEc-QZ-aa0" secondAttribute="leading" id="jpZ-TN-3QO"/>
+                        <constraint firstItem="LvT-2Q-4Is" firstAttribute="centerY" secondItem="MEc-QZ-aa0" secondAttribute="centerY" constant="-16" id="yGi-8s-c2a"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.90980392160000001" green="0.86666666670000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="MEc-QZ-aa0" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.3" id="1FF-ww-OyY"/>
+                <constraint firstItem="MEc-QZ-aa0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="52f-2I-dNX"/>
+                <constraint firstItem="MEc-QZ-aa0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="QaG-0H-bm7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MEc-QZ-aa0" secondAttribute="trailing" constant="20" id="fhr-4U-ct1"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="130.58035714285714"/>
+        </view>
+    </objects>
+</document>
