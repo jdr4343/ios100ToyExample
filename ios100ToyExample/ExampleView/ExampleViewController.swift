@@ -160,6 +160,10 @@ class ExampleViewController: UIViewController {
                                       backgroundImage: "커스텀탭바", handler: { [weak self] in
                                         self?.didTabCustomTabBarButton()
                                       }),
+           ExampleCollectionViewModel(name: "멀티플 커스텀 셀",
+                                      backgroundImage: "커스텀탭바", handler: { [weak self] in
+                                        self?.didTaMultipleButton()
+                                      }),
            ExampleCollectionViewModel(name: "MVVM이벤트패턴",
                                       backgroundImage: "MVVM", handler: { [weak self] in
                                         self?.didTabMVVMButton()
@@ -328,6 +332,10 @@ class ExampleViewController: UIViewController {
     }
     @objc func didTabMVVMButton() {
         let vc = MVVMEventViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func didTaMultipleButton() {
+        let vc = MultipleCellViewController()
             self.navigationController?.pushViewController(vc, animated: true)
     }
    

@@ -22,7 +22,7 @@ class Event<T> {
 
 ///이벤트의 하위 클래스 입니다.사용자 베열을 가져오는 이벤트 클래스 입니다.
 class UserFetchEvent: Event<[User]> {
-    
+    let created = Data()
     
 }
 

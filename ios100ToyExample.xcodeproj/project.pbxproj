@@ -44,6 +44,7 @@
 		403502ED26CCD39A004BD348 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EC26CCD39A004BD348 /* CollectionTableViewCell.swift */; };
 		403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */; };
 		403502F126CCE22B004BD348 /* CarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502F026CCE22B004BD348 /* CarouselModel.swift */; };
+		403A118626EF78A90052D20E /* MultipleCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A118526EF78A90052D20E /* MultipleCellViewController.swift */; };
 		405A84CD26EDEF2C0082FDFA /* 바람소리.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 405A84C026EDEF1A0082FDFA /* 바람소리.mp3 */; };
 		405A84CE26EDEF2C0082FDFA /* 쎄타파.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 405A84C126EDEF1C0082FDFA /* 쎄타파.mp3 */; };
 		405A84CF26EDEF2C0082FDFA /* 베타파.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 405A84C226EDEF1E0082FDFA /* 베타파.mp3 */; };
@@ -166,6 +167,7 @@
 		403502EC26CCD39A004BD348 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
 		403502F026CCE22B004BD348 /* CarouselModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselModel.swift; sourceTree = "<group>"; };
+		403A118526EF78A90052D20E /* MultipleCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleCellViewController.swift; sourceTree = "<group>"; };
 		405A84C026EDEF1A0082FDFA /* 바람소리.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "바람소리.mp3"; sourceTree = "<group>"; };
 		405A84C126EDEF1C0082FDFA /* 쎄타파.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "쎄타파.mp3"; sourceTree = "<group>"; };
 		405A84C226EDEF1E0082FDFA /* 베타파.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "베타파.mp3"; sourceTree = "<group>"; };
@@ -435,6 +437,14 @@
 			path = Carousel;
 			sourceTree = "<group>";
 		};
+		403A118426EF78780052D20E /* Multiple Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				403A118526EF78A90052D20E /* MultipleCellViewController.swift */,
+			);
+			path = "Multiple Custom Cell";
+			sourceTree = "<group>";
+		};
 		405A84BF26EDEF090082FDFA /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -693,6 +703,7 @@
 		407A1FF426D669180058F84D /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				403A118426EF78780052D20E /* Multiple Custom Cell */,
 				408AFA8626EBED2E00DF7B0B /* MVVM Event Bus Pattern */,
 				407A1FEB26D52A0D0058F84D /* FloatingLabelTextField */,
 				403502CC26CBBD12004BD348 /* CheakList */,
@@ -1036,6 +1047,7 @@
 				408E14B526ED2C6700AF1A08 /* HomeHeaderViewController.swift in Sources */,
 				4078640726CE06A200C864FD /* FrameExtensions.swift in Sources */,
 				407A1FFF26D66A9B0058F84D /* ProfileViewController.swift in Sources */,
+				403A118626EF78A90052D20E /* MultipleCellViewController.swift in Sources */,
 				406FE6B526DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift in Sources */,
 				407A1F4526CE6D170058F84D /* NewsTableViewCell.swift in Sources */,
 				406FE6B326DC00FD0036DE44 /* Model.swift in Sources */,
