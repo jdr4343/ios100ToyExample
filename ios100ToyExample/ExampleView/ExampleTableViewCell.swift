@@ -51,8 +51,8 @@ class ExampleTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        titleLabel.frame = CGRect(x: 20, y: 10, width: contentView.width-20, height: contentView.height/6)
-        collectionView.frame = CGRect(x: 10, y: titleLabel.bottom+10, width: contentView.width - 10, height: contentView.height-titleLabel.height)
+        titleLabel.frame = CGRect(x: 20, y: 20, width: contentView.width-20, height: contentView.height/8)
+        collectionView.frame = CGRect(x: 10, y: titleLabel.bottom, width: contentView.width - 10, height: contentView.height-titleLabel.height)
         
     }
     override func prepareForReuse() {

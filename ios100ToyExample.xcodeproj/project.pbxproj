@@ -45,6 +45,10 @@
 		403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */; };
 		403502F126CCE22B004BD348 /* CarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403502F026CCE22B004BD348 /* CarouselModel.swift */; };
 		403A118626EF78A90052D20E /* MultipleCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A118526EF78A90052D20E /* MultipleCellViewController.swift */; };
+		403A118826EF7C250052D20E /* FirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A118726EF7C250052D20E /* FirstTableViewCell.swift */; };
+		403A118B26EF8F600052D20E /* SecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A118926EF8F600052D20E /* SecondTableViewCell.swift */; };
+		403A118C26EF8F600052D20E /* SecondTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 403A118A26EF8F600052D20E /* SecondTableViewCell.xib */; };
+		403A118E26EF96B10052D20E /* ThirdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A118D26EF96B10052D20E /* ThirdTableViewCell.swift */; };
 		405A84CD26EDEF2C0082FDFA /* 바람소리.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 405A84C026EDEF1A0082FDFA /* 바람소리.mp3 */; };
 		405A84CE26EDEF2C0082FDFA /* 쎄타파.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 405A84C126EDEF1C0082FDFA /* 쎄타파.mp3 */; };
 		405A84CF26EDEF2C0082FDFA /* 베타파.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 405A84C226EDEF1E0082FDFA /* 베타파.mp3 */; };
@@ -168,6 +172,10 @@
 		403502EE26CCDDEC004BD348 /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
 		403502F026CCE22B004BD348 /* CarouselModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselModel.swift; sourceTree = "<group>"; };
 		403A118526EF78A90052D20E /* MultipleCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleCellViewController.swift; sourceTree = "<group>"; };
+		403A118726EF7C250052D20E /* FirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTableViewCell.swift; sourceTree = "<group>"; };
+		403A118926EF8F600052D20E /* SecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewCell.swift; sourceTree = "<group>"; };
+		403A118A26EF8F600052D20E /* SecondTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondTableViewCell.xib; sourceTree = "<group>"; };
+		403A118D26EF96B10052D20E /* ThirdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTableViewCell.swift; sourceTree = "<group>"; };
 		405A84C026EDEF1A0082FDFA /* 바람소리.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "바람소리.mp3"; sourceTree = "<group>"; };
 		405A84C126EDEF1C0082FDFA /* 쎄타파.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "쎄타파.mp3"; sourceTree = "<group>"; };
 		405A84C226EDEF1E0082FDFA /* 베타파.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "베타파.mp3"; sourceTree = "<group>"; };
@@ -441,6 +449,10 @@
 			isa = PBXGroup;
 			children = (
 				403A118526EF78A90052D20E /* MultipleCellViewController.swift */,
+				403A118726EF7C250052D20E /* FirstTableViewCell.swift */,
+				403A118926EF8F600052D20E /* SecondTableViewCell.swift */,
+				403A118A26EF8F600052D20E /* SecondTableViewCell.xib */,
+				403A118D26EF96B10052D20E /* ThirdTableViewCell.swift */,
 			);
 			path = "Multiple Custom Cell";
 			sourceTree = "<group>";
@@ -920,6 +932,7 @@
 				405A84D226EDEF2C0082FDFA /* 연필.mp3 in Resources */,
 				40DF551A26CD13A200FD9FB8 /* video.mp4 in Resources */,
 				405A84D426EDEF2C0082FDFA /* 알파파.mp3 in Resources */,
+				403A118C26EF8F600052D20E /* SecondTableViewCell.xib in Resources */,
 				405A84CE26EDEF2C0082FDFA /* 쎄타파.mp3 in Resources */,
 				405A84CF26EDEF2C0082FDFA /* 베타파.mp3 in Resources */,
 				405A84D026EDEF2C0082FDFA /* 불.mp3 in Resources */,
@@ -1022,6 +1035,7 @@
 				4014B97D26E7A69900ADFEC8 /* NewConversationCell.swift in Sources */,
 				407A1F4726CE6EE80058F84D /* NewsModel.swift in Sources */,
 				408AFA8C26EBF02600DF7B0B /* Events.swift in Sources */,
+				403A118826EF7C250052D20E /* FirstTableViewCell.swift in Sources */,
 				4014B97B26E779B400ADFEC8 /* PhotoViewerViewController.swift in Sources */,
 				403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */,
 				40C2442626DFEE1600374DB2 /* ChatViewController.swift in Sources */,
@@ -1078,6 +1092,7 @@
 				407A200326D67E460058F84D /* IOSTabBarController.swift in Sources */,
 				407A1F5526CF7D440058F84D /* CollectionViewController.swift in Sources */,
 				405AD93826DE0CB90079734A /* EditTextViewTableViewCell.swift in Sources */,
+				403A118B26EF8F600052D20E /* SecondTableViewCell.swift in Sources */,
 				40DF551526CD12E600FD9FB8 /* AdvencedModel.swift in Sources */,
 				407A1F6326CFC9630058F84D /* TheAnimaionViewController.swift in Sources */,
 				407A1F5C26CF9D6C0058F84D /* LineViewController.swift in Sources */,
@@ -1097,6 +1112,7 @@
 				403502A226CB4B4B004BD348 /* SceneDelegate.swift in Sources */,
 				40DF551326CD12C300FD9FB8 /* TableCollectionViewCell.swift in Sources */,
 				407A1F6626CFCCB90058F84D /* AudioViewController.swift in Sources */,
+				403A118E26EF96B10052D20E /* ThirdTableViewCell.swift in Sources */,
 				407A1F7726D0C44C0058F84D /* AutoLayoutViewController.swift in Sources */,
 				40180B3126EA767E00E64A9C /* ExampleViewController.swift in Sources */,
 			);

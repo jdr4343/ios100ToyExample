@@ -400,7 +400,7 @@ extension ExampleViewController: UITableViewDelegate, UITableViewDataSource, Exa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.height/3.3
+        return view.height/2.9
     }
     
     
