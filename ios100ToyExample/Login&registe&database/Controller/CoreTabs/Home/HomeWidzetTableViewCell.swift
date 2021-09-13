@@ -13,7 +13,7 @@ class HomeWidzetTableViewCell: UITableViewCell {
     
     let weatherView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "날씨배경")
+        view.image = UIImage(named: "초록배경")
         view.contentMode = .scaleAspectFill
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 60
@@ -22,7 +22,7 @@ class HomeWidzetTableViewCell: UITableViewCell {
     
     let todoView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "무슨배경")
+        view.image = UIImage(named: "블루배경")
         view.contentMode = .scaleAspectFill
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 60

@@ -54,6 +54,7 @@ import Foundation
 
 //위의 코드를 기반으로 디코딩 합니다.
 struct Weather: Decodable {
+    var name: String
     var main: Main
     
     struct Main: Decodable {
