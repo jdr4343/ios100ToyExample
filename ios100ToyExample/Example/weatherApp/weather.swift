@@ -57,15 +57,6 @@ struct Weather: Decodable {
     var name: String
     var main: Main
     
-    //구현 대기
-    var weather: [weather]
-
-    struct weather: Decodable {
-        var id: Int
-        var main: String
-        var description: String
-        var icon: String
-    
     struct Main: Decodable {
         var temp: Double
         var feelsLike: Double
@@ -84,6 +75,7 @@ struct Weather: Decodable {
         }
     }
 }
+
 extension Weather {
     var temp: Double {
         return main.temp
