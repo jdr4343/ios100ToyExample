@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(HomeWidzetTableViewCell.self, forCellReuseIdentifier: HomeWidzetTableViewCell.identifier)
+      
         return tableView
     }()
     

@@ -51,6 +51,7 @@
 //  }
 
 import Foundation
+import Alamofire
 
 //위의 코드를 기반으로 디코딩 합니다.
 struct Weather: Decodable {
@@ -74,6 +75,9 @@ struct Weather: Decodable {
             case humidity
         }
     }
+    
+
+    
 }
 
 extension Weather {
@@ -96,3 +100,5 @@ extension Weather {
         return main.humidity
     }
 }
+
+

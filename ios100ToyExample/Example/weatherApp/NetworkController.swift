@@ -18,7 +18,7 @@ struct NetworkController {
     enum Endpoind {
         //도시를 식별합니다.
         case cityId(path: String = "/data/2.5/weather", id: Int)
-        
+      
         var url: URL? {
             var components = URLComponents()
             //URL의 구성 요소 추가
@@ -28,7 +28,7 @@ struct NetworkController {
             components.queryItems = qureyItems
             return components.url
         }
-        
+       
         private var path: String {
             switch self {
             case .cityId(let path, _):
@@ -63,6 +63,7 @@ struct NetworkController {
                     do {
                         let weather = try JSONDecoder().decode(Weather.self, from: data)
                         completion(weather)
+                    print("\(weather)")
                     } catch let error {
                         print("데이터를 디코딩 하는것에 실패 했습니다. - \(error)")
                     }
@@ -72,5 +73,6 @@ struct NetworkController {
             .resume()
         }
     }
+
     
 }

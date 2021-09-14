@@ -72,6 +72,9 @@
 		405AD93826DE0CB90079734A /* EditTextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AD93726DE0CB90079734A /* EditTextViewTableViewCell.swift */; };
 		405AD93B26DE542A0079734A /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AD93A26DE542A0079734A /* ConversationsViewController.swift */; };
 		405AD93E26DE68C80079734A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AD93D26DE68C80079734A /* HomeViewController.swift */; };
+		4060D61826F1113800333AF1 /* WeatherExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61726F1113800333AF1 /* WeatherExtra.swift */; };
+		4060D61A26F111F600333AF1 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61926F111F600333AF1 /* CurrentWeather.swift */; };
+		4060D61C26F11FF000333AF1 /* WeatherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */; };
 		406FE6B326DC00FD0036DE44 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406FE6B226DC00FD0036DE44 /* Model.swift */; };
 		406FE6B526DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406FE6B426DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift */; };
 		4078640526CE02A900C864FD /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078640426CE02A900C864FD /* NewsViewController.swift */; };
@@ -206,6 +209,9 @@
 		405AD93726DE0CB90079734A /* EditTextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextViewTableViewCell.swift; sourceTree = "<group>"; };
 		405AD93A26DE542A0079734A /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
 		405AD93D26DE68C80079734A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4060D61726F1113800333AF1 /* WeatherExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtra.swift; sourceTree = "<group>"; };
+		4060D61926F111F600333AF1 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtensions.swift; sourceTree = "<group>"; };
 		406FE6B226DC00FD0036DE44 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		406FE6B426DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoHeaderTableHeaderView.swift; sourceTree = "<group>"; };
 		4078640426CE02A900C864FD /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -484,9 +490,10 @@
 			path = weatherApp;
 			sourceTree = "<group>";
 		};
-		405A84BF26EDEF090082FDFA /* MusicPlayer */ = {
+		405A84BF26EDEF090082FDFA /* MusicPlayerwizet */ = {
 			isa = PBXGroup;
 			children = (
+				408E14B426ED2C6700AF1A08 /* HomeHeaderViewController.swift */,
 				405A84C626EDEF230082FDFA /* 델타파.mp3 */,
 				405A84C026EDEF1A0082FDFA /* 바람소리.mp3 */,
 				405A84C226EDEF1E0082FDFA /* 베타파.mp3 */,
@@ -501,7 +508,7 @@
 				405A84C826EDEF280082FDFA /* 파도소리.mp3 */,
 				405A84CB26EDEF2C0082FDFA /* mueum.mp3 */,
 			);
-			path = MusicPlayer;
+			path = MusicPlayerwizet;
 			sourceTree = "<group>";
 		};
 		405AD93926DE53F40079734A /* Chat */ = {
@@ -521,12 +528,22 @@
 		405AD93C26DE68B50079734A /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				405A84BF26EDEF090082FDFA /* MusicPlayer */,
+				4060D61026F0FD8000333AF1 /* Weather wizet */,
+				405A84BF26EDEF090082FDFA /* MusicPlayerwizet */,
 				405AD93D26DE68C80079734A /* HomeViewController.swift */,
-				408E14B426ED2C6700AF1A08 /* HomeHeaderViewController.swift */,
 				403A118F26EFB44B0052D20E /* HomeWidzetTableViewCell.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		4060D61026F0FD8000333AF1 /* Weather wizet */ = {
+			isa = PBXGroup;
+			children = (
+				4060D61726F1113800333AF1 /* WeatherExtra.swift */,
+				4060D61926F111F600333AF1 /* CurrentWeather.swift */,
+				4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */,
+			);
+			path = "Weather wizet";
 			sourceTree = "<group>";
 		};
 		406FE6B126DC00580036DE44 /* Profile */ = {
@@ -1049,6 +1066,7 @@
 				403A119A26EFC1950052D20E /* WeatherViewController.swift in Sources */,
 				407A1F4F26CF6AE60058F84D /* TableViewController.swift in Sources */,
 				4078641026CE129D00C864FD /* DetailViewController.swift in Sources */,
+				4060D61826F1113800333AF1 /* WeatherExtra.swift in Sources */,
 				407A1FEF26D55A600058F84D /* RegistrationViewController.swift in Sources */,
 				407A1FF326D568220058F84D /* DatabaseManager.swift in Sources */,
 				407A1F9226D3BC860058F84D /* PageControlViewController.swift in Sources */,
@@ -1064,8 +1082,10 @@
 				407A1FF126D5680B0058F84D /* AuthManager.swift in Sources */,
 				403502A026CB4B4B004BD348 /* AppDelegate.swift in Sources */,
 				4014B97D26E7A69900ADFEC8 /* NewConversationCell.swift in Sources */,
+				4060D61C26F11FF000333AF1 /* WeatherExtensions.swift in Sources */,
 				407A1F4726CE6EE80058F84D /* NewsModel.swift in Sources */,
 				408AFA8C26EBF02600DF7B0B /* Events.swift in Sources */,
+				4060D61A26F111F600333AF1 /* CurrentWeather.swift in Sources */,
 				403A118826EF7C250052D20E /* FirstTableViewCell.swift in Sources */,
 				4014B97B26E779B400ADFEC8 /* PhotoViewerViewController.swift in Sources */,
 				403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */,

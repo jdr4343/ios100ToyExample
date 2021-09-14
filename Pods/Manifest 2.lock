@@ -1,0 +1,284 @@
+PODS:
+  - Alamofire (5.4.3)
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
+  - FBAEMKit (11.1.0):
+    - FBAEMKit/AEM (= 11.1.0)
+  - FBAEMKit/AEM (11.1.0):
+    - FBSDKCoreKit_Basics (~> 11.1.0)
+  - FBSDKCoreKit (11.1.0):
+    - FBSDKCoreKit/Core (= 11.1.0)
+  - FBSDKCoreKit/Core (11.1.0):
+    - FBAEMKit (~> 11.1.0)
+    - FBSDKCoreKit_Basics (~> 11.1.0)
+  - FBSDKCoreKit_Basics (11.1.0):
+    - FBSDKCoreKit_Basics/Basics (= 11.1.0)
+  - FBSDKCoreKit_Basics/Basics (11.1.0)
+  - FBSDKLoginKit (11.1.0):
+    - FBSDKLoginKit/Login (= 11.1.0)
+  - FBSDKLoginKit/Login (11.1.0):
+    - FBSDKCoreKit (~> 11.1.0)
+    - FBSDKCoreKit_Basics (~> 11.1.0)
+  - Firebase/Analytics (8.6.1):
+    - Firebase/Core
+  - Firebase/Auth (8.6.1):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 8.6.0)
+  - Firebase/Core (8.6.1):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (~> 8.6.0)
+  - Firebase/CoreOnly (8.6.1):
+    - FirebaseCore (= 8.6.1)
+  - Firebase/Crashlytics (8.6.1):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 8.6.0)
+  - Firebase/Database (8.6.1):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 8.6.0)
+  - Firebase/Messaging (8.6.1):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 8.6.0)
+  - Firebase/Storage (8.6.1):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 8.6.0)
+  - FirebaseAnalytics (8.6.0):
+    - FirebaseAnalytics/AdIdSupport (= 8.6.0)
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/MethodSwizzler (~> 7.4)
+    - GoogleUtilities/Network (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
+    - nanopb (~> 2.30908.0)
+  - FirebaseAnalytics/AdIdSupport (8.6.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleAppMeasurement (= 8.6.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/MethodSwizzler (~> 7.4)
+    - GoogleUtilities/Network (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
+    - nanopb (~> 2.30908.0)
+  - FirebaseAuth (8.6.0):
+    - FirebaseCore (~> 8.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GTMSessionFetcher/Core (~> 1.5)
+  - FirebaseCore (8.6.1):
+    - FirebaseCoreDiagnostics (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/Logger (~> 7.4)
+  - FirebaseCoreDiagnostics (8.6.0):
+    - GoogleDataTransport (~> 9.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/Logger (~> 7.4)
+    - nanopb (~> 2.30908.0)
+  - FirebaseCrashlytics (8.6.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleDataTransport (~> 9.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - nanopb (~> 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - FirebaseDatabase (8.6.0):
+    - FirebaseCore (~> 8.0)
+    - leveldb-library (~> 1.22)
+  - FirebaseInstallations (8.6.0):
+    - FirebaseCore (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/UserDefaults (~> 7.4)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - FirebaseMessaging (8.6.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleDataTransport (~> 9.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/Reachability (~> 7.4)
+    - GoogleUtilities/UserDefaults (~> 7.4)
+    - nanopb (~> 2.30908.0)
+  - FirebaseStorage (8.6.0):
+    - FirebaseCore (~> 8.0)
+    - GTMSessionFetcher/Core (~> 1.5)
+  - Floaty (4.2.0)
+  - GoogleAppMeasurement (8.6.0):
+    - GoogleAppMeasurement/AdIdSupport (= 8.6.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/MethodSwizzler (~> 7.4)
+    - GoogleUtilities/Network (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
+    - nanopb (~> 2.30908.0)
+  - GoogleAppMeasurement/AdIdSupport (8.6.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/MethodSwizzler (~> 7.4)
+    - GoogleUtilities/Network (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
+    - nanopb (~> 2.30908.0)
+  - GoogleDataTransport (9.1.0):
+    - GoogleUtilities/Environment (~> 7.2)
+    - nanopb (~> 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/AppDelegateSwizzler (7.5.1):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (7.5.1):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.5.1):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (7.5.1):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (7.5.1):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (7.5.1)"
+  - GoogleUtilities/Reachability (7.5.1):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (7.5.1):
+    - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (1.6.1)
+  - InputBarAccessoryView (5.3.1):
+    - InputBarAccessoryView/Core (= 5.3.1)
+  - InputBarAccessoryView/Core (5.3.1)
+  - JGProgressHUD (2.2)
+  - leveldb-library (1.22.1)
+  - MessageKit (3.6.1):
+    - InputBarAccessoryView (~> 5.3.1)
+  - nanopb (2.30908.0):
+    - nanopb/decode (= 2.30908.0)
+    - nanopb/encode (= 2.30908.0)
+  - nanopb/decode (2.30908.0)
+  - nanopb/encode (2.30908.0)
+  - PromisesObjC (2.0.0)
+  - PryntTrimmerView (4.0.2)
+  - RAMAnimatedTabBarController (5.2.0)
+  - Realm (10.13.0):
+    - Realm/Headers (= 10.13.0)
+  - Realm/Headers (10.13.0)
+  - RealmSwift (10.13.0):
+    - Realm (= 10.13.0)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+  - SkyFloatingLabelTextField (4.0.0)
+  - SnapKit (5.0.1)
+  - SteviaLayout (4.7.3)
+  - SwiftyJSON (5.0.1)
+  - TheAnimation (0.4.0)
+  - TransitionButton (0.5.3)
+  - YPImagePicker (4.5.0):
+    - PryntTrimmerView (~> 4.0.2)
+    - SteviaLayout (~> 4.7.3)
+
+DEPENDENCIES:
+  - Alamofire
+  - Charts
+  - FBSDKLoginKit
+  - Firebase/Analytics
+  - Firebase/Auth
+  - Firebase/Core
+  - Firebase/Crashlytics
+  - Firebase/Database
+  - Firebase/Messaging
+  - Firebase/Storage
+  - Floaty
+  - JGProgressHUD
+  - MessageKit
+  - RAMAnimatedTabBarController
+  - RealmSwift
+  - SDWebImage
+  - SkyFloatingLabelTextField
+  - SnapKit
+  - SwiftyJSON
+  - TheAnimation
+  - TransitionButton
+  - YPImagePicker
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Charts
+    - FBAEMKit
+    - FBSDKCoreKit
+    - FBSDKCoreKit_Basics
+    - FBSDKLoginKit
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseAuth
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseCrashlytics
+    - FirebaseDatabase
+    - FirebaseInstallations
+    - FirebaseMessaging
+    - FirebaseStorage
+    - Floaty
+    - GoogleAppMeasurement
+    - GoogleDataTransport
+    - GoogleUtilities
+    - GTMSessionFetcher
+    - InputBarAccessoryView
+    - JGProgressHUD
+    - leveldb-library
+    - MessageKit
+    - nanopb
+    - PromisesObjC
+    - PryntTrimmerView
+    - RAMAnimatedTabBarController
+    - Realm
+    - RealmSwift
+    - SDWebImage
+    - SkyFloatingLabelTextField
+    - SnapKit
+    - SteviaLayout
+    - SwiftyJSON
+    - TheAnimation
+    - TransitionButton
+    - YPImagePicker
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  FBAEMKit: 5c8a8d08e5b2c79628490784883e0fcc75b12615
+  FBSDKCoreKit: 7ccb8b4bb2b5ee2ad94327b774dc23f03509675d
+  FBSDKCoreKit_Basics: 8f978bce195845f609b0ec6b425949d0d24f525b
+  FBSDKLoginKit: d65eb587a9eaa89295338fb0bb3b358bde0b7ae4
+  Firebase: e84d95f6d3a91f634abc384f0751c434cb3aecfa
+  FirebaseAnalytics: 8f32ae54ad42754f503354782575c4ddfc1425c3
+  FirebaseAuth: 223adeeb2262b417532e89bf06a960e3a0a1e9e4
+  FirebaseCore: a753c231801f04f5ccd10cc92119ad1b12a61165
+  FirebaseCoreDiagnostics: 3721920bde3a9a6d5aa093c1d25e9d3e47f694af
+  FirebaseCrashlytics: 58f8ecea7c799c61c50e8111d2e438424a8a1d2e
+  FirebaseDatabase: 917fbeed577a68eb1ba0eb48c52a3aa10ac13f92
+  FirebaseInstallations: 0ede6ffcd215b8f93c19d9b06c1c54e2d4107e98
+  FirebaseMessaging: ce0a5ee974f7bfe83b6cc5acce88c2d969e37c41
+  FirebaseStorage: 2765944230981e63f8bd2938d9d5819158b7c34c
+  Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
+  GoogleAppMeasurement: 2c0c6e2a7ab3fe730ade6379f732bdefb46f50b0
+  GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
+  GoogleUtilities: 3df19e3c24f7bbc291d8b5809aa6b0d41e642437
+  GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
+  InputBarAccessoryView: 1f75d8c9f75e5e57f3ffac36ed58635a8005e0bc
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
+  leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  MessageKit: d153fbbbcb12f3f4045a1ba8874298924dacfb62
+  nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
+  RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
+  Realm: e3a1225aafa7cec96a020dc199201b9d1f9cd59c
+  RealmSwift: 62585b4a934754a9d9117331689f4e8a5b1f6113
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  TheAnimation: b6d6bac50365897a3aecc5a9e7b4e1461909c1a0
+  TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
+  YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
+
+PODFILE CHECKSUM: 3e5c6bf46993fa545a065c5a583eb08bc1e15764
+
+COCOAPODS: 1.10.1
