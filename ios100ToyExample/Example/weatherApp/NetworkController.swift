@@ -6,7 +6,7 @@
 //
 
 ///아래의 url를 쿼리 합니다.
-//api.openweathermap.org/data/2.5/weather?id={city id}&appid={API key}
+///http://api.openweathermap.org/data/2.5/weather?id=1835848&appid={API key}
 
 import Foundation
 
@@ -47,7 +47,6 @@ struct NetworkController {
             }
             
             qureyItems.append(URLQueryItem(name: "appid", value: apiKey))
-            
             return qureyItems
         }
     }

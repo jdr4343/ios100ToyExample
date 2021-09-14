@@ -57,13 +57,22 @@ struct Weather: Decodable {
     var name: String
     var main: Main
     
+    //구현 대기
+    var weather: [weather]
+
+    struct weather: Decodable {
+        var id: Int
+        var main: String
+        var description: String
+        var icon: String
+    
     struct Main: Decodable {
         var temp: Double
         var feelsLike: Double
         var tempMin: Double
         var tempMax: Double
-        var pressure: Double
-        var humidity: Double
+        var pressure: Int
+        var humidity: Int
         //카멜케이스 유형으로 사용하기 위해서 위의 키들을 카멜케이스를 적용시켜 입력하고 아래의 코드를 이용해 적용 시켜주겠습니다.
         enum CodingKeys: String, CodingKey {
             case feelsLike = "feels_like"
@@ -73,5 +82,25 @@ struct Weather: Decodable {
             case pressure
             case humidity
         }
+    }
+}
+extension Weather {
+    var temp: Double {
+        return main.temp
+    }
+    var feelsLike: Double {
+        return main.feelsLike
+    }
+    var tempMin: Double {
+        return main.tempMin
+    }
+    var tempMax: Double {
+        return main.tempMax
+    }
+    var pressure: Int {
+        return main.pressure
+    }
+    var humidity: Int {
+        return main.humidity
     }
 }

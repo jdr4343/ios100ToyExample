@@ -17,22 +17,43 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var cityLabel: UILabel!
     
+    @IBOutlet weak var feelsLikeLabel: UILabel!
+    
+    @IBOutlet weak var minTemparatureLabel: UILabel!
+    
+    @IBOutlet weak var maxTemparatureLabel: UILabel!
+    
+    @IBOutlet weak var pressureLabel: UILabel!
+    
+    @IBOutlet weak var humidityLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.fetchWeather { [weak self] in
             DispatchQueue.main.async {
-                self?.configureUI()
+                self?.setUpHeader()
+                self?.setUpSubHeader()
             }
           
         }
     }
     
-    private func configureUI() {
+    
+    
+    private func setUpHeader() {
         temperatureLabel.text = viewModel.temperatureString
         cityLabel.text = viewModel.cityString
     }
     
+    private func setUpSubHeader() {
+        feelsLikeLabel.text = viewModel.feelsLikeString
+        minTemparatureLabel.text = viewModel.minTemperatureString
+        maxTemparatureLabel.text = viewModel.maxTemperatureString
+        pressureLabel.text = viewModel.pressureString
+        humidityLabel.text = viewModel.humidityString
+        
+    }
     
 }
 
