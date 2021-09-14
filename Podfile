@@ -16,6 +16,7 @@ pod 'YPImagePicker'
 pod 'SnapKit'
 pod 'SkyFloatingLabelTextField'
 pod 'Alamofire'
+pod 'SwiftyJSON'
 
 pod 'MessageKit'
 pod 'JGProgressHUD'

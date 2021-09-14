@@ -165,6 +165,7 @@ PODS:
   - SkyFloatingLabelTextField (4.0.0)
   - SnapKit (5.0.1)
   - SteviaLayout (4.7.3)
+  - SwiftyJSON (5.0.1)
   - TheAnimation (0.4.0)
   - TransitionButton (0.5.3)
   - YPImagePicker (4.5.0):
@@ -190,6 +191,7 @@ DEPENDENCIES:
   - SDWebImage
   - SkyFloatingLabelTextField
   - SnapKit
+  - SwiftyJSON
   - TheAnimation
   - TransitionButton
   - YPImagePicker
@@ -231,6 +233,7 @@ SPEC REPOS:
     - SkyFloatingLabelTextField
     - SnapKit
     - SteviaLayout
+    - SwiftyJSON
     - TheAnimation
     - TransitionButton
     - YPImagePicker
@@ -271,10 +274,11 @@ SPEC CHECKSUMS:
   SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   TheAnimation: b6d6bac50365897a3aecc5a9e7b4e1461909c1a0
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
   YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
-PODFILE CHECKSUM: 98b12214e3a6e81b9c153c933e20de3a26c00366
+PODFILE CHECKSUM: 3e5c6bf46993fa545a065c5a583eb08bc1e15764
 
 COCOAPODS: 1.10.1
