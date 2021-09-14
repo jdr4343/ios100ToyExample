@@ -134,7 +134,7 @@
 		40DF551726CD130600FD9FB8 /* AdvancedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551626CD130600FD9FB8 /* AdvancedViewController.swift */; };
 		40DF551A26CD13A200FD9FB8 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 40DF551926CD13A200FD9FB8 /* video.mp4 */; };
 		40DF551E26CD2FB400FD9FB8 /* BarButtonItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DF551D26CD2FB400FD9FB8 /* BarButtonItemViewController.swift */; };
-		E9A3D8F98CDB652CA81284FC /* Pods_ios100ToyExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AF8711D20BB765BDA94AB6 /* Pods_ios100ToyExample.framework */; };
+		E9A3D8F98CDB652CA81284FC /* Pods_ios100ToyExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AF8711D20BB765BDA94AB6 /* Pods_ios100ToyExample.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */

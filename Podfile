@@ -15,7 +15,7 @@ pod 'TheAnimation'
 pod 'YPImagePicker'
 pod 'SnapKit'
 pod 'SkyFloatingLabelTextField'
-
+pod 'Alamofire'
 
 pod 'MessageKit'
 pod 'JGProgressHUD'

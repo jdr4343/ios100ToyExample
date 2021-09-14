@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.4.3)
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
@@ -171,6 +172,7 @@ PODS:
     - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
+  - Alamofire
   - Charts
   - FBSDKLoginKit
   - Firebase/Analytics
@@ -194,6 +196,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Charts
     - FBAEMKit
     - FBSDKCoreKit
@@ -233,6 +236,7 @@ SPEC REPOS:
     - YPImagePicker
 
 SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   FBAEMKit: 5c8a8d08e5b2c79628490784883e0fcc75b12615
   FBSDKCoreKit: 7ccb8b4bb2b5ee2ad94327b774dc23f03509675d
@@ -271,6 +275,6 @@ SPEC CHECKSUMS:
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
   YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
-PODFILE CHECKSUM: 71239397493b0efa3cd16cbd9c3e6a9ee3efecea
+PODFILE CHECKSUM: 98b12214e3a6e81b9c153c933e20de3a26c00366
 
 COCOAPODS: 1.10.1
