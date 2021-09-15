@@ -82,6 +82,7 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate {
         //위치 정보
         locationManger.delegate = self
         setUpLoction()
+        locationAuthCheck()
         //날씨 위젯
         currentWeather = CurrentWeather()
         currentWeather?.downloadCurrentWeather {
@@ -131,15 +132,49 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate {
         //위치에 관한 정확도를 설정합니다.
         locationManger.desiredAccuracy = kCLLocationAccuracyBest
         //사용 승인시 위치관리자에게 좌표 요청을 할것이므로 앱이 열릴때만 GPS를 사용 하도록 하고 해당 용도로만 승인을 얻습니다.
-        locationManger.requestWhenInUseAuthorization()
+        self.locationManger.requestWhenInUseAuthorization()
         //위치 변경사항을 모니터링 합니다.
         locationManger.startMonitoringSignificantLocationChanges()
     }
     ///위치 정보 권한이 있는지 권한이 없는지 확인합니다.사용자가 위치 권한을 허용 했을 경우 위치데이터를 API로 보낸다음 데이터를 다운로드하고 제공하지 않은경우 사용자에게 권한을 부여 합니다.
     private func locationAuthCheck() {
+        print("작동중?")
+        //
+//        currentLocation = locationManger.location
+//        guard let locValue: CLLocationCoordinate2D = currentLocation?.coordinate else {
+//            return
+//        }
+//        print("위치 정보 = \(locValue.latitude) \(locValue.longitude)")
+        //
         func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-            <#code#>
+            switch locationManger.authorizationStatus {
+            case .restricted, .denied: //권한이 없습니다. 다시 사용자에게 요청합니다.
+                self.locationManger.requestWhenInUseAuthorization()
+                locationAuthCheck()
+                print("권한을 다시 요청합니다.")
+            case .authorizedAlways, .authorizedWhenInUse:
+              print("권한이 허용 됬습니다")
+            //장치로 부터 위치를 얻습니다.
+                currentLocation = locationManger.location
+                guard let locValue: CLLocationCoordinate2D = currentLocation?.coordinate else {
+                    return
+                }
+                print("위치 정보 = \(locValue.latitude) \(locValue.longitude)")
+
+            //위치를 API에게 전달합니다.
+
+            //API데이터를 다운로드 합니다.
+
+            //다운로드가 완료 된후 UI를 업데이트 합니다.
+            default:
+                print("왜 그래 ...")
+                break
+            }
+            
+          
         }
+           
+        
     }
     
 }
