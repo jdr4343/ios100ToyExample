@@ -23,7 +23,7 @@ class HomeHeaderViewController: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "파도웨이브1")
+        imageView.image = UIImage(named: "배경1")
         imageView.layer.cornerRadius = 90
         return imageView
     }()
