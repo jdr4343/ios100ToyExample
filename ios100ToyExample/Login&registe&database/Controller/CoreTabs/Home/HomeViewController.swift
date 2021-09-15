@@ -35,8 +35,8 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         NotAuthenticated()
-
     }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -49,6 +49,7 @@ class HomeViewController: UIViewController {
         let header = HomeHeaderViewController(frame: CGRect(x: 0, y: 0, width: view.width, height: view.width*0.7))
         tableView.tableHeaderView = header
        // header.delegate = self
+        
     }
     
     // 사용자가 로그인 하지 않았다면 로그인 화면을 보여주고 아니라면 메인 뷰를 보여줄것입니다.

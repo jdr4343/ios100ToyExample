@@ -32,24 +32,56 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
             endingLineNumber = "37"
-            landmarkName = "currentTemp"
+            landmarkName = "weatherType"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "02194901-0C25-477E-AF64-E353D1039ABC"
+            uuid = "7C0C6E4F-2733-473C-A082-8C811D7F432A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ios100ToyExample/Login&amp;registe&amp;database/Controller/CoreTabs/Home/HomeWidzetTableViewCell.swift"
+            filePath = "ios100ToyExample/Login&amp;registe&amp;database/Controller/CoreTabs/Home/Weather wizet/WeatherExtra.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "locationAuthCheck()"
-            landmarkType = "7">
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "7C0C6E4F-2733-473C-A082-8C811D7F432A - da7eb5c5653dd80c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "one-time initialization function for API_URL"
+                  moduleName = "ios100ToyExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sinjihun/Library/Mobile%20Documents/com~apple~CloudDocs/ios100ToyExample/ios100ToyExample/Login&amp;registe&amp;database/Controller/CoreTabs/Home/Weather%20wizet/WeatherExtra.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "7C0C6E4F-2733-473C-A082-8C811D7F432A - ac8453f434c3e74e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ios100ToyExample.API_URL.unsafeMutableAddressor : Swift.String"
+                  moduleName = "ios100ToyExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sinjihun/Library/Mobile%20Documents/com~apple~CloudDocs/ios100ToyExample/ios100ToyExample/Login&amp;registe&amp;database/Controller/CoreTabs/Home/Weather%20wizet/WeatherExtra.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "8">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

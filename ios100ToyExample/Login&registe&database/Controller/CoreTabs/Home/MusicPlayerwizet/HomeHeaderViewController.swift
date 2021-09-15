@@ -206,60 +206,60 @@ class HomeHeaderViewController: UIView {
                                       y: safeAreaInsets.bottom+20,
                                       width: 50, height: 50)
         
-        min20Button.frame = CGRect(x: min30Button.left-75,
+        min20Button.frame = CGRect(x: min30Button.left-70,
                                       y: safeAreaInsets.bottom+20,
                                       width: 50, height: 50)
         min10Button.frame = CGRect(x: min20Button.left-75,
                                    y: safeAreaInsets.bottom+20,
                                    width: 50, height: 50)
 
-        hour1Button.frame = CGRect(x: min30Button.right+25,
+        hour1Button.frame = CGRect(x: min30Button.right+20,
                                     y: safeAreaInsets.bottom+20,
                                     width: 50, height: 50)
-        add10MinButton.frame = CGRect(x: hour1Button.right+25,
+        add10MinButton.frame = CGRect(x: hour1Button.right+20,
                                        y: safeAreaInsets.bottom+20,
                                        width: 50, height: 50)
         
-        timeLabel.frame = CGRect(x: 0, y: min30Button.bottom+80, width: width, height: 50)
+        timeLabel.frame = CGRect(x: 0, y: min30Button.bottom+60, width: width, height: 50)
         
         
         
         //버튼
         startStopButton.frame = CGRect(x: width/2-30,
-                                       y: min30Button.bottom+130,
+                                       y: min30Button.bottom+110,
                                        width: 60, height: 60)
         backwordButton.frame = CGRect(x: startStopButton.left - 75
-                                      , y: min30Button.bottom+130,
+                                      , y: min30Button.bottom+110,
                                       width: 60, height: 60)
         forwardButton.frame = CGRect(x: startStopButton.right+25,
-                                     y: min30Button.bottom+130,
+                                     y: min30Button.bottom+110,
                                      width: 60, height: 60)
-        resetLabel.frame = CGRect(x: width/2-30, y: min30Button.bottom+180, width: 60, height: 50)
+        resetLabel.frame = CGRect(x: width/2-30, y: min30Button.bottom+150, width: 60, height: 50)
         
         
         //음악 버튼
         fireButton.frame = CGRect(x: width/2-25,
-                                  y: min30Button.bottom+30,
+                                  y: min30Button.bottom+20,
                                   width: 50, height: 50)
-        rainButton.frame = CGRect(x: fireButton.right+10,
-                                  y: min30Button.bottom+30,
+        rainButton.frame = CGRect(x: fireButton.right,
+                                  y: min30Button.bottom+20,
                                   width: 50, height: 50)
-        windButton.frame = CGRect(x: rainButton.right+10,
-                                  y: min30Button.bottom+30,
+        windButton.frame = CGRect(x: rainButton.right,
+                                  y: min30Button.bottom+20,
                                   width: 50, height: 50)
-        forestButton.frame = CGRect(x: windButton.right+10,
-                                  y: min30Button.bottom+30,
+        forestButton.frame = CGRect(x: windButton.right,
+                                  y: min30Button.bottom+20,
                                   width: 50, height: 50)
-        pencilButton.frame = CGRect(x: fireButton.left-60,
-                                  y: min30Button.bottom+30,
+        pencilButton.frame = CGRect(x: fireButton.left-50,
+                                  y: min30Button.bottom+20,
                                   width: 50, height: 50)
-        keybordButton.frame = CGRect(x: pencilButton.left-60,
-                                  y: min30Button.bottom+30,
+        keybordButton.frame = CGRect(x: pencilButton.left-50,
+                                  y: min30Button.bottom+20,
                                   width: 50, height: 50)
         
         
-        waveButton.frame = CGRect(x: keybordButton.left-50,
-                                  y: min30Button.bottom+40,
+        waveButton.frame = CGRect(x: keybordButton.left-45,
+                                  y: min30Button.bottom+30,
                                   width: 30, height: 30)
         
     }

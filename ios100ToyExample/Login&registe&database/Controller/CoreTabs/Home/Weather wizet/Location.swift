@@ -7,9 +7,9 @@
 
 import Foundation
 
-class Loction {
+class WeatherLocation {
     //공유 인스턴스
-    static var shared = Loction()
+    static var shared = WeatherLocation()
     
     var longitude: Double!
     var latitude: Double!
