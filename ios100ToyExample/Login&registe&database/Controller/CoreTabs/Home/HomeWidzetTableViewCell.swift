@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import CoreLocation
 
-class HomeWidzetTableViewCell: UITableViewCell {
+class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate {
 
     static let identifier = "HomeWidzetTableViewCell"
-    private var currentWeather: CurrentWeather?
+  
     // 날씨 뷰
+    private var currentWeather: CurrentWeather?
+    private var currentLocation: CLLocation?
+    private let locationManger = CLLocationManager()
+    
     private let weatherView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "배경3")
@@ -31,7 +36,6 @@ class HomeWidzetTableViewCell: UITableViewCell {
     
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Sep 15, 20214"
         label.font = .boldSystemFont(ofSize: 14)
         label.textAlignment = .center
         label.textColor = .white
@@ -39,7 +43,6 @@ class HomeWidzetTableViewCell: UITableViewCell {
     }()
     private let temperatureLabel: UILabel = {
         let label = UILabel()
-        label.text = "19.5°C"
         label.font = .boldSystemFont(ofSize: 20)
         label.textAlignment = .center
         label.textColor = .white
@@ -47,7 +50,6 @@ class HomeWidzetTableViewCell: UITableViewCell {
     }()
     private let cityLabel: UILabel = {
         let label = UILabel()
-        label.text = "Seoul"
         label.font = .boldSystemFont(ofSize: 15)
         label.textAlignment = .center
         label.textColor = .white
@@ -55,7 +57,6 @@ class HomeWidzetTableViewCell: UITableViewCell {
     }()
     private let weatherLabel: UILabel = {
         let label = UILabel()
-        label.text = "비"
         label.font = .boldSystemFont(ofSize: 15)
         label.textAlignment = .center
         label.textColor = .white
@@ -78,8 +79,9 @@ class HomeWidzetTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(todoView)
         addWeatherView()
-        
-        
+        //위치 정보
+        locationManger.delegate = self
+        setUpLoction()
         //날씨 위젯
         currentWeather = CurrentWeather()
         currentWeather?.downloadCurrentWeather {
@@ -123,6 +125,21 @@ class HomeWidzetTableViewCell: UITableViewCell {
         dateLabel.text = currentWeather?.date
         
     }
-    
+    //위치 정보
+    ///위치 정보 권한을 요청 합니다.
+    private func setUpLoction() {
+        //위치에 관한 정확도를 설정합니다.
+        locationManger.desiredAccuracy = kCLLocationAccuracyBest
+        //사용 승인시 위치관리자에게 좌표 요청을 할것이므로 앱이 열릴때만 GPS를 사용 하도록 하고 해당 용도로만 승인을 얻습니다.
+        locationManger.requestWhenInUseAuthorization()
+        //위치 변경사항을 모니터링 합니다.
+        locationManger.startMonitoringSignificantLocationChanges()
+    }
+    ///위치 정보 권한이 있는지 권한이 없는지 확인합니다.사용자가 위치 권한을 허용 했을 경우 위치데이터를 API로 보낸다음 데이터를 다운로드하고 제공하지 않은경우 사용자에게 권한을 부여 합니다.
+    private func locationAuthCheck() {
+        func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+            <#code#>
+        }
+    }
     
 }

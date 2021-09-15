@@ -45,7 +45,7 @@ class CurrentWeather {
             //도시 이름
             self._cityName = jsonObject["name"].stringValue
             //날씨 정보
-            self._weatherType = jsonObject["weather"][0]["main"].stringValue
+            self._weatherType = jsonObject["weather"][0]["description"].stringValue
             //온도 정보
             let tempDate = jsonObject["dt"].double
             let downloadTemp = jsonObject["main"]["temp"].double

@@ -75,6 +75,7 @@
 		4060D61826F1113800333AF1 /* WeatherExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61726F1113800333AF1 /* WeatherExtra.swift */; };
 		4060D61A26F111F600333AF1 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61926F111F600333AF1 /* CurrentWeather.swift */; };
 		4060D61C26F11FF000333AF1 /* WeatherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */; };
+		4060D61E26F2032400333AF1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61D26F2032400333AF1 /* Location.swift */; };
 		406FE6B326DC00FD0036DE44 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406FE6B226DC00FD0036DE44 /* Model.swift */; };
 		406FE6B526DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406FE6B426DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift */; };
 		4078640526CE02A900C864FD /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078640426CE02A900C864FD /* NewsViewController.swift */; };
@@ -212,6 +213,7 @@
 		4060D61726F1113800333AF1 /* WeatherExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtra.swift; sourceTree = "<group>"; };
 		4060D61926F111F600333AF1 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtensions.swift; sourceTree = "<group>"; };
+		4060D61D26F2032400333AF1 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		406FE6B226DC00FD0036DE44 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		406FE6B426DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoHeaderTableHeaderView.swift; sourceTree = "<group>"; };
 		4078640426CE02A900C864FD /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 				4060D61726F1113800333AF1 /* WeatherExtra.swift */,
 				4060D61926F111F600333AF1 /* CurrentWeather.swift */,
 				4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */,
+				4060D61D26F2032400333AF1 /* Location.swift */,
 			);
 			path = "Weather wizet";
 			sourceTree = "<group>";
@@ -1074,6 +1077,7 @@
 				403502C426CB84F0004BD348 /* AlarmViewController.swift in Sources */,
 				407A1F4C26CF411F0058F84D /* SectionITableViewHeader&FooterView.swift in Sources */,
 				403502E826CCAC76004BD348 /* WebViewController.swift in Sources */,
+				4060D61E26F2032400333AF1 /* Location.swift in Sources */,
 				407A200626D67FB50058F84D /* IOSTabBar.swift in Sources */,
 				403502DB26CBF546004BD348 /* CustomTabBar.swift in Sources */,
 				408D96F726E840C700C87FF9 /* LocationPickerViewController.swift in Sources */,
