@@ -133,6 +133,7 @@
 		40C241E326F3B12700E8491C /* SquareCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241E026F3B12700E8491C /* SquareCheckBox.swift */; };
 		40C241E526F3B1D400E8491C /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241E426F3B1D400E8491C /* CheckViewController.swift */; };
 		40C241E926F3B2A300E8491C /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241E626F3B2A300E8491C /* TodoListViewController.swift */; };
+		40C241F326F407BB00E8491C /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241F226F407BB00E8491C /* ToDoTableViewCell.swift */; };
 		40C2442626DFEE1600374DB2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442526DFEE1600374DB2 /* ChatViewController.swift */; };
 		40C2442826E01BC200374DB2 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442726E01BC200374DB2 /* NewConversationViewController.swift */; };
 		40C2442A26E0331F00374DB2 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442926E0331F00374DB2 /* StorageManager.swift */; };
@@ -277,6 +278,7 @@
 		40C241E626F3B2A300E8491C /* TodoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		40C241E726F3B2A300E8491C /* TodoListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TodoListItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		40C241E826F3B2A300E8491C /* TodoListItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TodoListItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		40C241F226F407BB00E8491C /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 		40C2442526DFEE1600374DB2 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		40C2442726E01BC200374DB2 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		40C2442926E0331F00374DB2 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 		405AD93C26DE68B50079734A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				40C241F126F4055D00E8491C /* ToDoList */,
 				4060D61026F0FD8000333AF1 /* Weather wizet */,
 				405A84BF26EDEF090082FDFA /* MusicPlayerwizet */,
 				405AD93D26DE68C80079734A /* HomeViewController.swift */,
@@ -909,6 +912,14 @@
 			path = "MVVM Event Bus Pattern";
 			sourceTree = "<group>";
 		};
+		40C241F126F4055D00E8491C /* ToDoList */ = {
+			isa = PBXGroup;
+			children = (
+				40C241F226F407BB00E8491C /* ToDoTableViewCell.swift */,
+			);
+			path = ToDoList;
+			sourceTree = "<group>";
+		};
 		40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1131,6 +1142,7 @@
 				4078641226CE12D200C864FD /* DataManager.swift in Sources */,
 				407A1FED26D52A650058F84D /* FloatingTextViewController.swift in Sources */,
 				40C2442A26E0331F00374DB2 /* StorageManager.swift in Sources */,
+				40C241F326F407BB00E8491C /* ToDoTableViewCell.swift in Sources */,
 				403502C826CB88EA004BD348 /* AddAlarmViewController.swift in Sources */,
 				407A1F5E26CF9D880058F84D /* PieViewController.swift in Sources */,
 				40180B2E26EA265500E64A9C /* SerchResult.swift in Sources */,

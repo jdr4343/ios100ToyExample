@@ -5,6 +5,7 @@
 //  Created by 신지훈 on 2021/09/14.
 //
 
+
 import UIKit
 import CoreLocation
 
@@ -12,10 +13,13 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
 
     static let identifier = "HomeWidzetTableViewCell"
   
+
     // 날씨 뷰
      var currentWeather: CurrentWeather?
     private var currentLocation: CLLocation!
     private let locationManger = CLLocationManager()
+    
+    //Todo뷰
     
     private let weatherView: UIImageView = {
         let view = UIImageView()
@@ -72,6 +76,7 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
         view.contentMode = .scaleAspectFill
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 60
+        view.isUserInteractionEnabled = false
         return view
     }()
     private let todoTableView: UITableView = {
@@ -83,20 +88,22 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
     }()
     private let todoTitleLable: UILabel = {
         let label = UILabel()
-        label.text = "오늘의 할일"
-        label.textAlignment = .left
+        label.text = "To Do List"
+        label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 16)
         label.textColor = .white
+        label.isUserInteractionEnabled = false
         return label
     }()
-    
-    private let addToDoButton: UIButton = {
+    lazy var addToDoButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "plus.square.fill"), for: .normal)
         button.tintColor = .white
+        button.addTarget(self, action: #selector(didTapAddList), for: .touchUpInside)
         return button
     }()
  
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addWeatherView()
@@ -117,14 +124,12 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
         contentView.addSubview(todoView)
         contentView.addSubview(todoTableView)
         todoView.addSubview(todoTitleLable)
-        todoView.addSubview(addToDoButton)
+        contentView.addSubview(addToDoButton)
         todoTableView.delegate = self
         todoTableView.dataSource = self
         todoTableView.showsVerticalScrollIndicator = false
         todoTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
-    
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -142,11 +147,12 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
         weatherLabel.frame = CGRect(x: 10, y: weatherImageView.bottom+30, width: weatherView.width-20, height: 20)
         
         //Todo
-        todoTitleLable.frame = CGRect(x: 30, y: 10, width: todoView.width-80, height: todoView.height/8)
-        addToDoButton.frame = CGRect(x: todoTitleLable.right, y: 13, width: 25, height: 25)
+        todoTitleLable.frame = CGRect(x: 30, y: 10, width: todoView.width-90, height: todoView.height/8)
+        addToDoButton.frame = CGRect(x: todoTitleLable.right+5, y: 21, width: 25, height: 25)
         todoTableView.frame = CGRect(x: 10, y: 50, width: todoView.width-10, height: todoView.height-50)
+        
     }
-   
+   // 날씨
     private func addWeatherView() {
         //뷰
         contentView.addSubview(weatherView)
@@ -158,7 +164,7 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
         weatherView.addSubview(cityLabel)
        
     }
-     func updateWeaderUI() {
+    private func updateWeaderUI() {
         
         cityLabel.text = currentWeather?.cityName
         temperatureLabel.text = "\(Int(currentWeather?.currentTemp ?? 0.0))°C"
@@ -178,7 +184,7 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
         locationManger.startMonitoringSignificantLocationChanges()
     }
     ///위치 정보 권한이 있는지 권한이 없는지 확인합니다.사용자가 위치 권한을 허용 했을 경우 위치데이터를 API로 보낸다음 데이터를 다운로드하고 제공하지 않은경우 사용자에게 권한을 부여 합니다.
-    func locationAuthCheck() {
+    private func locationAuthCheck() {
         print("작동중")
             switch locationManger.authorizationStatus {
             case .restricted, .denied: //권한이 없습니다. 다시 사용자에게 요청합니다.
@@ -207,6 +213,12 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
             }
       
     }
+    
+    //To Do
+    @objc private func didTapAddList() {
+        print("작동중")
+    
+    }
    
 }
 extension HomeWidzetTableViewCell: UITableViewDelegate, UITableViewDataSource {
@@ -219,7 +231,10 @@ extension HomeWidzetTableViewCell: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = .clear
         cell.textLabel?.textColor = .white
         cell.textLabel?.font = .boldSystemFont(ofSize: 14)
+        cell.selectionStyle = .none
         cell.textLabel?.text = "오늘 할일은??"
+        cell.textLabel?.textAlignment = .center
+        
         return cell
     }
     

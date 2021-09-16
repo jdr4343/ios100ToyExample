@@ -9,6 +9,8 @@ import UIKit
 import FirebaseAuth
 
 class HomeViewController: UIViewController {
+  
+    
 
     
     private let tableView: UITableView = {
@@ -60,6 +62,8 @@ class HomeViewController: UIViewController {
             present(loginVC, animated: true)
         }
     }
+    
+    
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
@@ -72,8 +76,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HomeWidzetTableViewCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeWidzetTableViewCell.identifier, for: indexPath) as! HomeWidzetTableViewCell
         cell.selectionStyle = .none
+        
         return cell
     }
     
