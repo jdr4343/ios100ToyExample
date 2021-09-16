@@ -226,6 +226,10 @@ class ExampleViewController: UIViewController {
                                        backgroundImage: "날씨앱", handler: { [weak self] in
                                          self?.didTapWeatherAppButton()
                                        }),
+           ExampleCollectionViewModel(name: "할일앱",
+                                       backgroundImage: "", handler: { [weak self] in
+                                         self?.didTapTodoAppButton()
+                                       }),
           
          
           ])])
@@ -358,7 +362,10 @@ class ExampleViewController: UIViewController {
         let vc = WeatherViewController()
             self.navigationController?.pushViewController(vc, animated: true)
     }
-   
+    @objc func didTapTodoAppButton() {
+        let vc = TodoListViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
   
     @objc func didTabAutoButton() {
         let AutoVC = AutoLayoutViewController()
