@@ -128,6 +128,10 @@ class ExampleViewController: UIViewController {
            ExampleCollectionViewModel(name: "사진",
                                       backgroundImage: "사진찍기", handler: { [weak self] in
                                         self?.didTabCameraButton()
+                                      }),
+           ExampleCollectionViewModel(name: "체크박스",
+                                      backgroundImage: "", handler: { [weak self] in
+                                        self?.didTabCheckBoxButton()
                                       })
           ])])
         
@@ -163,6 +167,10 @@ class ExampleViewController: UIViewController {
            ExampleCollectionViewModel(name: "멀티플 커스텀 셀",
                                       backgroundImage: "커스텀탭바", handler: { [weak self] in
                                         self?.didTaMultipleButton()
+                                      }),
+           ExampleCollectionViewModel(name: "체크리스트",
+                                      backgroundImage: "", handler: { [weak self] in
+                                        self?.didTabCheckButton()
                                       }),
            ExampleCollectionViewModel(name: "MVVM이벤트패턴",
                                       backgroundImage: "MVVM", handler: { [weak self] in
@@ -289,6 +297,10 @@ class ExampleViewController: UIViewController {
     @objc func didTabTextFieldAlertButton() {
         let TextFieldAlertVC = TextFieldAlertViewController()
         present(TextFieldAlertVC, animated: true, completion: nil)
+    }
+    @objc func didTabCheckBoxButton() {
+        let vc = CheckBoxViewController()
+        present(vc, animated: true, completion: nil)
     }
     @objc func didTabTableViewButton() {
         let tableVC = TableViewController()
