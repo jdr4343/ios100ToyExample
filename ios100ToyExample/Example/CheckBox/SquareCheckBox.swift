@@ -35,7 +35,7 @@ class SquareCheckBox: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
-        addSubview(boxView)
+        addSubview(boxView)asfdasfas
         addSubview(imageView)
      
     }
