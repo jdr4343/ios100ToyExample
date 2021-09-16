@@ -32,7 +32,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
             endingLineNumber = "37"
-            landmarkName = "weatherType"
+            landmarkName = "currentTemp"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>

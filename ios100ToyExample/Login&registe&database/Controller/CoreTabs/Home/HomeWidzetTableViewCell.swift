@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate {
+class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
 
     static let identifier = "HomeWidzetTableViewCell"
   
@@ -66,7 +66,7 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate {
     
     
     //To Do 뷰
-    let todoView: UIImageView = {
+    private let todoView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "배경2")
         view.contentMode = .scaleAspectFill
@@ -74,10 +74,31 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate {
         view.layer.cornerRadius = 60
         return view
     }()
+    private let todoTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.backgroundColor = .clear
+        tableView.layer.masksToBounds = true
+        return tableView
+    }()
+    private let todoTitleLable: UILabel = {
+        let label = UILabel()
+        label.text = "오늘의 할일"
+        label.textAlignment = .left
+        label.font = .boldSystemFont(ofSize: 16)
+        label.textColor = .white
+        return label
+    }()
     
+    private let addToDoButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "plus.square.fill"), for: .normal)
+        button.tintColor = .white
+        return button
+    }()
+ 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(todoView)
         addWeatherView()
         //위치 정보
         locationManger.delegate = self
@@ -91,6 +112,16 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate {
                  self.updateWeaderUI()
                  print("데이터 다운로드")
              }
+        
+        //TodoWizet
+        contentView.addSubview(todoView)
+        contentView.addSubview(todoTableView)
+        todoView.addSubview(todoTitleLable)
+        todoView.addSubview(addToDoButton)
+        todoTableView.delegate = self
+        todoTableView.dataSource = self
+        todoTableView.showsVerticalScrollIndicator = false
+        todoTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
     
@@ -109,6 +140,11 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate {
         temperatureLabel.frame = CGRect(x: 10, y: cityLabel.bottom+10, width: weatherView.width-20, height: 40)
         weatherImageView.frame = CGRect(x: weatherView.width/2-25, y: temperatureLabel.bottom, width: 50, height: 50)
         weatherLabel.frame = CGRect(x: 10, y: weatherImageView.bottom+30, width: weatherView.width-20, height: 20)
+        
+        //Todo
+        todoTitleLable.frame = CGRect(x: 30, y: 10, width: todoView.width-80, height: todoView.height/8)
+        addToDoButton.frame = CGRect(x: todoTitleLable.right, y: 13, width: 25, height: 25)
+        todoTableView.frame = CGRect(x: 10, y: 50, width: todoView.width-10, height: todoView.height-50)
     }
    
     private func addWeatherView() {
@@ -171,7 +207,28 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate {
             }
       
     }
+   
+}
+extension HomeWidzetTableViewCell: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = todoTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = .clear
+        cell.textLabel?.textColor = .white
+        cell.textLabel?.font = .boldSystemFont(ofSize: 14)
+        cell.textLabel?.text = "오늘 할일은??"
+        return cell
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        todoTableView.deselectRow(at: indexPath, animated: true)
+        print("작동중")
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 35
+    }
 }

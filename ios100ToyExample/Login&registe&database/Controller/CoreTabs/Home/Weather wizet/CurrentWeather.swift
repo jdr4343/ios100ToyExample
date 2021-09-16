@@ -58,10 +58,10 @@ class CurrentWeather {
             let currnetDate = dateFormatter.string(from: convertedUnixDate)
             self._date = "\(currnetDate)"
             
-            print(self.cityName)
-            print(self.date)
-            print(self.weatherType)
-            print(self.currentTemp)
+//            print(self.cityName)
+//            print(self.date)
+//            print(self.weatherType)
+//            print(self.currentTemp)
             completion()
         }
     }
