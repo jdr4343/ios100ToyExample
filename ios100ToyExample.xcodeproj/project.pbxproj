@@ -124,6 +124,10 @@
 		407A1FFF26D66A9B0058F84D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1FFE26D66A9B0058F84D /* ProfileViewController.swift */; };
 		407A200326D67E460058F84D /* IOSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A200226D67E460058F84D /* IOSTabBarController.swift */; };
 		407A200626D67FB50058F84D /* IOSTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A200526D67FB50058F84D /* IOSTabBar.swift */; };
+		4082ADF026F349FB0063B2C4 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4082ADEF26F349FB0063B2C4 /* ToDoListViewController.swift */; };
+		4082ADF326F383000063B2C4 /* CircleCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4082ADF226F383000063B2C4 /* CircleCheckBox.swift */; };
+		4082ADF526F384350063B2C4 /* CheckBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4082ADF426F384350063B2C4 /* CheckBoxViewController.swift */; };
+		4082ADF726F3892D0063B2C4 /* SquareCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4082ADF626F3892D0063B2C4 /* SquareCheckBox.swift */; };
 		408AFA8826EBED6800DF7B0B /* MVVMEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408AFA8726EBED6800DF7B0B /* MVVMEventViewController.swift */; };
 		408AFA8A26EBEFCF00DF7B0B /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408AFA8926EBEFCF00DF7B0B /* Bus.swift */; };
 		408AFA8C26EBF02600DF7B0B /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408AFA8B26EBF02600DF7B0B /* Events.swift */; };
@@ -262,6 +266,12 @@
 		407A1FFE26D66A9B0058F84D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		407A200226D67E460058F84D /* IOSTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSTabBarController.swift; sourceTree = "<group>"; };
 		407A200526D67FB50058F84D /* IOSTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSTabBar.swift; sourceTree = "<group>"; };
+		4082ADEA26F3496D0063B2C4 /* TodoListItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TodoListItem+CoreDataClass.swift"; path = "ios100ToyExample/Example/TodoList/TodoListItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		4082ADEB26F3496D0063B2C4 /* TodoListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TodoListItem+CoreDataProperties.swift"; path = "ios100ToyExample/Example/TodoList/TodoListItem+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		4082ADEF26F349FB0063B2C4 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
+		4082ADF226F383000063B2C4 /* CircleCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCheckBox.swift; sourceTree = "<group>"; };
+		4082ADF426F384350063B2C4 /* CheckBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxViewController.swift; sourceTree = "<group>"; };
+		4082ADF626F3892D0063B2C4 /* SquareCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCheckBox.swift; sourceTree = "<group>"; };
 		408AFA8726EBED6800DF7B0B /* MVVMEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMEventViewController.swift; sourceTree = "<group>"; };
 		408AFA8926EBEFCF00DF7B0B /* Bus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
 		408AFA8B26EBF02600DF7B0B /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
@@ -357,6 +367,7 @@
 				407A1FF426D669180058F84D /* Example */,
 				407A1FE426D4C80D0058F84D /* Login&registe&database */,
 				403502AD26CB4B4D004BD348 /* Info.plist */,
+				407A1F3826CE195A0058F84D /* ios100ToyExample.xcdatamodeld */,
 				403502A826CB4B4D004BD348 /* Assets.xcassets */,
 				403502A526CB4B4B004BD348 /* Main.storyboard */,
 			);
@@ -588,7 +599,6 @@
 				4078640B26CE125100C864FD /* ComposeViewController.swift */,
 				4078640D26CE127D00C864FD /* UIViewController+Alert.swift */,
 				4078640F26CE129D00C864FD /* DetailViewController.swift */,
-				407A1F3826CE195A0058F84D /* ios100ToyExample.xcdatamodeld */,
 			);
 			path = Memo;
 			sourceTree = "<group>";
@@ -763,6 +773,8 @@
 		407A1FF426D669180058F84D /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				4082ADF126F382430063B2C4 /* CheckBox */,
+				4082ADE826F349160063B2C4 /* TodoListAppCoreData */,
 				403A119126EFBBEF0052D20E /* weatherApp */,
 				403A118426EF78780052D20E /* Multiple Custom Cell */,
 				408AFA8626EBED2E00DF7B0B /* MVVM Event Bus Pattern */,
@@ -865,6 +877,26 @@
 				407A200526D67FB50058F84D /* IOSTabBar.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		4082ADE826F349160063B2C4 /* TodoListAppCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4082ADEA26F3496D0063B2C4 /* TodoListItem+CoreDataClass.swift */,
+				4082ADEB26F3496D0063B2C4 /* TodoListItem+CoreDataProperties.swift */,
+				4082ADEF26F349FB0063B2C4 /* ToDoListViewController.swift */,
+			);
+			path = TodoListAppCoreData;
+			sourceTree = "<group>";
+		};
+		4082ADF126F382430063B2C4 /* CheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				4082ADF226F383000063B2C4 /* CircleCheckBox.swift */,
+				4082ADF426F384350063B2C4 /* CheckBoxViewController.swift */,
+				4082ADF626F3892D0063B2C4 /* SquareCheckBox.swift */,
+			);
+			path = CheckBox;
 			sourceTree = "<group>";
 		};
 		408AFA8626EBED2E00DF7B0B /* MVVM Event Bus Pattern */ = {
@@ -1109,6 +1141,7 @@
 				403502E526CCA016004BD348 /* SpinnerViewController.swift in Sources */,
 				407A1F8526D3799F0058F84D /* StretchyHeader.swift in Sources */,
 				4078640526CE02A900C864FD /* NewsViewController.swift in Sources */,
+				4082ADF526F384350063B2C4 /* CheckBoxViewController.swift in Sources */,
 				403502E226CC869A004BD348 /* PDFkitViewController.swift in Sources */,
 				40180B2C26EA25ED00E64A9C /* ChatModel.swift in Sources */,
 				407A1F5726CF8C640058F84D /* PhotoCollectionViewCell.swift in Sources */,
@@ -1121,6 +1154,7 @@
 				4078640726CE06A200C864FD /* FrameExtensions.swift in Sources */,
 				407A1FFF26D66A9B0058F84D /* ProfileViewController.swift in Sources */,
 				403A118626EF78A90052D20E /* MultipleCellViewController.swift in Sources */,
+				4082ADF726F3892D0063B2C4 /* SquareCheckBox.swift in Sources */,
 				406FE6B526DCD15C0036DE44 /* ProfileInfoHeaderTableHeaderView.swift in Sources */,
 				407A1F4526CE6D170058F84D /* NewsTableViewCell.swift in Sources */,
 				406FE6B326DC00FD0036DE44 /* Model.swift in Sources */,
@@ -1135,6 +1169,7 @@
 				403502EB26CCD098004BD348 /* CarouselViewController.swift in Sources */,
 				407A1FFD26D66A780058F84D /* SettingViewController.swift in Sources */,
 				407A1F7126D0A21E0058F84D /* CameraViewController.swift in Sources */,
+				4082ADF026F349FB0063B2C4 /* ToDoListViewController.swift in Sources */,
 				403502D326CBCDC0004BD348 /* ColorWellViewController.swift in Sources */,
 				407A1F4A26CF38F10058F84D /* SectionViewController.swift in Sources */,
 				403502BD26CB61F2004BD348 /* DateFormatterViewController.swift in Sources */,
@@ -1144,6 +1179,7 @@
 				403502D926CBF490004BD348 /* CustomTabBarController.swift in Sources */,
 				405AD93E26DE68C80079734A /* HomeViewController.swift in Sources */,
 				407A1F7D26D24F520058F84D /* SnapkitViewController.swift in Sources */,
+				4082ADF326F383000063B2C4 /* CircleCheckBox.swift in Sources */,
 				4014B97926E24C3800ADFEC8 /* ConversationTableViewCell.swift in Sources */,
 				407A1F6E26CFD7CC0058F84D /* TimerViewController.swift in Sources */,
 				407A1FE626D4C82B0058F84D /* LoginViewController.swift in Sources */,

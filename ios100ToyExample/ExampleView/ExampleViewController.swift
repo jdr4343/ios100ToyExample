@@ -128,7 +128,11 @@ class ExampleViewController: UIViewController {
            ExampleCollectionViewModel(name: "사진",
                                       backgroundImage: "사진찍기", handler: { [weak self] in
                                         self?.didTabCameraButton()
-                                      })
+                                      }),
+           ExampleCollectionViewModel(name: "체크박스",
+                                      backgroundImage: "", handler: { [weak self] in
+                                        self?.didTabCheckBoxButton()
+                                      }),
           ])])
         
         viewModels.append([ExampleTableViewCellModel(title: "기본 뷰 다루기", viewModels:
@@ -136,6 +140,10 @@ class ExampleViewController: UIViewController {
                                       backgroundImage: "테이블뷰", handler: { [weak self] in
                                         self?.didTabTableViewButton()
                                       }),
+           ExampleCollectionViewModel(name: "체크리스트",
+                                       backgroundImage: "", handler: { [weak self] in
+                                         self?.didTabCheckButton()
+                                       }),
            ExampleCollectionViewModel(name: "컬렉션뷰",
                                       backgroundImage: "컬렉션뷰", handler: { [weak self] in
                                         self?.didTabCollectionViewButton()
@@ -161,11 +169,11 @@ class ExampleViewController: UIViewController {
                                         self?.didTabCustomTabBarButton()
                                       }),
            ExampleCollectionViewModel(name: "멀티플 커스텀 셀",
-                                      backgroundImage: "커스텀탭바", handler: { [weak self] in
+                                      backgroundImage: "", handler: { [weak self] in
                                         self?.didTaMultipleButton()
                                       }),
            ExampleCollectionViewModel(name: "MVVM이벤트패턴",
-                                      backgroundImage: "MVVM", handler: { [weak self] in
+                                      backgroundImage: "", handler: { [weak self] in
                                         self?.didTabMVVMButton()
                                       })
            
@@ -183,7 +191,7 @@ class ExampleViewController: UIViewController {
                                         self?.didTabChartsButton()
                                       }),
            ExampleCollectionViewModel(name: "코어애니메이션",
-                                      backgroundImage: "그래프", handler: { [weak self] in
+                                      backgroundImage: "코어애니메이션", handler: { [weak self] in
                                         self?.didTabCoreAnimationButton()
                                       }),
            ExampleCollectionViewModel(name: "스피너버튼",
@@ -210,13 +218,17 @@ class ExampleViewController: UIViewController {
                                        backgroundImage: "뉴스앱", handler: { [weak self] in
                                          self?.didTabNewsAppButton()
                                        }),
-           ExampleCollectionViewModel(name: "메모앱",
+           ExampleCollectionViewModel(name: "메모앱 - CoreData",
                                        backgroundImage: "메모앱", handler: { [weak self] in
                                          self?.didTabMemoButton()
                                        }),
            ExampleCollectionViewModel(name: "날씨앱",
-                                       backgroundImage: "날씨앱", handler: { [weak self] in
+                                       backgroundImage: "", handler: { [weak self] in
                                          self?.didTapWeatherAppButton()
+                                       }),
+           ExampleCollectionViewModel(name: "할일목록앱 - CordData",
+                                       backgroundImage: "", handler: { [weak self] in
+                                         self?.didTapToDoAppButton()
                                        }),
           
          
@@ -281,6 +293,10 @@ class ExampleViewController: UIViewController {
         let webVC = WebViewController()
         present(webVC, animated: true, completion: nil)
     }
+    @objc func didTabCheckBoxButton() {
+        let vc = CheckBoxViewController()
+        present(vc, animated: true, completion: nil)
+    }
     //네비게이션을 통한 뷰 전환
     @objc func didTabBarButtonItem() {
         let barButtonItemlVC = BarButtonItemViewController()
@@ -344,6 +360,10 @@ class ExampleViewController: UIViewController {
     }
     @objc func didTapWeatherAppButton() {
         let vc = WeatherViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func didTapToDoAppButton() {
+        let vc = ToDoListViewController()
             self.navigationController?.pushViewController(vc, animated: true)
     }
    
