@@ -893,8 +893,8 @@
 			isa = PBXGroup;
 			children = (
 				4082ADF226F383000063B2C4 /* CircleCheckBox.swift */,
-				4082ADF426F384350063B2C4 /* CheckBoxViewController.swift */,
 				4082ADF626F3892D0063B2C4 /* SquareCheckBox.swift */,
+				4082ADF426F384350063B2C4 /* CheckBoxViewController.swift */,
 			);
 			path = CheckBox;
 			sourceTree = "<group>";
