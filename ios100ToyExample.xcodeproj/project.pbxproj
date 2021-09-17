@@ -140,7 +140,7 @@
 		40C2420E26F50B0400E8491C /* DataSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2420D26F50B0400E8491C /* DataSourceViewController.swift */; };
 		40C2421026F50B8F00E8491C /* ImageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2420F26F50B8F00E8491C /* ImageInfoView.swift */; };
 		40C2421326F52B6000E8491C /* CashingImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2421226F52B6000E8491C /* CashingImageViewController.swift */; };
-		40C2421526F52C3700E8491C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2421426F52C3700E8491C /* ImageCollectionViewCell.swift */; };
+		40C2421726F53A6200E8491C /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2421626F53A6200E8491C /* ImageTableViewCell.swift */; };
 		40C2442626DFEE1600374DB2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442526DFEE1600374DB2 /* ChatViewController.swift */; };
 		40C2442826E01BC200374DB2 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442726E01BC200374DB2 /* NewConversationViewController.swift */; };
 		40C2442A26E0331F00374DB2 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442926E0331F00374DB2 /* StorageManager.swift */; };
@@ -292,7 +292,7 @@
 		40C2420D26F50B0400E8491C /* DataSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceViewController.swift; sourceTree = "<group>"; };
 		40C2420F26F50B8F00E8491C /* ImageInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfoView.swift; sourceTree = "<group>"; };
 		40C2421226F52B6000E8491C /* CashingImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashingImageViewController.swift; sourceTree = "<group>"; };
-		40C2421426F52C3700E8491C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		40C2421626F53A6200E8491C /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		40C2442526DFEE1600374DB2 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		40C2442726E01BC200374DB2 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		40C2442926E0331F00374DB2 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -968,7 +968,7 @@
 			isa = PBXGroup;
 			children = (
 				40C2421226F52B6000E8491C /* CashingImageViewController.swift */,
-				40C2421426F52C3700E8491C /* ImageCollectionViewCell.swift */,
+				40C2421626F53A6200E8491C /* ImageTableViewCell.swift */,
 			);
 			path = ImageCasing;
 			sourceTree = "<group>";
@@ -1193,7 +1193,7 @@
 				403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */,
 				402DF86326F0034B002AC18F /* Double+Conversion.swift in Sources */,
 				403A119F26EFD78C0052D20E /* weather.swift in Sources */,
-				40C2421526F52C3700E8491C /* ImageCollectionViewCell.swift in Sources */,
+				40C2421726F53A6200E8491C /* ImageTableViewCell.swift in Sources */,
 				40C2442626DFEE1600374DB2 /* ChatViewController.swift in Sources */,
 				4078641226CE12D200C864FD /* DataManager.swift in Sources */,
 				407A1FED26D52A650058F84D /* FloatingTextViewController.swift in Sources */,

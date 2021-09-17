@@ -9,40 +9,44 @@ import UIKit
 
 class CashingImageViewController: UIViewController {
 
-    private let collectionView: UICollectionView = {
-        let collectionView = UICollectionView()
-        collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
-        return collectionView
+    let tableView: UITableView = {
+        let tableViw = UITableView()
+        tableViw.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return tableViw
     }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Cash Image"
         view.backgroundColor = .systemBackground
-        view.addSubview(collectionView)
-        
-        collectionView.dataSource = self
-
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        collectionView.frame = view.bounds
+        tableView.frame = view.bounds
     }
     
     
 
 
 }
-extension CashingImageViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+extension CashingImageViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
-        //cell.title = "Cell \(indexPath.row)"
-        cell.image = UIImage(named: "food1")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath)
+        cell.textLabel?.text = "asda"
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return view.width/2.5
+    }
 }
+
