@@ -137,7 +137,10 @@
 		40C241F726F4D53300E8491C /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241F626F4D53300E8491C /* UserViewController.swift */; };
 		40C241F926F4D61C00E8491C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241F826F4D61C00E8491C /* UserModel.swift */; };
 		40C241FB26F4D63000E8491C /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241FA26F4D63000E8491C /* Presenter.swift */; };
-		40C241FE26F4F56A00E8491C /* VIPERViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241FD26F4F56A00E8491C /* VIPERViewController.swift */; };
+		40C2420E26F50B0400E8491C /* DataSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2420D26F50B0400E8491C /* DataSourceViewController.swift */; };
+		40C2421026F50B8F00E8491C /* ImageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2420F26F50B8F00E8491C /* ImageInfoView.swift */; };
+		40C2421326F52B6000E8491C /* CashingImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2421226F52B6000E8491C /* CashingImageViewController.swift */; };
+		40C2421526F52C3700E8491C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2421426F52C3700E8491C /* ImageCollectionViewCell.swift */; };
 		40C2442626DFEE1600374DB2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442526DFEE1600374DB2 /* ChatViewController.swift */; };
 		40C2442826E01BC200374DB2 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442726E01BC200374DB2 /* NewConversationViewController.swift */; };
 		40C2442A26E0331F00374DB2 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442926E0331F00374DB2 /* StorageManager.swift */; };
@@ -286,7 +289,10 @@
 		40C241F626F4D53300E8491C /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		40C241F826F4D61C00E8491C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		40C241FA26F4D63000E8491C /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
-		40C241FD26F4F56A00E8491C /* VIPERViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPERViewController.swift; sourceTree = "<group>"; };
+		40C2420D26F50B0400E8491C /* DataSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceViewController.swift; sourceTree = "<group>"; };
+		40C2420F26F50B8F00E8491C /* ImageInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfoView.swift; sourceTree = "<group>"; };
+		40C2421226F52B6000E8491C /* CashingImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashingImageViewController.swift; sourceTree = "<group>"; };
+		40C2421426F52C3700E8491C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		40C2442526DFEE1600374DB2 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		40C2442726E01BC200374DB2 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		40C2442926E0331F00374DB2 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -784,6 +790,7 @@
 		407A1FF426D669180058F84D /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				40C2421126F5292D00E8491C /* ImageCasing */,
 				40C241F426F4D3C000E8491C /* pattern */,
 				407DA9C326F3AFB20027B742 /* cheackBox */,
 				407DA9BC26F3AF4D0027B742 /* ToDoListCoreData */,
@@ -931,7 +938,7 @@
 		40C241F426F4D3C000E8491C /* pattern */ = {
 			isa = PBXGroup;
 			children = (
-				40C241FC26F4EE0E00E8491C /* VIPERDesign pattern */,
+				40C2420C26F50ADA00E8491C /* DataSourcePattern */,
 				40C241F526F4D40000E8491C /* MVPDesignPattern */,
 				408AFA8626EBED2E00DF7B0B /* MVVM Event Bus Pattern */,
 			);
@@ -948,12 +955,22 @@
 			path = MVPDesignPattern;
 			sourceTree = "<group>";
 		};
-		40C241FC26F4EE0E00E8491C /* VIPERDesign pattern */ = {
+		40C2420C26F50ADA00E8491C /* DataSourcePattern */ = {
 			isa = PBXGroup;
 			children = (
-				40C241FD26F4F56A00E8491C /* VIPERViewController.swift */,
+				40C2420D26F50B0400E8491C /* DataSourceViewController.swift */,
+				40C2420F26F50B8F00E8491C /* ImageInfoView.swift */,
 			);
-			path = "VIPERDesign pattern";
+			path = DataSourcePattern;
+			sourceTree = "<group>";
+		};
+		40C2421126F5292D00E8491C /* ImageCasing */ = {
+			isa = PBXGroup;
+			children = (
+				40C2421226F52B6000E8491C /* CashingImageViewController.swift */,
+				40C2421426F52C3700E8491C /* ImageCollectionViewCell.swift */,
+			);
+			path = ImageCasing;
 			sourceTree = "<group>";
 		};
 		40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */ = {
@@ -1144,6 +1161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40C2421026F50B8F00E8491C /* ImageInfoView.swift in Sources */,
 				407A1F4326CE5AAD0058F84D /* APICaller.swift in Sources */,
 				403A119A26EFC1950052D20E /* WeatherViewController.swift in Sources */,
 				407A1F4F26CF6AE60058F84D /* TableViewController.swift in Sources */,
@@ -1159,7 +1177,6 @@
 				403502E826CCAC76004BD348 /* WebViewController.swift in Sources */,
 				4060D61E26F2032400333AF1 /* Location.swift in Sources */,
 				407A200626D67FB50058F84D /* IOSTabBar.swift in Sources */,
-				40C241FE26F4F56A00E8491C /* VIPERViewController.swift in Sources */,
 				403502DB26CBF546004BD348 /* CustomTabBar.swift in Sources */,
 				408D96F726E840C700C87FF9 /* LocationPickerViewController.swift in Sources */,
 				403502ED26CCD39A004BD348 /* CollectionTableViewCell.swift in Sources */,
@@ -1176,6 +1193,7 @@
 				403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */,
 				402DF86326F0034B002AC18F /* Double+Conversion.swift in Sources */,
 				403A119F26EFD78C0052D20E /* weather.swift in Sources */,
+				40C2421526F52C3700E8491C /* ImageCollectionViewCell.swift in Sources */,
 				40C2442626DFEE1600374DB2 /* ChatViewController.swift in Sources */,
 				4078641226CE12D200C864FD /* DataManager.swift in Sources */,
 				407A1FED26D52A650058F84D /* FloatingTextViewController.swift in Sources */,
@@ -1230,6 +1248,7 @@
 				407A1F7D26D24F520058F84D /* SnapkitViewController.swift in Sources */,
 				4014B97926E24C3800ADFEC8 /* ConversationTableViewCell.swift in Sources */,
 				407A1F6E26CFD7CC0058F84D /* TimerViewController.swift in Sources */,
+				40C2421326F52B6000E8491C /* CashingImageViewController.swift in Sources */,
 				407A1FE626D4C82B0058F84D /* LoginViewController.swift in Sources */,
 				407A1F8326D375B40058F84D /* StretchyViewController.swift in Sources */,
 				407A200326D67E460058F84D /* IOSTabBarController.swift in Sources */,
@@ -1263,6 +1282,7 @@
 				40C241FB26F4D63000E8491C /* Presenter.swift in Sources */,
 				407A1F7726D0C44C0058F84D /* AutoLayoutViewController.swift in Sources */,
 				40180B3126EA767E00E64A9C /* ExampleViewController.swift in Sources */,
+				40C2420E26F50B0400E8491C /* DataSourceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

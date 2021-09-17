@@ -65,6 +65,11 @@ class ExampleViewController: UIViewController {
             self.present(AdvancedVC, animated: true, completion: nil)
         })
         self.view.addSubview(floating)
+        floating.addItem("캐시 이미지", icon: UIImage(systemName: "rectangle.fill.badge.plus")!, handler: { item in
+            let vc = CashingImageViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        })
+        self.view.addSubview(floating)
     }
 
     
@@ -231,7 +236,11 @@ class ExampleViewController: UIViewController {
          
           ])])
         viewModels.append([ExampleTableViewCellModel(title: "패턴", viewModels:
-          [ExampleCollectionViewModel(name: "MVPPattern",
+          [ExampleCollectionViewModel(name: "DataSourcePattern",
+                                      backgroundImage: "", handler: { [weak self] in
+                                        self?.didTapDataSourceButton()
+                                      }),
+            ExampleCollectionViewModel(name: "MVPPattern",
                                       backgroundImage: "", handler: { [weak self] in
                                         self?.didTapMVPButton()
                                       }),
@@ -376,6 +385,10 @@ class ExampleViewController: UIViewController {
     }
     @objc func didTapMVPButton() {
         let vc = UserViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func didTapDataSourceButton() {
+        let vc = DataSourceViewController()
             self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func didTabAutoButton() {
