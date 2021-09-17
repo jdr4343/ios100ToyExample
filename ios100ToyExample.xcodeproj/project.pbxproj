@@ -141,6 +141,8 @@
 		40C2421026F50B8F00E8491C /* ImageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2420F26F50B8F00E8491C /* ImageInfoView.swift */; };
 		40C2421326F52B6000E8491C /* CashingImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2421226F52B6000E8491C /* CashingImageViewController.swift */; };
 		40C2421726F53A6200E8491C /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2421626F53A6200E8491C /* ImageTableViewCell.swift */; };
+		40C2421926F550EF00E8491C /* NatworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2421826F550EF00E8491C /* NatworkManager.swift */; };
+		40C2421B26F5533900E8491C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2421A26F5533900E8491C /* Post.swift */; };
 		40C2442626DFEE1600374DB2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442526DFEE1600374DB2 /* ChatViewController.swift */; };
 		40C2442826E01BC200374DB2 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442726E01BC200374DB2 /* NewConversationViewController.swift */; };
 		40C2442A26E0331F00374DB2 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442926E0331F00374DB2 /* StorageManager.swift */; };
@@ -293,6 +295,8 @@
 		40C2420F26F50B8F00E8491C /* ImageInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfoView.swift; sourceTree = "<group>"; };
 		40C2421226F52B6000E8491C /* CashingImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashingImageViewController.swift; sourceTree = "<group>"; };
 		40C2421626F53A6200E8491C /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		40C2421826F550EF00E8491C /* NatworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NatworkManager.swift; sourceTree = "<group>"; };
+		40C2421A26F5533900E8491C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		40C2442526DFEE1600374DB2 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		40C2442726E01BC200374DB2 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		40C2442926E0331F00374DB2 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -969,6 +973,8 @@
 			children = (
 				40C2421226F52B6000E8491C /* CashingImageViewController.swift */,
 				40C2421626F53A6200E8491C /* ImageTableViewCell.swift */,
+				40C2421826F550EF00E8491C /* NatworkManager.swift */,
+				40C2421A26F5533900E8491C /* Post.swift */,
 			);
 			path = ImageCasing;
 			sourceTree = "<group>";
@@ -1212,6 +1218,7 @@
 				403502E226CC869A004BD348 /* PDFkitViewController.swift in Sources */,
 				40180B2C26EA25ED00E64A9C /* ChatModel.swift in Sources */,
 				407A1F5726CF8C640058F84D /* PhotoCollectionViewCell.swift in Sources */,
+				40C2421B26F5533900E8491C /* Post.swift in Sources */,
 				403A119D26EFD6BC0052D20E /* NetworkController.swift in Sources */,
 				407A1F5226CF729C0058F84D /* KeyboardToolBarViewController.swift in Sources */,
 				40180B2A26EA25A400E64A9C /* ConversationModel.swift in Sources */,
@@ -1269,6 +1276,7 @@
 				403502D626CBE46C004BD348 /* FontPickerViewController.swift in Sources */,
 				40C241E226F3B12700E8491C /* CircleCheckBox.swift in Sources */,
 				403502F126CCE22B004BD348 /* CarouselModel.swift in Sources */,
+				40C2421926F550EF00E8491C /* NatworkManager.swift in Sources */,
 				40180B3326EA785200E64A9C /* ExampleTableViewCell.swift in Sources */,
 				402DF86126EFFDFB002AC18F /* WeatherModel.swift in Sources */,
 				407A1F8026D293140058F84D /* UsingTimerViewController.swift in Sources */,

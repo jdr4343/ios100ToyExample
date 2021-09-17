@@ -10,7 +10,7 @@ import Foundation
 //MARK: - Models
 //Codable 은 데이터를 다른 데이터 형태로 변환할수 있는 기능의 Encodeable이나 반대의 기능의 Decodeable을 합한 타입입니다.
 //api의 내용에 스위프트의 타입을 지정해줄것입니다.
-struct APIResponse: Codable {
+ struct APIResponse: Codable {
     let articles: [Article]
 }
 

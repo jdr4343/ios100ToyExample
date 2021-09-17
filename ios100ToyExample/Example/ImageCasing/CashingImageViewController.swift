@@ -7,6 +7,9 @@
 
 import UIKit
 
+//API를 통해 이미지를 다운로드 받고 그 이미지를 장치에 캐싱 하겠습니다.
+
+
 class CashingImageViewController: UIViewController {
 
     let tableView: UITableView = {
