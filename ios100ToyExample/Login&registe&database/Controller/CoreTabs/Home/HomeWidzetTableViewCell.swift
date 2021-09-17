@@ -4,6 +4,9 @@
 //
 //  Created by 신지훈 on 2021/09/14.
 //
+protocol HomeWidzetTableViewCellDelegate: AnyObject {
+    func didTapAdd()
+}
 
 
 import UIKit
@@ -13,7 +16,10 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
 
     static let identifier = "HomeWidzetTableViewCell"
   
-
+    var models = [TodoListItem]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    public weak var delegate: HomeWidzetTableViewCellDelegate?
+   
     // 날씨 뷰
      var currentWeather: CurrentWeather?
     private var currentLocation: CLLocation!
@@ -129,6 +135,7 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
         todoTableView.dataSource = self
         todoTableView.showsVerticalScrollIndicator = false
         todoTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        getAllitems()
     }
     
     required init?(coder: NSCoder) {
@@ -216,21 +223,66 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
     
     //To Do
     @objc private func didTapAddList() {
-        print("작동중")
+        delegate?.didTapAdd()
+    }
     
+    //MARK: CoreData
+    
+    func getAllitems() {
+        do {
+            models = try context.fetch(TodoListItem.fetchRequest())
+            todoTableView.reloadData()
+        } catch {
+            print("항목을 가져오는데 실패 했습니다.")
+        }
+    }
+    public func createItem(name: String) {
+        let newitem = TodoListItem(context: context)
+        newitem.name = name
+        newitem.isChecked = false
+        do {
+            try context.save()
+            getAllitems()
+            print("작동중")
+        } catch {
+            print("항목을 생성하는것에 실패 했습니다")
+        }
     }
    
+    func deleteItem(item: TodoListItem) {
+        context.delete(item)
+        do {
+            try context.save()
+            getAllitems()
+        } catch {
+            print("항목을 삭제하는것에 실패 했습니다.")
+        }
+    }
+    
+    func updateItem(item: TodoListItem, newName: String) {
+        item.name = newName
+        do {
+            try context.save()
+            getAllitems()
+        } catch {
+            print("항목을 업데이트 하는것에 실패 했습니다.")
+        }
+    }
+    
+    
 }
 extension HomeWidzetTableViewCell: UITableViewDelegate, UITableViewDataSource, ToDoTableViewCellDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let model = models[indexPath.row]
         let cell = todoTableView.dequeueReusableCell(withIdentifier: ToDoTableViewCell.identifier, for: indexPath) as! ToDoTableViewCell
         cell.delegate = self
+        cell.label.text = model.name
         
         return cell
     }
