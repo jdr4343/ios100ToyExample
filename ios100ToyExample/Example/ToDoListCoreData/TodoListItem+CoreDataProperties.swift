@@ -18,6 +18,8 @@ extension TodoListItem {
 
     @NSManaged public var name: String?
     @NSManaged public var createAt: Date?
+    //isChecked는 홈뷰에서 사용하기 위해 작성했습니다.
+    @NSManaged public var isChecked: Bool?
 
 
 

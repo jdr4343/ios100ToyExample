@@ -66,7 +66,7 @@ class HomeViewController: UIViewController {
     
 }
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate, HomeWidzetTableViewCellDelegate {
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -78,9 +78,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate, HomeWi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeWidzetTableViewCell.identifier, for: indexPath) as! HomeWidzetTableViewCell
+        cell.viewController = self
         cell.selectionStyle = .none
-        cell.delegate = self
+        
         return cell
     }
     
@@ -91,18 +93,5 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate, HomeWi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return view.height/3.5
     }
-    func didTapAdd() {
-        let alert = UIAlertController(title: "목록 추가", message: "오늘 무엇을 할 예정 인가요?", preferredStyle: .alert)
-        alert.addTextField(configurationHandler: nil)
-        alert.addAction(UIAlertAction(title: "추가", style: .cancel, handler: { _ in
-            guard let field = alert.textFields?.first, let name = field.text, !name.isEmpty else {
-                return
-            }
-            let vc = HomeWidzetTableViewCell()
-            vc.createItem(name: name)
-            print("된걸까..?")
-        }))
-        present(alert, animated: true)
-    }
-    
+  
 }

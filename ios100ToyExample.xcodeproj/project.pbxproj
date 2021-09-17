@@ -776,11 +776,11 @@
 		407A1FF426D669180058F84D /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				40C241F426F4D3C000E8491C /* pattern */,
 				407DA9C326F3AFB20027B742 /* cheackBox */,
 				407DA9BC26F3AF4D0027B742 /* ToDoListCoreData */,
 				403A119126EFBBEF0052D20E /* weatherApp */,
 				403A118426EF78780052D20E /* Multiple Custom Cell */,
-				408AFA8626EBED2E00DF7B0B /* MVVM Event Bus Pattern */,
 				407A1FEB26D52A0D0058F84D /* FloatingLabelTextField */,
 				403502CC26CBBD12004BD348 /* CheakList */,
 				407A1F4D26CF6A9D0058F84D /* TableView */,
@@ -918,6 +918,22 @@
 				40C241F226F407BB00E8491C /* ToDoTableViewCell.swift */,
 			);
 			path = ToDoList;
+			sourceTree = "<group>";
+		};
+		40C241F426F4D3C000E8491C /* pattern */ = {
+			isa = PBXGroup;
+			children = (
+				40C241F526F4D40000E8491C /* MVPDesignPattern */,
+				408AFA8626EBED2E00DF7B0B /* MVVM Event Bus Pattern */,
+			);
+			path = pattern;
+			sourceTree = "<group>";
+		};
+		40C241F526F4D40000E8491C /* MVPDesignPattern */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MVPDesignPattern;
 			sourceTree = "<group>";
 		};
 		40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */ = {

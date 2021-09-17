@@ -8,10 +8,12 @@
 import UIKit
 
 class SquareCheckBox: UIView {
-    
+    var models = [TodoListItem]()
     var isChecked = true
+  
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-    private var checkImage: UIImageView = {
+    public var checkImage: UIImageView = {
         let imageview = UIImageView()
         imageview.image = UIImage(systemName: "checkmark")
         imageview.clipsToBounds = true
@@ -46,8 +48,13 @@ class SquareCheckBox: UIView {
         checkImage.frame = CGRect(x: 0, y: -10, width: frame.width, height: frame.width)
     }
     
+    
     func toggle() {
+        //아 .. 생각 해보니 여기에 불리언 값만 전한다고 코어 데이터에 저장이 되는게 아니라 이미지를 같이 저장해줘야되는구나.. 구현대기
        self.isChecked = !isChecked
+//        let Checked = TodoListItem(context: context)
+//        Checked.isChecked = isChecked
+//        print(Checked.isChecked)
         checkImage.isHidden = isChecked
    }
 

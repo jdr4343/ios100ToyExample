@@ -7,9 +7,6 @@
 
 import UIKit
 
-protocol ToDoTableViewCellDelegate: AnyObject {
-    func didTapChackBox()
-}
 
 
 class ToDoTableViewCell: UITableViewCell {
@@ -18,7 +15,7 @@ class ToDoTableViewCell: UITableViewCell {
     
     let checkBox = SquareCheckBox()
     
-    public weak var delegate: ToDoTableViewCellDelegate?
+   
     
     let label: UILabel = {
         let label = UILabel()
@@ -54,7 +51,7 @@ class ToDoTableViewCell: UITableViewCell {
     @objc func didTapCheckBox() {
         print("체크박스가 클릭 되었습니다.")
         checkBox.toggle()
-        delegate?.didTapChackBox()
+        
         
     }
     

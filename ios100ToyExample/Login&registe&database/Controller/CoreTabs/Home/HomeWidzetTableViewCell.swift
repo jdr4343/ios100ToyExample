@@ -4,9 +4,6 @@
 //
 //  Created by 신지훈 on 2021/09/14.
 //
-protocol HomeWidzetTableViewCellDelegate: AnyObject {
-    func didTapAdd()
-}
 
 
 import UIKit
@@ -18,8 +15,8 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
   
     var models = [TodoListItem]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    public weak var delegate: HomeWidzetTableViewCellDelegate?
    
+    weak var viewController: HomeViewController?
     // 날씨 뷰
      var currentWeather: CurrentWeather?
     private var currentLocation: CLLocation!
@@ -136,6 +133,7 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
         todoTableView.showsVerticalScrollIndicator = false
         todoTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         getAllitems()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -223,7 +221,17 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
     
     //To Do
     @objc private func didTapAddList() {
-        delegate?.didTapAdd()
+        let alert = UIAlertController(title: "목록 추가", message: "오늘의 목표는 무엇인가요?", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: nil)
+        alert.addAction(UIAlertAction(title: "추가", style: .cancel, handler: { _ in
+            guard let field = alert.textFields?.first, let name = field.text, !name.isEmpty else {
+                return
+            }
+            self.createItem(name: name)
+            
+        }))
+        viewController?.present(alert, animated: true)
+        
     }
     
     //MARK: CoreData
@@ -239,7 +247,7 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
     public func createItem(name: String) {
         let newitem = TodoListItem(context: context)
         newitem.name = name
-        newitem.isChecked = false
+        //newitem.isChecked = true
         do {
             try context.save()
             getAllitems()
@@ -269,9 +277,9 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
         }
     }
     
-    
+   
 }
-extension HomeWidzetTableViewCell: UITableViewDelegate, UITableViewDataSource, ToDoTableViewCellDelegate {
+extension HomeWidzetTableViewCell: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -281,7 +289,7 @@ extension HomeWidzetTableViewCell: UITableViewDelegate, UITableViewDataSource, T
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.row]
         let cell = todoTableView.dequeueReusableCell(withIdentifier: ToDoTableViewCell.identifier, for: indexPath) as! ToDoTableViewCell
-        cell.delegate = self
+        
         cell.label.text = model.name
         
         return cell
@@ -289,14 +297,41 @@ extension HomeWidzetTableViewCell: UITableViewDelegate, UITableViewDataSource, T
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         todoTableView.deselectRow(at: indexPath, animated: true)
-        print("작동중")
+        let item = models[indexPath.row]
+        let sheet = UIAlertController(title: "변경", message: nil, preferredStyle: .actionSheet)
+        
+        sheet.addAction(UIAlertAction(title: "닫기", style: .cancel, handler: nil))
+        
+        sheet.addAction(UIAlertAction(title: "변경", style: .default, handler: { _ in
+            
+            let alert = UIAlertController(title: "항목 변경", message: "변경 하시겠습니까?", preferredStyle: .alert)
+            alert.addTextField(configurationHandler: nil)
+            alert.textFields?.first?.text = item.name
+            alert.addAction(UIAlertAction(title: "추가", style: .cancel, handler: { [weak self] _ in
+                guard let field = alert.textFields?.first,let newName = field.text, !newName.isEmpty else {
+                    return
+                }
+                self?.updateItem(item: item, newName: newName)
+
+            }))
+            //self.present(alert, animated: true)
+            //UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+            self.viewController?.present(alert, animated: true)
+
+        }))
+        sheet.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: { [weak self] _ in
+            self?.deleteItem(item: item)
+        }))
+        viewController?.present(sheet, animated: true)
+        
     }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 35
     }
     
-    func didTapChackBox() {
-        print("연결되었습니다.")
-    }
+    
 }
+
+
