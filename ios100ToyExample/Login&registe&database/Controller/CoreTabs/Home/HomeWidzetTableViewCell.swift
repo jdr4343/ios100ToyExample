@@ -81,7 +81,7 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
     }()
     private let todoTableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(ToDoTableViewCell.self, forCellReuseIdentifier: ToDoTableViewCell.identifier)
         tableView.backgroundColor = .clear
         tableView.layer.masksToBounds = true
         return tableView
@@ -221,19 +221,16 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
     }
    
 }
-extension HomeWidzetTableViewCell: UITableViewDelegate, UITableViewDataSource {
+extension HomeWidzetTableViewCell: UITableViewDelegate, UITableViewDataSource, ToDoTableViewCellDelegate {
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = todoTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .clear
-        cell.textLabel?.textColor = .white
-        cell.textLabel?.font = .boldSystemFont(ofSize: 14)
-        cell.selectionStyle = .none
-        cell.textLabel?.text = "오늘 할일은??"
-        cell.textLabel?.textAlignment = .center
+        let cell = todoTableView.dequeueReusableCell(withIdentifier: ToDoTableViewCell.identifier, for: indexPath) as! ToDoTableViewCell
+        cell.delegate = self
         
         return cell
     }
@@ -245,5 +242,9 @@ extension HomeWidzetTableViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 35
+    }
+    
+    func didTapChackBox() {
+        print("연결되었습니다.")
     }
 }
