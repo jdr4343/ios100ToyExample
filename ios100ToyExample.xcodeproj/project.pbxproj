@@ -134,6 +134,10 @@
 		40C241E526F3B1D400E8491C /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241E426F3B1D400E8491C /* CheckViewController.swift */; };
 		40C241E926F3B2A300E8491C /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241E626F3B2A300E8491C /* TodoListViewController.swift */; };
 		40C241F326F407BB00E8491C /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241F226F407BB00E8491C /* ToDoTableViewCell.swift */; };
+		40C241F726F4D53300E8491C /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241F626F4D53300E8491C /* UserViewController.swift */; };
+		40C241F926F4D61C00E8491C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241F826F4D61C00E8491C /* UserModel.swift */; };
+		40C241FB26F4D63000E8491C /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241FA26F4D63000E8491C /* Presenter.swift */; };
+		40C241FE26F4F56A00E8491C /* VIPERViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241FD26F4F56A00E8491C /* VIPERViewController.swift */; };
 		40C2442626DFEE1600374DB2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442526DFEE1600374DB2 /* ChatViewController.swift */; };
 		40C2442826E01BC200374DB2 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442726E01BC200374DB2 /* NewConversationViewController.swift */; };
 		40C2442A26E0331F00374DB2 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C2442926E0331F00374DB2 /* StorageManager.swift */; };
@@ -279,6 +283,10 @@
 		40C241E726F3B2A300E8491C /* TodoListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TodoListItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		40C241E826F3B2A300E8491C /* TodoListItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TodoListItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		40C241F226F407BB00E8491C /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
+		40C241F626F4D53300E8491C /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		40C241F826F4D61C00E8491C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		40C241FA26F4D63000E8491C /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		40C241FD26F4F56A00E8491C /* VIPERViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPERViewController.swift; sourceTree = "<group>"; };
 		40C2442526DFEE1600374DB2 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		40C2442726E01BC200374DB2 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		40C2442926E0331F00374DB2 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -923,6 +931,7 @@
 		40C241F426F4D3C000E8491C /* pattern */ = {
 			isa = PBXGroup;
 			children = (
+				40C241FC26F4EE0E00E8491C /* VIPERDesign pattern */,
 				40C241F526F4D40000E8491C /* MVPDesignPattern */,
 				408AFA8626EBED2E00DF7B0B /* MVVM Event Bus Pattern */,
 			);
@@ -932,8 +941,19 @@
 		40C241F526F4D40000E8491C /* MVPDesignPattern */ = {
 			isa = PBXGroup;
 			children = (
+				40C241F626F4D53300E8491C /* UserViewController.swift */,
+				40C241F826F4D61C00E8491C /* UserModel.swift */,
+				40C241FA26F4D63000E8491C /* Presenter.swift */,
 			);
 			path = MVPDesignPattern;
+			sourceTree = "<group>";
+		};
+		40C241FC26F4EE0E00E8491C /* VIPERDesign pattern */ = {
+			isa = PBXGroup;
+			children = (
+				40C241FD26F4F56A00E8491C /* VIPERViewController.swift */,
+			);
+			path = "VIPERDesign pattern";
 			sourceTree = "<group>";
 		};
 		40DF550E26CD0FDE00FD9FB8 /* AdvancedTableView */ = {
@@ -1128,6 +1148,7 @@
 				403A119A26EFC1950052D20E /* WeatherViewController.swift in Sources */,
 				407A1F4F26CF6AE60058F84D /* TableViewController.swift in Sources */,
 				4078641026CE129D00C864FD /* DetailViewController.swift in Sources */,
+				40C241F726F4D53300E8491C /* UserViewController.swift in Sources */,
 				4060D61826F1113800333AF1 /* WeatherExtra.swift in Sources */,
 				407A1FEF26D55A600058F84D /* RegistrationViewController.swift in Sources */,
 				407A1FF326D568220058F84D /* DatabaseManager.swift in Sources */,
@@ -1138,6 +1159,7 @@
 				403502E826CCAC76004BD348 /* WebViewController.swift in Sources */,
 				4060D61E26F2032400333AF1 /* Location.swift in Sources */,
 				407A200626D67FB50058F84D /* IOSTabBar.swift in Sources */,
+				40C241FE26F4F56A00E8491C /* VIPERViewController.swift in Sources */,
 				403502DB26CBF546004BD348 /* CustomTabBar.swift in Sources */,
 				408D96F726E840C700C87FF9 /* LocationPickerViewController.swift in Sources */,
 				403502ED26CCD39A004BD348 /* CollectionTableViewCell.swift in Sources */,
@@ -1211,6 +1233,7 @@
 				407A1FE626D4C82B0058F84D /* LoginViewController.swift in Sources */,
 				407A1F8326D375B40058F84D /* StretchyViewController.swift in Sources */,
 				407A200326D67E460058F84D /* IOSTabBarController.swift in Sources */,
+				40C241F926F4D61C00E8491C /* UserModel.swift in Sources */,
 				407A1F5526CF7D440058F84D /* CollectionViewController.swift in Sources */,
 				405AD93826DE0CB90079734A /* EditTextViewTableViewCell.swift in Sources */,
 				403A118B26EF8F600052D20E /* SecondTableViewCell.swift in Sources */,
@@ -1237,6 +1260,7 @@
 				40DF551326CD12C300FD9FB8 /* TableCollectionViewCell.swift in Sources */,
 				407A1F6626CFCCB90058F84D /* AudioViewController.swift in Sources */,
 				403A118E26EF96B10052D20E /* ThirdTableViewCell.swift in Sources */,
+				40C241FB26F4D63000E8491C /* Presenter.swift in Sources */,
 				407A1F7726D0C44C0058F84D /* AutoLayoutViewController.swift in Sources */,
 				40180B3126EA767E00E64A9C /* ExampleViewController.swift in Sources */,
 			);

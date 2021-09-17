@@ -52,6 +52,14 @@ struct UserListViewModel {
 //MVME Pattern을 알아봅니다.
 class MVVMEventViewController: UIViewController {
     
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "MVVM")
+        imageView.layer.masksToBounds = true
+        return imageView
+    }()
+    
     //모델을 뷰와 연결 해 줍니다.
     private var viewModel = UserListViewModel()
     
@@ -65,7 +73,8 @@ class MVVMEventViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(tableView)
         tableView.dataSource = self
-        
+        title = "MVVMPattern"
+        navigationItem.largeTitleDisplayMode = .always
         //Bus를 통해 뷰 모델의 이벤트에 테이블 뷰를 바인딩 합니다.
         Bus.shared.subscribeOnMain(.userFetch) { [weak self] event in
             guard let result = event.result else {
@@ -81,6 +90,12 @@ class MVVMEventViewController: UIViewController {
         }
         //데이터를 가져옵니다.
         viewModel.fetchUserList()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        //헤더 / 프로필 상단의 헤더에는 이미지를 나타낼것입니다.따
+        let header = imageView
+        imageView.frame = CGRect(x: 0, y: 0, width: view.width, height: view.width*0.7)
+        tableView.tableHeaderView = header
     }
     
     override func viewDidLayoutSubviews() {

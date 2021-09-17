@@ -172,10 +172,7 @@ class ExampleViewController: UIViewController {
                                       backgroundImage: "", handler: { [weak self] in
                                         self?.didTabCheckButton()
                                       }),
-           ExampleCollectionViewModel(name: "MVVM이벤트패턴",
-                                      backgroundImage: "MVVM", handler: { [weak self] in
-                                        self?.didTabMVVMButton()
-                                      })
+           
            
           
           ])])
@@ -232,6 +229,17 @@ class ExampleViewController: UIViewController {
                                        }),
           
          
+          ])])
+        viewModels.append([ExampleTableViewCellModel(title: "패턴", viewModels:
+          [ExampleCollectionViewModel(name: "MVPPattern",
+                                      backgroundImage: "", handler: { [weak self] in
+                                        self?.didTapMVPButton()
+                                      }),
+           ExampleCollectionViewModel(name: "MVVM이벤트패턴",
+                                      backgroundImage: "", handler: { [weak self] in
+                                        self?.didTabMVVMButton()
+                                      })
+           
           ])])
     }
     
@@ -366,7 +374,10 @@ class ExampleViewController: UIViewController {
         let vc = TodoListViewController()
             self.navigationController?.pushViewController(vc, animated: true)
     }
-  
+    @objc func didTapMVPButton() {
+        let vc = UserViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
     @objc func didTabAutoButton() {
         let AutoVC = AutoLayoutViewController()
         self.navigationController?.pushViewController(AutoVC, animated: true)
