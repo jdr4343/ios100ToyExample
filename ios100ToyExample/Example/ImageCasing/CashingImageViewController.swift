@@ -11,7 +11,7 @@ class CashingImageViewController: UIViewController {
 
     let tableView: UITableView = {
         let tableViw = UITableView()
-        tableViw.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableViw.register(ImageTableViewCell.self, forCellReuseIdentifier: ImageTableViewCell.identifier)
         return tableViw
     }()
     
@@ -40,13 +40,15 @@ extension CashingImageViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath)
-        cell.textLabel?.text = "asda"
+        let cell = tableView.dequeueReusableCell(withIdentifier: ImageTableViewCell.identifier,for: indexPath) as! ImageTableViewCell
+        cell.title = "dafdsfas"
+        cell.image = UIImage(named: "배경3")
+        cell.badgeImage = UIImage(named: "배경2")
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.width/2.5
+        return view.height/2.5
     }
 }
 
