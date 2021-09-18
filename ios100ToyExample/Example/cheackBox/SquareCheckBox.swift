@@ -18,7 +18,7 @@ class SquareCheckBox: UIView {
         imageview.image = UIImage(systemName: "checkmark")
         imageview.clipsToBounds = true
         imageview.contentMode = .scaleAspectFit
-        imageview.tintColor = .label //휜색이라 안보일수 있으니 바꿔주세요! 홈뷰에서 재사용중이라..!
+        imageview.tintColor = .white //휜색이라 안보일수 있으니 바꿔주세요! 홈뷰에서 재사용중이라..!
         imageview.isHidden = true
         return imageview
     }()

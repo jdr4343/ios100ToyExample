@@ -22,7 +22,7 @@ class HomeWidzetTableViewCell: UITableViewCell, CLLocationManagerDelegate{
     private var currentLocation: CLLocation!
     private let locationManger = CLLocationManager()
     
-    //Todo뷰
+    
     
     private let weatherView: UIImageView = {
         let view = UIImageView()

@@ -68,7 +68,7 @@ class FloatingTextViewController: UIViewController {
         
         return field
     }()
-    
+   
     
    private let newPasswordField: SkyFloatingLabelTextFieldWithIcon = {
         let field = SkyFloatingLabelTextFieldWithIcon()
