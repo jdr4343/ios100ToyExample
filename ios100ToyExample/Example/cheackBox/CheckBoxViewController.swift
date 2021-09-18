@@ -39,6 +39,7 @@ class CheckBoxViewController: UIViewController {
         checkbox1.toggle()
     }
     @objc func didTapCheckBox2() {
+        
         checkbox2.toggle()
     }
 

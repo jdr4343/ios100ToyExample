@@ -11,25 +11,29 @@ class ImageTableViewCell: UITableViewCell {
 
     static let identifier = "ImageTableViewCell"
     
+    
     private let titleLabel: UILabel = {
         let title = UILabel()
-        title.font = .boldSystemFont(ofSize: 22)
+        title.font = .boldSystemFont(ofSize: 18)
         title.textColor = .label
-        
+        title.numberOfLines = 0
         return title
     }()
     private let cashimageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
-
+        imageView.layer.borderWidth = 0.5
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
         return imageView
     }()
     private let badgeImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
-
+        imageView.layer.cornerRadius = 20
+        imageView.layer.borderWidth = 0.5
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
         return imageView
     }()
     
@@ -65,9 +69,9 @@ class ImageTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        cashimageView.frame = CGRect(x: 0, y: 0, width: contentView.width, height: contentView.height/2+30)
-        badgeImageView.frame = CGRect(x: 10, y: cashimageView.bottom+10, width: contentView.width/4, height: contentView.width/4)
-        titleLabel.frame = CGRect(x: badgeImageView.right+20, y: cashimageView.bottom+10, width: badgeImageView.width*3, height: 50)
+        cashimageView.frame = CGRect(x: 10, y: 0, width: contentView.width-20, height: contentView.height/2+30)
+        badgeImageView.frame = CGRect(x: 10, y: cashimageView.bottom+10, width: contentView.width/4.5, height: contentView.width/4.5)
+        titleLabel.frame = CGRect(x: badgeImageView.right+20, y: cashimageView.bottom+10, width: badgeImageView.width*3, height: 100)
     }
     
     override func prepareForReuse() {

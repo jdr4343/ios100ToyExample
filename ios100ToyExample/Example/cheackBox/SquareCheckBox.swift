@@ -8,17 +8,17 @@
 import UIKit
 
 class SquareCheckBox: UIView {
-    var models = [TodoListItem]()
+  //  var models = [TodoListItem]()
     var isChecked = true
   
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     public var checkImage: UIImageView = {
         let imageview = UIImageView()
         imageview.image = UIImage(systemName: "checkmark")
         imageview.clipsToBounds = true
         imageview.contentMode = .scaleAspectFit
-        imageview.tintColor = .white
+        imageview.tintColor = .label //휜색이라 안보일수 있으니 바꿔주세요! 홈뷰에서 재사용중이라..!
         imageview.isHidden = true
         return imageview
     }()
