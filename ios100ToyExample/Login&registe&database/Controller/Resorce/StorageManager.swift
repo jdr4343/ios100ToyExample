@@ -13,7 +13,7 @@ final class StorageManager {
     
     static let shared = StorageManager()
     
-    private let storage = Storage.storage().reference()
+    public let storage = Storage.storage().reference()
     
     
     //오류를 정의 하겠습니다.
@@ -125,12 +125,28 @@ final class StorageManager {
     //MARK: Feed
     
     ///게시물 헤더 이미지
-    public func uploadBlogHeaderImage(blogPost: BlogPost, image: UIImage?, completion: @escaping (Bool) -> Void) {
+    public func uploadBlogHeaderImage(email: String, image: UIImage, postId: String, completion: @escaping (Bool) -> Void) {
+        let path = DatabaseManager.safeEmail(emailAddress: email)
+        guard let pngData = image.pngData() else {
+            return
+        }
+        storage.child("posts_headers/\(path)/\(postId).png").putData(pngData, metadata: nil) { metadata, error in
+            guard metadata != nil, error == nil else {
+                completion(false)
+                return
+            }
+            completion(true)
+        }
         
     }
     
     ///게시물 헤더 이미지 다운로드
-    public func downloadUrlForPostHeader(blogPost: BlogPost, completion: @escaping (URL?) -> Void) {
+    public func downloadUrlForPostHeader(email: String, postId: String, completion: @escaping (URL?) -> Void) {
+        let emailComponent = DatabaseManager.safeEmail(emailAddress: email)
+       
+        storage.child("posts_headers/\(emailComponent)/\(postId).png").downloadURL { url, _ in
+          completion(url)
+        }
         
     }
     

@@ -792,8 +792,22 @@ extension DatabaseManager {
 //MARK: FeedPost
 extension DatabaseManager {
     ///새로운 게시물을 추가합니다.
-    public func insert(feedPost: BlogPost, user: User, completion: @escaping (Bool) -> Void) {
-        
+    public func insert(blogPost: BlogPost, email: String, completion: @escaping (Bool) -> Void) {
+        let userEmeil = DatabaseManager.safeEmail(emailAddress: email)
+        let data: [String: Any] = [
+            "id": blogPost.identifier,
+            "title": blogPost.title,
+            "body": blogPost.text,
+            "created": blogPost.timestamp,
+            "headerImageUrl": blogPost.headerImageUrl?.absoluteString ?? ""
+        ]
+        fireStore
+            .collection("users")
+            .document(userEmeil)
+            .collection("posts")
+            .addDocument(data: data) { error in
+                completion(error == nil)
+            }
     }
 
     ///모든 게시물을 불러와 시간순으로 정렬 합니다.
