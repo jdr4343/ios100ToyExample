@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-ios100ToyExample/Pods-ios100ToyExample-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/FBAEMKit/FBAEMKit.framework
 ${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework
@@ -10,6 +11,7 @@ ${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseCrashlytics/FirebaseCrashlytics.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseDatabase/FirebaseDatabase.framework
+${BUILT_PRODUCTS_DIR}/FirebaseFirestore/FirebaseFirestore.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseMessaging/FirebaseMessaging.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseStorage/FirebaseStorage.framework
@@ -33,5 +35,8 @@ ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
 ${BUILT_PRODUCTS_DIR}/TheAnimation/TheAnimation.framework
 ${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework
 ${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework
+${BUILT_PRODUCTS_DIR}/abseil/absl.framework
+${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework
+${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework
 ${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework
 ${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework

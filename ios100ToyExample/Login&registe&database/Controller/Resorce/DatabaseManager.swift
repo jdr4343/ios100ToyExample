@@ -6,6 +6,7 @@
 //
 
 import FirebaseDatabase
+
 import MessageKit
 import CoreLocation
 
@@ -17,6 +18,7 @@ final class DatabaseManager {
     
     //데이터 베이스를 사용하기 위해 데이터베이스를 참조 하겠습니다.
     private let database = Database.database().reference()
+    
     
     //재사용 가능한 속성으로 만들겠습니다. 
     static func safeEmail(emailAddress: String) -> String {
@@ -122,6 +124,8 @@ extension DatabaseManager {
             })
         })
     }
+    
+    
     
     //MARK: - 대화 / 채팅 / 메시지
     

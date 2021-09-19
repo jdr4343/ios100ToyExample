@@ -31,6 +31,7 @@ pod 'Firebase/Analytics'
 pod 'Firebase/Crashlytics'
 pod 'Firebase/Storage'
 pod 'Firebase/Messaging'
+pod 'Firebase/Firestore'
 
   #Facebook
 pod 'FBSDKLoginKit'
