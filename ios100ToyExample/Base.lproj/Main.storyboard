@@ -245,7 +245,7 @@
         <!--피드-->
         <scene sceneID="zB2-S8-5HD">
             <objects>
-                <viewController id="bPE-8B-cuP" sceneMemberID="viewController">
+                <viewController id="bPE-8B-cuP" customClass="FeedViewController" customModule="ios100ToyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7NV-fD-jmW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
