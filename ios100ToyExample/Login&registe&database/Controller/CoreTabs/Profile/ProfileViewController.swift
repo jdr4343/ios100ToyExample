@@ -22,9 +22,8 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
         return table
     }()
     
-  
-    
-    
+    //테이블 게시물 화면
+    private var posts: [BlogPost] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +68,6 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
         }
     }
     
-    
     //MARK: - Add
     
     //네비게이션 아이템 추가
@@ -100,6 +98,12 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    //MARK: - 게시물
+    private func fetchPosts() {
+        
+    }
+    
 }
 
 
@@ -108,17 +112,13 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - TableView
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        return 50
-        
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let post = posts[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "><"
         return cell
@@ -128,6 +128,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let vc = ViewPostViewController()
+        vc.title = posts[indexPath.row].title
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: - Header

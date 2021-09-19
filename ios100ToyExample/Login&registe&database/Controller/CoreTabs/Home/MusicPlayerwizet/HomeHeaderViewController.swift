@@ -190,7 +190,10 @@ class HomeHeaderViewController: UIView {
         super.init(frame: frame)
         backgroundColor = .systemBackground
         addSubview()
+        
+        
     }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -332,7 +335,7 @@ class HomeHeaderViewController: UIView {
                 timecounting = true
                 buttonimage = true
                 startStopButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-                //didTapPlay()
+                
                 timer = Timer.scheduledTimer(
                     timeInterval: 1,
                     target: self,
@@ -590,31 +593,32 @@ class HomeHeaderViewController: UIView {
     ///재생 초기화 함수입니다.
     func didTapStop() {
         isplay = false
-        if let player = fire {
+        print("제셍을 중지합니다.")
+        if let player = fire, player.isPlaying {
             player.stop()
             fire = nil
         }
-        if let player = wind {
+        if let player = wind, player.isPlaying {
             player.stop()
             wind = nil
         }
-        if let player = rain {
+        if let player = rain, player.isPlaying {
             player.stop()
             rain = nil
         }
-        if let player = forest {
+        if let player = forest, player.isPlaying {
             player.stop()
             forest = nil
         }
-        if let player = pencil {
+        if let player = pencil, player.isPlaying {
             player.stop()
             pencil = nil
         }
-        if let player = keyboard {
+        if let player = keyboard, player.isPlaying {
             player.stop()
             keyboard = nil
         }
-        if let player = wave {
+        if let player = wave, player.isPlaying {
             player.stop()
             wave = nil
         }

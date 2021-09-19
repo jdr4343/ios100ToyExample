@@ -752,9 +752,7 @@ extension DatabaseManager {
         
     }
     
-    //MARK: - 프로필 삭제
-    
-    
+
     //MARK: - 검색시 진행중인 대화 목록이 있을 경우 존재하는 대화 데이터베이스와 재사용 합니다.
     
     public func conversationExists(with targetRecipientEmail: String, completion: @escaping (Result<String, Error>) -> Void) {

@@ -89,7 +89,7 @@ class ProfileInfoHeaderTableHeaderView: UIView{
     private let bioLabel: UILabel = {
         let label = UILabel()
         //구현대기 임시값전달
-        label.text = "새로운 계정 입니다\nGit hub: https://github.com/jdr4343 \n \nNotion: https://www.notion.so/9efbaec014d84700a6e17733ad829447?v=cb2389fba533469086f9798c5b23a75f"
+        label.text = UserDefaults.standard.value(forKey: "email") as? String ?? "noEmail"
         label.textColor = .label
         label.font = .boldSystemFont(ofSize: 14)
         label.textAlignment = .center
