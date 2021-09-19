@@ -805,19 +805,47 @@ extension DatabaseManager {
             .collection("users")
             .document(userEmeil)
             .collection("posts")
-            .addDocument(data: data) { error in
+            .document(blogPost.identifier)
+            .setData(data) { error in
                 completion(error == nil)
             }
     }
 
     ///모든 게시물을 불러와 시간순으로 정렬 합니다.
     public func getAllPost(completion: @escaping ([BlogPost]) -> Void) {
-        
+      
     }
     
     ///프로필에서 사용자에 대한 게시물을 볼수 있도록 합니다.
-    public func getPosts(for user: User, completion: @escaping ([BlogPost]) -> Void) {
+    public func getPosts(for email: String, completion: @escaping ([BlogPost]) -> Void) {
+        let userEmeil = DatabaseManager.safeEmail(emailAddress: email)
         
+        fireStore
+            .collection("users")
+            .document(userEmeil)
+            .collection("posts")
+            .getDocuments { snapshot, error in
+                guard let documents = snapshot?.documents.compactMap({ $0.data() }), error == nil else {
+                    return
+                }
+                let posts: [BlogPost] = documents.compactMap({ dictionary in
+                    guard let id = dictionary["id"] as? String,
+                          let title = dictionary["title"] as? String,
+                          let body = dictionary["body"] as? String,
+                          let created = dictionary["created"] as? TimeInterval,
+                          let headerImageUrl = dictionary["headerImageUrl"] as? String else {
+                        print("잘못된 변환입니다.")
+                        return nil
+                    }
+                    let post = BlogPost(identifier: id,
+                                        title: title,
+                                        timestamp: created,
+                                        headerImageUrl: URL(string: headerImageUrl),
+                                        text: body)
+                    return post
+                })
+                completion(posts)
+            }
     }
     
 //    ///프로필에서 사용자에 대한 게시물을 볼수 있도록 합니다.

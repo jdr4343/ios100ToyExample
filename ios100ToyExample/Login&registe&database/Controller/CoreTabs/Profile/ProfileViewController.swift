@@ -15,15 +15,17 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
     //테이블뷰를 생성합니다.
     private var tableView: UITableView = {
         let table = UITableView()
-       
         //셀
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return table
     }()
     
     //테이블 게시물 화면
     private var posts: [BlogPost] = []
+    
+    private var user: User?
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +39,7 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
         self.tableView.alwaysBounceVertical = false
         tableView.bounces = true
         NotAuthenticated()
-        
+        fetchPosts()
             
         
     }
@@ -101,7 +103,19 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
     
     //MARK: - 게시물
     private func fetchPosts() {
-        
+        //오류 포스트관련 오류 발생시 여기 관련 확인
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+            return
+        }
+        //데이터베이스에게 이메일 전달
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        DatabaseManager.shared.getPosts(for: safeEmail) { [weak self] posts in
+            self?.posts = posts
+            print("\(posts.count)개의 게시물이 존재 합니다.")
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
     }
     
 }
@@ -120,7 +134,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "><"
+        cell.textLabel?.text = post.title
         return cell
         
         
