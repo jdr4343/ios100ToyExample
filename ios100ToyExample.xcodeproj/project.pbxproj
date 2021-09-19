@@ -72,6 +72,7 @@
 		405AD93B26DE542A0079734A /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AD93A26DE542A0079734A /* ConversationsViewController.swift */; };
 		405AD93E26DE68C80079734A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AD93D26DE68C80079734A /* HomeViewController.swift */; };
 		405EE1E826F781C300CB9AA1 /* ViewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE1E726F781C300CB9AA1 /* ViewPostViewController.swift */; };
+		405EE1EA26F7AA8400CB9AA1 /* CreaateNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE1E926F7AA8400CB9AA1 /* CreaateNewPostViewController.swift */; };
 		4060D61826F1113800333AF1 /* WeatherExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61726F1113800333AF1 /* WeatherExtra.swift */; };
 		4060D61A26F111F600333AF1 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61926F111F600333AF1 /* CurrentWeather.swift */; };
 		4060D61C26F11FF000333AF1 /* WeatherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */; };
@@ -227,6 +228,7 @@
 		405AD93A26DE542A0079734A /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
 		405AD93D26DE68C80079734A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		405EE1E726F781C300CB9AA1 /* ViewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPostViewController.swift; sourceTree = "<group>"; };
+		405EE1E926F7AA8400CB9AA1 /* CreaateNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreaateNewPostViewController.swift; sourceTree = "<group>"; };
 		4060D61726F1113800333AF1 /* WeatherExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtra.swift; sourceTree = "<group>"; };
 		4060D61926F111F600333AF1 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtensions.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 			children = (
 				40C8770A26F6EB8000396D31 /* FeedViewController.swift */,
 				405EE1E726F781C300CB9AA1 /* ViewPostViewController.swift */,
+				405EE1E926F7AA8400CB9AA1 /* CreaateNewPostViewController.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -1245,6 +1248,7 @@
 				406FE6B326DC00FD0036DE44 /* User.swift in Sources */,
 				407A1F3A26CE195A0058F84D /* ios100ToyExample.xcdatamodeld in Sources */,
 				40C241E126F3B12700E8491C /* CheckBoxViewController.swift in Sources */,
+				405EE1EA26F7AA8400CB9AA1 /* CreaateNewPostViewController.swift in Sources */,
 				407A1F7426D0AAE90058F84D /* YPImageViewController.swift in Sources */,
 				4078640A26CE122100C864FD /* MemoListTableViewController.swift in Sources */,
 				40C2442826E01BC200374DB2 /* NewConversationViewController.swift in Sources */,

@@ -20,6 +20,16 @@ class ExampleViewController: UIViewController {
         return tableView
     }()
     
+    private let floating: Floaty = {
+        let button = Floaty()
+        button.layer.shadowColor = UIColor.label.cgColor
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowRadius = 10
+        button.buttonColor = UIColor.white
+        button.buttonImage = UIImage(systemName: "books.vertical.fill")
+       return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -30,21 +40,19 @@ class ExampleViewController: UIViewController {
         configureModels()
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.showsVerticalScrollIndicator = false
-        floatingButton()
+        view.addSubview(floating)
+        setFloatingButton()
         navigationController?.navigationBar.tintColor = .label
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
+        floating.frame = CGRect(x: view.frame.width-60-16, y: view.frame.height-60-16-view.safeAreaInsets.bottom, width: 60, height: 60)
     }
     
     //플로팅 버튼 구현
-    private func floatingButton() {
-        let floating = Floaty(frame: CGRect(x: view.width - 60 - 10,
-                                            y: view.height - 155,
-                                            width: 60, height: 60))
-        floating.buttonColor = UIColor.white
+    private func setFloatingButton() {
         floating.addItem("늘어나고 줄어드는 신축성 테이블 뷰 헤더", icon: UIImage(systemName:
             "rectangle.topthird.inset")!, handler: { item in
                 let stratchyVC = StretchyViewController()
@@ -69,7 +77,6 @@ class ExampleViewController: UIViewController {
             let vc = CashingImageViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         })
-        self.view.addSubview(floating)
     }
 
     
