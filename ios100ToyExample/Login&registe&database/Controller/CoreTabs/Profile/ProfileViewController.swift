@@ -22,8 +22,7 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
         return table
     }()
     
-    //모델과 연결합니다.
-    private var userPost = [UserPost]()
+  
     
     
     

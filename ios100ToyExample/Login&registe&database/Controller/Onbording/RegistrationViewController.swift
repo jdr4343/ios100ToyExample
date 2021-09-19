@@ -170,7 +170,7 @@ class RegistrationViewController: UIViewController {
                 UserDefaults.standard.setValue(email, forKey: "email")
                 UserDefaults.standard.setValue(username, forKey: "name")
                 
-                let AppUser = UserModel(username: username, emailAddress: email)
+                let AppUser = User(username: username, emailAddress: email)
                 
                 //데이터 베이스에 사진을 등록합니다.
                 DatabaseManager.shared.insertNewUser(with: AppUser, completion: { success in

@@ -410,7 +410,7 @@ extension LoginViewController: LoginButtonDelegate {
                       
             DatabaseManager.shared.userExists(with: email, completion: { exists in
                 if !exists {
-                    let appUser = UserModel(username: userName, emailAddress: email)
+                    let appUser = User(username: userName, emailAddress: email)
                     
                     DatabaseManager.shared.insertNewUser(with: appUser, completion: { success in
                         if success {

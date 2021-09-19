@@ -122,6 +122,19 @@ final class StorageManager {
         })
     }
     
+    //MARK: Feed
+    
+    ///게시물 헤더 이미지
+    public func uploadBlogHeaderImage(blogPost: BlogPost, image: UIImage?, completion: @escaping (Bool) -> Void) {
+        
+    }
+    
+    ///게시물 헤더 이미지 다운로드
+    public func downloadUrlForPostHeader(blogPost: BlogPost, completion: @escaping (URL?) -> Void) {
+        
+    }
+    
+    
     
    
     

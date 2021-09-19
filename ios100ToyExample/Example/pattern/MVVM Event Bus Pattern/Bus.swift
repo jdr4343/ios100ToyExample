@@ -27,18 +27,18 @@ final class Bus {
     struct Subscription {
         let type: EventType //이벤트 타입
         let queue: DispatchQueue // 큐 발송
-        let block: ((Event<[User]>) -> Void) //핸들러
+        let block: ((Event<[TestUser]>) -> Void) //핸들러
     }
     
     ///특정 유형의 이벤트를 시작합니다. 저희의 경우에는 사용자 등록 정보를 전송하는 이벤트를 실행합니다.
-    func subscribe(_ event: EventType, block: @escaping (Event<[User]>) -> Void) {
+    func subscribe(_ event: EventType, block: @escaping (Event<[TestUser]>) -> Void) {
         let new = Subscription(type: event,
                                queue: .global(),
                                block: block)
         //가입을 하면 모델에 추가 합니다.
         subscriptions.append(new)
     }
-    func subscribeOnMain(_ event: EventType, block: @escaping (Event<[User]>) -> Void) {
+    func subscribeOnMain(_ event: EventType, block: @escaping (Event<[TestUser]>) -> Void) {
         let new = Subscription(type: event,
                                queue: .main,
                                block: block)

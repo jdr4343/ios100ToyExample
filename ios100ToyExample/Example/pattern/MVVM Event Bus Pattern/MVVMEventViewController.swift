@@ -9,7 +9,7 @@ import UIKit
 
 struct UserListViewModel {
     //사용자를 담을 빈 배열을 만들어 줍니다.
-    public var users: [User] = []
+    public var users: [TestUser] = []
     
     
     ///데이터를 가져오는 함수입니다 모의 데이터가 연결되어 있는 URL입니다.
@@ -27,7 +27,7 @@ struct UserListViewModel {
             
             do {
                 //사용자 배열을 디코딩 합니다. 디코딩은 인코딩의 반댓말로 사람이 이해할수 없는 컴퓨터 언어를 사람이 이해할수 있도록 바꾸는 것 입니다.
-                let users = try JSONDecoder().decode([User].self, from: data)
+                let users = try JSONDecoder().decode([TestUser].self, from: data)
                 
                 //사용자를 가져오기 이벤트를 인스턴스화 합니다. //사용자를 가져오는데 성공 했다면 사용자 배열을 생성합니다.
                 event = UserFetchEvent(identifier: UUID().uuidString,

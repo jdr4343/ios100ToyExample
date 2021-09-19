@@ -178,7 +178,7 @@ final class EditProfileViewController: UIViewController {
               let data = profileimage.pngData() else {
             return
         }
-        let AppUser = UserModel(username: name, emailAddress: safeEmail)
+        let AppUser = User(username: name, emailAddress: safeEmail)
         let proFilename = AppUser.profilePictureFileName
         StorageManager.shared.uploadProfilePicture(with: data, fileName: proFilename, completion: { result in
             switch result {

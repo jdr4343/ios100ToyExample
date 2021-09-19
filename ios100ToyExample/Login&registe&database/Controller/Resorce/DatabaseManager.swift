@@ -6,7 +6,7 @@
 //
 
 import FirebaseDatabase
-
+import FirebaseFirestore
 import MessageKit
 import CoreLocation
 
@@ -18,7 +18,9 @@ final class DatabaseManager {
     
     //데이터 베이스를 사용하기 위해 데이터베이스를 참조 하겠습니다.
     private let database = Database.database().reference()
+    private let fireStore = Firestore.firestore()
     
+    private init() {}
     
     //재사용 가능한 속성으로 만들겠습니다. 
     static func safeEmail(emailAddress: String) -> String {
@@ -75,7 +77,7 @@ extension DatabaseManager {
     }
     
     //새로운 사용자 개체가 생성되면 user 컬렉션에 추가합니다
-    public func insertNewUser(with user: UserModel, completion: @escaping (Bool) -> Void) {
+    public func insertNewUser(with user: User, completion: @escaping (Bool) -> Void) {
         //노드 삽입 / 키가 이메일이될 자식함수를 생성합니다. / 사용자가 다른 플랫폼을 통해서 로그인 할경우 사용자가 프로필 사진이 있는지 확인합니다. 삭제?
         database.child(user.safeEmail).setValue(["name": user.username], withCompletionBlock: { [weak self] error, _ in
             guard let strongSelf = self else {
@@ -315,9 +317,6 @@ extension DatabaseManager {
             
         })
     }
-    
-    
-    
     
     
     
@@ -792,3 +791,25 @@ extension DatabaseManager {
     }
 }
 
+//MARK: FeedPost
+extension DatabaseManager {
+    ///새로운 게시물을 추가합니다.
+    public func insert(feedPost: BlogPost, user: User, completion: @escaping (Bool) -> Void) {
+        
+    }
+
+    ///모든 게시물을 불러와 시간순으로 정렬 합니다.
+    public func getAllPost(completion: @escaping ([BlogPost]) -> Void) {
+        
+    }
+    
+    ///프로필에서 사용자에 대한 게시물을 볼수 있도록 합니다.
+    public func getPosts(for user: User, completion: @escaping ([BlogPost]) -> Void) {
+        
+    }
+    
+//    ///프로필에서 사용자에 대한 게시물을 볼수 있도록 합니다.
+//    public func insertUser(user: User, completion: @escaping (Bool) -> Void) {
+//
+//    }
+}
