@@ -15,8 +15,7 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
     //테이블뷰를 생성합니다.
     private var tableView: UITableView = {
         let table = UITableView()
-        //셀
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(PostPreViewTableViewCell.self, forCellReuseIdentifier: PostPreViewTableViewCell.identifier)
         return table
     }()
     
@@ -133,8 +132,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = post.title
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PostPreViewTableViewCell.identifier, for: indexPath) as? PostPreViewTableViewCell else {
+            fatalError()
+        }
+        cell.configure(with: .init(title: post.title, imageUrl: post.headerImageUrl))
+       
         return cell
         
         
@@ -142,9 +144,13 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = ViewPostViewController()
+        let vc = ViewPostViewController(post: posts[indexPath.row])
         vc.title = posts[indexPath.row].title
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     //MARK: - Header

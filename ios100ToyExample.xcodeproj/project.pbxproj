@@ -73,6 +73,8 @@
 		405AD93E26DE68C80079734A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AD93D26DE68C80079734A /* HomeViewController.swift */; };
 		405EE1E826F781C300CB9AA1 /* ViewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE1E726F781C300CB9AA1 /* ViewPostViewController.swift */; };
 		405EE1EA26F7AA8400CB9AA1 /* CreaateNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE1E926F7AA8400CB9AA1 /* CreaateNewPostViewController.swift */; };
+		405EE1EC26F7F36E00CB9AA1 /* PostPreViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE1EB26F7F36E00CB9AA1 /* PostPreViewTableViewCell.swift */; };
+		405EE1EE26F7F3A300CB9AA1 /* PostHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE1ED26F7F3A300CB9AA1 /* PostHeaderTableViewCell.swift */; };
 		4060D61826F1113800333AF1 /* WeatherExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61726F1113800333AF1 /* WeatherExtra.swift */; };
 		4060D61A26F111F600333AF1 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61926F111F600333AF1 /* CurrentWeather.swift */; };
 		4060D61C26F11FF000333AF1 /* WeatherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */; };
@@ -229,6 +231,8 @@
 		405AD93D26DE68C80079734A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		405EE1E726F781C300CB9AA1 /* ViewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPostViewController.swift; sourceTree = "<group>"; };
 		405EE1E926F7AA8400CB9AA1 /* CreaateNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreaateNewPostViewController.swift; sourceTree = "<group>"; };
+		405EE1EB26F7F36E00CB9AA1 /* PostPreViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreViewTableViewCell.swift; sourceTree = "<group>"; };
+		405EE1ED26F7F3A300CB9AA1 /* PostHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		4060D61726F1113800333AF1 /* WeatherExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtra.swift; sourceTree = "<group>"; };
 		4060D61926F111F600333AF1 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtensions.swift; sourceTree = "<group>"; };
@@ -368,6 +372,8 @@
 				40C8770A26F6EB8000396D31 /* FeedViewController.swift */,
 				405EE1E726F781C300CB9AA1 /* ViewPostViewController.swift */,
 				405EE1E926F7AA8400CB9AA1 /* CreaateNewPostViewController.swift */,
+				405EE1EB26F7F36E00CB9AA1 /* PostPreViewTableViewCell.swift */,
+				405EE1ED26F7F3A300CB9AA1 /* PostHeaderTableViewCell.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -1224,6 +1230,7 @@
 				40180B2E26EA265500E64A9C /* SerchResult.swift in Sources */,
 				40DF551726CD130600FD9FB8 /* AdvancedViewController.swift in Sources */,
 				4004B1E526DD209F005CC3EB /* EditProfileViewController.swift in Sources */,
+				405EE1EC26F7F36E00CB9AA1 /* PostPreViewTableViewCell.swift in Sources */,
 				407A1F7A26D0DE220058F84D /* StackViewController.swift in Sources */,
 				405EE1E826F781C300CB9AA1 /* ViewPostViewController.swift in Sources */,
 				403502C226CB847F004BD348 /* AlarmModel.swift in Sources */,
@@ -1260,6 +1267,7 @@
 				407A1FFD26D66A780058F84D /* SettingViewController.swift in Sources */,
 				407A1F7126D0A21E0058F84D /* CameraViewController.swift in Sources */,
 				403502D326CBCDC0004BD348 /* ColorWellViewController.swift in Sources */,
+				405EE1EE26F7F3A300CB9AA1 /* PostHeaderTableViewCell.swift in Sources */,
 				40C241E926F3B2A300E8491C /* TodoListViewController.swift in Sources */,
 				407A1F4A26CF38F10058F84D /* SectionViewController.swift in Sources */,
 				403502BD26CB61F2004BD348 /* DateFormatterViewController.swift in Sources */,
