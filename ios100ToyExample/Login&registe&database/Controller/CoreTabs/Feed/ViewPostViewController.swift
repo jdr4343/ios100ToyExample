@@ -34,6 +34,7 @@ class ViewPostViewController: UIViewController,UITableViewDataSource,UITableView
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
       
     }
     
@@ -58,6 +59,7 @@ class ViewPostViewController: UIViewController,UITableViewDataSource,UITableView
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath)
             cell.selectionStyle = .none
             cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.font = .boldSystemFont(ofSize: 20)
             cell.textLabel?.text = post.title
             return cell
         case 1:
@@ -70,6 +72,7 @@ class ViewPostViewController: UIViewController,UITableViewDataSource,UITableView
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath)
             cell.selectionStyle = .none
+            cell.textLabel?.font = .boldSystemFont(ofSize: 15)
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.text = post.text
             return cell

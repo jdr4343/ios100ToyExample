@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
     //테이블 게시물 화면
     private var posts: [BlogPost] = []
     
-    private var user: User?
+    
     
 
     
@@ -34,6 +34,7 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
         addconfigureNavigationBar()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.showsVerticalScrollIndicator = false
         self.tableView.alwaysBounceVertical = false
         tableView.bounces = true
@@ -142,11 +143,13 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let vc = ViewPostViewController(post: posts[indexPath.row])
-        vc.title = posts[indexPath.row].title
+        vc.title = "post"
+        vc.navigationItem.largeTitleDisplayMode = .always
         navigationController?.pushViewController(vc, animated: true)
+        print("did Tap\(indexPath.row)")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
