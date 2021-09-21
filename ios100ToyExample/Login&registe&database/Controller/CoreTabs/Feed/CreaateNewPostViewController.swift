@@ -21,7 +21,7 @@ class CreaateNewPostViewController: UIViewController {
         field.autocapitalizationType = .words
         field.autocorrectionType = .no
         field.tintColor = .darkGray
-        field.selectedTitleColor = .systemPink
+        field.selectedTitleColor = .darkGray
         field.selectedLineColor = .darkGray
         field.textColor = .label
         field.lineColor = .lightGray
@@ -33,10 +33,10 @@ class CreaateNewPostViewController: UIViewController {
     ///게시물 상단에 자리할 이미지 입니다
     private let headerImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "photo")
-        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "기본이미지")
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
+        imageView.layer.cornerRadius = 10
         imageView.backgroundColor = .tertiarySystemBackground
         return imageView
     }()
@@ -69,7 +69,7 @@ class CreaateNewPostViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         titleField.frame = CGRect(x: 20, y: view.safeAreaInsets.top, width: view.width-40, height: 50)
-        headerImageView.frame = CGRect(x: 0, y: titleField.bottom+5, width: view.width, height: 250)
+        headerImageView.frame = CGRect(x: 5, y: titleField.bottom+5, width: view.width-10, height: 300)
         textView.frame = CGRect(x: 20, y: headerImageView.bottom+10, width: view.width-40, height: view.height-210-view.safeAreaInsets.top)
         
     }

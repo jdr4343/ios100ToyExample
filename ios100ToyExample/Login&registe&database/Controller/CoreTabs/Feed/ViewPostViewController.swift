@@ -88,7 +88,7 @@ class ViewPostViewController: UIViewController,UITableViewDataSource,UITableView
         case 0:
             return UITableView.automaticDimension
         case 1:
-            return 200
+            return 300
         case 2:
             return UITableView.automaticDimension
         default:

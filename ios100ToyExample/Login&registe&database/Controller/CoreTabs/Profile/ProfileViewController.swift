@@ -48,7 +48,7 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
         
         //헤더 / 프로필 상단의 헤더에는 프로필을 나타낼것입니다.따로 헤더를 위한 뷰를 만들어서 연결 하겠습니다 /그리고 만든 헤더에 우리가 만든 델리게이트를 연결 하겠습니다.
         let header = ProfileInfoHeaderTableHeaderView(frame: CGRect(x: 0, y: 0,
-                                                                    width: view.width, height: view.width*1.5))
+                                                                    width: view.width, height: view.width))
         tableView.tableHeaderView = header
         header.delegate = self
     }
@@ -136,7 +136,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PostPreViewTableViewCell.identifier, for: indexPath) as? PostPreViewTableViewCell else {
             fatalError()
         }
-        cell.configure(with: .init(title: post.title, imageUrl: post.headerImageUrl))
+        cell.configure(with: .init(title: post.title,body: post.text, imageUrl: post.headerImageUrl))
        
         return cell
         
@@ -153,7 +153,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 160
     }
     
     //MARK: - Header

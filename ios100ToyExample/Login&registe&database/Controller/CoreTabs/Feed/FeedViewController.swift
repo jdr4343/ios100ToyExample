@@ -34,8 +34,9 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        view.addSubview(composeButton)
+       
         view.addSubview(tableView)
+        view.addSubview(composeButton)
         tableView.delegate = self
         tableView.dataSource = self
         composeButton.addTarget(self, action: #selector(didTapCreate), for: .touchUpInside)
@@ -43,12 +44,10 @@ class FeedViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        composeButton.frame = CGRect(x: view.frame.width-60-16,
-                                     y: view.frame.height-60-16-view.safeAreaInsets.bottom,
-                                     width: 60, height: 60)
+        composeButton.frame = CGRect(x: view.frame.width-60-16, y: view.frame.height-60-16-view.safeAreaInsets.bottom, width: 60, height: 60)
         tableView.frame = view.bounds
     }
-    
+
     @objc func didTapCreate() {
         let vc = CreaateNewPostViewController()
         vc.title = "게시물 작성"
@@ -59,7 +58,19 @@ class FeedViewController: UIViewController {
 
     //MARK: - 게시물
     private func fetchPosts() {
-     
+//        //오류 포스트관련 오류 발생시 여기 관련 확인
+//        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+//            return
+//        }
+//        //데이터베이스에게 이메일 전달
+//        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+//        DatabaseManager.shared.getPosts(for: safeEmail) { [weak self] posts in
+//            self?.posts = posts
+//            print("\(posts.count)개의 게시물이 존재 합니다.")
+//            DispatchQueue.main.async {
+//                self?.tableView.reloadData()
+//            }
+//        }
     }
 
 
@@ -78,7 +89,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PostPreViewTableViewCell.identifier, for: indexPath) as? PostPreViewTableViewCell else {
             fatalError()
         }
-        cell.configure(with: .init(title: post.title, imageUrl: post.headerImageUrl))
+        cell.configure(with: .init(title: post.title, body: post.text, imageUrl: post.headerImageUrl))
        
         return cell
         
