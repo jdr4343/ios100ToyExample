@@ -847,9 +847,6 @@ extension DatabaseManager {
                 completion(posts)
             }
     }
-    
-//    ///프로필에서 사용자에 대한 게시물을 볼수 있도록 합니다.
-//    public func insertUser(user: User, completion: @escaping (Bool) -> Void) {
-//
-//    }
+
+
 }
