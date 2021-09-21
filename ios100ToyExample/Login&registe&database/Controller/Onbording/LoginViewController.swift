@@ -407,7 +407,12 @@ extension LoginViewController: LoginButtonDelegate {
             UserDefaults.standard.set(userName, forKey: "name")
             
             //위에서 받은 이메일과 이름 결과값을 데이터베이스에 전달합니다
-                      
+            let newUser = User(username: userName, emailAddress: email)
+            DatabaseManager.shared.insert(user: newUser) { inserted in
+                guard inserted else {
+                    return
+                }
+            }
             DatabaseManager.shared.userExists(with: email, completion: { exists in
                 if !exists {
                     let appUser = User(username: userName, emailAddress: email)
