@@ -35,6 +35,7 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         fetchAllPosts()
+        refreshController()
         view.addSubview(tableView)
         view.addSubview(composeButton)
         tableView.delegate = self
@@ -66,6 +67,17 @@ class FeedViewController: UIViewController {
             }
         }
 
+    }
+    
+    private func refreshController() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(refreshPost), for: .valueChanged)
+    }
+    @objc private func refreshPost() {
+        fetchAllPosts()
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
+        }
     }
 
 

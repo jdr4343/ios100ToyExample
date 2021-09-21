@@ -133,10 +133,13 @@ final class ChatViewController: MessagesViewController {
                                             message: "사진을 첨부 하시겠습니까?",
                                             preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "카메라", style: .default, handler: { [weak self] _ in
+          
             let picker = UIImagePickerController()
+        
             picker.sourceType = .camera
             picker.delegate = self
             picker.allowsEditing = true
+            
             self?.present(picker, animated: true)
             
         }))
@@ -162,7 +165,7 @@ final class ChatViewController: MessagesViewController {
             picker.delegate = self
             //비디오만 선택할 수 있도록 제약 추가
             picker.mediaTypes = ["public.movie"]
-            picker.videoQuality = .typeMedium
+            picker.videoQuality = .typeLow
             picker.allowsEditing = true
             self?.present(picker, animated: true)
             
@@ -173,7 +176,7 @@ final class ChatViewController: MessagesViewController {
             picker.delegate = self
             //비디오만 선택할 수 있도록 제약 추가
             picker.mediaTypes = ["public.movie"]
-            picker.videoQuality = .typeMedium
+            picker.videoQuality = .typeLow
             picker.allowsEditing = true
             self?.present(picker, animated: true)
         }))

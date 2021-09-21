@@ -40,7 +40,7 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
         tableView.bounces = true
         NotAuthenticated()
         fetchPosts()
-            
+        refreshController()
         
     }
     
@@ -117,6 +117,18 @@ class ProfileViewController: UIViewController,ProfileInfoHeaderTableHeaderViewDe
             }
         }
     }
+    
+    private func refreshController() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(refreshPost), for: .valueChanged)
+    }
+    @objc private func refreshPost() {
+        fetchPosts()
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
+        }
+    }
+
     
 }
 

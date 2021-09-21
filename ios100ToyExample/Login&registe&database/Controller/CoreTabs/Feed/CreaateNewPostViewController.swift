@@ -115,6 +115,7 @@ class CreaateNewPostViewController: UIViewController {
             guard success else {
                 return
             }
+            
             StorageManager.shared.downloadUrlForPostHeader(email: email, postId: newPostId) { url in
                 guard let headerUrl = url else {
                     print("URL을 업로드 하는것에 실패 했습니다. - Post")
@@ -134,6 +135,7 @@ class CreaateNewPostViewController: UIViewController {
                     }
                     DispatchQueue.main.async {
                         self?.didTapCancel()
+                      
                     }
                 }
             }

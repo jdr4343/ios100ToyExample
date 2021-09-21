@@ -811,7 +811,7 @@ extension DatabaseManager {
             }
     }
 
-    ///모든 게시물을 불러와 시간순으로 정렬 합니다.
+    ///모든 게시물을 불러와 정렬 합니다.
     public func getAllPost(completion: @escaping ([BlogPost]) -> Void) {
       fireStore
         .collection("users")
@@ -835,6 +835,7 @@ extension DatabaseManager {
                         group.leave()
                     }
                     result.append(contentsOf: userPosts)
+                    
                 }
             }
             group.notify(queue: .global()) {
