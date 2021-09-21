@@ -813,7 +813,35 @@ extension DatabaseManager {
 
     ///모든 게시물을 불러와 시간순으로 정렬 합니다.
     public func getAllPost(completion: @escaping ([BlogPost]) -> Void) {
-      
+      fireStore
+        .collection("users")
+        .getDocuments { snapshot, error in
+            guard let documents = snapshot?.documents.compactMap({ $0.data() }), error == nil else {
+                return
+            }
+            let emails: [String] = documents.compactMap({ $0["email"] as? String })
+            print("\(emails.count)")
+            guard !emails.isEmpty else {
+                completion([])
+                return
+            }
+            let group = DispatchGroup()
+            var result: [BlogPost] = []
+            
+            for email in emails {
+                group.enter()
+                self.getPosts(for: email) { userPosts in
+                    defer {
+                        group.leave()
+                    }
+                    result.append(contentsOf: userPosts)
+                }
+            }
+            group.notify(queue: .global()) {
+                print("\(result.count) 의 글이 있습니다.")
+                completion(result)
+            }
+        }
     }
     
     ///프로필에서 사용자에 대한 게시물을 볼수 있도록 합니다.
@@ -845,6 +873,23 @@ extension DatabaseManager {
                     return post
                 })
                 completion(posts)
+            }
+    }
+
+    
+    public func insert(user: User, completion: @escaping (Bool) -> Void) {
+        let userEmeil = DatabaseManager.safeEmail(emailAddress: user.safeEmail)
+        
+        let data = [
+            "email": user.safeEmail,
+            "name": user.username
+        ]
+
+        fireStore
+            .collection("users")
+            .document(userEmeil)
+            .setData(data) { error in
+                completion(error == nil)
             }
     }
 

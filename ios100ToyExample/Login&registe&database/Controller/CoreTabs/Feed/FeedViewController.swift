@@ -34,7 +34,7 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-       
+        fetchAllPosts()
         view.addSubview(tableView)
         view.addSubview(composeButton)
         tableView.delegate = self
@@ -57,20 +57,15 @@ class FeedViewController: UIViewController {
     }
 
     //MARK: - 게시물
-    private func fetchPosts() {
-//        //오류 포스트관련 오류 발생시 여기 관련 확인
-//        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
-//            return
-//        }
-//        //데이터베이스에게 이메일 전달
-//        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
-//        DatabaseManager.shared.getPosts(for: safeEmail) { [weak self] posts in
-//            self?.posts = posts
-//            print("\(posts.count)개의 게시물이 존재 합니다.")
-//            DispatchQueue.main.async {
-//                self?.tableView.reloadData()
-//            }
-//        }
+    private func fetchAllPosts() {
+        print("피드를 패칭합니다.")
+        DatabaseManager.shared.getAllPost { [weak self] posts in
+            self?.posts = posts
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+
     }
 
 
