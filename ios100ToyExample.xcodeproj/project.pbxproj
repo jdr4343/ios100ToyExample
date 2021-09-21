@@ -75,6 +75,7 @@
 		405EE1EA26F7AA8400CB9AA1 /* CreaateNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE1E926F7AA8400CB9AA1 /* CreaateNewPostViewController.swift */; };
 		405EE1EC26F7F36E00CB9AA1 /* PostPreViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE1EB26F7F36E00CB9AA1 /* PostPreViewTableViewCell.swift */; };
 		405EE1EE26F7F3A300CB9AA1 /* PostHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE1ED26F7F3A300CB9AA1 /* PostHeaderTableViewCell.swift */; };
+		405EE21526FA98F000CB9AA1 /* ProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE21426FA98F000CB9AA1 /* ProgressBarViewController.swift */; };
 		4060D61826F1113800333AF1 /* WeatherExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61726F1113800333AF1 /* WeatherExtra.swift */; };
 		4060D61A26F111F600333AF1 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61926F111F600333AF1 /* CurrentWeather.swift */; };
 		4060D61C26F11FF000333AF1 /* WeatherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */; };
@@ -233,6 +234,7 @@
 		405EE1E926F7AA8400CB9AA1 /* CreaateNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreaateNewPostViewController.swift; sourceTree = "<group>"; };
 		405EE1EB26F7F36E00CB9AA1 /* PostPreViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreViewTableViewCell.swift; sourceTree = "<group>"; };
 		405EE1ED26F7F3A300CB9AA1 /* PostHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		405EE21426FA98F000CB9AA1 /* ProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarViewController.swift; sourceTree = "<group>"; };
 		4060D61726F1113800333AF1 /* WeatherExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtra.swift; sourceTree = "<group>"; };
 		4060D61926F111F600333AF1 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtensions.swift; sourceTree = "<group>"; };
@@ -588,6 +590,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		405EE21326FA98D400CB9AA1 /* ProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				405EE21426FA98F000CB9AA1 /* ProgressBarViewController.swift */,
+			);
+			path = ProgressBar;
+			sourceTree = "<group>";
+		};
 		4060D61026F0FD8000333AF1 /* Weather wizet */ = {
 			isa = PBXGroup;
 			children = (
@@ -812,6 +822,7 @@
 		407A1FF426D669180058F84D /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				405EE21326FA98D400CB9AA1 /* ProgressBar */,
 				40C2421126F5292D00E8491C /* ImageCasing */,
 				40C241F426F4D3C000E8491C /* pattern */,
 				407DA9C326F3AFB20027B742 /* cheackBox */,
@@ -1259,6 +1270,7 @@
 				407A1F7426D0AAE90058F84D /* YPImageViewController.swift in Sources */,
 				4078640A26CE122100C864FD /* MemoListTableViewController.swift in Sources */,
 				40C2442826E01BC200374DB2 /* NewConversationViewController.swift in Sources */,
+				405EE21526FA98F000CB9AA1 /* ProgressBarViewController.swift in Sources */,
 				403502BA26CB5EF3004BD348 /* GradientViewController.swift in Sources */,
 				40DF551126CD129800FD9FB8 /* AdvancedCollectionTableViewCell.swift in Sources */,
 				407A1F5A26CF9D280058F84D /* BarViewController.swift in Sources */,

@@ -107,6 +107,10 @@ class ExampleViewController: UIViewController {
            ExampleCollectionViewModel(name: "타이머",
                                       backgroundImage: "타이머", handler: { [weak self] in
                                         self?.didTabTimerButton()
+                                      }),
+           ExampleCollectionViewModel(name: "슬라이더",
+                                      backgroundImage: "", handler: { [weak self] in
+                                        self?.didTabProgressBarButton()
                                       })
           ])])
         
@@ -426,6 +430,10 @@ class ExampleViewController: UIViewController {
     @objc func didTabFloatingTextButton() {
         let TextFieldVC = FloatingTextViewController()
         present(TextFieldVC, animated: true)
+   }
+    @objc func didTabProgressBarButton() {
+        let vc = ProgressBarViewController()
+        present(vc, animated: true)
    }
 }
 
