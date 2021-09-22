@@ -17,6 +17,7 @@ pod 'SnapKit'
 pod 'SkyFloatingLabelTextField'
 pod 'Alamofire'
 pod 'SwiftyJSON'
+pod "UPCarouselFlowLayout"
 
 
 pod 'MessageKit'

@@ -553,6 +553,7 @@ PODS:
   - SwiftyJSON (5.0.1)
   - TheAnimation (0.4.0)
   - TransitionButton (0.5.3)
+  - UPCarouselFlowLayout (1.1.2)
   - YPImagePicker (4.5.0):
     - PryntTrimmerView (~> 4.0.2)
     - SteviaLayout (~> 4.7.3)
@@ -580,6 +581,7 @@ DEPENDENCIES:
   - SwiftyJSON
   - TheAnimation
   - TransitionButton
+  - UPCarouselFlowLayout
   - YPImagePicker
 
 SPEC REPOS:
@@ -627,6 +629,7 @@ SPEC REPOS:
     - SwiftyJSON
     - TheAnimation
     - TransitionButton
+    - UPCarouselFlowLayout
     - YPImagePicker
 
 SPEC CHECKSUMS:
@@ -673,8 +676,9 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   TheAnimation: b6d6bac50365897a3aecc5a9e7b4e1461909c1a0
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
+  UPCarouselFlowLayout: 4c7d2c43a10ebb1597bde502a53699d378341dad
   YPImagePicker: 6f410f475bd22fa8cd430495b54d4b2f15865c2d
 
-PODFILE CHECKSUM: dea6c16740c3d696c588d8f60b0ddf32d7291c56
+PODFILE CHECKSUM: 6e0bdbc02f1a620bba0fa15faf8d4eb1891e7464
 
 COCOAPODS: 1.10.1

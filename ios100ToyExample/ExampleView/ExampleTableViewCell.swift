@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UPCarouselFlowLayout
 
 class ExampleTableViewCell: UITableViewCell {
 
@@ -26,8 +27,9 @@ class ExampleTableViewCell: UITableViewCell {
     
     
     private let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = UPCarouselFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 100, height: 100)
         layout.sectionInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(ExampleCollectionViewCell.self, forCellWithReuseIdentifier: ExampleCollectionViewCell.identifier)
@@ -41,7 +43,7 @@ class ExampleTableViewCell: UITableViewCell {
         contentView.addSubview(collectionView)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.showsHorizontalScrollIndicator = false
+       
     }
     
     required init?(coder: NSCoder) {

@@ -204,6 +204,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UPCarouselFlowLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YPImagePicker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
