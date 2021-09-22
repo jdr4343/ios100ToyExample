@@ -17,7 +17,7 @@ pod 'SnapKit'
 pod 'SkyFloatingLabelTextField'
 pod 'Alamofire'
 pod 'SwiftyJSON'
-pod 'KYCircularProgress'
+
 
 pod 'MessageKit'
 pod 'JGProgressHUD'

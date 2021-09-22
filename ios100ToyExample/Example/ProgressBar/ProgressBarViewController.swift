@@ -7,8 +7,9 @@
 
 import UIKit
 
-class ProgressBarViewController: UIViewController {
 
+class ProgressBarViewController: UIViewController {
+    
     private let button: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemGreen
@@ -16,16 +17,17 @@ class ProgressBarViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 9
         button.layer.masksToBounds = true
-       // button.addTarget(self, action: #selector(didTapstartButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapstartButton), for: .touchUpInside)
         return button
     }()
     
+    
     private let progressView: UIProgressView = {
-        let progressView = UIProgressView(progressViewStyle: .bar)
+        let progressView = UIProgressView(progressViewStyle: .default)
         progressView.trackTintColor = .lightGray
         progressView.tintColor = .systemGreen
-        //progressView 진행률
-        progressView.setProgress(0, animated: false)
+        progressView.clipsToBounds = true
+       
         return progressView
     }()
     override func viewDidLoad() {
@@ -33,23 +35,30 @@ class ProgressBarViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(button)
         view.addSubview(progressView)
+        //progressView 진행률
+        progressView.setProgress(0, animated: false)
+
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         button.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
         button.center = view.center
-        progressView.frame = CGRect(x: 10, y: 100, width: view.width-20, height: 20)
-      
-        
+        progressView.frame = CGRect(x: 10, y: 100, width: view.width-20, height: 40)
+        //크기 조절
+        progressView.transform = progressView.transform.scaledBy(x: 1, y: 2)
+
     }
     
-//    @objc private func didTapstartButton() {
-//        for x in 0...<100 {
-//
-//        }
-//    }
-
-    
-
+    @objc private func didTapstartButton() {
+        for x in 0..<100 {
+            DispatchQueue.main.asyncAfter(deadline: .now()+(Double(x)*0.25),execute: {
+                self.progressView.setProgress(Float(x)/100, animated: true)
+            })
+        }
+    }
 }
+
+
+
