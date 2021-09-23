@@ -29,7 +29,7 @@ class ExampleTableViewCell: UITableViewCell {
     private let collectionView: UICollectionView = {
         let layout = UPCarouselFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(width: 200, height: 200)
         layout.sectionInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(ExampleCollectionViewCell.self, forCellWithReuseIdentifier: ExampleCollectionViewCell.identifier)

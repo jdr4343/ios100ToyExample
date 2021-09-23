@@ -76,6 +76,7 @@
 		405EE1EC26F7F36E00CB9AA1 /* PostPreViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE1EB26F7F36E00CB9AA1 /* PostPreViewTableViewCell.swift */; };
 		405EE1EE26F7F3A300CB9AA1 /* PostHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE1ED26F7F3A300CB9AA1 /* PostHeaderTableViewCell.swift */; };
 		405EE21526FA98F000CB9AA1 /* ProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE21426FA98F000CB9AA1 /* ProgressBarViewController.swift */; };
+		405EE23C26FC5F4F00CB9AA1 /* SegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE23B26FC5F4F00CB9AA1 /* SegmentedViewController.swift */; };
 		4060D61826F1113800333AF1 /* WeatherExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61726F1113800333AF1 /* WeatherExtra.swift */; };
 		4060D61A26F111F600333AF1 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61926F111F600333AF1 /* CurrentWeather.swift */; };
 		4060D61C26F11FF000333AF1 /* WeatherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */; };
@@ -235,6 +236,7 @@
 		405EE1EB26F7F36E00CB9AA1 /* PostPreViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreViewTableViewCell.swift; sourceTree = "<group>"; };
 		405EE1ED26F7F3A300CB9AA1 /* PostHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		405EE21426FA98F000CB9AA1 /* ProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarViewController.swift; sourceTree = "<group>"; };
+		405EE23B26FC5F4F00CB9AA1 /* SegmentedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedViewController.swift; sourceTree = "<group>"; };
 		4060D61726F1113800333AF1 /* WeatherExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtra.swift; sourceTree = "<group>"; };
 		4060D61926F111F600333AF1 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtensions.swift; sourceTree = "<group>"; };
@@ -598,6 +600,14 @@
 			path = ProgressBar;
 			sourceTree = "<group>";
 		};
+		405EE23A26FC5F3300CB9AA1 /* SegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				405EE23B26FC5F4F00CB9AA1 /* SegmentedViewController.swift */,
+			);
+			path = SegmentedControl;
+			sourceTree = "<group>";
+		};
 		4060D61026F0FD8000333AF1 /* Weather wizet */ = {
 			isa = PBXGroup;
 			children = (
@@ -822,6 +832,7 @@
 		407A1FF426D669180058F84D /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				405EE23A26FC5F3300CB9AA1 /* SegmentedControl */,
 				405EE21326FA98D400CB9AA1 /* ProgressBar */,
 				40C2421126F5292D00E8491C /* ImageCasing */,
 				40C241F426F4D3C000E8491C /* pattern */,
@@ -1283,6 +1294,7 @@
 				40C241E926F3B2A300E8491C /* TodoListViewController.swift in Sources */,
 				407A1F4A26CF38F10058F84D /* SectionViewController.swift in Sources */,
 				403502BD26CB61F2004BD348 /* DateFormatterViewController.swift in Sources */,
+				405EE23C26FC5F4F00CB9AA1 /* SegmentedViewController.swift in Sources */,
 				405AD93B26DE542A0079734A /* ConversationsViewController.swift in Sources */,
 				40180B3726EA81EF00E64A9C /* ExampleViewModel.swift in Sources */,
 				40180B3526EA7B4600E64A9C /* ExampleCollectionViewCell.swift in Sources */,

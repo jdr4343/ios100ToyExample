@@ -111,6 +111,10 @@ class ExampleViewController: UIViewController {
            ExampleCollectionViewModel(name: "슬라이더",
                                       backgroundImage: "", handler: { [weak self] in
                                         self?.didTabProgressBarButton()
+                                      }),
+           ExampleCollectionViewModel(name: "세그먼트 컨트롤",
+                                      backgroundImage: "", handler: { [weak self] in
+                                        self?.didTabSegmentedButton()
                                       })
           ])])
         
@@ -433,6 +437,10 @@ class ExampleViewController: UIViewController {
    }
     @objc func didTabProgressBarButton() {
         let vc = ProgressBarViewController()
+        present(vc, animated: true)
+   }
+    @objc func didTabSegmentedButton() {
+        let vc = SegmentedViewController()
         present(vc, animated: true)
    }
 }
