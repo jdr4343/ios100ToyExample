@@ -77,6 +77,7 @@
 		405EE1EE26F7F3A300CB9AA1 /* PostHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE1ED26F7F3A300CB9AA1 /* PostHeaderTableViewCell.swift */; };
 		405EE21526FA98F000CB9AA1 /* ProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE21426FA98F000CB9AA1 /* ProgressBarViewController.swift */; };
 		405EE23C26FC5F4F00CB9AA1 /* SegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE23B26FC5F4F00CB9AA1 /* SegmentedViewController.swift */; };
+		405EE23F26FCB5B300CB9AA1 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405EE23E26FCB5B300CB9AA1 /* DatePickerViewController.swift */; };
 		4060D61826F1113800333AF1 /* WeatherExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61726F1113800333AF1 /* WeatherExtra.swift */; };
 		4060D61A26F111F600333AF1 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61926F111F600333AF1 /* CurrentWeather.swift */; };
 		4060D61C26F11FF000333AF1 /* WeatherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */; };
@@ -237,6 +238,7 @@
 		405EE1ED26F7F3A300CB9AA1 /* PostHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		405EE21426FA98F000CB9AA1 /* ProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarViewController.swift; sourceTree = "<group>"; };
 		405EE23B26FC5F4F00CB9AA1 /* SegmentedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedViewController.swift; sourceTree = "<group>"; };
+		405EE23E26FCB5B300CB9AA1 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		4060D61726F1113800333AF1 /* WeatherExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtra.swift; sourceTree = "<group>"; };
 		4060D61926F111F600333AF1 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		4060D61B26F11FF000333AF1 /* WeatherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtensions.swift; sourceTree = "<group>"; };
@@ -608,6 +610,14 @@
 			path = SegmentedControl;
 			sourceTree = "<group>";
 		};
+		405EE23D26FCB58E00CB9AA1 /* DataPicker */ = {
+			isa = PBXGroup;
+			children = (
+				405EE23E26FCB5B300CB9AA1 /* DatePickerViewController.swift */,
+			);
+			path = DataPicker;
+			sourceTree = "<group>";
+		};
 		4060D61026F0FD8000333AF1 /* Weather wizet */ = {
 			isa = PBXGroup;
 			children = (
@@ -832,6 +842,7 @@
 		407A1FF426D669180058F84D /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				405EE23D26FCB58E00CB9AA1 /* DataPicker */,
 				405EE23A26FC5F3300CB9AA1 /* SegmentedControl */,
 				405EE21326FA98D400CB9AA1 /* ProgressBar */,
 				40C2421126F5292D00E8491C /* ImageCasing */,
@@ -1307,6 +1318,7 @@
 				407A1FE626D4C82B0058F84D /* LoginViewController.swift in Sources */,
 				407A1F8326D375B40058F84D /* StretchyViewController.swift in Sources */,
 				407A200326D67E460058F84D /* IOSTabBarController.swift in Sources */,
+				405EE23F26FCB5B300CB9AA1 /* DatePickerViewController.swift in Sources */,
 				40C241F926F4D61C00E8491C /* UserModel.swift in Sources */,
 				407A1F5526CF7D440058F84D /* CollectionViewController.swift in Sources */,
 				405AD93826DE0CB90079734A /* EditTextViewTableViewCell.swift in Sources */,

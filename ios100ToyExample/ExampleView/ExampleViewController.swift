@@ -96,6 +96,10 @@ class ExampleViewController: UIViewController {
                                       backgroundImage: "폰트선택기", handler: { [weak self] in
                                         self?.didTabFontPickerButton()
                                       }),
+           ExampleCollectionViewModel(name: "날짜선택기",
+                                      backgroundImage: "", handler: { [weak self] in
+                                        self?.didTapDatePickerButton()
+                                      }),
            ExampleCollectionViewModel(name: "PDF 삽입",
                                       backgroundImage: "PDF", handler: { [weak self] in
                                         self?.didTabPDFButton()
@@ -441,6 +445,10 @@ class ExampleViewController: UIViewController {
    }
     @objc func didTabSegmentedButton() {
         let vc = SegmentedViewController()
+        present(vc, animated: true)
+   }
+    @objc func didTapDatePickerButton() {
+        let vc = DatePickerViewController()
         present(vc, animated: true)
    }
 }
