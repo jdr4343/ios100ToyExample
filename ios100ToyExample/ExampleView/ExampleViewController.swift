@@ -119,6 +119,10 @@ class ExampleViewController: UIViewController {
            ExampleCollectionViewModel(name: "세그먼트 컨트롤",
                                       backgroundImage: "", handler: { [weak self] in
                                         self?.didTabSegmentedButton()
+                                      }),
+           ExampleCollectionViewModel(name: "커스텀 액션시트",
+                                      backgroundImage: "", handler: { [weak self] in
+                                        self?.didTapBottomCard()
                                       })
           ])])
         
@@ -449,6 +453,10 @@ class ExampleViewController: UIViewController {
    }
     @objc func didTapDatePickerButton() {
         let vc = DatePickerViewController()
+        present(vc, animated: true)
+   }
+    @objc func didTapBottomCard() {
+        let vc = BottomCardViewController()
         present(vc, animated: true)
    }
 }

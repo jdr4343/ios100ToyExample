@@ -1,9 +1,10 @@
 //
-//  CheckViewController.swift
+//  CheakViewController.swift
 //  ios100ToyExample
 //
-//  Created by 신지훈 on 2021/09/17.
+//  Created by 신지훈 on 2021/08/17.
 //
+
 import UIKit
 
 class CheckViewController: UIViewController {

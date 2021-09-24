@@ -26,9 +26,8 @@ class DatePickerViewController: UIViewController {
         
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        let filedButton = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: nil, action: nil)
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(didTapDone))
-        toolbar.setItems([doneButton, filedButton], animated: true)
+        toolbar.setItems([doneButton], animated: true)
         textField.inputAccessoryView = toolbar
         
         let datePicker = UIDatePicker()

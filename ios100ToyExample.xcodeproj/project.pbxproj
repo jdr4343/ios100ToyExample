@@ -135,6 +135,7 @@
 		408AFA8C26EBF02600DF7B0B /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408AFA8B26EBF02600DF7B0B /* Events.swift */; };
 		408D96F726E840C700C87FF9 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408D96F626E840C700C87FF9 /* LocationPickerViewController.swift */; };
 		408E14B526ED2C6700AF1A08 /* HomeHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E14B426ED2C6700AF1A08 /* HomeHeaderViewController.swift */; };
+		409AEEF126FD5B8E0082ECE8 /* BottomCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AEEF026FD5B8E0082ECE8 /* BottomCardViewController.swift */; };
 		40C241E126F3B12700E8491C /* CheckBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241DE26F3B12700E8491C /* CheckBoxViewController.swift */; };
 		40C241E226F3B12700E8491C /* CircleCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241DF26F3B12700E8491C /* CircleCheckBox.swift */; };
 		40C241E326F3B12700E8491C /* SquareCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241E026F3B12700E8491C /* SquareCheckBox.swift */; };
@@ -296,6 +297,7 @@
 		408AFA8B26EBF02600DF7B0B /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		408D96F626E840C700C87FF9 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		408E14B426ED2C6700AF1A08 /* HomeHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewController.swift; sourceTree = "<group>"; };
+		409AEEF026FD5B8E0082ECE8 /* BottomCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCardViewController.swift; sourceTree = "<group>"; };
 		40C241DE26F3B12700E8491C /* CheckBoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxViewController.swift; sourceTree = "<group>"; };
 		40C241DF26F3B12700E8491C /* CircleCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleCheckBox.swift; sourceTree = "<group>"; };
 		40C241E026F3B12700E8491C /* SquareCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareCheckBox.swift; sourceTree = "<group>"; };
@@ -842,6 +844,7 @@
 		407A1FF426D669180058F84D /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				409AEEEF26FD5B760082ECE8 /* BottomCard */,
 				405EE23D26FCB58E00CB9AA1 /* DataPicker */,
 				405EE23A26FC5F3300CB9AA1 /* SegmentedControl */,
 				405EE21326FA98D400CB9AA1 /* ProgressBar */,
@@ -980,6 +983,14 @@
 				408AFA8B26EBF02600DF7B0B /* Events.swift */,
 			);
 			path = "MVVM Event Bus Pattern";
+			sourceTree = "<group>";
+		};
+		409AEEEF26FD5B760082ECE8 /* BottomCard */ = {
+			isa = PBXGroup;
+			children = (
+				409AEEF026FD5B8E0082ECE8 /* BottomCardViewController.swift */,
+			);
+			path = BottomCard;
 			sourceTree = "<group>";
 		};
 		40C241F126F4055D00E8491C /* ToDoList */ = {
@@ -1309,6 +1320,7 @@
 				405AD93B26DE542A0079734A /* ConversationsViewController.swift in Sources */,
 				40180B3726EA81EF00E64A9C /* ExampleViewModel.swift in Sources */,
 				40180B3526EA7B4600E64A9C /* ExampleCollectionViewCell.swift in Sources */,
+				409AEEF126FD5B8E0082ECE8 /* BottomCardViewController.swift in Sources */,
 				403502D926CBF490004BD348 /* CustomTabBarController.swift in Sources */,
 				405AD93E26DE68C80079734A /* HomeViewController.swift in Sources */,
 				407A1F7D26D24F520058F84D /* SnapkitViewController.swift in Sources */,

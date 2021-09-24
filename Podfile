@@ -18,7 +18,7 @@ pod 'SkyFloatingLabelTextField'
 pod 'Alamofire'
 pod 'SwiftyJSON'
 pod "UPCarouselFlowLayout"
-
+pod 'BulletinBoard'
 
 pod 'MessageKit'
 pod 'JGProgressHUD'
