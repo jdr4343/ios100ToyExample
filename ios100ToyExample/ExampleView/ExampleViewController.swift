@@ -13,6 +13,7 @@ class ExampleViewController: UIViewController {
     
     private var viewModels = [[ExampleTableViewCellModel]]()
     
+    var models = [TodoListItem]()
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -43,6 +44,7 @@ class ExampleViewController: UIViewController {
         view.addSubview(floating)
         setFloatingButton()
         navigationController?.navigationBar.tintColor = .label
+        TodoDatabase.shared.createItem(name: "되냐?")
     }
     
     override func viewDidLayoutSubviews() {
