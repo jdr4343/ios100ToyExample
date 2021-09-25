@@ -18,14 +18,19 @@ class TodoListViewController: UIViewController {
     }()
     
     
-//    var token: NSObjectProtocol?
-//
-//    deinit {
-//        if let token = token {
-//            NotificationCenter.default.removeObserver(token)
-//        }
-//        //이제 저장 기능이 완성 되었습니다.
-//    }
+    static let newTodoDidInsert = Notification.Name(rawValue: "newTodoDidInsert")
+    //라디오 방송국의 주파수 라고 생각하면 됨 라디오는 주파수로 구분하지만 노티는 이름으로 구분함
+    static let todoDidChange = Notification.Name("todoDidChange")
+    
+    var token: NSObjectProtocol?
+
+    deinit {
+        if let token = token {
+            NotificationCenter.default.removeObserver(token)
+            tableView.reloadData()
+        }
+        //이제 저장 기능이 완성 되었습니다.
+    }
     
     
    // var models = [TodoListItem]()
@@ -41,9 +46,9 @@ class TodoListViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
         
-//        token = NotificationCenter.default.addObserver(forName: ComposeViewController.newMemoDidInsert, object: nil, queue: OperationQueue.main) { [weak self] (noti) in
-//            self?.tableView.reloadData()
-//        }
+        token = NotificationCenter.default.addObserver(forName: ComposeViewController.newMemoDidInsert, object: nil, queue: OperationQueue.main) { [weak self] (noti) in
+            self?.tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,7 +66,7 @@ class TodoListViewController: UIViewController {
                 return
             }
             TodoDatabase.shared.createItem(name: text)
-            // self?.createItem(name: text)
+            
             
         }))
         present(alert, animated: true)
@@ -99,17 +104,17 @@ extension TodoListViewController: UITableViewDataSource, UITableViewDelegate {
                     return
                 }
                 TodoDatabase.shared.updateItem(item: item, newName: newName)
-                //self?.updateItem(item: item, newName: newName)
+                
 
             }))
             self.present(alert, animated: true)
 
         }))
         sheet.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: {  _ in
-           // self?.deleteItem(item: item)
+           
             TodoDatabase.shared.deleteItem(item: item)
-            TodoDatabase.shared.models.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+           
         }))
         
         present(sheet, animated: true)

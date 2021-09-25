@@ -164,6 +164,12 @@ class ExampleViewController: UIViewController {
                                         self?.didTabCheckBoxButton()
                                       })
           ])])
+        viewModels.append([ExampleTableViewCellModel(title: "머리가 지끈 지끈", viewModels: [ExampleCollectionViewModel(name: "코어데이타 튜토리얼",
+                                        backgroundImage: "", handler: { [weak self] in
+                                            self?.didTapCoreDataButton()
+                                            
+                                        })
+        ])])
         
         viewModels.append([ExampleTableViewCellModel(title: "기본 뷰 다루기", viewModels:
           [ExampleCollectionViewModel(name: "테이블뷰",
@@ -414,6 +420,10 @@ class ExampleViewController: UIViewController {
     }
     @objc func didTapDataSourceButton() {
         let vc = DataSourceViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func didTapCoreDataButton() {
+        let vc = CoreDataViewController()
             self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func didTabAutoButton() {
