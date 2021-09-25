@@ -44,7 +44,7 @@ class ExampleViewController: UIViewController {
         view.addSubview(floating)
         setFloatingButton()
         navigationController?.navigationBar.tintColor = .label
-        TodoDatabase.shared.createItem(name: "되냐?")
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -166,7 +166,7 @@ class ExampleViewController: UIViewController {
           ])])
         viewModels.append([ExampleTableViewCellModel(title: "머리가 지끈 지끈", viewModels: [ExampleCollectionViewModel(name: "코어데이타 튜토리얼",
                                         backgroundImage: "", handler: { [weak self] in
-                                            self?.didTapCoreDataButton()
+                                          //  self?.didTapCoreDataButton()
                                             
                                         })
         ])])
@@ -422,10 +422,7 @@ class ExampleViewController: UIViewController {
         let vc = DataSourceViewController()
             self.navigationController?.pushViewController(vc, animated: true)
     }
-    @objc func didTapCoreDataButton() {
-        let vc = CoreDataViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
-    }
+    
     @objc func didTabAutoButton() {
         let AutoVC = AutoLayoutViewController()
         self.navigationController?.pushViewController(AutoVC, animated: true)
