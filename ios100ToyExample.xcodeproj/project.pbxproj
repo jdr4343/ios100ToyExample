@@ -410,6 +410,7 @@
 			children = (
 				40180B2F26EA721D00E64A9C /* ExampleView */,
 				407A1F7B26D244DA0058F84D /* MemoWithPhoto */,
+				40C241F426F4D3C000E8491C /* pattern */,
 				407A1FF426D669180058F84D /* Example */,
 				407A1FE426D4C80D0058F84D /* Login&registe&database */,
 				403502AD26CB4B4D004BD348 /* Info.plist */,
@@ -849,7 +850,6 @@
 				405EE23A26FC5F3300CB9AA1 /* SegmentedControl */,
 				405EE21326FA98D400CB9AA1 /* ProgressBar */,
 				40C2421126F5292D00E8491C /* ImageCasing */,
-				40C241F426F4D3C000E8491C /* pattern */,
 				407DA9C326F3AFB20027B742 /* cheackBox */,
 				407DA9BC26F3AF4D0027B742 /* ToDoListCoreData */,
 				403A119126EFBBEF0052D20E /* weatherApp */,

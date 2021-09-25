@@ -34,7 +34,7 @@ class CarouselViewController: UIViewController,UITableViewDataSource,UITableView
                                           backgroundColor: .systemIndigo)])
     ]
     
-    //저는 여기에서 데이타 소스를 두번넣어서 2시간 동안 삽질 했습니다.. 그리고 Xcode를 너무 믿지 마십시오.. ㅜㅜ 콘솔로그는 날 배신 했습니다. 휴먼에러는 너무 무서운것..에러의 머부분은 대소문자 입니다.저 같은 초보자들은 자주자주 시뮬레이터를 돌려주세요.. 저처럼 다 짠 다음 돌리다가는 찾기 너무 힘듭니다. 화이팅!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)

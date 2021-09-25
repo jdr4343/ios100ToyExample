@@ -52,3 +52,4 @@ class ExampleCollectionViewCell: UICollectionViewCell {
         imageView.image = UIImage(named: viewModel.backgroundImage)
     }
 }
+//이게 홈 테이블뷰 셀의 역활
