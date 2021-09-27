@@ -9,7 +9,7 @@ import UIKit
 
 class TodoListViewController: UIViewController {
 
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+   
     
     let tableView: UITableView = {
         let tableView = UITableView()

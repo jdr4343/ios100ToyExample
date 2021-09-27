@@ -21,8 +21,12 @@ final class TodoDatabase {
     
     ///모든 항목 데이터를 가져옵니다.
     func getAllData() {
+        let request: NSFetchRequest<TodoListItem> = TodoListItem.fetchRequest()
+        let sortByDate = NSSortDescriptor(key: "createAt", ascending: false)
+        request.sortDescriptors = [sortByDate]
+        
         do {
-            models = try context.fetch(TodoListItem.fetchRequest())
+            models = try context.fetch(request)
         } catch {
             //error
         }
