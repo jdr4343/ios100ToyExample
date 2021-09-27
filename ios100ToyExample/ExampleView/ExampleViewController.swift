@@ -114,7 +114,7 @@ class ExampleViewController: UIViewController {
                                       backgroundImage: "타이머", handler: { [weak self] in
                                         self?.didTabTimerButton()
                                       }),
-           ExampleCollectionViewModel(name: "슬라이더",
+           ExampleCollectionViewModel(name: "프로그래스 바",
                                       backgroundImage: "", handler: { [weak self] in
                                         self?.didTabProgressBarButton()
                                       }),
@@ -164,12 +164,8 @@ class ExampleViewController: UIViewController {
                                         self?.didTabCheckBoxButton()
                                       })
           ])])
-        viewModels.append([ExampleTableViewCellModel(title: "머리가 지끈 지끈", viewModels: [ExampleCollectionViewModel(name: "코어데이타 튜토리얼",
-                                        backgroundImage: "", handler: { [weak self] in
-                                          //  self?.didTapCoreDataButton()
-                                            
-                                        })
-        ])])
+        
+        
         
         viewModels.append([ExampleTableViewCellModel(title: "기본 뷰 다루기", viewModels:
           [ExampleCollectionViewModel(name: "테이블뷰",
@@ -188,21 +184,9 @@ class ExampleViewController: UIViewController {
                                       backgroundImage: "스택뷰", handler: { [weak self] in
                                         self?.didTabStackButton()
                                       }),
-           ExampleCollectionViewModel(name: "커스텀셀",
-                                      backgroundImage: "커스텀셀", handler: { [weak self] in
-                                        self?.didTabCustomcellsButton()
-                                      }),
            ExampleCollectionViewModel(name: "페이징컨트롤",
                                       backgroundImage: "페이징컨트롤", handler: { [weak self] in
                                         self?.didTabPageControlButton()
-                                      }),
-           ExampleCollectionViewModel(name: "커스텀탭바",
-                                      backgroundImage: "커스텀탭바", handler: { [weak self] in
-                                        self?.didTabCustomTabBarButton()
-                                      }),
-           ExampleCollectionViewModel(name: "멀티플 커스텀 셀",
-                                      backgroundImage: "커스텀탭바", handler: { [weak self] in
-                                        self?.didTaMultipleButton()
                                       }),
            ExampleCollectionViewModel(name: "체크리스트",
                                       backgroundImage: "", handler: { [weak self] in
@@ -210,6 +194,36 @@ class ExampleViewController: UIViewController {
                                       }),
            
            
+          
+          ])])
+        
+        viewModels.append([ExampleTableViewCellModel(title: "뷰 다루기 심화", viewModels:
+         [ExampleCollectionViewModel(name: "노티피케이션 센터",
+                                     backgroundImage: "", handler: { [weak self] in
+                                            self?.didTapNotificationButton()
+                                        }),
+          
+          
+        ])])
+        
+        viewModels.append([ExampleTableViewCellModel(title: "커스텀", viewModels:
+          [ExampleCollectionViewModel(name: "커스텀 프로그래스 바",
+                                      backgroundImage: "", handler: { [weak self] in
+                                        self?.didTapCustomProgressBar()
+                                    }),
+           ExampleCollectionViewModel(name: "커스텀탭바",
+                                      backgroundImage: "커스텀탭바", handler: { [weak self] in
+                                        self?.didTabCustomTabBarButton()
+                                      }),
+           ExampleCollectionViewModel(name: "커스텀셀",
+                                      backgroundImage: "커스텀셀", handler: { [weak self] in
+                                        self?.didTabCustomcellsButton()
+                                      }),
+           ExampleCollectionViewModel(name: "멀티플 커스텀 셀",
+                                      backgroundImage: "커스텀탭바", handler: { [weak self] in
+                                        self?.didTaMultipleButton()
+                                      }),
+          
           
           ])])
         
@@ -422,6 +436,10 @@ class ExampleViewController: UIViewController {
         let vc = DataSourceViewController()
             self.navigationController?.pushViewController(vc, animated: true)
     }
+    @objc func didTapNotificationButton() {
+        let vc = NotificationViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     @objc func didTabAutoButton() {
         let AutoVC = AutoLayoutViewController()
@@ -466,6 +484,10 @@ class ExampleViewController: UIViewController {
    }
     @objc func didTapBottomCard() {
         let vc = BottomCardViewController()
+        present(vc, animated: true)
+   }
+    @objc func didTapCustomProgressBar() {
+        let vc = CustomProgressBarViewController()
         present(vc, animated: true)
    }
 }

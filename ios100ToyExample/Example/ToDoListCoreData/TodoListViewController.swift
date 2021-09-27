@@ -65,8 +65,10 @@ class TodoListViewController: UIViewController {
             guard let field = alert.textFields?.first,let text = field.text, !text.isEmpty else {
                 return
             }
-            TodoDatabase.shared.createItem(name: text)
             
+            TodoDatabase.shared.createItem(name: text)
+
+            self.tableView.reloadData()
             
         }))
         present(alert, animated: true)
@@ -104,7 +106,7 @@ extension TodoListViewController: UITableViewDataSource, UITableViewDelegate {
                     return
                 }
                 TodoDatabase.shared.updateItem(item: item, newName: newName)
-                
+                self.tableView.reloadData()
 
             }))
             self.present(alert, animated: true)
@@ -113,7 +115,7 @@ extension TodoListViewController: UITableViewDataSource, UITableViewDelegate {
         sheet.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: {  _ in
            
             TodoDatabase.shared.deleteItem(item: item)
-            
+            self.tableView.reloadData()
            
         }))
         

@@ -137,6 +137,9 @@
 		408E14B526ED2C6700AF1A08 /* HomeHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E14B426ED2C6700AF1A08 /* HomeHeaderViewController.swift */; };
 		409AEEF126FD5B8E0082ECE8 /* BottomCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AEEF026FD5B8E0082ECE8 /* BottomCardViewController.swift */; };
 		409AEEF726FEF5BF0082ECE8 /* TodoDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AEEF626FEF5BF0082ECE8 /* TodoDatabase.swift */; };
+		409AEF36270195B40082ECE8 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AEF35270195B40082ECE8 /* NotificationViewController.swift */; };
+		409AEF3827019DCC0082ECE8 /* ChangeBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AEF3727019DCC0082ECE8 /* ChangeBackViewController.swift */; };
+		409AEF3B2701A4920082ECE8 /* CustomProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AEF3A2701A4920082ECE8 /* CustomProgressBarViewController.swift */; };
 		40C241E126F3B12700E8491C /* CheckBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241DE26F3B12700E8491C /* CheckBoxViewController.swift */; };
 		40C241E226F3B12700E8491C /* CircleCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241DF26F3B12700E8491C /* CircleCheckBox.swift */; };
 		40C241E326F3B12700E8491C /* SquareCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241E026F3B12700E8491C /* SquareCheckBox.swift */; };
@@ -300,6 +303,9 @@
 		408E14B426ED2C6700AF1A08 /* HomeHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewController.swift; sourceTree = "<group>"; };
 		409AEEF026FD5B8E0082ECE8 /* BottomCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCardViewController.swift; sourceTree = "<group>"; };
 		409AEEF626FEF5BF0082ECE8 /* TodoDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDatabase.swift; sourceTree = "<group>"; };
+		409AEF35270195B40082ECE8 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		409AEF3727019DCC0082ECE8 /* ChangeBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBackViewController.swift; sourceTree = "<group>"; };
+		409AEF3A2701A4920082ECE8 /* CustomProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBarViewController.swift; sourceTree = "<group>"; };
 		40C241DE26F3B12700E8491C /* CheckBoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxViewController.swift; sourceTree = "<group>"; };
 		40C241DF26F3B12700E8491C /* CircleCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleCheckBox.swift; sourceTree = "<group>"; };
 		40C241E026F3B12700E8491C /* SquareCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareCheckBox.swift; sourceTree = "<group>"; };
@@ -847,6 +853,8 @@
 		407A1FF426D669180058F84D /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				409AEF392701A4780082ECE8 /* CustomProgressBar */,
+				409AEF342701958D0082ECE8 /* NotificationCenter */,
 				409AEEEF26FD5B760082ECE8 /* BottomCard */,
 				405EE23D26FCB58E00CB9AA1 /* DataPicker */,
 				405EE23A26FC5F3300CB9AA1 /* SegmentedControl */,
@@ -994,6 +1002,23 @@
 				409AEEF026FD5B8E0082ECE8 /* BottomCardViewController.swift */,
 			);
 			path = BottomCard;
+			sourceTree = "<group>";
+		};
+		409AEF342701958D0082ECE8 /* NotificationCenter */ = {
+			isa = PBXGroup;
+			children = (
+				409AEF35270195B40082ECE8 /* NotificationViewController.swift */,
+				409AEF3727019DCC0082ECE8 /* ChangeBackViewController.swift */,
+			);
+			path = NotificationCenter;
+			sourceTree = "<group>";
+		};
+		409AEF392701A4780082ECE8 /* CustomProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				409AEF3A2701A4920082ECE8 /* CustomProgressBarViewController.swift */,
+			);
+			path = CustomProgressBar;
 			sourceTree = "<group>";
 		};
 		40C241F126F4055D00E8491C /* ToDoList */ = {
@@ -1240,6 +1265,7 @@
 				40C241F726F4D53300E8491C /* UserViewController.swift in Sources */,
 				4060D61826F1113800333AF1 /* WeatherExtra.swift in Sources */,
 				407A1FEF26D55A600058F84D /* RegistrationViewController.swift in Sources */,
+				409AEF3B2701A4920082ECE8 /* CustomProgressBarViewController.swift in Sources */,
 				407A1FF326D568220058F84D /* DatabaseManager.swift in Sources */,
 				407A1F9226D3BC860058F84D /* PageControlViewController.swift in Sources */,
 				408AFA8826EBED6800DF7B0B /* MVVMEventViewController.swift in Sources */,
@@ -1346,6 +1372,8 @@
 				407A1F5C26CF9D6C0058F84D /* LineViewController.swift in Sources */,
 				4078640E26CE127D00C864FD /* UIViewController+Alert.swift in Sources */,
 				408AFA8A26EBEFCF00DF7B0B /* Bus.swift in Sources */,
+				409AEF3827019DCC0082ECE8 /* ChangeBackViewController.swift in Sources */,
+				409AEF36270195B40082ECE8 /* NotificationViewController.swift in Sources */,
 				407A1F8D26D3AB5F0058F84D /* CustomTableViewCell.swift in Sources */,
 				40DF551E26CD2FB400FD9FB8 /* BarButtonItemViewController.swift in Sources */,
 				403502D026CBBD9D004BD348 /* CheckModel.swift in Sources */,
