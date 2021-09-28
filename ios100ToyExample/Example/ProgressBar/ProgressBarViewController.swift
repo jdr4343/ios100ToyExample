@@ -52,9 +52,10 @@ class ProgressBarViewController: UIViewController {
     }
     
     @objc private func didTapstartButton() {
-        for x in 0..<100 {
+        for x in 0..<101 {
             DispatchQueue.main.asyncAfter(deadline: .now()+(Double(x)*0.25),execute: {
                 self.progressView.setProgress(Float(x)/100, animated: true)
+                self.button.setTitle("\(x)%", for: .normal)
             })
         }
     }

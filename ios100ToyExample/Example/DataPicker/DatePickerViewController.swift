@@ -27,6 +27,7 @@ class DatePickerViewController: UIViewController {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(didTapDone))
+        toolbar.textInputContextIdentifier
         toolbar.setItems([doneButton], animated: true)
         textField.inputAccessoryView = toolbar
         
@@ -35,6 +36,7 @@ class DatePickerViewController: UIViewController {
         datePicker.addTarget(self, action: #selector(dateChange(datepicker: )), for: .valueChanged)
         datePicker.frame.size = CGSize(width: 0, height: 300)
         datePicker.preferredDatePickerStyle = .wheels
+        datePicker.backgroundColor = .white
         textField.textAlignment = .center
         textField.inputView = datePicker
         textField.text = formatDate(date: Date())
