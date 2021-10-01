@@ -207,9 +207,9 @@ class ExampleViewController: UIViewController {
         ])])
         
         viewModels.append([ExampleTableViewCellModel(title: "커스텀", viewModels:
-          [ExampleCollectionViewModel(name: "커스텀 프로그래스 바",
+          [ExampleCollectionViewModel(name: "커스텀 프로그래스 써클",
                                       backgroundImage: "", handler: { [weak self] in
-                                        self?.didTapCustomProgressBar()
+                                        self?.didTapCustomProgressCircle()
                                     }),
            ExampleCollectionViewModel(name: "커스텀탭바",
                                       backgroundImage: "커스텀탭바", handler: { [weak self] in
@@ -222,6 +222,10 @@ class ExampleViewController: UIViewController {
            ExampleCollectionViewModel(name: "멀티플 커스텀 셀",
                                       backgroundImage: "커스텀탭바", handler: { [weak self] in
                                         self?.didTaMultipleButton()
+                                      }),
+           ExampleCollectionViewModel(name: "커스텀 프로그래스 바",
+                                      backgroundImage: "커스텀탭바", handler: { [weak self] in
+                                        self?.didTapCustomProgressBar()
                                       }),
           
           
@@ -486,8 +490,12 @@ class ExampleViewController: UIViewController {
         let vc = BottomCardViewController()
         present(vc, animated: true)
    }
-    @objc func didTapCustomProgressBar() {
+    @objc func didTapCustomProgressCircle() {
         let vc = CustomProgressBarViewController()
+        present(vc, animated: true)
+   }
+    @objc func didTapCustomProgressBar() {
+        let vc = asdfViewController()
         present(vc, animated: true)
    }
 }

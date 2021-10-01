@@ -45,7 +45,7 @@ class ProgressBarViewController: UIViewController {
         super.viewDidLayoutSubviews()
         button.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
         button.center = view.center
-        progressView.frame = CGRect(x: 10, y: 100, width: view.width-20, height: 40)
+        progressView.frame = CGRect(x: 10, y: 100, width: view.width-20, height: 200)
         //크기 조절
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 2)
 
