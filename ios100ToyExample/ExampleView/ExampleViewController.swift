@@ -223,10 +223,7 @@ class ExampleViewController: UIViewController {
                                       backgroundImage: "커스텀탭바", handler: { [weak self] in
                                         self?.didTaMultipleButton()
                                       }),
-           ExampleCollectionViewModel(name: "커스텀 프로그래스 바",
-                                      backgroundImage: "커스텀탭바", handler: { [weak self] in
-                                        self?.didTapCustomProgressBar()
-                                      }),
+          
           
           
           ])])
@@ -494,10 +491,7 @@ class ExampleViewController: UIViewController {
         let vc = CustomProgressBarViewController()
         present(vc, animated: true)
    }
-    @objc func didTapCustomProgressBar() {
-        let vc = asdfViewController()
-        present(vc, animated: true)
-   }
+ 
 }
 
 

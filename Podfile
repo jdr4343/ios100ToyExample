@@ -19,6 +19,7 @@ pod 'Alamofire'
 pod 'SwiftyJSON'
 pod "UPCarouselFlowLayout"
 pod 'BulletinBoard'
+pod 'Loadable'
 
 pod 'MessageKit'
 pod 'JGProgressHUD'

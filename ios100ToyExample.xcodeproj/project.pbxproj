@@ -140,7 +140,6 @@
 		409AEF36270195B40082ECE8 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AEF35270195B40082ECE8 /* NotificationViewController.swift */; };
 		409AEF3827019DCC0082ECE8 /* ChangeBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AEF3727019DCC0082ECE8 /* ChangeBackViewController.swift */; };
 		409AEF3B2701A4920082ECE8 /* CustomProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AEF3A2701A4920082ECE8 /* CustomProgressBarViewController.swift */; };
-		40AFC2C62706B7B100B5C9C8 /* asdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AFC2C52706B7B100B5C9C8 /* asdfViewController.swift */; };
 		40C241E126F3B12700E8491C /* CheckBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241DE26F3B12700E8491C /* CheckBoxViewController.swift */; };
 		40C241E226F3B12700E8491C /* CircleCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241DF26F3B12700E8491C /* CircleCheckBox.swift */; };
 		40C241E326F3B12700E8491C /* SquareCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C241E026F3B12700E8491C /* SquareCheckBox.swift */; };
@@ -307,7 +306,6 @@
 		409AEF35270195B40082ECE8 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		409AEF3727019DCC0082ECE8 /* ChangeBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBackViewController.swift; sourceTree = "<group>"; };
 		409AEF3A2701A4920082ECE8 /* CustomProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBarViewController.swift; sourceTree = "<group>"; };
-		40AFC2C52706B7B100B5C9C8 /* asdfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asdfViewController.swift; sourceTree = "<group>"; };
 		40C241DE26F3B12700E8491C /* CheckBoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxViewController.swift; sourceTree = "<group>"; };
 		40C241DF26F3B12700E8491C /* CircleCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleCheckBox.swift; sourceTree = "<group>"; };
 		40C241E026F3B12700E8491C /* SquareCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareCheckBox.swift; sourceTree = "<group>"; };
@@ -422,7 +420,6 @@
 				407A1F7B26D244DA0058F84D /* MemoWithPhoto */,
 				40C241F426F4D3C000E8491C /* pattern */,
 				407A1FF426D669180058F84D /* Example */,
-				407A1FE426D4C80D0058F84D /* Login&registe&database */,
 				403502AD26CB4B4D004BD348 /* Info.plist */,
 				407A1F3826CE195A0058F84D /* ios100ToyExample.xcdatamodeld */,
 				403502A826CB4B4D004BD348 /* Assets.xcassets */,
@@ -790,6 +787,7 @@
 		407A1F7826D0DE090058F84D /* StackView */ = {
 			isa = PBXGroup;
 			children = (
+				407A1FE426D4C80D0058F84D /* Login&registe&database */,
 				407A1F7926D0DE220058F84D /* StackViewController.swift */,
 			);
 			path = StackView;
@@ -900,7 +898,6 @@
 				407A1F8626D3A7C90058F84D /* CustomCells Programmatically */,
 				407A1F8E26D3BB740058F84D /* PageControl */,
 				407A1F7826D0DE090058F84D /* StackView */,
-				40AFC2C52706B7B100B5C9C8 /* asdfViewController.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -1361,7 +1358,6 @@
 				407A1F6E26CFD7CC0058F84D /* TimerViewController.swift in Sources */,
 				40C2421326F52B6000E8491C /* CashingImageViewController.swift in Sources */,
 				407A1FE626D4C82B0058F84D /* LoginViewController.swift in Sources */,
-				40AFC2C62706B7B100B5C9C8 /* asdfViewController.swift in Sources */,
 				407A1F8326D375B40058F84D /* StretchyViewController.swift in Sources */,
 				407A200326D67E460058F84D /* IOSTabBarController.swift in Sources */,
 				405EE23F26FCB5B300CB9AA1 /* DatePickerViewController.swift in Sources */,
