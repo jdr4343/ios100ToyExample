@@ -202,6 +202,10 @@ class ExampleViewController: UIViewController {
                                      backgroundImage: "", handler: { [weak self] in
                                             self?.didTapNotificationButton()
                                         }),
+          ExampleCollectionViewModel(name: "이벤트 킷",
+                                      backgroundImage: "", handler: { [weak self] in
+                                             self?.didTapEventKitButton()
+                                         }),
           
           
         ])])
@@ -441,6 +445,10 @@ class ExampleViewController: UIViewController {
         let vc = NotificationViewController()
             self.navigationController?.pushViewController(vc, animated: true)
     }
+    @objc func didTapEventKitButton() {
+        let vc = EventKitViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     @objc func didTabAutoButton() {
         let AutoVC = AutoLayoutViewController()
@@ -451,6 +459,7 @@ class ExampleViewController: UIViewController {
             self.navigationController?.pushViewController(MemoVC, animated: true)
         }
     }
+   
     @objc func didTabStackButton() {
         let stackVC = StackViewController()
         present(stackVC, animated: true)

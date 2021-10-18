@@ -11,13 +11,13 @@ class UsingTimerViewController: UIViewController {
     
     //컬러 배열 생성
     let colors: [UIColor] = [
-        .black,
-        .orange,
-        .brown,
-        .yellow,
-        .systemRed,
-        .systemTeal,
-        .systemYellow
+//        .black,
+//        .orange,
+//        .brown,
+//        .yellow,
+//        .systemRed,
+//        .systemTeal,
+//        .systemYellow
     ]
 
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ class UsingTimerViewController: UIViewController {
         timer.tolerance = 200
     }
     
-    
+ 
     @objc private func fireTimer() {
         view.backgroundColor = colors.randomElement()
     }
@@ -55,6 +55,7 @@ class UsingTimerViewController: UIViewController {
     
     //위의 동일한 코드를 한 함수에서 만들수도 있습니다. 아마 이러한 형식의 코드는 더욱더 자주 보게 될 것입니다. 핸들러를 이용하는 프레임워크도 매우 많거든요.그리고 처음에는 익숙지 않더라도 가드문 마냥 나중에는 더 편해집니다. 이 코드에서 타이머를 종료하는 시점을 정할수 있도록 ran 변수를 추가해주고 화면이 바뀔때마다 시간초를 추가해 지정 초가 되면 멈추도록 하겠습니다.
     private func createTimer2() {
+     
         var ran = 1
         _ = Timer.scheduledTimer(withTimeInterval: 2,
                                  repeats: true
@@ -72,11 +73,11 @@ class UsingTimerViewController: UIViewController {
     //타이머를 이용해서 간단한 애니메이션 효과를 줘 보겠습니다.
     private func createTimer3() {
         var isAnimated = true
-        let myView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        let myView = UIView(frame: CGRect(x: 0, y: 0, width: 400, height: 200))
         view.addSubview(myView)
         myView.center = view.center
         myView.backgroundColor = .link
-        
+        var x = 0
         let timer = Timer.scheduledTimer(withTimeInterval: 2,
                                  repeats: true
         ) { [weak self] timer in
@@ -84,20 +85,26 @@ class UsingTimerViewController: UIViewController {
             guard let strongSelf = self else {
                 return
             }
+           
+            ///300초 300 / 100 = 3 width 400 / 100 = 4
             DispatchQueue.main.async {
+               
                 if isAnimated {
-                    UIView.animate(withDuration: 1) {
-                        myView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
-                        myView.center = strongSelf.view.center
+                    UIView.animate(withDuration: 3) {
+                        x += 4
+                        myView.frame = CGRect(x: 0, y: 0, width: 400-x, height: 200)
+                        print(x)
+                      //  myView.center = strongSelf.view.center
                     }
-                    isAnimated = false
-                } else {
-                    UIView.animate(withDuration: 1) {
-                        myView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-                        myView.center = strongSelf.view.center
-                    }
-                    isAnimated = true
+//                    isAnimated = false
                 }
+//                else {
+//                    UIView.animate(withDuration: 3) {
+//                        myView.frame = CGRect(x: 0, y: 0, width: 400-x, height: 200)
+//                       // myView.center = strongSelf.view.center
+//                    }
+//                    isAnimated = true
+         //       }
             }
             
         }

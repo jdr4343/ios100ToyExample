@@ -130,6 +130,7 @@
 		407A1FFF26D66A9B0058F84D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A1FFE26D66A9B0058F84D /* ProfileViewController.swift */; };
 		407A200326D67E460058F84D /* IOSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A200226D67E460058F84D /* IOSTabBarController.swift */; };
 		407A200626D67FB50058F84D /* IOSTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A200526D67FB50058F84D /* IOSTabBar.swift */; };
+		408AF5EF271DA2EF00E5DC37 /* EventKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408AF5EE271DA2EF00E5DC37 /* EventKitViewController.swift */; };
 		408AFA8826EBED6800DF7B0B /* MVVMEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408AFA8726EBED6800DF7B0B /* MVVMEventViewController.swift */; };
 		408AFA8A26EBEFCF00DF7B0B /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408AFA8926EBEFCF00DF7B0B /* Bus.swift */; };
 		408AFA8C26EBF02600DF7B0B /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408AFA8B26EBF02600DF7B0B /* Events.swift */; };
@@ -296,6 +297,7 @@
 		407A1FFE26D66A9B0058F84D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		407A200226D67E460058F84D /* IOSTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSTabBarController.swift; sourceTree = "<group>"; };
 		407A200526D67FB50058F84D /* IOSTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSTabBar.swift; sourceTree = "<group>"; };
+		408AF5EE271DA2EF00E5DC37 /* EventKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitViewController.swift; sourceTree = "<group>"; };
 		408AFA8726EBED6800DF7B0B /* MVVMEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMEventViewController.swift; sourceTree = "<group>"; };
 		408AFA8926EBEFCF00DF7B0B /* Bus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
 		408AFA8B26EBF02600DF7B0B /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				40C241F426F4D3C000E8491C /* pattern */,
 				407A1FF426D669180058F84D /* Example */,
 				403502AD26CB4B4D004BD348 /* Info.plist */,
+				407A1FE426D4C80D0058F84D /* Login&registe&database */,
 				407A1F3826CE195A0058F84D /* ios100ToyExample.xcdatamodeld */,
 				403502A826CB4B4D004BD348 /* Assets.xcassets */,
 				403502A526CB4B4B004BD348 /* Main.storyboard */,
@@ -787,7 +790,6 @@
 		407A1F7826D0DE090058F84D /* StackView */ = {
 			isa = PBXGroup;
 			children = (
-				407A1FE426D4C80D0058F84D /* Login&registe&database */,
 				407A1F7926D0DE220058F84D /* StackViewController.swift */,
 			);
 			path = StackView;
@@ -853,6 +855,7 @@
 		407A1FF426D669180058F84D /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				408AF5ED271DA2CF00E5DC37 /* EventKit */,
 				409AEF392701A4780082ECE8 /* CustomProgressBar */,
 				409AEF342701958D0082ECE8 /* NotificationCenter */,
 				409AEEEF26FD5B760082ECE8 /* BottomCard */,
@@ -984,6 +987,14 @@
 				40C241E026F3B12700E8491C /* SquareCheckBox.swift */,
 			);
 			path = cheackBox;
+			sourceTree = "<group>";
+		};
+		408AF5ED271DA2CF00E5DC37 /* EventKit */ = {
+			isa = PBXGroup;
+			children = (
+				408AF5EE271DA2EF00E5DC37 /* EventKitViewController.swift */,
+			);
+			path = EventKit;
 			sourceTree = "<group>";
 		};
 		408AFA8626EBED2E00DF7B0B /* MVVM Event Bus Pattern */ = {
@@ -1290,6 +1301,7 @@
 				4014B97B26E779B400ADFEC8 /* PhotoViewerViewController.swift in Sources */,
 				403502EF26CCDDEC004BD348 /* TileCollectionViewCell.swift in Sources */,
 				402DF86326F0034B002AC18F /* Double+Conversion.swift in Sources */,
+				408AF5EF271DA2EF00E5DC37 /* EventKitViewController.swift in Sources */,
 				403A119F26EFD78C0052D20E /* weather.swift in Sources */,
 				40C7F60D26F707BA00CDD9EC /* BlogPost.swift in Sources */,
 				40C2421726F53A6200E8491C /* ImageTableViewCell.swift in Sources */,

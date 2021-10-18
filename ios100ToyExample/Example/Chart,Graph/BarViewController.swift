@@ -38,7 +38,7 @@ class BarViewController: UIViewController, ChartViewDelegate {
         }
         //위에서 만든 entries를 set에 저장하고 프레임워크에서 지원하는 템플릿 사용
         let set = BarChartDataSet(entries: entries)
-        set.colors = ChartColorTemplates.joyful()
+        set.colors = ChartColorTemplates.pastel()
         //set을 data로 저장 한후 값 전달
         let data = BarChartData(dataSet: set)
         barChart.data = data

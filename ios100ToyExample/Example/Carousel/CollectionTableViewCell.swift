@@ -84,7 +84,6 @@ extension CollectionTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     
     //컬렉션의 사이즈 조절
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("넌 되고 옌 왜 한돼")
         let width: CGFloat = contentView.frame.size.width/2.5
         return CGSize(width: width, height: width/1.1 )
     }
