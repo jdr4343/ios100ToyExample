@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<string>ko_KR</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -115,5 +115,9 @@
 	<string>사용자의 위치정보를 가져옵니다.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>GPS를 사용하고 있을때만 확인합니다. 앱이 열려있을때 앱이 켜져있지 않거나 사용자가 아직 앱을 열지 않은 경우에 GPS가 계속 배터리를 소모하지 않기를 원합니다.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>캘린더를 추가 하기 위해 캘린더에 접근을 허용해주세요!</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>알람을 추가 하기 위해서 알람에 접근을 허용해주세요!</string>
 </dict>
 </plist>
